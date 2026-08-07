@@ -1532,18 +1532,78 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Best Practices for Storing Tax Invoices & Financial Records (5-Year Rule)',
     slug: 'best-practices-storing-tax-invoices-5-year-rule',
     category: 'Privacy & Security',
-    readTime: '5 min read',
+    readTime: '8 min read',
     date: 'August 2026',
     summary: 'Tax authority requirements for preserving client invoices, receipts, and audit trails. How local browser backup files ensure lifelong access.',
     content: {
-      intro: 'Tax authorities (IRS, HMRC, ATO) mandate that businesses retain all sales invoices and financial records for a minimum of 5 to 7 years.',
+      intro: 'Tax authorities worldwide (IRS in the US, HMRC in the UK, tax offices in the EU) mandate that self-employed freelancers, contractors, and business owners retain all sales invoices and financial records for a minimum of 3 to 10 years. Failing to present historical tax invoices during a tax audit can result in disallowed deductions, severe interest penalties, or tax reassessments. In this guide, we outline statutory storage rules, digital archiving best practices, and local browser backup procedures.',
       sections: [
         {
-          heading: 'Local JSON & PDF Backup Auditing',
-          body: 'Exporting your local IndexedDB database as a JSON file ensures you maintain permanent offline records regardless of software vendor status.',
+          heading: '1. Global Tax Authority Record Retention Requirements (IRS, HMRC, EU)',
+          body: 'Statutory record-retention laws vary by jurisdiction, but all tax authorities enforce strict minimum preservation periods.',
+          bullets: [
+            'United States (IRS): Minimum 3 years from tax filing date (extended to 6 years if >25% gross income is omitted; 7 years for bad debt deduction claims)',
+            'United Kingdom (HMRC): Mandatory 6 years from the end of the last company financial year for self-employed business records',
+            'Germany (GoBD / AO § 147): Mandatory 10-year retention rule for all issued sales invoices and accounting vouchers',
+            'France (Code Général des Impôts): Mandatory 10-year retention rule for accounting records and invoices',
+          ],
+          proTip: 'When operating internationally, always adhere to the longest applicable retention period (10 years) to guarantee global tax compliance.',
+        },
+        {
+          heading: '2. The High Vulnerability of Cloud SaaS Accounting Archives',
+          body: 'Relying exclusively on subscription-based accounting platforms to store your historical tax records creates significant financial and legal risks.',
+          bullets: [
+            'Paywall Barriers: If you cancel your monthly SaaS subscription, your past tax invoices are locked behind paywalls',
+            'Subscription Hikes: SaaS vendors frequently raise pricing by 15%–20%, forcing you to pay ongoing fees just to preserve access to old tax years',
+            'Remote Server Outages & Breaches: Cloud platform shutdowns or database leaks compromise your historical tax records',
+          ],
+        },
+        {
+          heading: '3. The 3-2-1 Backup Strategy for Financial Tax Records',
+          body: 'Protect your financial records against hardware failure, accidental deletion, or ransomware using the industry-standard 3-2-1 backup framework.',
+          bullets: [
+            '3 Total Copies: Maintain 3 separate copies of all issued sales invoices and expense receipts',
+            '2 Different Storage Media: Store records on 2 distinct media types (e.g., local SSD drive and an encrypted external hard drive)',
+            '1 Offsite Encrypted Copy: Store 1 encrypted copy offsite (e.g., secure encrypted cloud drive or secondary remote drive)',
+          ],
+        },
+        {
+          heading: '4. Exporting Portable JSON Databases from Browser Sandbox Storage',
+          body: 'Client-side invoice generators like freeinvoice.live store your client list and invoice history in your local browser IndexedDB database sandbox.',
+          bullets: [
+            'Single-Click JSON Backup: Export your entire invoice history and client profiles as a lightweight JSON file anytime',
+            'Lifelong File Control: Retain permanent offline data ownership on your personal hardware with zero recurring fees',
+            'Instant Browser Restoration: Load your JSON file into any browser engine to inspect past tax invoices in seconds',
+          ],
+          proTip: 'Download a fresh JSON database export on the last business day of every month as part of your standard accounting routine.',
+        },
+        {
+          heading: '5. PDF/A Vector Archival Format & Long-Term Legibility',
+          body: 'Tax audits require that archived invoices remain fully legible, unalterable, and searchable across multi-year periods.',
+          bullets: [
+            'Crisp Vector PDFs: Render invoices in vector PDF format to ensure clear legibility on all future devices',
+            'Searchable Text Layer: Retain embedded text layers so auditors can search invoice numbers, amounts, and tax IDs instantly',
+          ],
+        },
+        {
+          heading: '6. Data Privacy, Local Disk Encryption & Device Security',
+          body: 'Because tax invoices contain sensitive client addresses, bank wiring details, and tax identification numbers, local storage must be secured.',
+          bullets: [
+            'Full Disk Encryption: Enable BitLocker on Windows or FileVault on macOS to encrypt your computer drive',
+            'Encrypted Folder Archives: Protect exported PDF tax folders with password-protected ZIP/7z encryption',
+          ],
+        },
+        {
+          heading: '7. Annual Tax Folder Directory Structure & Audit-Ready File Naming',
+          body: 'Structure your local file system logically to make tax preparation and audit inspection seamless.',
+          bullets: [
+            'Directory Structure: `/Tax_Records/2026/Issued_Invoices/` and `/Tax_Records/2026/JSON_Backups/`',
+            'Standardized File Naming: `YYYY-MM-DD_INV-Number_ClientName.pdf` (e.g., `2026-08-01_INV-2026-001_AcmeCorp.pdf`)',
+            'Audit Speed: Allows tax accountants or auditors to find specific invoices in under 5 seconds',
+          ],
         },
       ],
-      conclusion: 'Maintain complete data ownership by downloading regular JSON backups of your saved invoice database.',
+      conclusion: 'Implementing a 3-2-1 backup strategy with portable JSON exports and encrypted local PDF archives guarantees 100% tax audit compliance and permanent data ownership.',
     },
   },
   {
@@ -1981,46 +2041,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Conozca la legislación de mora e intereses legales. Aprenda a calcular intereses mensuales e incluirlos en contratos.',
-      content: {
-        intro: 'Cuando los clientes ignoran los plazos de pago, cobrar intereses legales por mora cumple dos funciones comerciales: compensar la falta de liquidez y priorizar su factura en la cola de pagos del cliente. En esta guía desglosamos las normativas internacionales.',
-        sections: [
-          {
-            heading: '1. Finalidad Comercial y Derecho Legal a Cobrar Intereses de Mora',
-            body: 'Los recargos por demora son mecanismos legales reconocidos para desincentivar impagos y cubrir costes administrativos de cobro.',
-          },
-          {
-            heading: '2. Cláusulas de Transparencia Contractual: Contratos y Facturas',
-            body: 'Para exigir recargos por mora legalmente, el porcentaje debe figurar en el contrato inicial Y en el pie de página de la factura.',
-          },
-          {
-            heading: '3. Normativa en EE. UU. y Leyes de Usura',
-            body: 'El interés comercial estándar del 1,5% mensual (18% anual) está ampliamente aceptado en contratos B2B.',
-          },
-          {
-            heading: '4. Legislación en el Reino Unido (Late Payment Act 1998)',
-            body: 'Otorga un 8% más el tipo de interés del Banco de Inglaterra más indemnizaciones fijas por costes de recobro (£40 a £100).',
-          },
-          {
-            heading: '5. Directiva Europea 2011/7/UE y Ley de Morosidad',
-            body: 'En la UE se establece un tipo de demora legal mínimo del 8% al 9% sobre el tipo del BCE más 40 € de indemnización fija por costes de cobro.',
-          },
-          {
-            heading: '6. Fórmulas de Cálculo Matemático de Intereses Diarios',
-            body: 'Fórmula Diaria: (Saldo Pendiente × Tipo Anual) / 365 × Días de Retraso.',
-          },
-          {
-            heading: '7. Emisión de Facturas Rectificativas en PDF con freeinvoice.live',
-            body: 'Emita facturas actualizadas en PDF que incluyan la línea desglosada "Intereses de Demora" y el nuevo saldo total.',
-          },
-        ],
-        conclusion: 'Aplicar recargos respaldados por la ley protege su liquidez y acelera el cobro de facturas vencidas.',
-      },
     },
     'post-20': {
-      title: 'Mejores Prácticas para Guardar Facturas Fiscales y Registros (Regla 5 Años)',
-      readTime: '5 min de lectura',
+      title: 'Mejores Prácticas para Guardar Facturas Fiscales y Registros (Regla de 5 a 10 Años)',
+      readTime: '8 min de lectura',
       date: 'Agosto 2026',
       summary: 'Requisitos de las autoridades fiscales para conservar facturas de ventas. Cómo las copias JSON en navegador garantizan acceso.',
+      content: {
+        intro: 'Las autoridades fiscales exigen conservar todas las facturas emitidas durante un período mínimo de 5 a 10 años. En esta guía detallamos los requisitos de custodia fiscal y copias de seguridad locales.',
+        sections: [
+          {
+            heading: '1. Requisitos de Conservación de las Autoridades Fiscales (AEAT, IRS, EU)',
+            body: 'Los plazos legales de conservación varían según la jurisdicción: 4 años en España, 6 años en Reino Unido y hasta 10 años en Alemania y Francia.',
+          },
+          {
+            heading: '2. La Vulnerabilidad de los Archivos en Plataformas SaaS en la Nube',
+            body: 'Cancelar una suscripción SaaS puede bloquear el acceso a sus facturas históricas tras muros de pago.',
+          },
+          {
+            heading: '3. Estrategia de Copia de Seguridad 3-2-1 para Facturas Fiscales',
+            body: 'Mantenga 3 copias de sus facturas en 2 soportes diferentes y 1 copia cifrada fuera de línea.',
+          },
+          {
+            heading: '4. Exportación de Bases de Datos JSON en freeinvoice.live',
+            body: 'Guarde su historial completo de facturas en un archivo JSON portátil de forma gratuita con un solo clic.',
+          },
+          {
+            heading: '5. Formato PDF Vectorial e Legibilidad de Largo Plazo',
+            body: 'Conserve las facturas en PDF vectoriales con capas de texto buscables para auditorías tributarias.',
+          },
+          {
+            heading: '6. Cifrado de Disco Local y Privacidad de Datos',
+            body: 'Proteja sus carpetas locales activando el cifrado de disco (BitLocker / FileVault).',
+          },
+          {
+            heading: '7. Estructura de Carpetas Anuales e Identificación de Archivos',
+            body: 'Organice sus facturas emitidas en carpetas por año con nombres estandarizados (`YYYY-MM-DD_FACT-001_Cliente.pdf`).',
+          },
+        ],
+        conclusion: 'Aplicar la estrategia 3-2-1 con copias JSON locales garantiza el cumplimiento fiscal total ante cualquier auditoría.',
+      },
     },
     'post-21': {
       title: 'Cómo Personalizar sus Facturas Gratis con Logos y Colores Profesionales',
@@ -2429,46 +2489,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Comprendre la législation sur les retards de paiement et calculer les intérêts légaux sur les factures en souffrance.',
-      content: {
-        intro: 'En cas de retard de paiement, facturer des pénalités de retard légales permet de compenser la gêne de trésorerie et d\'inciter le client à régler la facture rapidement. Ce guide détaille les dispositions légales.',
-        sections: [
-          {
-            heading: '1. Objectif Commercial et Droit Légal aux Pénalités de Retard',
-            body: 'Les pénalités de retard constituent des réparations légales destinées à compenser les coûts de gestion des impayés.',
-          },
-          {
-            heading: '2. Transparence Contractuelle et Mentions Obligatoires',
-            body: 'Pour être applicables, les pénalités et l\'indemnité forfaitaire de 40 € doivent figurer dans les conditions générales et sur la facture.',
-          },
-          {
-            heading: '3. Réglementation aux États-Unis et Plafonds d\'Intérêt',
-            body: 'Le taux d\'intérêt commercial standard de 1,5% par mois (18% par an) est couramment appliqué.',
-          },
-          {
-            heading: '4. Législation au Royaume-Uni (Late Payment Act 1998)',
-            body: 'Donne droit à 8% au-dessus du taux de la Banque d\'Angleterre plus une indemnité forfaitaire pour frais de recouvrement.',
-          },
-          {
-            heading: '5. Directive Européenne 2011/7/UE et Droit Français',
-            body: 'En France, le taux légal des pénalités est égal au taux BCE majoré de 10 points (ou 3 fois le taux légal) plus l\'indemnité forfaitaire de 40 € (art. L. 441-10 du Code de commerce).',
-          },
-          {
-            heading: '6. Formules Mathématiques de Calcul des Intérêts',
-            body: 'Formule : (Montant TTC × Taux Annuel) / 365 × Nombre de Jours de Retard.',
-          },
-          {
-            heading: '7. Émission d\'une Facture PDF Actualisée sur freeinvoice.live',
-            body: 'Émettez une facture PDF actualisée incluant la ligne "Pénalités de Retard" et "Indemnité Forfaitaire de Recouvrement".',
-          },
-        ],
-        conclusion: 'L\'application stricte des pénalités légales protège votre trésorerie et affirme votre rigueur professionnelle.',
-      },
     },
     'post-20': {
-      title: 'Conservation des Factures et Pièces Comptables (Règle des 5 Ans)',
-      readTime: '5 min de lecture',
+      title: 'Conservation des Factures et Pièces Comptables (Règle des 10 Ans)',
+      readTime: '8 min de lecture',
       date: 'Août 2026',
-      summary: 'Obligations fiscales de conservation des factures de vente. Comment les sauvegardes locales garantissent vos archives.',
+      summary: 'Exigences fiscales de conservation des factures de vente. Comment les sauvegardes locales garantissent vos archives.',
+      content: {
+        intro: 'En France, le Code de commerce (art. L. 123-22) et le Code général des impôts imposent la conservation des factures de vente pendant 10 ans. Ce guide détaille les règles d\'archivage comptable.',
+        sections: [
+          {
+            heading: '1. Règles Légales de Conservation (Loi Française et Européenne)',
+            body: 'La durée légale de conservation des factures est de 10 ans à compter de la clôture de l\'exercice comptable.',
+          },
+          {
+            heading: '2. Vulnérabilité des Archives Comptables sur Logiciels SaaS',
+            body: 'L\'arrêt d\'un abonnement SaaS peut bloquer l\'accès à votre historique comptable légal.',
+          },
+          {
+            heading: '3. Stratégie de Sauvegarde 3-2-1 pour Pièces Comptables',
+            body: 'Conservez 3 copies de vos factures sur 2 supports différents et 1 copie hors site sécurisée.',
+          },
+          {
+            heading: '4. Exportation de Bases JSON sur freeinvoice.live',
+            body: 'Téléchargez gratuitement votre base de données sous forme de fichier JSON autonome en 1 clic.',
+          },
+          {
+            heading: '5. Format PDF Vectoriel et Lisibilité sur 10 Ans',
+            body: 'Exportez vos factures en PDF vectoriels avec calque de texte cherchable pour répondre aux contrôles fiscaux.',
+          },
+          {
+            heading: '6. Chiffrement de Disque et Sécurité des Données Clients',
+            body: 'Sécurisez vos archives locales en activant le chiffrement de votre disque dur (BitLocker / FileVault).',
+          },
+          {
+            heading: '7. Arborescence de Classement et Nommage des Fichiers',
+            body: 'Classez vos factures par année fiscale avec un nommage normalisé (`AAAA-MM-JJ_FACT-001_NomClient.pdf`).',
+          },
+        ],
+        conclusion: 'Appliquer la stratégie 3-2-1 avec des exports JSON locaux garantit une conformité fiscale parfaite sur 10 ans.',
+      },
     },
     'post-21': {
       title: 'Personnaliser vos Factures Gratuites avec un Logo et des Couleurs Pro',
@@ -2867,46 +2927,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Gesetzliche Regelungen zu Verzugszinsen verstehen und Ausfälle wirksam vermeiden.',
-      content: {
-        intro: 'Bei verpäteten Zahlungen dient die legale Berechnung von Verzugszinsen zwei Zwecken: Ausgleich des Zinsnachteils und Priorisierung Ihrer Rechnung in der Kundenbuchhaltung. Dieser Leitfaden erklärt die rechtlichen Rahmenbedingungen.',
-        sections: [
-          {
-            heading: '1. Wirtschaftlicher Zweck & Rechtlicher Anspruch auf Verzugszinsen',
-            body: 'Verzugszinsen sind gesetzlich verankerte Mittel zur Kompensation von Verwaltungs- und Ausfallkosten bei Zahlungsverzug.',
-          },
-          {
-            heading: '2. Vertragliche Transparenz: AGB und Rechnungsfusszeile',
-            body: 'Verzugszinsen müssen im ursprünglichen Vertrag und auf der ursprünglichen Rechnung angegeben sein.',
-          },
-          {
-            heading: '3. Regelungen in den USA und Zinsuntergrenzen',
-            body: 'Handelsübliche Verzugszinsen von 1,5% pro Monat (18% p.a.) sind in B2B-Verträgen üblich.',
-          },
-          {
-            heading: '4. Britisches Recht (Late Payment of Commercial Debts Act 1998)',
-            body: 'Gewährt 8% über dem Basiszinssatz der Bank of England plus pauschale Auslagenersatzgebühren (40 bis 100 GBP).',
-          },
-          {
-            heading: '5. EU-Richtlinie 2011/7/EU & Deutsches BGB (§ 288)',
-            body: 'In Deutschland betragen B2B-Verzugszinsen 9 Prozentpunkte über dem Basiszinssatz der EZB zzgl. 40 € Verzugspauschale (§ 288 Abs. 5 BGB).',
-          },
-          {
-            heading: '6. Mathematische Berechnungsformel für Tageszinsen',
-            body: 'Formel für Tageszinsen: (Rechnungsbetrag × Jahreszinssatz) / 365 × Verzugstage.',
-          },
-          {
-            heading: '7. Ausstellung korrigierter PDF-Rechnungen mit freeinvoice.live',
-            body: 'Erstellen Sie eine korrigierte PDF-Rechnung mit der ausgewiesenen Position "Verzugszinsen gemäß § 288 BGB" und der Verzugspauschale.',
-          },
-        ],
-        conclusion: 'Die rechtssichere Berechnung von Verzugszinsen schützt Ihre Liquidität und setzt klare professionelle Grenzen.',
-      },
     },
     'post-20': {
-      title: 'Aufbewahrung von Steuerrechnungen & Unterlagen (5-Jahre-Regel)',
-      readTime: '5 Min. Lesezeit',
+      title: 'Aufbewahrung von Steuerrechnungen & Unterlagen (10-Jahre-Regel nach GoBD)',
+      readTime: '8 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Gesetzliche Aufbewahrungsfristen für Rechnungen und wie lokale Sicherungen den Zugriff garantieren.',
+      content: {
+        intro: 'In Deutschland schreibt die Abgabenordnung (§ 147 AO) und die GoBD eine gesetzliche Aufbewahrungsfrist von 10 Jahren für alle ausgangsseitigen Rechnungen vor. Dieser Leitfaden beschreibt Best Practices zur GoBD-konformen Archivierung.',
+        sections: [
+          {
+            heading: '1. Gesetzliche Aufbewahrungsfristen (GoBD & AO § 147)',
+            body: 'Die Aufbewahrungsfrist beträgt 10 Jahre und beginnt mit dem Ablauf des Kalenderjahres, in dem die Rechnung ausgestellt wurde.',
+          },
+          {
+            heading: '2. Risiken zentraler Cloud-Archive bei Anbieterwechsel',
+            body: 'Wird ein Cloud-Software-Abo gekündigt, droht der Verlust des Zugriffs auf historische steuerrelevante PDFs.',
+          },
+          {
+            heading: '3. Die 3-2-1-Backup-Strategie für Steuerunterlagen',
+            body: 'Sichern Sie Rechnungsdaten in 3 Kopien auf 2 verschiedenen Medien und 1 externen verschlüsselten Standort.',
+          },
+          {
+            heading: '4. Lokaler JSON-Datenbank-Export auf freeinvoice.live',
+            body: 'Sichern Sie Ihren gesamten Rechnungsbestand kostenlos als portable JSON-Datei mit einem Klick.',
+          },
+          {
+            heading: '5. PDF/A-Vektorformat & Unveränderbarkeit',
+            body: 'Vektorbasierte PDF-Erzeugung garantiert dauerhafte Lesbarkeit und Erfüllung der GoBD-Vorgaben.',
+          },
+          {
+            heading: '6. Festplattenverschlüsselung & Datenschutz',
+            body: 'Schützen Sie vertrauliche Kundendaten durch Aktivierung von BitLocker oder FileVault.',
+          },
+          {
+            heading: '7. Revisionssichere Ordnerstruktur & Dateibenennung',
+            body: 'Strukturieren Sie Ihre Rechnungen in Jahresordnern mit einheitlicher Benennung (`YYYY-MM-DD_RE-001_Kundenname.pdf`).',
+          },
+        ],
+        conclusion: 'Die Kombination der 3-2-1-Backup-Regel mit lokalen JSON-Exports garantiert 100%ige Prüfungs- und GoBD-Sicherheit.',
+      },
     },
     'post-21': {
       title: 'Kostenlose Rechnungen Mit Logo & Professionellem Design Gestalten',
