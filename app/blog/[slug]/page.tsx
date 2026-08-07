@@ -3,7 +3,6 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { 
-  ArrowLeft, 
   Clock, 
   Calendar, 
   CheckCircle2, 
@@ -14,6 +13,7 @@ import {
 import { BLOG_POSTS, getBlogPostBySlug } from '../../../lib/blogs';
 import { KofiFooterSection, KofiOverlayWidget } from '../../../components/KofiWidgets';
 import { FeedbackWidget } from '../../../components/FeedbackWidget';
+import { BlogHeader } from '../../../components/BlogHeader';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${post.title} | Invoicing Guide`,
+    title: `${post.title} | Free Invoice Generator Guide`,
     description: post.summary,
     keywords: [
       post.category,
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.summary,
-      url: `https://free-invoice-generator-red.vercel.app/blog/${post.slug}`,
+      url: `https://www.freeinvoice.live/blog/${post.slug}`,
       siteName: 'Free Invoice Generator',
       type: 'article',
       publishedTime: new Date().toISOString(),
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.summary,
     },
     alternates: {
-      canonical: `https://free-invoice-generator-red.vercel.app/blog/${post.slug}`,
+      canonical: `https://www.freeinvoice.live/blog/${post.slug}`,
     },
   };
 }
@@ -90,12 +90,12 @@ export default async function BlogPostPage({ params }: PageProps) {
       'name': 'Free Invoice Generator',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://free-invoice-generator-red.vercel.app/favicon.png',
+        'url': 'https://www.freeinvoice.live/favicon.png',
       },
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://free-invoice-generator-red.vercel.app/blog/${post.slug}`,
+      '@id': `https://www.freeinvoice.live/blog/${post.slug}`,
     },
   };
 
@@ -106,35 +106,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Navigation Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-black hover:text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-md transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>All Articles</span>
-          </Link>
-
-          <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 bg-black text-white flex items-center justify-center rounded-sm font-bold text-xs">
-              <div className="w-3.5 h-[2px] bg-white"></div>
-            </div>
-            <span className="font-bold text-sm sm:text-base tracking-tight text-black uppercase">
-              Free Invoice Generator
-            </span>
-          </div>
-
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-bold rounded-md transition-colors shadow-xs"
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Create Invoice</span>
-          </Link>
-        </div>
-      </header>
+      {/* Blog Navigation Header with Clickable Logo & Language Switcher */}
+      <BlogHeader backLink="/blog" backText="All Articles" />
 
       {/* Main Article Container */}
       <main className="flex-1 py-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-8 w-full bg-white text-black">

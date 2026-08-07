@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { 
   FileText, 
   Receipt, 
@@ -45,8 +46,8 @@ export function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Brand Bar */}
         <div className="flex items-center justify-between h-16">
-          {/* Logo & Title */}
-          <div className="flex items-center space-x-3">
+          {/* Logo & Title (Click to Homepage) */}
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-85 transition-opacity cursor-pointer">
             <div className="w-8 h-8 bg-gray-900 text-white flex items-center justify-center rounded-sm font-bold shadow-xs shrink-0">
               <div className="w-4 h-[2px] bg-white"></div>
             </div>
@@ -63,7 +64,7 @@ export function Header({
                 {t('tagline')}
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Header Action Controls */}
           <div className="flex items-center space-x-2 sm:space-x-3">

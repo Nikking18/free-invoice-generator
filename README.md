@@ -2,7 +2,7 @@
 
 > **100% Client-Side, Serverless & Private Invoice Builder** for freelancers, agencies, contractors, and small businesses. Create, manage, and export professional PDF invoices directly in your browser with complete data privacy.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://free-invoice-generator-red.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-freeinvoice.live-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://www.freeinvoice.live)
 [![Built with Next.js](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -12,8 +12,8 @@
 
 ## 🌐 Live Application
 
-- **Production Deployment:** [https://free-invoice-generator-red.vercel.app](https://free-invoice-generator-red.vercel.app)
-- **Vercel Mirror:** [https://free-invoice-generator-5asslnzen-workwebdesign.vercel.app](https://free-invoice-generator-5asslnzen-workwebdesign.vercel.app)
+- **Official Live Domain:** [https://www.freeinvoice.live/](https://www.freeinvoice.live/)
+- **Vercel Production Mirror:** [https://free-invoice-generator-red.vercel.app](https://free-invoice-generator-red.vercel.app)
 
 ---
 

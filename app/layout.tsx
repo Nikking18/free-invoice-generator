@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://free-invoice-generator-red.vercel.app'),
+  metadataBase: new URL('https://www.freeinvoice.live'),
   title: 'Free Invoice Generator - 100% Client-Side, Private & Serverless PDF Maker',
   description:
     'Create, customize, and download professional PDF invoices instantly in your browser. 100% private, no signup, no servers, full client-side security.',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Free Invoice Generator - 100% Private & Client-Side PDF Maker',
     description:
       'Build professional invoices in seconds without signups or backend servers. Complete data privacy directly in your browser.',
-    url: 'https://free-invoice-generator-red.vercel.app',
+    url: 'https://www.freeinvoice.live',
     siteName: 'Free Invoice Generator',
     images: [
       {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://free-invoice-generator-red.vercel.app',
+    canonical: 'https://www.freeinvoice.live',
   },
 };
 
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'Free Invoice Generator',
-    'url': 'https://free-invoice-generator-red.vercel.app',
+    'url': 'https://www.freeinvoice.live',
     'description': '100% Client-Side & Private Invoice Builder for Freelancers, Agencies, and Small Businesses.',
     'applicationCategory': 'BusinessApplication',
     'operatingSystem': 'Any',
