@@ -8,12 +8,13 @@ import {
   Package, 
   Building2, 
   Database, 
-  Globe
+  Globe,
+  BookOpen
 } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/LanguageContext';
 import { AppLanguage } from '../lib/i18n/translations';
 
-export type TabType = 'builder' | 'saved' | 'clients' | 'items' | 'settings' | 'backup';
+export type TabType = 'builder' | 'saved' | 'clients' | 'items' | 'settings' | 'backup' | 'blog';
 
 interface HeaderProps {
   activeTab: TabType;
@@ -30,13 +31,14 @@ export function Header({
 }: HeaderProps) {
   const { appLanguage, setAppLanguage, t } = useTranslation();
 
-  const navItems: { id: TabType; labelKey: string; icon: React.ComponentType<{ className?: string }>; badge?: number }[] = [
+  const navItems: { id: TabType; labelKey: string; customLabel?: string; icon: React.ComponentType<{ className?: string }>; badge?: number }[] = [
     { id: 'builder', labelKey: 'tabNewInvoice', icon: FileText },
     { id: 'saved', labelKey: 'tabSavedInvoices', icon: Receipt, badge: savedCount },
     { id: 'clients', labelKey: 'tabClients', icon: Users },
     { id: 'items', labelKey: 'tabItemLibrary', icon: Package },
     { id: 'settings', labelKey: 'tabSettings', icon: Building2 },
     { id: 'backup', labelKey: 'tabBackup', icon: Database },
+    { id: 'blog', labelKey: '', customLabel: 'Guides & Articles', icon: BookOpen },
   ];
 
   return (
@@ -100,7 +102,7 @@ export function Header({
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-gray-900' : 'text-gray-400'}`} />
-                <span>{t(item.labelKey)}</span>
+                <span>{item.customLabel || t(item.labelKey)}</span>
                 {item.badge !== undefined && item.badge > 0 && (
                   <span
                     className={`ml-1 px-1.5 py-0.2 text-[10px] font-mono font-bold rounded-sm ${

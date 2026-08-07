@@ -38,6 +38,7 @@ import { ClientManagement } from '../components/ClientManagement';
 import { ItemLibrary } from '../components/ItemLibrary';
 import { BusinessSettings } from '../components/BusinessSettings';
 import { BackupRestore } from '../components/BackupRestore';
+import { BlogSection } from '../components/BlogSection';
 import { KofiFooterSection, KofiOverlayWidget } from '../components/KofiWidgets';
 import { FeedbackWidget } from '../components/FeedbackWidget';
 import { Heart, ShieldCheck, Code, Github, Linkedin, Twitter } from 'lucide-react';
@@ -466,6 +467,10 @@ export default function Page() {
               onImportBackup={handleImportBackup}
               onClearAllData={handleClearAllData}
             />
+          )}
+
+          {activeTab === 'blog' && (
+            <BlogSection onStartInvoiceClick={() => setActiveTab('builder')} />
           )}
         </main>
 
