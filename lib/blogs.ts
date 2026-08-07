@@ -1221,18 +1221,76 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Prevent Invoice Fraud & Verify Wire Transfer Details (Security Guide)',
     slug: 'prevent-invoice-fraud-payment-security-guide',
     category: 'Privacy & Security',
-    readTime: '6 min read',
+    readTime: '9 min read',
     date: 'August 2026',
     summary: 'Protect your business against email compromise fraud, altered PDF bank details, and fake invoice scams with security verification protocols.',
     content: {
-      intro: 'Business Email Compromise (BEC) and invoice tampering fraud cost organizations millions annually. Implementing payment security best practices protects both you and your clients.',
+      intro: 'Business Email Compromise (BEC) and invoice tampering fraud cost businesses billions of dollars annually. Cybercriminals intercept email streams, alter bank wire details on PDF invoices, and trick accounting teams into wiring funds to fraudulent accounts. In this security guide, we outline essential payment verification protocols, email authentication steps, and out-of-band validation practices to safeguard your cash flow.',
       sections: [
         {
-          heading: 'Verifying Bank Wire Details',
-          body: 'Always confirm changed bank details or IBAN numbers over a secondary phone call before initiating large wire transfers.',
+          heading: '1. Understanding Business Email Compromise (BEC) & Invoice Redirection Scams',
+          body: 'Invoice redirection fraud occurs when an attacker gains unauthorized access to a vendor or client email account (or spoofs a similar domain) and sends an updated invoice requesting payment to a new bank account.',
+          bullets: [
+            'Miter-in-the-Middle Email Interception: Hackers monitor active invoice threads and insert altered PDF attachments',
+            'Urgency Signals: Fraudulent emails often demand immediate wire payment to avoid false legal penalties',
+            'Lookalike Domains: Attackers register domains with minor typos (e.g., `agency-pay.co` instead of `agency-pay.com`)',
+          ],
+          proTip: 'Always check the exact sender email header address rather than relying on the visible display name in your email client.',
+        },
+        {
+          heading: '2. The "Out-of-Band" Dual Validation Protocol',
+          body: 'Establish a strict mandatory rule: Never update a vendor\'s bank wiring details, IBAN, or routing numbers based solely on an email notification.',
+          bullets: [
+            'Out-of-Band Secondary Call: Always call the vendor or client using a pre-verified phone number from your original contract',
+            'Never Call Email Phone Numbers: Do not dial phone numbers listed inside suspicious emails asking for bank updates',
+            'Mandatory Dual Sign-Off: Require two internal managers to approve any change to recipient banking profiles',
+          ],
+        },
+        {
+          heading: '3. Spotting Red Flags in Altered PDF Invoices',
+          body: 'Visual and technical inspection of PDF invoices can uncover tampering before payments are processed.',
+          bullets: [
+            'Font Inconsistencies: Mismatched fonts or uneven alignment around bank account fields indicate graphic editing',
+            'Mismatched Tax Identifier Numbers: Compare tax registration numbers on new invoices against historic records',
+            'Unusual Currency Transfers: Requests to wire funds to foreign jurisdiction banks not specified in original contracts',
+          ],
+        },
+        {
+          heading: '4. Technical Email Domain Protections (SPF, DKIM, DMARC)',
+          body: 'Implement standard domain security records to prevent cybercriminals from spoofing your invoicing domain name.',
+          bullets: [
+            'SPF (Sender Policy Framework): Specifies authorized IP addresses permitted to send email from your domain',
+            'DKIM (DomainKeys Identified Mail): Adds a cryptographic signature verifying email integrity',
+            'DMARC (Domain-based Message Authentication): Instructs receiving mail servers to reject unauthenticated spoofed emails',
+          ],
+        },
+        {
+          heading: '5. Secure PDF Delivery vs. Unencrypted Email Attachments',
+          body: 'Sending unencrypted PDF invoices across open email networks leaves attachments vulnerable to interception.',
+          bullets: [
+            'Password Protection: Encrypt sensitive PDF invoices with pre-shared client passwords where appropriate',
+            'Local Vector Rendering: Generate crisp vector PDFs directly inside your browser sandbox to prevent server tampering',
+          ],
+        },
+        {
+          heading: '6. Internal Accounting Controls for Accounts Payable Teams',
+          body: 'Formalize internal payment verification procedures for your accounts payable staff.',
+          bullets: [
+            'Threshold Sign-Offs: Require secondary executive sign-off for wire transfers exceeding $2,500',
+            '24-Hour Cooling-Off Period: Place a mandatory 24-hour hold on funds transfers when banking profiles are updated',
+            'Whitelisted Vendor Accounts: Maintain an audited master vendor bank database',
+          ],
+        },
+        {
+          heading: '7. The Serverless Advantage: Local Invoicing vs. Central Cloud Targets',
+          body: 'Client-side invoice generators (like freeinvoice.live) store database records in your personal browser sandbox rather than centralized cloud servers.',
+          bullets: [
+            'No Central Server Hacks: Eliminates risks of centralized database leaks exposing bank account numbers',
+            '100% Device Sandbox Security: Financial data remains strictly on your personal encrypted device',
+          ],
         },
       ],
-      conclusion: 'Proactive payment verification safeguards your business against cyber billing fraud.',
+      conclusion: 'Enforcing out-of-band phone verification protocols and utilizing secure serverless invoicing tools safeguards your business against costly invoice fraud.',
     },
   },
   {
@@ -1722,46 +1780,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Requisitos legales y fiscales para facturar como persona física. Aprenda qué datos de contacto e identificación incluir de forma segura.',
-      content: {
-        intro: 'No necesita una LLC ni una empresa registrada para facturar legalmente a sus clientes por servicios freelance. Como profesional independiente, tiene derecho a facturar con su nombre personal.',
-        sections: [
-          {
-            heading: '1. Validez Legal de la Facturación como Persona Física',
-            body: 'En la mayoría de legislaciones, la actividad por cuenta propia comienza automáticamente al prestar servicios. Crear una empresa mercantil es opcional.',
-          },
-          {
-            heading: '2. Datos de Contacto Obligatorios para Facturas Personales',
-            body: 'Incluya su nombre legal completo, dirección postal, correo electrónico y número de identificación fiscal (NIF/NIE en España, RFC en México, etc.).',
-          },
-          {
-            heading: '3. Privacidad de la Identificación Fiscal (EIN vs SSN)',
-            body: 'Solicite un número de identificación fiscal secundario para evitar imprimir su número personal en facturas comerciales.',
-          },
-          {
-            heading: '4. Facturación Bajo Nombre Comercial o Marcas Marítimas',
-            body: 'Si utiliza un nombre comercial (ej. "Apex UX Studio"), emita la factura como "Su Nombre d/b/a Nombre Comercial".',
-          },
-          {
-            heading: '5. Regímenes Especiales de IVA y Exenciones por Volumen',
-            body: 'Consulte los límites de exención fiscal para trabajadores autónomos según la normativa de su país.',
-          },
-          {
-            heading: '6. Separación de Cuentas Bancarias Comerciales',
-            body: 'Mantenga una cuenta bancaria separada dedicada exclusivamente a sus ingresos y gastos de trabajo independiente.',
-          },
-          {
-            heading: '7. Formato Profesional con freeinvoice.live',
-            body: 'Genere facturas en PDF profesionales con su nombre personal en menos de 60 segundos.',
-          },
-        ],
-        conclusion: 'Facturar como persona física es legal, sencillo y seguro cuando se incluyen los datos fiscales adecuados.',
-      },
     },
     'post-16': {
       title: 'Cómo Prevenir el Fraude en Facturas y Verificar Datos Bancarios',
-      readTime: '6 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Proteja su negocio frente a estafas de facturas falsas y cambios de cuentas bancarias en PDF con protocolos de seguridad.',
+      content: {
+        intro: 'El fraude por compromiso de correo corporativo (BEC) y la manipulación de facturas cuestan miles de millones de dólares anualmente. Los ciberdelincuentes interceptan correos, modifican números de cuenta bancaria en archivos PDF y engañan a los equipos contables para transferir fondos a cuentas fraudulentas. En esta guía de seguridad detallamos los protocolos de verificación indispensables.',
+        sections: [
+          {
+            heading: '1. Estafas de Redirección de Facturas y Compromiso de Correo (BEC)',
+            body: 'El fraude de redirección ocurre cuando un atacante accede a una cuenta de correo legítima y envía una factura modificada solicitando el pago a una nueva cuenta bancaria.',
+          },
+          {
+            heading: '2. Protocolo de Validación Doble "Fuera de Banda"',
+            body: 'Establezca una regla obligatoria: Nunca actualice los datos bancarios de un proveedor basándose únicamente en una solicitud enviada por correo electrónico.',
+          },
+          {
+            heading: '3. Detección de Facturas PDF Alteradas y Manipulaciones',
+            body: 'Inspeccione incoherencias tipográficas o discrepancias en los números de identificación fiscal.',
+          },
+          {
+            heading: '4. Protección Técnica de Dominios de Correo (SPF, DKIM, DMARC)',
+            body: 'Implemente registros de seguridad para evitar que los ciberdelincuentes suplanten la identidad de su dominio comercial.',
+          },
+          {
+            heading: '5. Envío Seguro de Facturas PDF',
+            body: 'Génere facturas PDF vectoriales directamente en su navegador para evitar manipulaciones intermedias.',
+          },
+          {
+            heading: '6. Controles Internos para Equipos de Cuentas por Pagar',
+            body: 'Requiera autorizaciones dobles para transferencias de importe elevado y mantenga listas blancas de proveedores.',
+          },
+          {
+            heading: '7. La Ventaja Sin Servidor de la Facturación Local',
+            body: 'freeinvoice.live almacena los datos localmente en su dispositivo, eliminando el riesgo de filtraciones en bases de datos centralizadas.',
+          },
+        ],
+        conclusion: 'Aplicar protocolos de verificación telefónica y usar herramientas de facturación locales protege su empresa frente al fraude informático.',
+      },
     },
     'post-17': {
       title: 'Mejores Prácticas de Facturación Recurrente para Clientes con Retainer',
@@ -2170,46 +2228,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Exigences légales et fiscales pour facturer en nom propre. Découvrez les informations de contact à faire figurer.',
-      content: {
-        intro: 'Vous n\'avez pas besoin d\'une entreprise individuelle enregistrée ou d\'une société pour facturer légalement vos prestations freelance. En nom propre, vous avez le droit légal de facturer sous votre nom civil.',
-        sections: [
-          {
-            heading: '1. Validité Légale de la Facturation en Nom Propre',
-            body: 'Dans la plupart des juridictions, l\'activité indépendante débute dès la prestation de service. La création d\'une société commerciale est facultative.',
-          },
-          {
-            heading: '2. Mentions Obligatoires pour les Factures Personnelles',
-            body: 'Indiquez votre nom complet, adresse postale, email et numéro SIRET (ou identifiant fiscal équivalent).',
-          },
-          {
-            heading: '3. Protection des Identifiants Fiscaux',
-            body: 'Demandez un numéro d\'immatriculation professionnelle pour éviter de diffuser vos données personnelles.',
-          },
-          {
-            heading: '4. Facturation Sous Nom Commercial ou Nom d\'Usage',
-            body: 'Si vous utilisez un nom de marque (ex: "Apex UX Studio"), libellez la facture sous la forme "Votre Nom d/b/a Nom Commercial".',
-          },
-          {
-            heading: '5. Exonération de TVA pour les Micro-Entrepreneurs',
-            body: 'En France, profitez de la franchise en base de TVA (Art. 293 B du CGI) sous les seuils de chiffre d\'affaires.',
-          },
-          {
-            heading: '6. Séparation des Comptes Bancaires',
-            body: 'Ouvrez un compte bancaire dédié exclusivement à votre activité professionnelle indépendante.',
-          },
-          {
-            heading: '7. Formatage Professionnel avec freeinvoice.live',
-            body: 'Générez des factures PDF irréprochables en nom propre en quelques secondes.',
-          },
-        ],
-        conclusion: 'Facturer en tant qu\'indépendant est simple, légal et sécurisé lorsque les mentions fiscales obligatoires sont respectées.',
-      },
     },
     'post-16': {
       title: 'Comment Prévenir la Fraude aux Factures et Vérifier les Coordonnées Bancaires',
-      readTime: '6 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Protégez votre entreprise contre les faux RIB et les escroqueries à la facture avec des protocoles de sécurité.',
+      content: {
+        intro: 'La fraude au président et la modification de factures coûtent des milliards de dollars chaque année. Les cybercriminels interceptent les emails, modifient les coordonnées bancaires sur les PDF et trompent les services comptables. Ce guide détaille les protocoles de vérification indispensables.',
+        sections: [
+          {
+            heading: '1. Escroqueries de Redirection de Factures et Piratage d\'Email',
+            body: 'La fraude se produit lorsqu\'un pirate modifie une facture PDF pour demander le paiement sur un nouveau compte bancaire frauduleux.',
+          },
+          {
+            heading: '2. Protocole de Double Validation par Téléphone',
+            body: 'Règle stricte : Ne modifiez jamais les coordonnées bancaires d\'un fournisseur sur simple demande par email sans confirmation orale.',
+          },
+          {
+            heading: '3. Détection des Factures PDF Altérées',
+            body: 'Inspectez les incohérences de polices et les anomalies dans les numéros d\'identification fiscale.',
+          },
+          {
+            heading: '4. Protections Techniques des Domaines Email (SPF, DKIM, DMARC)',
+            body: 'Mettez en place des protocoles de sécurité pour éviter l\'usurpation de votre nom de domaine.',
+          },
+          {
+            heading: '5. Envoi Sécurisé de Factures PDF',
+            body: 'Générez des factures PDF directement dans votre navigateur sans serveur intermédiaire.',
+          },
+          {
+            heading: '6. Procédures de Contrôle Interne',
+            body: 'Exigez une double validation interne pour les virements de montant élevé.',
+          },
+          {
+            heading: '7. L\'Avantage des Outils Sans Serveur',
+            body: 'freeinvoice.live conserve vos données localement et élimine les risques de fuite sur des serveurs distants.',
+          },
+        ],
+        conclusion: 'Appliquer des vérifications téléphoniques et utiliser des outils de facturation locaux sécurise vos paiements.',
+      },
     },
     'post-17': {
       title: 'Meilleures Pratiques de Facturation Récurrente pour Clients Forfaitaires',
@@ -2608,46 +2666,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Rechtliche Anforderungen für Rechnungen von Einzelunternehmern und Freiberuflern ohne GmbH.',
-      content: {
-        intro: 'Sie benötigen keine Kapitalgesellschaft oder eingetragene Firma, um Dienstleistungen legal in Rechnung zu stellen. Als Freiberufler oder Einzelunternehmer können Sie direkt unter Ihrem bürgerlichen Namen fakturieren.',
-        sections: [
-          {
-            heading: '1. Rechtliche Gültigkeit von Rechnungen als Einzelperson',
-            body: 'In Deutschland, Österreich und der Schweiz beginnt die freiberufliche Tätigkeit direkt mit der Dienstleistung. Eine GmbH-Gründung ist nicht erforderlich.',
-          },
-          {
-            heading: '2. Pflichtangaben auf Rechnungen von Einzelunternehmern',
-            body: 'Geben Sie Ihren vollständigen Namen, Anschrift, E-Mail und Steuernummer an.',
-          },
-          {
-            heading: '3. Datenschutz der Steuernummer (Steuernummer vs. USt-IdNr.)',
-            body: 'Beantragen Sie beim Finanzamt eine USt-IdNr., um Ihre persönliche Steuernummer auf Rechnungen nicht offenlegen zu müssen.',
-          },
-          {
-            heading: '4. Rechnungsstellung mit Geschäftsbezeichnung',
-            body: 'Wenn Sie eine Marke nutzen (z.B. "Apex UX Studio"), stellen Sie die Rechnung als "Ihr Name d/b/a Markenname" aus.',
-          },
-          {
-            heading: '5. Kleinunternehmerregelung (§ 19 UStG)',
-            body: 'Nutzen Sie bei einem Vorjahresumsatz unter 22.000 € die Kleinunternehmerregelung ohne Ausweis der Umsatzsteuer.',
-          },
-          {
-            heading: '6. Trennung von Privat- und Geschäftskonto',
-            body: 'Richten Sie ein separates Geschäftskonto für Ihre Einnahmen und Ausgaben ein.',
-          },
-          {
-            heading: '7. Professionelle PDF-Erstellung mit freeinvoice.live',
-            body: 'Erstellen Sie finanzamtskonforme Rechnungen unter Ihrem Namen in unter 60 Sekunden.',
-          },
-        ],
-        conclusion: 'Rechnungen als Freiberufler zu stellen ist rechtssicher, einfach und erfordert keine Firmengründung.',
-      },
     },
     'post-16': {
       title: 'Rechnungsbetrug Verhindern & Bankverbindungen Sicher Überprüfen',
-      readTime: '6 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Schützen Sie Ihr Unternehmen vor gefälschten PDF-Rechnungen und geänderten IBAN-Daten.',
+      content: {
+        intro: 'Rechnungsbetrug und E-Mail-Usurpation kosten Unternehmen jährlich Milliarden. Cyberkriminelle fangen E-Mail-Verläufe ab, ändern Bankverbindungen auf PDF-Rechnungen und leiten Überweisungen um. Dieser Sicherheitsleitfaden erklärt Verifizierungs-Standards.',
+        sections: [
+          {
+            heading: '1. Betrug Durch Gefälschte Zahlungsaufforderungen (BEC)',
+            body: 'Angreifer verändern Bankdaten auf abgefangenen Rechnungen und fordern Überweisungen auf fremde Konten.',
+          },
+          {
+            heading: '2. Das "Out-of-Band" Zwei-Wege-Überprüfungsverfahren',
+            body: 'Wichtige Regel: Ändern Sie Bankverbindungen von Lieferanten niemals ohne telefonische Rückfrage unter einer bekannten Nummer.',
+          },
+          {
+            heading: '3. Erkennen Manipulierter PDF-Rechnungen',
+            body: 'Achten Sie auf Abweichungen bei Schriftarten, Steuernummern oder ungewöhnliche Auslandskonten.',
+          },
+          {
+            heading: '4. Technische E-Mail-Sicherheitsstandards (SPF, DKIM, DMARC)',
+            body: 'Richten Sie E-Mail-Authentifizierungen ein, um das Fälschen Ihrer Absenderadresse zu verhindern.',
+          },
+          {
+            heading: '5. Sichere Erstellung von PDF-Rechnungen',
+            body: 'Erzeugen Sie Vektor-PDFs direkt im lokalen Browser ohne unverschlüsselte Serverübertragungen.',
+          },
+          {
+            heading: '6. Interne Kontrollmechanismen für die Buchhaltung',
+            body: 'Führen Sie das Vier-Augen-Prinzip für hohe Überweisungssummen ein.',
+          },
+          {
+            heading: '7. Der Vorteil Serverloser Lokaler Rechnungstools',
+            body: 'freeinvoice.live speichert Daten lokal im Browser und verhindert so Angriffe auf zentrale Cloud-Server.',
+          },
+        ],
+        conclusion: 'Telefonische Rückfragen und lokale Rechnungsgenerierung bieten wirksamen Schutz vor Betrug.',
+      },
     },
     'post-17': {
       title: 'Beste Praxis für Wiederkehrende Rechnungen bei Monatlichen Pauschalen',
