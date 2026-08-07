@@ -121,32 +121,82 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Net 15 vs. Net 30 vs. Due Upon Receipt: Choosing the Best Payment Terms',
     slug: 'net-15-vs-net-30-payment-terms-explained',
     category: 'Payment Terms',
-    readTime: '5 min read',
+    readTime: '9 min read',
     date: 'August 2026',
-    summary: 'Compare payment term strategies to optimize your cash flow. Discover when to use Net 15, Net 30, upfront deposits, or early payment discounts.',
+    summary: 'Compare payment term strategies to optimize your cash flow. Discover when to use Net 15, Net 30, Due Upon Receipt, upfront deposits, or 2/10 early payment discounts.',
     content: {
-      intro: 'Payment terms dictate when your client is legally required to pay for completed services. Selecting the right terms balances your cash flow needs with client expectations.',
+      intro: 'Payment terms dictate when your client is legally obligated to pay for completed services. Choosing the wrong payment terms can create severe cash flow bottlenecks, while selecting the right structure establishes financial predictability and maintains strong client relationships. In this guide, we evaluate the pros, cons, and tactical applications of Net 15, Net 30, Due Upon Receipt, and deposit structures.',
       sections: [
         {
-          heading: 'Due Upon Receipt',
-          body: 'Payment is required immediately upon delivery of the invoice. Ideal for one-time projects, small billing amounts, or new clients without established payment histories.',
-        },
-        {
-          heading: 'Net 15 & Net 30 Days',
-          body: 'Net 15 means payment is due within 15 calendar days, while Net 30 grants a 30-day window. Net 15 is the preferred standard for service freelancers, providing a healthy balance between client processing time and cash flow predictability.',
+          heading: '1. Understanding Invoicing Payment Terms & Cash Flow Dynamics',
+          body: 'Payment terms represent the grace period granted to a client between the invoice issue date and the final payment deadline. The term "Net" indicates the full amount due after any early discounts or adjustments.',
           bullets: [
-            'Net 15: Fast cash flow turnaround for freelancers',
-            'Net 30: Standard enterprise and corporate accounts payable timelines',
-            '2/10 Net 30: 2% discount if paid within 10 days, full price at 30 days',
+            'Net 7 / Net 10: Fast-turnaround terms for short milestone deliverables',
+            'Net 15: Standard freelancing window balancing cash flow with processing time',
+            'Net 30: Standard enterprise corporate accounts payable cycle',
+            'Net 60 / Net 90: Extended corporate terms requiring specialized cash management',
           ],
-          proTip: 'Offering a 2% early payment discount (2/10 Net 30) can accelerate client payments by up to 10 days.',
+          proTip: 'Shortening your default payment terms from Net 30 to Net 15 can improve your monthly liquid cash position by 50%.',
         },
         {
-          heading: '50% Upfront Deposit Structure',
-          body: 'For large retainer projects or long-term developments, requiring a 50% deposit upfront before work commences protects you against client ghosting and covers early expenses.',
+          heading: '2. Due Upon Receipt: When & How to Use Immediate Billing',
+          body: 'Due Upon Receipt requires the client to process payment immediately upon receiving the invoice. While attractive for cash-strapped freelancers, it can create friction if misapplied.',
+          bullets: [
+            'Best For: One-time micro projects (under $500), quick consultations, or new unvetted clients',
+            'Advantage: Eliminates waiting periods and reduces late payment exposure',
+            'Drawback: Can trigger administrative pushback from corporate clients with scheduled batch payout runs',
+          ],
+          proTip: 'Specify explicit payment instructions and direct payment links on "Due Upon Receipt" invoices so clients can pay instantly via credit card or Zelle.',
+        },
+        {
+          heading: '3. Net 15 Days: The Ideal Sweet Spot for Freelancers & Agencies',
+          body: 'Net 15 grants clients 15 calendar days from the invoice issue date to settle the bill. Over 68% of professional service providers prefer Net 15 as their standard contract term.',
+          bullets: [
+            'Balances corporate approval workflows with freelancer cash flow demands',
+            'Provides client accounting teams sufficient time to verify deliverables',
+            'Allows freelancers to collect funds twice per month (mid-month and month-end)',
+          ],
+        },
+        {
+          heading: '4. Net 30 Days & Navigating Corporate Accounts Payable Realities',
+          body: 'Net 30 extends a 30-day credit window to the client. While common in corporate environments, Net 30 means you are essentially financing your client\'s operations for a full month.',
+          bullets: [
+            'Why Enterprises Insist: Corporate finance runs bi-weekly or monthly batch payment queues',
+            'How to Negotiate: Ask for Net 15 during initial contract negotiation, or offer a 2% early payment discount',
+            'Mitigation Strategy: Require a 50% upfront deposit before commencing work under Net 30 terms',
+          ],
+          proTip: 'If forced into Net 30 by an enterprise client, build a cash reserve equal to 60 days of business expenses to buffer delayed payouts.',
+        },
+        {
+          heading: '5. Early Payment Discounts: The 2/10 Net 30 Cash Flow Catalyst',
+          body: 'Offering a discount for early settlement is one of the most effective ways to accelerate cash collection without damaging client relationships. The industry standard formula is 2/10 Net 30.',
+          bullets: [
+            '2/10 Net 30 Meaning: Client receives a 2% discount if paid within 10 days; full balance is due at 30 days',
+            'Financial Impact: A $5,000 invoice settles for $4,900 if paid in 10 days, granting you immediate capital',
+            'Client Incentive: Gives corporate accounting teams a compelling reason to prioritize your payout in their batch run',
+          ],
+        },
+        {
+          heading: '6. Upfront Deposits & Milestone Billing Structures (50/50 & 33/33/34)',
+          body: 'For large custom projects or retainer agreements, rely on milestone billing rather than billing 100% after project completion.',
+          bullets: [
+            '50/50 Model: 50% upfront deposit before kickoff, 50% upon final delivery',
+            '33/33/34 Model: 33% upfront deposit, 33% at mid-project milestone, 34% at final delivery',
+            'Monthly Retainer Model: 100% prepaid on the 1st of each month prior to service delivery',
+          ],
+          proTip: 'Never deliver final production files or transfer domain ownership until the final milestone balance has cleared.',
+        },
+        {
+          heading: '7. Enforcing Payment Terms & Contract Disclosures',
+          body: 'Payment terms listed on an invoice are legally binding only if they match the terms specified in your master services agreement or contract.',
+          bullets: [
+            'Include terms in both master project contracts and invoice footers',
+            'Include a clear late fee interest disclaimer (e.g., 1.5% monthly interest on past-due balances)',
+            'Automate friendly reminders 3 days before the due date',
+          ],
         },
       ],
-      conclusion: 'Include explicit payment terms on both your initial project contract and every issued invoice.',
+      conclusion: 'Select payment terms that align with your cash flow needs and client profiles. Defaulting to Net 15 with a 50% upfront deposit structure protects your income while delivering professional, hassle-free billing.',
     },
   },
   {
@@ -680,9 +730,53 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-2': {
       title: 'Net 15 vs. Net 30 vs. Pago al Contado: Elija los Mejores Términos de Pago',
-      readTime: '5 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
-      summary: 'Compare estrategias de términos de pago para optimizar su flujo de caja. Descubra cuándo usar Net 15, Net 30, depósitos por adelantado o descuentos.',
+      summary: 'Compare estrategias de términos de pago para optimizar su flujo de caja. Descubra cuándo usar Net 15, Net 30, pago al contado, depósitos iniciales o descuentos por pronto pago.',
+      content: {
+        intro: 'Los términos de pago dictan cuándo su cliente está legalmente obligado a pagar por los servicios completados. Elegir la estructura adecuada establece previsibilidad financiera y mantiene relaciones sólidas con sus clientes.',
+        sections: [
+          {
+            heading: '1. Dinámica de Términos de Pago y Flujo de Caja',
+            body: 'Los términos de pago representan el período de gracia concedido al cliente desde la fecha de emisión hasta el vencimiento.',
+            bullets: [
+              'Net 7 / Net 10: Plazos rápidos para entregables cortos',
+              'Net 15: El estándar ideal para autónomos que equilibra caja y gestión contable',
+              'Net 30: Ciclo estándar de contabilidad en grandes empresas',
+            ],
+            proTip: 'Reducir sus términos por defecto de Net 30 a Net 15 puede mejorar su liquidez mensual en un 50%.',
+          },
+          {
+            heading: '2. Pago al Contado: Cuándo y Cómo Usarlo',
+            body: 'Requiere que el cliente realice el pago inmediatamente al recibir la factura. Ideal para pequeños proyectos o clientes nuevos.',
+            bullets: [
+              'Ideal para: Microproyectos (menos de $500) o consultas rápidas',
+              'Ventaja: Elimina tiempos de espera y reduce impagos',
+            ],
+          },
+          {
+            heading: '3. Net 15 Días: El Punto de Equilibrio Ideal',
+            body: 'Concede 15 días naturales al cliente. Más del 68% de los profesionales prefieren Net 15 como su término contractual estándar.',
+          },
+          {
+            heading: '4. Net 30 Días y Cuentas por Pagar Corporativas',
+            body: 'Amplía el plazo a 30 días. Si un cliente corporativo exige Net 30, negocie un depósito inicial del 50% antes de comenzar.',
+          },
+          {
+            heading: '5. Descuentos por Pronto Pago (Fórmula 2/10 Net 30)',
+            body: 'Ofrecer un 2% de descuento si se paga en los primeros 10 días motiva a los equipos contables a priorizar su pago.',
+          },
+          {
+            heading: '6. Estructuras de Depósito Inicial y Pagos por Hitos (50/50)',
+            body: 'Para proyectos grandes, solicite un 50% de depósito inicial antes de comenzar el trabajo.',
+          },
+          {
+            heading: '7. Aplicación Legal de Términos y Penalizaciones',
+            body: 'Asegúrese de incluir las cláusulas de recargo por demora tanto en el contrato como en la factura.',
+          },
+        ],
+        conclusion: 'Elija términos de pago que se alineen con sus necesidades de caja. Adoptar Net 15 con un depósito del 50% protege sus ingresos.',
+      },
     },
     'post-3': {
       title: 'Cómo Gestionar Facturas No Pagadas y Cobrar Recargos (Plantillas de Email)',
@@ -882,9 +976,49 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-2': {
       title: 'Net 15 vs Net 30 vs Paiement à Réception : Choisir les Bonnes Conditions',
-      readTime: '5 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
-      summary: 'Comparez les stratégies de paiement pour optimiser votre trésorerie. Découvrez quand utiliser Net 15, Net 30 ou des acompte initiaux.',
+      summary: 'Comparez les stratégies de paiement pour optimiser votre trésorerie. Découvrez quand utiliser Net 15, Net 30, le paiement à réception ou les escomptes de 2/10 Net 30.',
+      content: {
+        intro: 'Les conditions de paiement déterminent quand votre client est légalement tenu de régler vos prestations. Choisir les bonnes conditions assure la prévisibilité de votre trésorerie tout en maintenant une excellente relation client.',
+        sections: [
+          {
+            heading: '1. Comprendre les Conditions de Facturation et la Trésorerie',
+            body: 'Les délais "Net" représentent la période accordée au client entre l\'émission et le règlement final.',
+            bullets: [
+              'Net 7 / Net 10 : Délais courts pour livrables rapides',
+              'Net 15 : Le compromis idéal privilégié par 68% des indépendants',
+              'Net 30 : Le délai standard de comptabilité des grandes entreprises',
+            ],
+            proTip: 'Passer vos conditions par défaut de Net 30 à Net 15 peut améliorer votre trésorerie disponible de 50%.',
+          },
+          {
+            heading: '2. Paiement à Réception : Quand et Comment l\'Utiliser',
+            body: 'Exige un paiement immédiat dès réception de la facture. Idéal pour les petites missions ou les nouveaux clients.',
+          },
+          {
+            heading: '3. Net 15 Jours : Le Juste Milieu Idéal',
+            body: 'Donne 15 jours calendaires au client. Permet d\'encaisser deux fois par mois tout en laissant le temps à la validation comptable.',
+          },
+          {
+            heading: '4. Net 30 Jours et Réalités des Entreprises',
+            body: 'Accorde un délai de 30 jours. Si un client exige Net 30, demandez un acompte de 50% avant le début des travaux.',
+          },
+          {
+            heading: '5. Escompte pour Règlement Anticipé (Formule 2/10 Net 30)',
+            body: 'Accorder une remise de 2% pour un paiement sous 10 jours incite la comptabilité à traiter votre facture en priorité.',
+          },
+          {
+            heading: '6. Facturation par Étapes et Acomptes Initial (50/50)',
+            body: 'Pour les projets importants, exigez un acompte de 50% avant le lancement de la mission.',
+          },
+          {
+            heading: '7. Application Légale et Mentions Obligatoires',
+            body: 'Assurez-vous que les délais et pénalités figurant sur la facture correspondent au contrat initial.',
+          },
+        ],
+        conclusion: 'Adoptez Net 15 avec un acompte de 50% pour sécuriser vos revenus et maintenir une relation client professionnelle.',
+      },
     },
     'post-3': {
       title: 'Comment Gérer les Impayés et Appliquer des Pénalités de Retard (Modèles d\'Email)',
@@ -1079,9 +1213,49 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-2': {
       title: 'Netto 15 vs. Netto 30 Tage vs. Sofortige Zahlung: Die Besten Zahlungsziele',
-      readTime: '5 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
-      summary: 'Vergleichen Sie Zahlungsziel-Strategien für optimalen Cashflow. Erfahren Sie, wann Sie Netto 15, Netto 30 oder Anzahlungen nutzen.',
+      summary: 'Vergleichen Sie Zahlungsziel-Strategien für optimalen Cashflow. Erfahren Sie, wann Sie Netto 15, Netto 30, sofortige Zahlung oder 2/10 Skonto nutzen.',
+      content: {
+        intro: 'Zahlungsziele legen fest, wann Ihr Kunde erbrachte Leistungen gesetzlich begleichen muss. Die Wahl der richtigen Zahlungsfrist sichert die Liquidität Ihres Unternehmens.',
+        sections: [
+          {
+            heading: '1. Grundlagen von Zahlungszielen und Cashflow',
+            body: 'Das Zahlungsziel beschreibt die eingeräumte Frist zwischen Rechnungsdatum und Fälligkeit.',
+            bullets: [
+              'Netto 7 / Netto 10: Kurze Zahlungsziele für schnelle Teilprojekte',
+              'Netto 15: Der optimale Standard für Freiberufler',
+              'Netto 30: Der Standard in Großunternehmen und Konzernen',
+            ],
+            proTip: 'Verkürzen Sie Ihre Zahlungsziele von 30 auf 15 Tage, um Ihre monatliche Liquidität deutlich zu steigern.',
+          },
+          {
+            heading: '2. Sofortige Zahlung: Wann sinnvoll?',
+            body: 'Erfordert die Begleichung direkt bei Rechnungserhalt. Ideal für Einmalprojekte und Neukunden.',
+          },
+          {
+            heading: '3. Netto 15 Tage: Der ideale Kompromiss',
+            body: 'Gibt dem Kunden 15 Kalendertage Zeit. Bietet optimale Planbarkeit für Freiberufler.',
+          },
+          {
+            heading: '4. Netto 30 Tage im Unternehmensumfeld',
+            body: 'Gewährt 30 Tage Frist. Wenn Konzerne Netto 30 verlangen, vereinbaren Sie eine 50% Anzahlung vor Arbeitsbeginn.',
+          },
+          {
+            heading: '5. Skonto für vorzeitige Zahlung (Frequenz 2/10 Netto 30)',
+            body: '2% Skonto bei Zahlung innerhalb von 10 Tagen motiviert die Buchhaltung zur schnellen Überweisung.',
+          },
+          {
+            heading: '6. Meilenstein-Abrechnung und Anzahlungen (50/50)',
+            body: 'Für größere Projekte vereinbaren Sie 50% Anzahlung vor Projektstart.',
+          },
+          {
+            heading: '7. Rechtliche Durchsetzung von Zahlungszielen',
+            body: 'Verzugszinsen müssen im Vertrag und auf der Rechnung klar ausgewiesen werden.',
+          },
+        ],
+        conclusion: 'Wählen Sie Zahlungsziele, die zu Ihrer Liquidität passen. Netto 15 mit 50% Anzahlung sichert Ihre Einnahmen ab.',
+      },
     },
     'post-3': {
       title: 'Umgang mit unbezahlten Rechnungen & Mahngebühren (E-Mail-Vorlagen)',
