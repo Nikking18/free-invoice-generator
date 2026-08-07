@@ -48,17 +48,17 @@ export default function BlogPage() {
       {/* Support & Footer */}
       <KofiFooterSection />
 
-      <footer className="bg-white text-gray-700 border-t border-gray-200 py-6 text-xs text-center">
+      <footer className="bg-black text-gray-300 border-t border-gray-900 py-6 text-xs text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             © {new Date().getFullYear()} Free Invoice Generator. 100% Client-Side & Private.
           </p>
           <div className="flex items-center space-x-4">
-            <Link href="/" className="text-black font-semibold hover:underline">
+            <Link href="/" className="text-white font-semibold hover:underline">
               Invoice Builder
             </Link>
-            <span className="text-gray-300">•</span>
-            <Link href="/blog" className="text-black font-semibold hover:underline">
+            <span className="text-gray-800">•</span>
+            <Link href="/blog" className="text-white font-semibold hover:underline">
               Blog & News
             </Link>
           </div>
