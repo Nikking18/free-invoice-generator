@@ -1452,18 +1452,79 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Charge Late Fees & Statutory Interest Legally on Overdue Invoices',
     slug: 'how-to-charge-late-payment-interest-legally',
     category: 'Late Payments',
-    readTime: '7 min read',
+    readTime: '9 min read',
     date: 'August 2026',
     summary: 'Understand US, UK (Statutory Interest), and EU late payment legislation. Learn how to calculate monthly interest and enforce contracts.',
     content: {
-      intro: 'When clients ignore payment deadlines, charging legal statutory late interest incentivizes swift settlement while compensating for cash flow disruption.',
+      intro: 'When clients ignore payment deadlines, charging legal statutory late interest serves two commercial purposes: compensating your business for liquidity disruption and prioritizing your invoice in the client\'s accounts payable queue. However, enforcing late fees requires adherence to regional interest caps, contractual disclosures, and proper calculation formulas. In this guide, we break down global late fee regulations and enforcement steps.',
       sections: [
         {
-          heading: 'Standard Late Fee Percentage Rates',
-          body: 'Common freelance late interest rates range from 1.5% per month (18% APR) up to statutory interest rates established by regional commercial laws.',
+          heading: '1. The Commercial Purpose & Legal Right to Charge Late Fees',
+          body: 'Late fees and interest penalties are legally recognized commercial remedies designed to deter late payments and reimburse the administrative costs of debt collection.',
+          bullets: [
+            'Prioritize Payouts: Corporate AP departments prioritize paying invoices with active interest fees over penalty-free bills',
+            'Compensate Capital Costs: Offsets short-term credit lines or cash flow buffers drawn while waiting for payout',
+            'Deter Chronic Delays: Signals to clients that payment terms are firm contractual obligations',
+          ],
+          proTip: 'Always frame late fees as standard commercial policy rather than personal retaliation.',
+        },
+        {
+          heading: '2. Contractual Disclosure Rules: MSA Terms vs. Invoice Footers',
+          body: 'To legally collect late interest in most jurisdictions, the penalty rate must be disclosed in your original contract AND listed on the initial invoice.',
+          bullets: [
+            'Contract Disclosure: Include "Overdue balances subject to 1.5% monthly interest (18% per annum)" in your Master Services Agreement (MSA)',
+            'Invoice Disclaimer: Print the identical late interest clause prominently in your PDF invoice footer',
+            'Retroactive Prohibition: You cannot unilaterally invent late fees on past-due invoices if they were never disclosed in your contract',
+          ],
+        },
+        {
+          heading: '3. United States Late Fee Regulations & State Usury Laws',
+          body: 'In the United States, commercial late fee interest is governed by state-level usury laws.',
+          bullets: [
+            'Standard Commercial Rate: 1.5% monthly interest (18% annual APR) is widely accepted across US B2B contracts',
+            'State Usury Caps: Verify state law limits (e.g., California caps certain interest rates at 10% per annum unless explicitly structured under commercial contract exemptions)',
+            'Flat Fee Limits: Flat late fees (e.g., $50 flat fee) must be reasonable and reflect actual administrative costs',
+          ],
+        },
+        {
+          heading: '4. United Kingdom Legislation: Late Payment of Commercial Debts Act 1998',
+          body: 'The UK provides statutory legal rights for business-to-business (B2B) late payment recovery even if not explicitly stated in contracts.',
+          bullets: [
+            'Statutory Interest Rate: 8% plus the Bank of England base rate on past-due commercial invoices',
+            'Fixed Debt Recovery Compensation: £40 for debts under £1,000; £70 for debts £1,000–£10,000; £100 for debts exceeding £10,000',
+            'Automatic Entitlement: Applies automatically to all B2B transactions between UK businesses',
+          ],
+          proTip: 'Under UK law, you are legally entitled to claim both statutory interest AND the fixed recovery fee on every overdue invoice.',
+        },
+        {
+          heading: '5. European Union Directive 2011/7/EU & German BGB § 288',
+          body: 'The European Union enforces strict late payment regulations across all member states.',
+          bullets: [
+            'EU Statutory Interest: Minimum 8 percentage points above the European Central Bank (ECB) reference rate',
+            'German BGB § 288 (Verzugspauschale): Grants a mandatory €40 fixed debt collection fee plus 9% interest over ECB base rate for B2B transactions',
+            '30-Day Maximum Term: Caps standard commercial payment terms at 30 days unless extended by explicit mutual agreement',
+          ],
+        },
+        {
+          heading: '6. Mathematical Calculation Formulas for Daily & Monthly Interest',
+          body: 'Calculate exact daily statutory interest accurately using standard mathematical formulas.',
+          bullets: [
+            'Monthly Interest Formula: `Interest Fee = Balance Due × Monthly Interest Rate` (e.g., $5,000 × 1.5% = $75/month)',
+            'Daily Interest Formula: `Daily Fee = (Balance Due × Annual APR) / 365 × Days Overdue`',
+            'Example: $10,000 invoice at 10% APR overdue by 21 days = ($10,000 × 0.10 / 365) × 21 = $57.53 interest',
+          ],
+        },
+        {
+          heading: '7. Issuing Revised PDF Invoices with Itemized Late Fee Line Items',
+          body: 'When an invoice passes its due date threshold (e.g., Day +14), issue a revised PDF invoice.',
+          bullets: [
+            'Keep Original Invoice Number: Issue as "INV-2026-001-R1" or keep original number with updated issue date',
+            'Itemize Late Fee Charge: Add a distinct line item titled "Late Payment Interest Penalty (14 Days Past Due)"',
+            'Download & Deliver: Render a fresh vector PDF on freeinvoice.live and deliver with a firm follow-up email',
+          ],
         },
       ],
-      conclusion: 'Enforcing late fee terms professionally protects your business cash flow.',
+      conclusion: 'Enforcing legally backed late fees and statutory interest protects your business liquidity, signals professional boundaries, and accelerates overdue client payouts.',
     },
   },
   {
@@ -1767,7 +1828,7 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
           },
           {
             heading: '4. Fecha de Emisión y Fecha de Vencimiento Explícita',
-            body: 'Muestre claramente la fecha de entrega y el vencimiento calculated.',
+            body: 'Muestre claramente la fecha de entrega y el vencimiento calculado.',
           },
           {
             heading: '5. Descripción Detaillada de Entregables o Servicios',
@@ -1914,46 +1975,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Principales diferencias contables entre facturación de contratistas independientes 1099, consultoría y cuotas de agencia.',
-      content: {
-        intro: 'Aunque los términos "freelancer" y "contratista independiente" se usan como sinónimos informalmente, las autoridades fiscales aplican normas contables específicas a cada uno. En esta guía detallamos los requisitos fiscales y de facturación.',
-        sections: [
-          {
-            heading: '1. Definiciones y Clasificación Fiscal',
-            body: 'Un contratista independiente es una categoría fiscal legal, mientras que freelancer describe la modalidad de trabajo autónomo.',
-          },
-          {
-            heading: '2. Declaraciones Fiscales y Formulario W-9 / 1099',
-            body: 'Los clientes corporativos en EE. UU. emiten el formulario 1099-NEC al superar los $600 anuales cobrados por facturas.',
-          },
-          {
-            heading: '3. Criterios de Clasificación Laboral de las Autoridades Tributarias',
-            body: 'Las facturas independientes son pruebas fundamentales para demostrar la autonomía del contratista y evitar sanciones laborales.',
-          },
-          {
-            heading: '4. Normativa en España y Latinoamérica',
-            body: 'Asegúrese de incluir las retenciones de IRPF o impuestos locales obligatorios en sus facturas de autónomo.',
-          },
-          {
-            heading: '5. Coincidencia de Datos de Factura con el Formulario Fiscal',
-            body: 'Los datos del emisor en la factura deben coincidir al 100% con su identificación registrada.',
-          },
-          {
-            heading: '6. Gestión de Impuestos Autónomos y Pagos Trimestrales',
-            body: 'Reserve un 25%-30% de cada factura cobrada para liquidaciones fiscales periódicas.',
-          },
-          {
-            heading: '7. Facturas Conformes para Contratistas con freeinvoice.live',
-            body: 'Genere facturas en PDF con número de identificación fiscal y numeración secuencial en segundos.',
-          },
-        ],
-        conclusion: 'Ainear sus facturas con las exigencias fiscales de los contratistas independientes evita retenciones y agiliza los cobros.',
-      },
     },
     'post-19': {
       title: 'Cómo Cobrar Recargos e Intereses de Demora Legalmente en Facturas',
-      readTime: '7 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Conozca la legislación de mora e intereses legales. Aprenda a calcular intereses mensuales e incluirlos en contratos.',
+      content: {
+        intro: 'Cuando los clientes ignoran los plazos de pago, cobrar intereses legales por mora cumple dos funciones comerciales: compensar la falta de liquidez y priorizar su factura en la cola de pagos del cliente. En esta guía desglosamos las normativas internacionales.',
+        sections: [
+          {
+            heading: '1. Finalidad Comercial y Derecho Legal a Cobrar Intereses de Mora',
+            body: 'Los recargos por demora son mecanismos legales reconocidos para desincentivar impagos y cubrir costes administrativos de cobro.',
+          },
+          {
+            heading: '2. Cláusulas de Transparencia Contractual: Contratos y Facturas',
+            body: 'Para exigir recargos por mora legalmente, el porcentaje debe figurar en el contrato inicial Y en el pie de página de la factura.',
+          },
+          {
+            heading: '3. Normativa en EE. UU. y Leyes de Usura',
+            body: 'El interés comercial estándar del 1,5% mensual (18% anual) está ampliamente aceptado en contratos B2B.',
+          },
+          {
+            heading: '4. Legislación en el Reino Unido (Late Payment Act 1998)',
+            body: 'Otorga un 8% más el tipo de interés del Banco de Inglaterra más indemnizaciones fijas por costes de recobro (£40 a £100).',
+          },
+          {
+            heading: '5. Directiva Europea 2011/7/UE y Ley de Morosidad',
+            body: 'En la UE se establece un tipo de demora legal mínimo del 8% al 9% sobre el tipo del BCE más 40 € de indemnización fija por costes de cobro.',
+          },
+          {
+            heading: '6. Fórmulas de Cálculo Matemático de Intereses Diarios',
+            body: 'Fórmula Diaria: (Saldo Pendiente × Tipo Anual) / 365 × Días de Retraso.',
+          },
+          {
+            heading: '7. Emisión de Facturas Rectificativas en PDF con freeinvoice.live',
+            body: 'Emita facturas actualizadas en PDF que incluyan la línea desglosada "Intereses de Demora" y el nuevo saldo total.',
+          },
+        ],
+        conclusion: 'Aplicar recargos respaldados por la ley protege su liquidez y acelera el cobro de facturas vencidas.',
+      },
     },
     'post-20': {
       title: 'Mejores Prácticas para Guardar Facturas Fiscales y Registros (Regla 5 Años)',
@@ -2362,46 +2423,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Distinctions comptables clés entre la facturation de sous-traitance, le conseil et les contrats d\'agence.',
-      content: {
-        intro: 'Bien que les termes "freelance" et "prestataire indépendant" soient souvent utilisés de manière interchangeable, l\'administration fiscale applique des règles spécifiques à chaque statut. Ce guide détaille les exigences de facturation.',
-        sections: [
-          {
-            heading: '1. Définitions et Cadre Juridique',
-            body: 'Le statut de sous-traitant indépendant constitue une catégorie fiscale légale alors que le terme freelance décrit un mode d\'exercice.',
-          },
-          {
-            heading: '2. Obligations de Déclaration Fiscale et SIRET',
-            body: 'Indiquez systématiquement votre numéro SIRET et numéro de TVA intracommunautaire sur toutes vos factures.',
-          },
-          {
-            heading: '3. Critères d\'Indépendance et Prévention du Salariat Déguisé',
-            body: 'La délivrance de factures indépendantes prouve l\'absence de lien de subordination juridique avec le client.',
-          },
-          {
-            heading: '4. Réglementation Européenne et Mentions Obligatoires',
-            body: 'Respectez les mentions légales sur le délai de paiement et l\'indemnité forfaitaire pour frais de recouvrement.',
-          },
-          {
-            heading: '5. Concordance des Coordonnées de Facturation',
-            body: 'Assurez-vous que la raison sociale sur la facture concorde parfaitement avec vos déclarations officielles.',
-          },
-          {
-            heading: '6. Gestion des Cotisations Sociales et Acomptes',
-            body: 'Provisionnez vos charges sociales sur chaque facture perçue.',
-          },
-          {
-            heading: '7. Facturation Conforme avec freeinvoice.live',
-            body: 'Émettez des factures PDF conformes aux exigences comptables des prestataires en quelques secondes.',
-          },
-        ],
-        conclusion: 'Harmoniser vos factures avec les règles de la sous-traitance indépendante garantit des paiements sans blocage.',
-      },
     },
     'post-19': {
       title: 'Comment Appliquer Légalement des Pénalités et Intérêts de Retard',
-      readTime: '7 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Comprendre la législation sur les retards de paiement et calculer les intérêts légaux sur les factures en souffrance.',
+      content: {
+        intro: 'En cas de retard de paiement, facturer des pénalités de retard légales permet de compenser la gêne de trésorerie et d\'inciter le client à régler la facture rapidement. Ce guide détaille les dispositions légales.',
+        sections: [
+          {
+            heading: '1. Objectif Commercial et Droit Légal aux Pénalités de Retard',
+            body: 'Les pénalités de retard constituent des réparations légales destinées à compenser les coûts de gestion des impayés.',
+          },
+          {
+            heading: '2. Transparence Contractuelle et Mentions Obligatoires',
+            body: 'Pour être applicables, les pénalités et l\'indemnité forfaitaire de 40 € doivent figurer dans les conditions générales et sur la facture.',
+          },
+          {
+            heading: '3. Réglementation aux États-Unis et Plafonds d\'Intérêt',
+            body: 'Le taux d\'intérêt commercial standard de 1,5% par mois (18% par an) est couramment appliqué.',
+          },
+          {
+            heading: '4. Législation au Royaume-Uni (Late Payment Act 1998)',
+            body: 'Donne droit à 8% au-dessus du taux de la Banque d\'Angleterre plus une indemnité forfaitaire pour frais de recouvrement.',
+          },
+          {
+            heading: '5. Directive Européenne 2011/7/UE et Droit Français',
+            body: 'En France, le taux légal des pénalités est égal au taux BCE majoré de 10 points (ou 3 fois le taux légal) plus l\'indemnité forfaitaire de 40 € (art. L. 441-10 du Code de commerce).',
+          },
+          {
+            heading: '6. Formules Mathématiques de Calcul des Intérêts',
+            body: 'Formule : (Montant TTC × Taux Annuel) / 365 × Nombre de Jours de Retard.',
+          },
+          {
+            heading: '7. Émission d\'une Facture PDF Actualisée sur freeinvoice.live',
+            body: 'Émettez une facture PDF actualisée incluant la ligne "Pénalités de Retard" et "Indemnité Forfaitaire de Recouvrement".',
+          },
+        ],
+        conclusion: 'L\'application stricte des pénalités légales protège votre trésorerie et affirme votre rigueur professionnelle.',
+      },
     },
     'post-20': {
       title: 'Conservation des Factures et Pièces Comptables (Règle des 5 Ans)',
@@ -2800,46 +2861,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Wichtige buchhalterische Unterschiede bei der Rechnungsstellung von Freelancern und Auftragnehmern.',
-      content: {
-        intro: 'Obwohl die Begriffe "Freelancer" und "Subunternehmer" umgangssprachlich oft gleichgesetzt werden, stellt das Finanzamt spezifische steuerliche Anforderungen an beide Formen. Dieser Leitfaden erläutert die feinen Unterschiede.',
-        sections: [
-          {
-            heading: '1. Rechtliche Definitionen und Steuerklassen',
-            body: 'Ein selbstständiger Auftragnehmer ist eine steuerliche Kategorie, während Freiberufler den gewerblichen Status beschreibt.',
-          },
-          {
-            heading: '2. Steuerliche Meldepflichten und Steuernummern',
-            body: 'Weisen Sie Ihre Steuernummer oder USt-IdNr. immer korrekt auf allen Rechnungen aus.',
-          },
-          {
-            heading: '3. Kriterien zur Scheinselbstständigkeit',
-            body: 'Ausgestellte Rechnungen sind wesentliche Belege gegenüber der Deutschen Rentenversicherung zum Nachweis der Selbstständigkeit.',
-          },
-          {
-            heading: '4. Ausländische Regelungen und Reverse-Charge',
-            body: 'Bei Auslandsaufträgen gilt in Europa häufig das Reverse-Charge-Verfahren zur Verlagerung der Steuerdaten.',
-          },
-          {
-            heading: '5. Übereinstimmung der Stammdaten',
-            body: 'Rechnungsadresse und Firmenname müssen exakt mit Ihren behördlichen Registrierungsdaten übereinstimmen.',
-          },
-          {
-            heading: '6. Rücklagen für Einkommensteuer und Gewerbesteuer',
-            body: 'Legen Sie mindestens 25% bis 30% aller Rechnungseingänge für Steuernachzahlungen zurück.',
-          },
-          {
-            heading: '7. Finanzamtskonforme Rechnungen mit freeinvoice.live',
-            body: 'Erstellen Sie PDF-Rechnungen mit ausgewiesenen Steuernummern und lückenloser Nummerierung in Sekunden.',
-          },
-        ],
-        conclusion: 'KORREKT aufgesetzte Auftragnehmer-Rechnungen verhindern Verzögerungen in der Buchhaltung und schützen vor Scheinselbstständigkeits-Audits.',
-      },
     },
     'post-19': {
       title: 'Mahngebühren & Verzugszinsen Auf Überfällige Rechnungen Legal Berechnen',
-      readTime: '7 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Gesetzliche Regelungen zu Verzugszinsen verstehen und Ausfälle wirksam vermeiden.',
+      content: {
+        intro: 'Bei verpäteten Zahlungen dient die legale Berechnung von Verzugszinsen zwei Zwecken: Ausgleich des Zinsnachteils und Priorisierung Ihrer Rechnung in der Kundenbuchhaltung. Dieser Leitfaden erklärt die rechtlichen Rahmenbedingungen.',
+        sections: [
+          {
+            heading: '1. Wirtschaftlicher Zweck & Rechtlicher Anspruch auf Verzugszinsen',
+            body: 'Verzugszinsen sind gesetzlich verankerte Mittel zur Kompensation von Verwaltungs- und Ausfallkosten bei Zahlungsverzug.',
+          },
+          {
+            heading: '2. Vertragliche Transparenz: AGB und Rechnungsfusszeile',
+            body: 'Verzugszinsen müssen im ursprünglichen Vertrag und auf der ursprünglichen Rechnung angegeben sein.',
+          },
+          {
+            heading: '3. Regelungen in den USA und Zinsuntergrenzen',
+            body: 'Handelsübliche Verzugszinsen von 1,5% pro Monat (18% p.a.) sind in B2B-Verträgen üblich.',
+          },
+          {
+            heading: '4. Britisches Recht (Late Payment of Commercial Debts Act 1998)',
+            body: 'Gewährt 8% über dem Basiszinssatz der Bank of England plus pauschale Auslagenersatzgebühren (40 bis 100 GBP).',
+          },
+          {
+            heading: '5. EU-Richtlinie 2011/7/EU & Deutsches BGB (§ 288)',
+            body: 'In Deutschland betragen B2B-Verzugszinsen 9 Prozentpunkte über dem Basiszinssatz der EZB zzgl. 40 € Verzugspauschale (§ 288 Abs. 5 BGB).',
+          },
+          {
+            heading: '6. Mathematische Berechnungsformel für Tageszinsen',
+            body: 'Formel für Tageszinsen: (Rechnungsbetrag × Jahreszinssatz) / 365 × Verzugstage.',
+          },
+          {
+            heading: '7. Ausstellung korrigierter PDF-Rechnungen mit freeinvoice.live',
+            body: 'Erstellen Sie eine korrigierte PDF-Rechnung mit der ausgewiesenen Position "Verzugszinsen gemäß § 288 BGB" und der Verzugspauschale.',
+          },
+        ],
+        conclusion: 'Die rechtssichere Berechnung von Verzugszinsen schützt Ihre Liquidität und setzt klare professionelle Grenzen.',
+      },
     },
     'post-20': {
       title: 'Aufbewahrung von Steuerrechnungen & Unterlagen (5-Jahre-Regel)',
