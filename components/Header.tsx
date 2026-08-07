@@ -38,7 +38,7 @@ export function Header({
     { id: 'items', labelKey: 'tabItemLibrary', icon: Package },
     { id: 'settings', labelKey: 'tabSettings', icon: Building2 },
     { id: 'backup', labelKey: 'tabBackup', icon: Database },
-    { id: 'blog', labelKey: 'tabBlog', icon: BookOpen },
+    { id: 'blog', labelKey: 'tabBlogNews', icon: BookOpen },
   ];
 
   return (

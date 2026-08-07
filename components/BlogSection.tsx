@@ -10,235 +10,279 @@ import {
   FileText, 
   X,
   Calendar,
+  Layers,
   Globe
 } from 'lucide-react';
 import { useTranslation } from '../lib/i18n/LanguageContext';
 import { AppLanguage } from '../lib/i18n/translations';
 
-interface BlogContentSection {
-  heading: string;
-  body: string;
-  bullets?: string[];
-  proTip?: string;
-}
-
-interface BlogPostLocalized {
+export interface MultilingualContent {
   title: string;
   category: string;
   readTime: string;
   date: string;
   summary: string;
   intro: string;
-  sections: BlogContentSection[];
+  sections: {
+    heading: string;
+    body: string;
+    bullets?: string[];
+    proTip?: string;
+  }[];
   conclusion: string;
 }
 
-const BLOG_POST_1: Record<AppLanguage, BlogPostLocalized> = {
+export interface BlogPostData {
+  id: string;
+  slug: string;
+  translations: Record<AppLanguage, MultilingualContent>;
+}
+
+// Complete Multilingual Blog #1 & Topic Roadmap
+export const BLOG_POSTS: BlogPostData[] = [
+  {
+    id: 'blog-1',
+    slug: 'professional-freelance-invoicing-guide',
+    translations: {
+      en: {
+        title: 'The Ultimate Guide to Professional Freelance Invoicing (2026 Checklist)',
+        category: 'Invoicing 101',
+        readTime: '6 min read',
+        date: 'August 2026',
+        summary: 'Master the anatomy of a professional invoice. Learn what essential fields must be included to avoid payment delays and get paid on time every time.',
+        intro: 'Creating a professional invoice is one of the most vital operations in running a successful freelance or small business. A clear, well-structured invoice eliminates confusion, speeds up approvals from corporate accounting departments, and protects your legal right to compensation.',
+        sections: [
+          {
+            heading: '1. Header & Business Identification',
+            body: 'Your invoice must clearly state your business name, logo, legal address, contact email, and phone number. Equally important is identifying your client\'s company name, point of contact, and billing address.',
+            bullets: [
+              'Business Legal Name & Logo',
+              'Tax ID / VAT Number (mandatory for EU & international transactions)',
+              'Client Billing Contact & Department Name',
+            ],
+            proTip: 'Always address the invoice directly to the accounts payable manager or project lead to prevent routing delays.',
+          },
+          {
+            heading: '2. Unique Invoice Number & Issue Date',
+            body: 'Every invoice requires a unique sequential invoice number (e.g., INV-2026-001). Sequential numbering is mandatory for tax compliance and enables rapid searching during financial audits.',
+            bullets: [
+              'Sequential numbering structure (e.g., INV-001 or YYYY-MM-001)',
+              'Invoice Issue Date (the exact date of issue)',
+              'Explicit Due Date calculated strictly from your payment terms',
+            ],
+          },
+          {
+            heading: '3. Detailed Line-Item Breakdown',
+            body: 'Avoid vague descriptions like "Consulting services". Break down your deliverables into individual line items with quantity, unit rate, hours worked, and subtotal per item.',
+            proTip: 'Itemized invoices build client trust and result in 35% faster approval rates by finance departments.',
+          },
+          {
+            heading: '4. Explicit Payment Terms & Payment Instructions',
+            body: 'Clearly outline your accepted payment methods (bank transfer, Stripe, PayPal) along with account numbers or payment handles. State your payment terms (e.g., Net 15 Days) and any applicable late fee terms.',
+          },
+        ],
+        conclusion: 'By standardizing your invoice workflow with automated numbering, clear line items, and explicit payment instructions, you transform billing from a friction point into a seamless experience.',
+      },
+      es: {
+        title: 'La Guía Definitiva de Facturación Profesional para Freelancers (Lista de Control 2026)',
+        category: 'Facturación 101',
+        readTime: '6 min de lectura',
+        date: 'Agosto 2026',
+        summary: 'Domina la anatomía de una factura profesional. Conoce los campos esenciales que deben incluirse para evitar retrasos y cobrar a tiempo siempre.',
+        intro: 'Crear una factura profesional es una de las operaciones más vitales para dirigir un negocio independiente exitoso. Una factura clara elimina confusiones, acelera aprobaciones y protege tu derecho al cobro.',
+        sections: [
+          {
+            heading: '1. Encabezado e Identificación de la Empresa',
+            body: 'Tu factura debe indicar claramente el nombre de tu empresa, dirección, correo y teléfono. Es igual de importante identificar los datos de facturación de tu cliente.',
+            bullets: [
+              'Nombre legal y logotipo de la empresa',
+              'Número de Identificación Fiscal / NIF / RUC',
+              'Contacto y departamento de facturación del cliente',
+            ],
+            proTip: 'Dirige la factura directamente al responsable de cuentas por pagar para evitar demoras.',
+          },
+          {
+            heading: '2. Número de Factura Único y Fecha de Emisión',
+            body: 'Cada factura requiere un número secuencial único (ej. FACT-2026-001). La numeración correlativa es obligatoria para la contabilidad oficial.',
+            bullets: [
+              'Estructura de numeración secuencial',
+              'Fecha exacta de emisión',
+              'Fecha límite de pago calculada según tus términos',
+            ],
+          },
+          {
+            heading: '3. Desglose Detallado de Conceptos',
+            body: 'Evita descripciones vagas. Detalla cada servicio con cantidad, precio unitario, horas trabajadas y subtotal.',
+            proTip: 'Las facturas desglosadas generan confianza y se aprueban hasta un 35% más rápido.',
+          },
+          {
+            heading: '4. Términos e Instrucciones de Pago Claras',
+            body: 'Detalla tus métodos de pago aceptados (transferencia bancaria, IBAN, PayPal) y especifica los plazos (ej. Neto 15 Días).',
+          },
+        ],
+        conclusion: 'Al estandarizar tus facturas con numeración automática e instrucciones claras, transformas el cobro en un proceso ágil y profesional.',
+      },
+      fr: {
+        title: 'Le Guide Ultime de la Facturation Professionnelle pour Freelances (Checklist 2026)',
+        category: 'Facturation 101',
+        readTime: '6 min de lecture',
+        date: 'Août 2026',
+        summary: 'Maîtrisez l\'anatomie d\'une facture professionnelle. Découvrez les champs essentiels pour éviter les retards et être payé à temps.',
+        intro: 'La création d\'une facture professionnelle est essentielle à la réussite de votre activité indépendante. Une facture claire accélère la validation par le service comptabilité.',
+        sections: [
+          {
+            heading: '1. En-tête et Identification de l\'Entreprise',
+            body: 'Indiquez clairement votre nom commercial, adresse, email et SIRET/TVA. Identifiez également le destinataire chez votre client.',
+            bullets: [
+              'Nom légal et logo',
+              'Numéro SIRET / Numéro de TVA Intracommunautaire',
+              'Coordonnées du service facturation client',
+            ],
+            proTip: 'Adressez la facture directement au responsable comptable pour accélérer le traitement.',
+          },
+          {
+            heading: '2. Numéro de Facture Unique et Date d\'Émission',
+            body: 'Chaque facture doit comporter un numéro séquentiel unique (ex. FAC-2026-001) conformément aux obligations comptables.',
+            bullets: [
+              'Numérotation chronologique continue',
+              'Date d\'émission exacte',
+              'Date d\'échéance explicite',
+            ],
+          },
+          {
+            heading: '3. Détail des Prestations et Services',
+            body: 'Détaillez vos prestations par ligne avec quantité, prix unitaire, heures et sous-total.',
+            proTip: 'Un détail précis renforce la confiance et accélère le paiement de 35%.',
+          },
+          {
+            heading: '4. Conditions et Instructions de Règlement',
+            body: 'Précisez vos coordonnées bancaires (IBAN/BIC), vos modes de paiement et les pénalités de retard applicables.',
+          },
+        ],
+        conclusion: 'En numérotant et détaillant vos factures avec soin, vous sécurisez vos encaissements au quotidien.',
+      },
+      de: {
+        title: 'Der Ultimative Leitfaden für Professionelle Freiberufler-Rechnungen (Checkliste 2026)',
+        category: 'Rechnungswesen 101',
+        readTime: '6 Min. Lesezeit',
+        date: 'August 2026',
+        summary: 'Meistern Sie den Aufbau einer professionellen Rechnung. Erfahren Sie, welche Pflichtangaben erforderlich sind, um pünktlich bezahlt zu werden.',
+        intro: 'Die Erstellung einer ordnungsgemäßen Rechnung ist entscheidend für den Erfolg Ihres Freiberufler-Geschäfts. Eine transparente Rechnung verhindert Rückfragen in der Buchhaltung.',
+        sections: [
+          {
+            heading: '1. Kopfzeile & Unternehmensdaten',
+            body: 'Ihre Rechnung muss Firmennamen, Anschrift, E-Mail und Steuernummer/Ust-IdNr. sowie die Daten des Rechnungsempfängers enthalten.',
+            bullets: [
+              'Firmenname & Logo',
+              'Steuernummer / Umsatzsteuer-Identifikationsnummer (Ust-IdNr.)',
+              'Kunden-Ansprechpartner & Rechnungsadresse',
+            ],
+            proTip: 'Senden Sie die Rechnung direkt an die zuständige Buchhaltung.',
+          },
+          {
+            heading: '2. Fortlaufende Rechnungsnummer & Rechnungsdatum',
+            body: 'Jede Rechnung benötigt eine eindeutige fortlaufende Nummer (z. B. RE-2026-001) gemäß den gesetzlichen Vorgaben.',
+            bullets: [
+              'Fortlaufende Nummernstruktur',
+              'Rechnungsdatum (Ausstellungsdatum)',
+              'Konkretes Fälligkeitsdatum',
+            ],
+          },
+          {
+            heading: '3. Detaillierte Leistungsaufschlüsselung',
+            body: 'Schlüsseln Sie Ihre Leistungen nach Menge, Einzelpreis und Gesamtbetrag auf.',
+            proTip: 'Detaillierte Rechnungen sorgen für Vertrauen und beschleunigen die Freigabe um 35 %.',
+          },
+          {
+            heading: '4. Zahlungsbedingungen & Bankverbindung',
+            body: 'Geben Sie IBAN, BIC, Zahlungsziel (z. B. 14 Tage netto) sowie etwaige Verzugszinsen an.',
+          },
+        ],
+        conclusion: 'Mit einer strukturierten Rechnungsstellung sichern Sie Ihren Liquiditätsfluss professionell ab.',
+      },
+    },
+  },
+];
+
+// Content UI Translations
+const BLOG_UI_TRANSLATIONS: Record<AppLanguage, {
+  tag: string;
+  title: string;
+  subtitle: string;
+  readArticle: string;
+  keyTakeaway: string;
+  createInvoiceNow: string;
+  publishedBy: string;
+  upcomingTopicsTitle: string;
+  upcomingTopicsSubtitle: string;
+}> = {
   en: {
-    title: 'The Ultimate Guide to Professional Freelance Invoicing: What to Include & Best Practices',
-    category: 'Invoicing 101',
-    readTime: '6 min read',
-    date: 'August 2026',
-    summary: 'Master the anatomy of a professional invoice. Learn what essential fields must be included to avoid payment delays and get paid on time every time.',
-    intro: 'Creating a professional invoice is one of the most vital operations in running a successful freelance or small business. A clear, well-structured invoice eliminates confusion, speeds up approvals from corporate accounting departments, and protects your legal right to compensation.',
-    sections: [
-      {
-        heading: '1. Header & Business Identification',
-        body: 'Your invoice must clearly state your business name, logo, legal address, contact email, and phone number. Equally important is identifying your client\'s company name, point of contact, and billing address.',
-        bullets: [
-          'Business Name & Logo',
-          'Tax ID / VAT Number (if applicable)',
-          'Client Billing Contact & Department',
-        ],
-        proTip: 'Always address the invoice to the accounts payable manager or project owner directly to prevent routing delays.',
-      },
-      {
-        heading: '2. Unique Invoice Number & Invoice Date',
-        body: 'Every invoice requires a unique sequential invoice number (e.g., INV-2026-001). Sequential numbering is mandatory for accounting compliance and enables rapid searching during tax audits.',
-        bullets: [
-          'Sequential numbering structure (e.g., INV-001 or YYYY-MM-001)',
-          'Invoice Issue Date (the exact day it is delivered)',
-          'Explicit Due Date calculated from your payment terms',
-        ],
-        proTip: 'Non-sequential or missing invoice numbers trigger tax audit red flags and delay accounting processing.',
-      },
-      {
-        heading: '3. Detailed Line-Item Breakdown',
-        body: 'Avoid vague descriptions like "Consulting services". Break down your deliverables into individual line items with quantity, unit rate, hours worked, and subtotal per item.',
-        bullets: [
-          'Clear deliverable descriptions',
-          'Quantity & Unit Price breakdown',
-          'Taxable indicator flags per item',
-        ],
-        proTip: 'Itemized invoices build client trust and result in 35% faster invoice approval rates.',
-      },
-      {
-        heading: '4. Explicit Payment Terms & Payment Instructions',
-        body: 'State payment terms clearly (e.g., Net 15 Days, Net 30 Days, or 50% Deposit). Provide exact bank transfer details (IBAN/SWIFT), PayPal email, or payment link.',
-        bullets: [
-          'Net 15 / Net 30 payment terms',
-          'Bank SWIFT/IBAN & ACH details',
-          'Late payment penalty terms (e.g., 1.5% monthly interest)',
-        ],
-        proTip: 'Offering a 2% early payment discount (2/10 Net 30) can accelerate client payments by up to 10 days.',
-      },
-    ],
-    conclusion: 'By standardizing your invoice workflow with automated numbering, clear line items, and explicit payment instructions, you transform billing from a friction point into a seamless experience.',
+    tag: 'Invoicing Knowledge Hub & Guides',
+    title: 'Master Freelance Invoicing & Financial Best Practices',
+    subtitle: 'Expert guides, payment term strategies, and late payment recovery frameworks to help you get paid faster.',
+    readArticle: 'Read Full Article',
+    keyTakeaway: 'Key Takeaway',
+    createInvoiceNow: 'Create Invoice Now',
+    publishedBy: 'Published by Free Invoice Generator',
+    upcomingTopicsTitle: 'Upcoming Blog Series Topics',
+    upcomingTopicsSubtitle: 'We are expanding our knowledge base step-by-step. Here are the next high-ranking topics in our queue:',
   },
   es: {
-    title: 'La Guía Definitiva de Facturación Freelance Profesional: Qué Incluir y Mejores Prácticas',
-    category: 'Facturación 101',
-    readTime: '6 min de lectura',
-    date: 'Agosto 2026',
-    summary: 'Domine la estructura de una factura profesional. Aprenda qué campos esenciales incluir para evitar retrasos en sus cobros y recibir pagos a tiempo.',
-    intro: 'Crear una factura profesional es una operación fundamental para freelancers y pequeñas empresas. Una factura bien estructurada elimina confusiones, acelera las aprobaciones contables y protege sus derechos de cobro.',
-    sections: [
-      {
-        heading: '1. Encabezado e Identificación Comercial',
-        body: 'Su factura debe indicar claramente el nombre de su empresa, logotipo, dirección fiscal, correo de contacto y teléfono, así como la información del cliente.',
-        bullets: [
-          'Nombre comercial y Logotipo',
-          'Número de Identificación Fiscal / NIF / RFC',
-          'Contacto de Facturación del Cliente',
-        ],
-        proTip: 'Dirija siempre la factura directamente al responsable de cuentas por pagar para evitar demoras.',
-      },
-      {
-        heading: '2. Número de Factura Secuencial Único y Fecha',
-        body: 'Cada factura requiere un número correlativo único (ej. FACT-2026-001). La numeración secuencial es obligatoria para el cumplimiento fiscal.',
-        bullets: [
-          'Estructura secuencial (ej. FACT-001 o AAAA-MM-001)',
-          'Fecha de emisión exacta',
-          'Fecha de vencimiento calculada',
-        ],
-        proTip: 'Las facturas sin número secuencial generan alertas en auditorías fiscales y retrasan cobros.',
-      },
-      {
-        heading: '3. Desglose Detallado de Artículos y Servicios',
-        body: 'Evite descripciones vagas como "Servicios de consultoría". Desglose sus entregables en líneas individuales indicando cantidad, precio unitario y subtotal.',
-        bullets: [
-          'Descripción detallada de entregables',
-          'Desglose de Cantidad y Precio Unitario',
-          'Indicador de Impuestos por artículo',
-        ],
-        proTip: 'Las facturas detalladas generan mayor confianza y se aprueban un 35% más rápido.',
-      },
-      {
-        heading: '4. Términos e Instrucciones de Pago Claras',
-        body: 'Especifique los plazos de pago (ej. Neto a 15 días, 30 días o Depósito del 50%). Proporcione datos bancarios precisos (IBAN/SWIFT) o enlaces de pago.',
-        bullets: [
-          'Términos Neto 15 / Neto 30 días',
-          'Datos bancarios IBAN, SWIFT o PayPal',
-          'Cláusula de penalización por pago tardío (ej. 1.5% mensual)',
-        ],
-        proTip: 'Ofrecer un descuento por pago anticipado del 2% puede adelantar sus cobros hasta 10 días.',
-      },
-    ],
-    conclusion: 'Estandarizar su proceso de facturación con numeración automática e instrucciones claras transforma el cobro en una experiencia fluida.',
+    tag: 'Centro de Conocimiento y Guías de Facturación',
+    title: 'Domina la Facturación Freelance y las Mejores Prácticas',
+    subtitle: 'Guías expertas, estrategias de plazos de pago y plantillas para cobrar más rápido.',
+    readArticle: 'Leer Artículo Completo',
+    keyTakeaway: 'Conclusión Clave',
+    createInvoiceNow: 'Crear Factura Ahora',
+    publishedBy: 'Publicado por Generador de Facturas Gratis',
+    upcomingTopicsTitle: 'Próximos Temas del Blog',
+    upcomingTopicsSubtitle: 'Estamos ampliando nuestra base de conocimientos paso a paso. Próximos temas:',
   },
   fr: {
-    title: 'Le Guide Ultime de la Facturation Indépendante Professionnelle: Éléments Essentiels et Bonnes Pratiques',
-    category: 'Facturation 101',
-    readTime: '6 min de lecture',
-    date: 'Août 2026',
-    summary: 'Maîtrisez la structure d\'une facture professionnelle. Découvrez les mentions obligatoires pour éviter les retards de paiement et encaisser à temps.',
-    intro: 'La création d\'une facture professionnelle est essentielle pour le succès des indépendants et PME. Une facture claire accélère la validation comptable et protège vos revenus.',
-    sections: [
-      {
-        heading: '1. En-tête et Identification de l\'Entreprise',
-        body: 'Votre facture doit indiquer clairement votre nom commercial, logo, adresse légale, email, numéro SIRET/TVA ainsi que les coordonnées du client.',
-        bullets: [
-          'Nom d\'entreprise & Logo',
-          'Numéro SIRET / Numéro de TVA intracommunautaire',
-          'Contact et service facturation du client',
-        ],
-        proTip: 'Adressez toujours la facture directement au responsable de la comptabilité pour éviter les retards.',
-      },
-      {
-        heading: '2. Numéro de Facture Séquentiel Unique et Dates',
-        body: 'Chaque facture doit comporter un numéro séquentiel ininterrompu (ex. FACT-2026-001), obligatoire pour la conformité fiscale.',
-        bullets: [
-          'Numérotation séquentielle (ex. FACT-001)',
-          'Date d\'émission exacte',
-          'Date d\'échéance calculée',
-        ],
-        proTip: 'Une numérotation non séquentielle est une anomalie majeure lors des contrôles fiscaux.',
-      },
-      {
-        heading: '3. Détail des Prestations et Tarifs',
-        body: 'Évitez les descriptions vagues. Détaillez chaque prestation avec quantité, prix unitaire, nombre d\'heures et sous-total.',
-        bullets: [
-          'Description précise des livrables',
-          'Quantité et Prix Unitaire',
-          'Taux de TVA applicable par article',
-        ],
-        proTip: 'Des factures détaillées augmentent le taux d\'approbation rapide de 35%.',
-      },
-      {
-        heading: '4. Conditions et Instructions de Paiement',
-        body: 'Indiquez clairement le délai de paiement (Net 15 jours, Net 30 jours, ou acompte de 50%) ainsi que vos coordonnées bancaires (IBAN/BIC).',
-        bullets: [
-          'Conditions de paiement Net 15 / Net 30',
-          'Coordonnées bancaires IBAN & BIC',
-          'Pénalités de retard applicables (ex. 1.5% par mois)',
-        ],
-        proTip: 'Proposer un d\'escompte de 2% pour paiement anticipé accélère les règlements de 10 jours.',
-      },
-    ],
-    conclusion: 'En standardisant votre processus de facturation, vous transformez l\'encaissement en un processus fluide et professionnel.',
+    tag: 'Guides & Centre de Connaissances Facturation',
+    title: 'Maîtrisez la Facturation Freelance & Bonnes Pratiques',
+    subtitle: 'Guides d\'experts, stratégies de paiement et conseils pour être payé plus vite.',
+    readArticle: 'Lire l\'Article Complet',
+    keyTakeaway: 'À Retenir',
+    createInvoiceNow: 'Créer une Facture Maintenant',
+    publishedBy: 'Publié par Générateur de Facture Gratuit',
+    upcomingTopicsTitle: 'Prochains Sujets à Paraître',
+    upcomingTopicsSubtitle: 'Nous enrichissons notre guide étape par étape. Prochains articles en préparation :',
   },
   de: {
-    title: 'Der ultimative Leitfaden für professionelle Rechnungsstellung: Wichtige Bestandteile & Best Practices',
-    category: 'Rechnungswesen 101',
-    readTime: '6 Min. Lesezeit',
-    date: 'August 2026',
-    summary: 'Meistern Sie den Aufbau einer professionellen Rechnung. Lernen Sie alle Pflichtangaben kennen, um Zahlungsverzögerungen zu vermeiden.',
-    intro: 'Eine professionelle Rechnung ist das Rückgrat jedes Freelancers und Unternehmens. Eine ordnungsgemäße Rechnung beschleunigt die Buchhaltungsfreigabe und sichert Ihre Zahlungsansprüche.',
-    sections: [
-      {
-        heading: '1. Kopfzeile & Unternehmensangaben',
-        body: 'Ihre Rechnung muss Firmenname, Logo, Adresse, E-Mail, Telefonnummer sowie Ihre Steuernummer / USt-IdNr. und Kundendaten enthalten.',
-        bullets: [
-          'Firmenname & Logo',
-          'Steuernummer / USt-IdNr.',
-          'Rechnungsadresse des Kunden',
-        ],
-        proTip: 'Richten Sie die Rechnung direkt an den zuständigen Ansprechpartner der Buchhaltung.',
-      },
-      {
-        heading: '2. Fortlaufende Rechnungsnummer & Datumsangaben',
-        body: 'Jede Rechnung benötigt eine einmalige fortlaufende Rechnungsnummer (z. B. RE-2026-001) gemäß GoBD-Standards.',
-        bullets: [
-          'Fortlaufendes Nummernsystem (z. B. RE-001)',
-          'Ausstellungsdatum der Rechnung',
-          'Fälligkeitsdatum gemäß Zahlungsziel',
-        ],
-        proTip: 'Lücken in der Rechnungsnummerierung führen bei Betriebsprüfungen zu Beanstandungen.',
-      },
-      {
-        heading: '3. Detaillierte Postenaufstellung',
-        body: 'Vermeiden Sie pauschale Formulierungen. Schlüsseln Sie Leistungen nach Menge, Einzelpreis, Stundensatz und Nettobetrag auf.',
-        bullets: [
-          'Präzise Leistungsbeschreibung',
-          'Menge & Einzelpreis',
-          'Ausgewiesener Steuersatz je Position',
-        ],
-        proTip: 'Detaillierte Aufstellungen erhöhen die Freigabegeschwindigkeit um 35%.',
-      },
-      {
-        heading: '4. Zahlungsbedingungen & Bankverbindung',
-        body: 'Nennen Sie Ihr Zahlungsziel (z. B. 14 Tage netto, 30 Tage netto) und geben Sie Ihre Bankverbindung (IBAN/BIC) an.',
-        bullets: [
-          'Zahlungsziel (z. B. 14 Tage netto)',
-          'Bankverbindung IBAN & BIC',
-          'Verzugszinsen-Hinweis (z. B. 1,5% mtl.)',
-        ],
-        proTip: 'Gewähren Sie 2% Skonto bei Zahlung innerhalb von 10 Tagen für schnellere Geldeingänge.',
-      },
-    ],
-    conclusion: 'Ein strukturierter Rechnungsprozess garantiert pünktliche Zahlungseingänge und professionelles Auftreten.',
+    tag: 'Wissenszentrum & Leitfäden für Rechnungsstellung',
+    title: 'Meistern Sie Freiberufler-Rechnungen & Finanzen',
+    subtitle: 'Praxis-Leitfäden, Zahlungsziel-Strategien und Tipps für schnelle Zahlungseingänge.',
+    readArticle: 'Vollständigen Artikel Lesen',
+    keyTakeaway: 'Wichtigstes Fazit',
+    createInvoiceNow: 'Jetzt Rechnung Erstellen',
+    publishedBy: 'Veröffentlicht von Kostenloser Rechnungs-Generator',
+    upcomingTopicsTitle: 'Kommende Blog-Themen',
+    upcomingTopicsSubtitle: 'Wir erweitern unsere Wissensdatenbank Schritt für Schritt. Die nächsten Themen:',
   },
 };
+
+// Planned Topics Roadmap
+const UPCOMING_TOPICS = [
+  {
+    num: '02',
+    title: 'Net 15 vs. Net 30 vs. Due Upon Receipt: Choosing the Best Payment Terms',
+    category: 'Payment Terms',
+    desc: 'Compare payment term strategies to optimize cash flow and incentivize early payments.',
+  },
+  {
+    num: '03',
+    title: 'How to Handle Unpaid Invoices & Enforce Late Fees (Email Templates)',
+    category: 'Late Payments',
+    desc: 'Step-by-step payment reminder schedules and legal 1.5% interest penalty clauses.',
+  },
+  {
+    num: '04',
+    title: 'Why 100% Client-Side Invoicing Keeps Your Financial Data Safe',
+    category: 'Privacy & Security',
+    desc: 'How browser-native local storage eliminates cloud server breach risks.',
+  },
+];
 
 interface BlogSectionProps {
   onStartInvoiceClick: () => void;
@@ -246,221 +290,220 @@ interface BlogSectionProps {
 
 export function BlogSection({ onStartInvoiceClick }: BlogSectionProps) {
   const { appLanguage } = useTranslation();
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [activePost, setActivePost] = useState<BlogPostData | null>(null);
 
-  const post = BLOG_POST_1[appLanguage] || BLOG_POST_1.en;
-
-  const uiLabels = {
-    en: {
-      hubBadge: 'Invoicing Knowledge Hub & Guides',
-      hubTitle: 'Master Freelance Invoicing & Financial Best Practices',
-      hubSubtitle: 'Expert guides, payment term strategies, and late payment recovery frameworks to help you get paid faster.',
-      readFull: 'Read Full Article',
-      keyTakeaway: 'Key Takeaway',
-      createNow: 'Create Invoice Now',
-      publishedBy: 'Published by Free Invoice Generator',
-      langNotice: 'Reading in',
-    },
-    es: {
-      hubBadge: 'Centro de Conocimiento y Guías de Facturación',
-      hubTitle: 'Domine la Facturación Freelance y Mejores Prácticas',
-      hubSubtitle: 'Guías expertas, estrategias de pago y plantillas para cobrar sus facturas más rápido.',
-      readFull: 'Leer Artículo Completo',
-      keyTakeaway: 'Conclusión Clave',
-      createNow: 'Crear Factura Ahora',
-      publishedBy: 'Publicado por Generador de Facturas Gratis',
-      langNotice: 'Leyendo en',
-    },
-    fr: {
-      hubBadge: 'Centre de Connaissances & Guides de Facturation',
-      hubTitle: 'Maîtrisez la Facturation et les Bonnes Pratiques',
-      hubSubtitle: 'Guides d\'experts et stratégies de paiement pour accélérer vos règlements.',
-      readFull: 'Lire l\'Article Complet',
-      keyTakeaway: 'Points Clés',
-      createNow: 'Créer une Facture',
-      publishedBy: 'Publié par Générateur de Facture Gratuit',
-      langNotice: 'Lecture en',
-    },
-    de: {
-      hubBadge: 'Wissensbereich & Leitfäden zur Rechnungsstellung',
-      hubTitle: 'Rechnungsstellung & Finanzielle Best Practices Meistern',
-      hubSubtitle: 'Experten-Leitfäden und Zahlungsstrategien für schnellere Zahlungseingänge.',
-      readFull: 'Vollständigen Artikel Lesen',
-      keyTakeaway: 'Kernaussage',
-      createNow: 'Jetzt Rechnung Erstellen',
-      publishedBy: 'Veröffentlicht von Kostenloser Rechnungsgenerator',
-      langNotice: 'Lesen auf',
-    },
-  }[appLanguage] || {
-    hubBadge: 'Invoicing Knowledge Hub & Guides',
-    hubTitle: 'Master Freelance Invoicing & Financial Best Practices',
-    hubSubtitle: 'Expert guides, payment term strategies, and late payment recovery frameworks to help you get paid faster.',
-    readFull: 'Read Full Article',
-    keyTakeaway: 'Key Takeaway',
-    createNow: 'Create Invoice Now',
-    publishedBy: 'Published by Free Invoice Generator',
-    langNotice: 'Reading in',
-  };
+  const ui = BLOG_UI_TRANSLATIONS[appLanguage] || BLOG_UI_TRANSLATIONS['en'];
 
   return (
-    <div className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
-      {/* Section Header */}
+    <div className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+      
+      {/* Header Banner */}
       <div className="text-center space-y-3 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>{uiLabels.hubBadge}</span>
+          <span>{ui.tag}</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
-          {uiLabels.hubTitle}
+          {ui.title}
         </h2>
         <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
-          {uiLabels.hubSubtitle}
+          {ui.subtitle}
         </p>
-
-        {/* Current Active Language Indicator */}
-        <div className="inline-flex items-center gap-1.5 text-xs text-gray-500 font-medium pt-1">
-          <Globe className="w-3.5 h-3.5 text-emerald-600" />
-          <span>{uiLabels.langNotice}: <strong className="uppercase text-gray-800 dark:text-gray-200">{appLanguage}</strong></span>
-        </div>
       </div>
 
-      {/* Featured Blog Card */}
-      <div className="max-w-4xl mx-auto">
-        <article
-          onClick={() => setIsModalOpen(true)}
-          className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer space-y-4"
-        >
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-            <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 font-semibold border border-amber-500/20">
-              {post.category}
-            </span>
-            <span className="flex items-center gap-1 text-gray-400 font-mono">
-              <Clock className="w-3.5 h-3.5" />
-              {post.readTime}
-            </span>
-          </div>
-
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors leading-snug">
-            {post.title}
-          </h3>
-
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-            {post.summary}
-          </p>
-
-          <div className="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs sm:text-sm">
-            <span className="text-gray-400 flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
-              {post.date}
-            </span>
-            <span className="inline-flex items-center gap-1.5 font-bold text-gray-900 dark:text-white group-hover:translate-x-1 transition-transform">
-              <span>{uiLabels.readFull}</span>
-              <ArrowRight className="w-4 h-4 text-emerald-500" />
-            </span>
-          </div>
-        </article>
-      </div>
-
-      {/* Full Article Reader Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative animate-in fade-in zoom-in-95 duration-200">
-            
-            {/* Close Button */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-full transition-colors"
+      {/* Published Blog Posts Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {BLOG_POSTS.map((post) => {
+          const content = post.translations[appLanguage] || post.translations['en'];
+          return (
+            <article
+              key={post.id}
+              onClick={() => setActivePost(post)}
+              className="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-xs hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Modal Header */}
-            <div className="space-y-3 pr-8">
-              <div className="flex items-center gap-3 text-xs">
-                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 font-semibold border border-amber-500/20">
-                  {post.category}
-                </span>
-                <span className="text-gray-400 font-mono flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" />
-                  {post.readTime}
-                </span>
-              </div>
-
-              <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                {post.title}
-              </h2>
-            </div>
-
-            {/* Article Content */}
-            <div className="space-y-6 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed border-t border-b border-gray-100 dark:border-gray-800 py-6">
-              <p className="font-medium text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200/60 dark:border-gray-700/60">
-                {post.intro}
-              </p>
-
-              {post.sections.map((sec, idx) => (
-                <div key={idx} className="space-y-2.5">
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
-                    {sec.heading}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {sec.body}
-                  </p>
-
-                  {sec.bullets && (
-                    <ul className="space-y-1.5 pl-4 pt-1">
-                      {sec.bullets.map((b, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {sec.proTip && (
-                    <div className="mt-3 p-3.5 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 rounded-xl text-xs sm:text-sm text-amber-900 dark:text-amber-200 flex items-start gap-2">
-                      <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="font-bold">Pro Tip: </strong>
-                        {sec.proTip}
-                      </div>
-                    </div>
-                  )}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2 text-xs">
+                  <span className="px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-800 dark:text-amber-300 font-semibold border border-amber-500/20">
+                    {content.category}
+                  </span>
+                  <span className="flex items-center gap-1 text-gray-400 font-mono">
+                    <Clock className="w-3 h-3" />
+                    {content.readTime}
+                  </span>
                 </div>
-              ))}
 
-              <div className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 p-5 rounded-2xl space-y-2 text-emerald-950 dark:text-emerald-200">
-                <h4 className="font-bold text-sm sm:text-base flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                  {uiLabels.keyTakeaway}
-                </h4>
-                <p className="text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
-                  {post.conclusion}
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors leading-snug">
+                  {content.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
+                  {content.summary}
                 </p>
               </div>
-            </div>
 
-            {/* Modal Footer Call-To-Action */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-              <span className="text-xs text-gray-400 font-mono">
-                {uiLabels.publishedBy}
-              </span>
+              <div className="pt-4 mt-6 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between text-xs">
+                <span className="text-gray-400 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {content.date}
+                </span>
+                <span className="inline-flex items-center gap-1 font-semibold text-gray-900 dark:text-white group-hover:translate-x-1 transition-transform">
+                  <span>{ui.readArticle}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </article>
+          );
+        })}
+      </div>
 
-              <button
-                onClick={() => {
-                  setIsModalOpen(false);
-                  onStartInvoiceClick();
-                }}
-                className="w-full sm:w-auto px-5 py-2.5 bg-gray-900 hover:bg-black dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 text-xs sm:text-sm font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
-              >
-                <FileText className="w-4 h-4" />
-                <span>{uiLabels.createNow}</span>
-              </button>
-            </div>
-
+      {/* Planned Topics Roadmap Section */}
+      <div className="bg-gray-50 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl">
+            <Layers className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              {ui.upcomingTopicsTitle}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+              {ui.upcomingTopicsSubtitle}
+            </p>
           </div>
         </div>
-      )}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {UPCOMING_TOPICS.map((topic) => (
+            <div
+              key={topic.num}
+              className="bg-white dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 p-5 rounded-xl space-y-2 relative"
+            >
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-mono font-bold text-gray-400">Topic {topic.num}</span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                  {topic.category}
+                </span>
+              </div>
+              <h4 className="font-bold text-sm text-gray-900 dark:text-white leading-snug">
+                {topic.title}
+              </h4>
+              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                {topic.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Reader Modal Drawer */}
+      {activePost && (() => {
+        const postContent = activePost.translations[appLanguage] || activePost.translations['en'];
+        return (
+          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 relative animate-in fade-in zoom-in-95 duration-200">
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setActivePost(null)}
+                className="absolute top-5 right-5 p-2 text-gray-400 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-800 rounded-full transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Header */}
+              <div className="space-y-3 pr-8">
+                <div className="flex items-center gap-3 text-xs">
+                  <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 dark:text-amber-300 font-semibold border border-amber-500/20">
+                    {postContent.category}
+                  </span>
+                  <span className="text-gray-400 font-mono flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {postContent.readTime}
+                  </span>
+                  <span className="text-gray-400 font-mono flex items-center gap-1">
+                    <Globe className="w-3 h-3" />
+                    {appLanguage.toUpperCase()}
+                  </span>
+                </div>
+
+                <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  {postContent.title}
+                </h2>
+              </div>
+
+              {/* Article Body */}
+              <div className="space-y-6 text-sm sm:text-base text-gray-700 dark:text-gray-200 leading-relaxed border-t border-b border-gray-100 dark:border-gray-800 py-6">
+                <p className="font-medium text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200/60 dark:border-gray-700/60">
+                  {postContent.intro}
+                </p>
+
+                {postContent.sections.map((sec, idx) => (
+                  <div key={idx} className="space-y-2">
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
+                      {sec.heading}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {sec.body}
+                    </p>
+
+                    {sec.bullets && (
+                      <ul className="space-y-1.5 pl-4 pt-1">
+                        {sec.bullets.map((b, i) => (
+                          <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {sec.proTip && (
+                      <div className="mt-3 p-3.5 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 rounded-xl text-xs sm:text-sm text-amber-900 dark:text-amber-200 flex items-start gap-2">
+                        <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="font-bold">Pro Tip: </strong>
+                          {sec.proTip}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                <div className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 p-5 rounded-2xl space-y-2 text-emerald-950 dark:text-emerald-200">
+                  <h4 className="font-bold text-sm sm:text-base flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                    {ui.keyTakeaway}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-emerald-900 dark:text-emerald-300">
+                    {postContent.conclusion}
+                  </p>
+                </div>
+              </div>
+
+              {/* Modal Footer Call-To-Action */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                <span className="text-xs text-gray-400 font-mono">
+                  {ui.publishedBy}
+                </span>
+
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <button
+                    onClick={() => {
+                      setActivePost(null);
+                      onStartInvoiceClick();
+                    }}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-gray-900 hover:bg-black dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 text-xs sm:text-sm font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>{ui.createInvoiceNow}</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
