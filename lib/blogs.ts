@@ -602,27 +602,49 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Write Polite Invoice Payment Reminders (4 Copy-Paste Email Templates)',
     slug: 'polite-invoice-payment-reminder-email-templates',
     category: 'Late Payments',
-    readTime: '5 min read',
+    readTime: '8 min read',
     date: 'August 2026',
-    summary: 'Copy-and-paste email templates for following up before, on, and after an invoice due date to get paid gracefully.',
+    summary: 'Copy-and-paste email templates for following up before, on, and after an invoice due date to get paid gracefully while maintaining great client relationships.',
     content: {
-      intro: 'Following up on invoices does not have to be awkward. Having pre-written email templates ensures consistent, polite, and effective communication.',
+      intro: 'Following up on unpaid invoices does not have to be stressful or awkward. Having pre-written, professional email templates allows you to escalate follow-ups systematically without emotion. In this guide, we provide 5 copy-and-paste email templates covering every stage of the payment lifecycle.',
       sections: [
         {
-          heading: 'Template 1: Friendly Pre-Due Reminder (3 Days Before)',
-          body: '"Hi [Client Name], Just a quick heads-up that Invoice #[Number] ($[Amount]) is due in 3 days on [Due Date]. Attached is a copy for your convenience. Thank you!"',
+          heading: '1. The Psychology of Polite Follow-Ups: Removing Friction & Emotion',
+          body: 'Over 80% of overdue payments stem from administrative oversights, lost emails, or accounting queue delays rather than malicious non-payment. Treating early reminders as helpful courtesy check-ins keeps communication positive while securing prompt payouts.',
+          bullets: [
+            'Always attach the original PDF invoice directly to every follow-up email',
+            'Include direct payment links or wiring details in the email body',
+            'Keep subject lines clear with explicit invoice numbers and due dates',
+          ],
+          proTip: 'Never start a reminder email with "I am writing to check if..." Instead, start directly with the invoice status and attached document reference.',
         },
         {
-          heading: 'Template 2: Due Date Notification (Day Of)',
-          body: '"Hi [Client Name], Invoice #[Number] ($[Amount]) is due today. Please let me know once payment has been initiated. Thank you for your business!"',
+          heading: '2. Template 1: Friendly Pre-Due Courtesy Reminder (3 Days Before Due Date)',
+          body: 'Subject: Courtesy Reminder: Invoice #[Number] due on [Due Date]\n\n"Hi [Client Name],\n\nHope you\'re having a great week! This is a quick courtesy reminder that Invoice #[Number] for $[Amount] is scheduled for payment in 3 days on [Due Date].\n\nI\'ve attached a copy of the PDF invoice for your convenience. You can remit payment via [Bank Wire / Direct Payment Link].\n\nPlease let me know if you need any additional documentation for your accounting records.\n\nBest regards,\n[Your Name]"',
         },
         {
-          heading: 'Template 3: Gentle Overdue Notice (7 Days Overdue)',
-          body: '"Hi [Client Name], I noticed Invoice #[Number] ($[Amount]) was due on [Date] and remains unpaid. Please confirm when we can expect payment to clear."',
+          heading: '3. Template 2: Due Date Payment Notification (Day Of)',
+          body: 'Subject: Payment Due Today: Invoice #[Number] - $[Amount]\n\n"Hi [Client Name],\n\nI hope you\'re doing well. Just a brief note to let you know that Invoice #[Number] ($[Amount]) for [Project Name] is due today, [Due Date].\n\nFor reference, payment instructions and direct wiring details are included at the bottom of the attached invoice PDF.\n\nCould you please reply to confirm once the payment transfer has been initiated?\n\nThank you for your business!\n\nBest regards,\n[Your Name]"',
         },
         {
-          heading: 'Template 4: Firm Final Notice (14+ Days Overdue)',
-          body: '"Hi [Client Name], Invoice #[Number] is now 14 days overdue. Please process payment immediately to avoid late interest fees as outlined in our agreement."',
+          heading: '4. Template 3: Gentle Overdue Notice (7 Days Post Due Date)',
+          body: 'Subject: Overdue Notice: Invoice #[Number] is 7 days past due\n\n"Hi [Client Name],\n\nI\'m following up on Invoice #[Number] ($[Amount]), which was due on [Due Date] (7 days ago).\n\nAs I haven\'t received confirmation of payment yet, I wanted to check if there are any issues with the invoice or if additional information is needed by your accounts payable department.\n\nCould you please let me know when payment will be processed?\n\nThank you,\n[Your Name]"',
+        },
+        {
+          heading: '5. Template 4: Firm Demand Notice & Late Fee Application (14 Days Post Due Date)',
+          body: 'Subject: FIRM NOTICE: Invoice #[Number] Overdue - Late Fee Applied\n\n"Dear [Client Name],\n\nInvoice #[Number] for $[Original Amount] is now 14 days past due. Despite previous reminders, we have not received payment or confirmation of transfer.\n\nPer our contract agreement, a 1.5% late fee ($[Late Fee Amount]) has been added to the outstanding balance. The revised total balance due is now $[New Total Amount].\n\nPlease review the attached revised invoice and process payment immediately to prevent further interest charges or service suspension.\n\nRegards,\n[Your Name]"',
+        },
+        {
+          heading: '6. Template 5: Final Legal Warning & Work Suspension (30 Days Post Due Date)',
+          body: 'Subject: FINAL NOTICE: Immediate Payment Required for Invoice #[Number] - Account Suspension\n\n"Dear [Client Name],\n\nThis is a final notice regarding overdue Invoice #[Number] ($[Total Amount]), which is now 30 days past due.\n\nEffective immediately, all active work on [Project Name] has been suspended, and production environment access has been revoked. If payment is not received in full by [Date - 3 Business Days], your account will be referred to our legal counsel and collections agency.\n\nTo resolve this matter immediately, please complete payment via [Direct Payment Link / Bank Wire].\n\nSincerely,\n[Your Name]"',
+        },
+        {
+          heading: '7. Best Practices for High-Converting Follow-Up Emails',
+          body: 'To maximize email response rates, automate reminders using consistent calendar triggers.',
+          bullets: [
+            'Maintain a regular follow-up schedule (Day -3, Day 0, Day 7, Day 14, Day 30)',
+            'Always reply within the existing email thread so clients see past context',
+          ],
         },
       ],
       conclusion: 'Using structured email templates streamlines collections while preserving positive client relations.',
@@ -1242,53 +1264,50 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '10 min de lectura',
       date: 'Agosto 2026',
       summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones bancarias, cumplir con la Inversión del Sujeto Pasivo del IVA y formularios fiscales del IRS.',
-      content: {
-        intro: 'Facturar a clientes internacionales abre mercados globales lucrativos, pero exige dominar las conversiones de moneda, códigos bancarios SWIFT/IBAN, la Inversión del Sujeto Pasivo del IVA y los formularios del IRS.',
-        sections: [
-          {
-            heading: '1. Selección de Moneda de Pago y Gestión del Tipo de Cambio',
-            body: 'Especifique claramente en el contrato y en la factura el código ISO de moneda (USD, EUR, GBP).',
-            bullets: [
-              'Fije tipos de cambio en la fecha de emisión',
-              'Cláusula de protección ante variaciones de moneda superiores al 3%',
-            ],
-          },
-          {
-            heading: '2. Códigos Bancarios Internacionales (SWIFT, IBAN y BIC)',
-            body: 'Toda transferencia internacional requiere identificadores bancarios completos para su correcto enrutamiento.',
-            bullets: ['IBAN (Número Internacional de Cuenta Bancaria)', 'Código SWIFT / BIC del Banco'],
-          },
-          {
-            heading: '3. Reparto de Comisiones Bancarias Internacionales (OUR vs BEN vs SHA)',
-            body: 'Especifique quién asume las comisiones de intermediación bancaria para evitar cobros incompletos.',
-            bullets: ['Opción OUR: El cliente asume todas las comisiones de transferencia intermedias'],
-          },
-          {
-            heading: '4. Exenciones Fiscales Transfronterizas: Inversión del Sujeto Pasivo (IVA)',
-            body: 'Para clientes de negocios internacionales, aplique la regla de Inversión del Sujeto Pasivo.',
-            bullets: ['Mention obligatoria: "Inversión del Sujeto Pasivo - Art. 84 de la Ley 37/1992 del IVA"'],
-          },
-          {
-            heading: '5. Formularios Fiscales para Clientes en EE.UU. (IRS W-8BEN / W-8BEN-E)',
-            body: 'Los profesionales no residentes en EE.UU. que facturan a empresas estadounidenses deben presentar el formulario W-8BEN.',
-          },
-          {
-            heading: '6. Cuentas Multidivisa Digitales (Wise, Revolut Business)',
-            body: 'Utilice cuentas bancarias virtuales locales para recibir transferencias ACH o SEPA a menor coste.',
-          },
-          {
-            heading: '7. Conservación de Registros de Exportación de Servicios',
-            body: 'Guarde copias en PDF y justificantes de residencia fiscal durante 5 a 7 años para auditorías.',
-          },
-        ],
-        conclusion: 'Dominar la facturación internacional con términos de moneda claros y formularios fiscales evita pérdidas por comisiones bancarias y retenciones.',
-      },
     },
     'post-8': {
       title: 'Cómo Escribir Recordatorios de Pago Educados (4 Plantillas de Email Listas)',
-      readTime: '5 min de lectura',
+      readTime: '8 min de lectura',
       date: 'Agosto 2026',
-      summary: 'Plantillas de email para copiar y pegar antes, durante y después del vencimiento de la factura para cobrar elegantemente.',
+      summary: 'Plantillas de email para copiar y pegar antes, durante y después del vencimiento de la factura para cobrar elegantemente sin dañar la relación con el cliente.',
+      content: {
+        intro: 'Hacer seguimiento de facturas impagadas no tiene por qué ser incómodo. Utilizar plantillas profesionales le permite realizar un seguimiento estructurado y sin tensión.',
+        sections: [
+          {
+            heading: '1. Psicología del Recordatorio Educado: Elimine la Fricción',
+            body: 'El 80% de los retrasos se deben a descuidos administrativos o traspapelo de correos. Tratar los primeros recordatorios como un aviso de cortesía mantiene la relación positiva.',
+            bullets: [
+              'Adjunte siempre la factura PDF original en cada correo',
+              'Incluya enlaces de pago directo en el cuerpo del mensaje',
+            ],
+          },
+          {
+            heading: '2. Plantilla 1: Recordatorio Amigable (3 Días Antes del Vencimiento)',
+            body: 'Asunto: Recordatorio de cortesía: Factura #[Número] vence el [Fecha]\n\n"Hola [Nombre del Cliente],\n\n¡Espero que tengas una excelente semana! Te envío este breve recordatorio de que la Factura #[Número] por $[Monto] vence en 3 días el [Fecha].\n\nAdjunto una copia en PDF para tu comodidad. Puedes realizar el pago mediante [Transferencia / Enlace Directo].\n\nUn cordial saludo,\n[Tu Nombre]"',
+          },
+          {
+            heading: '3. Plantilla 2: Notificación de Vencimiento (Día de Vencimiento)',
+            body: 'Asunto: Factura Vencida Hoy: Factura #[Número] - $[Monto]\n\n"Hola [Nombre del Cliente],\n\nLe escribo para recordarles que la Factura #[Número] ($[Monto]) por [Nombre del Proyecto] vence hoy, [Fecha].\n\nLas instrucciones bancarias están incluidas al pie del PDF adjunto. ¿Podría confirmarme cuando se haya iniciado la transferencia?\n\n¡Gracias!\n[Tu Nombre]"',
+          },
+          {
+            heading: '4. Plantilla 3: Recordatorio Educado de Mora (7 Días Tras Vencimiento)',
+            body: 'Asunto: Factura Pendiente: Factura #[Número] vencida hace 7 días\n\n"Hola [Nombre del Cliente],\n\nHago seguimiento de la Factura #[Número] ($[Monto]), que venció el [Fecha]. Como no he recibido confirmación, quería verificar si necesitan información adicional para procesar el pago.\n\nQuedo atento a su respuesta,\n[Tu Nombre]"',
+          },
+          {
+            heading: '5. Plantilla 4: Reclamación Firme y Aplicación de Recargo (14 Días Tras Vencimiento)',
+            body: 'Asunto: NOTIFICACIÓN FIRME: Factura #[Número] Vencida - Recargo Aplicado\n\n"Estimado [Nombre del Cliente],\n\nLa Factura #[Número] por $[Monto Original] lleva 14 días vencida. Según lo establecido en nuestro acuerdo, se ha aplicado un recargo del 1,5% ($[Monto Recargo]). El nuevo total pendiente es $[Nuevo Total].\n\nPor favor, revise la factura adjunta y realice el pago de inmediato para evitar recargos adicionales.\n\nAtentamente,\n[Tu Nombre]"',
+          },
+          {
+            heading: '6. Plantilla 5: Advertencia Legal Final y Suspensión (30 Días Tras Vencimiento)',
+            body: 'Asunto: ÚLTIMO AVISO: Pago Inmediato Requerido - Suspensión de Servicio\n\n"Estimado [Nombre del Cliente],\n\nEste es un último aviso sobre la Factura #[Número] ($[Monto Total]), con 30 días de retraso. Se han suspendido todos los trabajos activos en [Nombre del Proyecto]. Si no se recibe el pago completo en 3 días hábiles, el caso se derivará a cobro judicial.\n\nAtentamente,\n[Tu Nombre]"',
+          },
+          {
+            heading: '7. Mejores Prácticas para Correos de Seguimiento de Alta Conversión',
+            body: 'Responda siempre sobre el mismo hilo de correo para que el cliente vea el historial anterior.',
+          },
+        ],
+        conclusion: 'Utilizar plantillas de correo estructuradas agiliza los cobros y protege la relación con sus clientes.',
+      },
     },
     'post-9': {
       title: 'Facturación Desglosada vs. Precio Fijo: ¿Cuál Se Paga Más Rápido?',
@@ -1697,53 +1716,50 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '10 min de lecture',
       date: 'Août 2026',
       summary: 'Tout ce qu\'il faut savoir pour facturer à l\'étranger, gérer les taux de change, appliquer l\'autoliquidation de la TVA et remplir les formulaires IRS.',
-      content: {
-        intro: 'Facturer des clients internationaux ouvre des marchés mondiaux mais nécessite de maîtriser la conversion de devises, les codes SWIFT/IBAN, l\'autoliquidation de la TVA et les formulaires de retenue à la source de l\'IRS.',
-        sections: [
-          {
-            heading: '1. Choix de la Devise et Gestion de la Volatilité des Change',
-            body: 'Spécifiez clairement sur le devis et la facture le code devise ISO (EUR, USD, GBP).',
-            bullets: [
-              'Verrouillez le taux de change à la date d\'émission',
-              'Clause d\'ajustement si le cours varie de plus de 3%',
-            ],
-          },
-          {
-            heading: '2. Identifiants Bancaires Internationaux (SWIFT, IBAN et BIC)',
-            body: 'Tout virement international requiert des identifiants complets pour le routage.',
-            bullets: ['IBAN (Numéro de Compte Bancaire International)', 'Code SWIFT / BIC'],
-          },
-          {
-            heading: '3. Répartition des Frais Bancaires (Frais OUR vs BEN vs SHA)',
-            body: 'Précisez l\'option de frais bancaires pour éviter les règlements incomplets.',
-            bullets: ['Option OUR : Le client prend en charge l\'ensemble des frais de virement internationaux'],
-          },
-          {
-            heading: '4. Exonérations de TVA Transfrontalières : Autoliquidation de la TVA',
-            body: 'Pour les clients professionnels internationaux dans l\'UE, appliquez la règle de l\'autoliquidation.',
-            bullets: ['Mention obligatoire : "Autoliquidation - Art. 283-2 du CGI / Directive 2006/112/CE"'],
-          },
-          {
-            heading: '5. Formulaires Fiscaux Américains (IRS W-8BEN / W-8BEN-E)',
-            body: 'Les freelances non résidents aux États-Unis facturant des entreprises américaines doivent fournir le formulaire W-8BEN pour être exonérés de la retenue de 30%.',
-          },
-          {
-            heading: '6. Compte Multi-devises Numériques (Wise, Revolut Business)',
-            body: 'Utilisez des comptes bancaires virtuels locaux pour recevoir des virements ACH ou SEPA à moindre coût.',
-          },
-          {
-            heading: '7. Conservation des Justificatifs d\'Exportation de Services',
-            body: 'Conservez les copies de factures hors taxes et justificatifs pendant 10 ans pour les contrôles fiscaux.',
-          },
-        ],
-        conclusion: 'Maîtriser la facturation internationale garantit des encaissements sans perte liée aux frais de change et de virement.',
-      },
     },
     'post-8': {
       title: 'Comment Rédiger des Relances de Paiement Courtoises (4 Modèles d\'Email Prêts)',
-      readTime: '5 min de lecture',
+      readTime: '8 min de lecture',
       date: 'Août 2026',
-      summary: 'Modèles d\'emails à copier-coller pour relancer vos clients avant et après échéance en toute sérénité.',
+      summary: 'Modèles d\'emails prêts à copier-coller pour relancer vos clients avant, pendant et après l\'échéance d\'une facture sans altérer la relation commerciale.',
+      content: {
+        intro: 'Relancer une facture impayée n\'a pas à être délicat. Utiliser des modèles d\'emails pré-rédigés permet d\'instaurer un suivi systématique et professionnel.',
+        sections: [
+          {
+            heading: '1. La Psychologie du Rappel Courtois',
+            body: 'Plus de 80% des retards sont dus à des oublis administratifs. Traiter les premiers rappels comme une démarche de courtoisie préserve la relation client.',
+            bullets: [
+              'Joignez systématiquement la facture PDF originale en pièce jointe',
+              'Insérez votre RIB ou des liens de paiement direct dans le corps du mail',
+            ],
+          },
+          {
+            heading: '2. Modèle 1 : Rappel Courtois (3 Jours Avant Échéance)',
+            body: 'Objet : Rappel amical : Facture n° [Numéro] payable le [Date]\n\n"Bonjour [Nom du Client],\n\nJ\'espère que vous allez bien. Je vous informe que la facture n° [Numéro] de [Montant] € arrive à échéance dans 3 jours, le [Date].\n\nVous trouverez la facture PDF en pièce jointe ainsi que les coordonnées bancaires pour le virement.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '3. Modèle 2 : Notification le Jour de l\'Échéance (Jour J)',
+            body: 'Objet : Échéance Aujourd\'hui : Facture n° [Numéro] - [Montant] €\n\n"Bonjour [Nom du Client],\n\nUn petit mot pour vous rappeler que la facture n° [Numéro] ([Montant] €) arrive à échéance aujourd\'hui.\n\nMerci de bien vouloir me confirmer dès que le virement aura été effectué.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '4. Modèle 3 : Relance de Retard (7 Jours Après Échéance)',
+            body: 'Objet : Relance : Facture n° [Numéro] en souffrance (7 jours)\n\n"Bonjour [Nom du Client],\n\nJe reviens vers vous concernant la facture n° [Numéro] ([Montant] €) qui était due le [Date]. N\'ayant pas reçu le règlement, je voulais m\'assurer qu\'il n\'y avait pas de problème.\n\nMerci de m\'indiquer la date prévue pour le paiement.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '5. Modèle 4 : Mise en Demeure et Pénalités (14 Jours Après Échéance)',
+            body: 'Objet : MISE EN DEMEURE : Facture n° [Numéro] en retard - Pénalités appliquées\n\n"Bonjour [Nom du Client],\n\nLa facture n° [Numéro] de [Montant Initial] € est en retard de 14 jours. Conformément à nos conditions, une pénalité de retard de 1,5% ([Montant Pénalité] €) ainsi que l\'indemnité forfaitaire de 40 € ont été ajoutées. Le nouveau solde est de [Nouveau Total] €.\n\nMerci de régler ce montant sous 48h.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '6. Modèle 5 : Dernier Avertissement et Interruption de Service (30 Jours)',
+            body: 'Objet : DERNIER AVIS : Suspension des prestations et transmission contentieux\n\n"Bonjour [Nom du Client],\n\nCeci est notre ultime relance pour la facture n° [Numéro] ([Montant Total] €) en retard de 30 jours. Les prestations sur le projet [Nom du Projet] sont suspendues. Sans règlement sous 3 jours ouvrés, le dossier sera transmis au contentieux.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '7. Bonnes Pratiques pour des Relances Efficaces',
+            body: 'Répondez toujours dans le même fil d\'email afin que le client conserve l\'historique des échanges.',
+          },
+        ],
+        conclusion: 'L\'utilisation de modèles d\'emails structurés accélère la perception de vos créances tout en préservant la confiance de vos clients.',
+      },
     },
     'post-9': {
       title: 'Facturation Détaillée vs Tarif Forfaitaire : Quel Mode Est Payé Plus Vite ?',
@@ -2142,53 +2158,50 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '10 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Alles über Rechnungen ins Ausland, Währungsumrechnungen, Bankgebühren, Reverse-Charge-Verfahren und US-Formulare (IRS W-8BEN).',
-      content: {
-        intro: 'Rechnungen ins Ausland öffnen lukrative Märkte, erfordern jedoch Kenntnisse über Währungsumrechnung, SWIFT/IBAN, Reverse-Charge-Regeln und Steuerformulare.',
-        sections: [
-          {
-            heading: '1. Währungsauswahl und Umgang mit Wechselkursschwankungen',
-            body: 'Geben Sie den ISO-Währungscode (USD, EUR, GBP) auf Vertrag und Rechnung explizit an.',
-            bullets: [
-              'Fixieren Sie Wechselkurse zum Rechnungsdatum',
-              'Klausel zur Anpassung bei Währungsschwankungen über 3%',
-            ],
-          },
-          {
-            heading: '2. Bankverbindungen für Auslandsüberweisungen (SWIFT, IBAN, BIC)',
-            body: 'Auslandsüberweisungen benötigen vollständige Bankdaten für das internationale Clearing.',
-            bullets: ['IBAN (Internationale Bankkontonummer)', 'SWIFT- / BIC-Code der Bank'],
-          },
-          {
-            heading: '3. Verteilung von Bankgebühren (OUR- vs. BEN- vs. SHA-Regel)',
-            body: 'Vereinbaren Sie die Übernahme von Zwischenbankgebühren explizit.',
-            bullets: ['OUR-Option: Der Kunde übernimmt alle anfallenden Bankgebühren'],
-          },
-          {
-            heading: '4. Steuerfreie Auslandsabrechnung: Reverse-Charge-Verfahren (EU/UK)',
-            body: 'Bei B2B-Rechnungen im EU-Ausland greift die Steuerschuldumkehr (Reverse-Charge).',
-            bullets: ['Pflichtangabe: "Steuerschuldner-Verlagerung / Reverse Charge gem. § 13b UStG"'],
-          },
-          {
-            heading: '5. US-Steuerformulare für Freiberufler (IRS W-8BEN / W-8BEN-E)',
-            body: 'Freiberufler außerhalb der USA müssen US-Auftraggebern das Formular W-8BEN einreichen.',
-          },
-          {
-            heading: '6. Digitale Multiwährungskonten (Wise, Revolut Business)',
-            body: 'Nutzen Sie virtuelle Lokalkonten zur Vermeidung teurer SWIFT-Gebühren.',
-          },
-          {
-            heading: '7. Aufbewahrungspflichten bei Auslandsgeschäften',
-            body: 'Bewahren Sie steuerfreie Exportrechnungen und Nachweise 10 Jahre lang auf.',
-          },
-        ],
-        conclusion: 'Internationale Rechnungen mit klaren Währungsregeln und korrekten Steuervermerken sichern volle Zahlungseingänge.',
-      },
     },
     'post-8': {
       title: 'Höfliche Zahlungserinnerungen Schreiben (4 E-Mail-Vorlagen zum Kopieren)',
-      readTime: '5 Min. Lesezeit',
+      readTime: '8 Min. Lesezeit',
       date: 'August 2026',
-      summary: 'Fertige E-Mail-Vorlagen für Zahlungserinnerungen vor und nach Fälligkeit für professionelles Nachfassen.',
+      summary: 'Fertige E-Mail-Vorlagen für Zahlungserinnerungen vor, am und nach dem Fälligkeitsdatum für professionelles Nachfassen ohne Kundenbeziehungen zu belasten.',
+      content: {
+        intro: 'Das Nachfassen überfälliger Rechnungen muss nicht unangenehm sein. Vorgefertigte E-Mail-Vorlagen ermöglichen ein sachliches und effektives Mahnwesen.',
+        sections: [
+          {
+            heading: '1. Die Psychologie höflicher Erinnerungen',
+            body: 'Über 80% aller Verspätungen entstehen durch bürokratische Verzögerungen. Erste Erinnerungen als Service-Hinweis zu formulieren, wahrt das gute Verhältnis.',
+            bullets: [
+              'Fügen Sie immer die Original-PDF-Rechnung als Anhang bei',
+              'Geben Sie Direktzahlungs-Links im Text an',
+            ],
+          },
+          {
+            heading: '2. Vorlage 1: Freundliche Erinnerung (3 Tage vor Fälligkeit)',
+            body: 'Betreff: Zahlungserinnerung: Rechnung Nr. [Nummer] fällig am [Datum]\n\n"Hallo [Kundenname],\n\nich hoffe, es geht Ihnen gut. Ich möchte Sie kurz daran erinnern, dass die Rechnung Nr. [Nummer] über [Betrag] € am [Datum] fällig wird.\n\nEine Kopie der PDF-Rechnung ist dieser E-Mail angehängt.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '3. Vorlage 2: Zahlungshinweis am Fälligkeitstag (Tag 0)',
+            body: 'Betreff: Fälligkeit heute: Rechnung Nr. [Nummer] - [Betrag] €\n\n"Hallo [Kundenname],\n\nkurze Information, dass die Rechnung Nr. [Nummer] über [Betrag] € heute fällig ist.\n\nBitte bestätigen Sie mir kurz die Überweisung.\n\nVielen Dank,\n[Ihr Name]"',
+          },
+          {
+            heading: '4. Vorlage 3: 1. Mahnung (7 Tage nach Fälligkeit)',
+            body: 'Betreff: 1. Mahnung: Rechnung Nr. [Nummer] überfällig\n\n"Hallo [Kundenname],\n\nich beziehe mich auf die Rechnung Nr. [Nummer] ([Betrag] €), die am [Datum] fällig war. Da noch kein Eingang verzeichnet wurde, möchte ich nachfragen, wann mit der Zahlung zu rechnen ist.\n\nViele Grüße,\n[Ihr Name]"',
+          },
+          {
+            heading: '5. Vorlage 4: 2. Mahnung mit Verzugszinsen (14 Tage nach Fälligkeit)',
+            body: 'Betreff: 2. MAHNUNG: Rechnung Nr. [Nummer] überfällig - Mahngebühr berechnet\n\n"Sehr geehrte Damen und Herren,\n\ndie Rechnung Nr. [Nummer] über [Ursprungsbetrag] € ist seit 14 Tagen überfällig. Vereinbarungsgemäß wurden 1,5% Verzugszinsen ([Mahngebühr] €) berechnet. Neuer Gesamtbetrag: [Neuer Betrag] €.\n\nBitte begleichen Sie den Betrag umgehend.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '6. Vorlage 5: Letzte Mahnung & Einstellung der Arbeit (30 Tage nach Fälligkeit)',
+            body: 'Betreff: LETZTE MAHNUNG: Arbeitseinstellung & Übergabe Inkasso\n\n"Sehr geehrte Damen und Herren,\n\ndies ist die letzte Mahnung für Rechnung Nr. [Nummer] ([Gesamtbetrag] €). Die Arbeiten am Projekt [Projektname] werden hiermit gestoppt. Sollte bis zum [Datum] kein Eingang erfolgen, übergeben wir den Vorgang dem Inkasso.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '7. Empfehlungen für erfolgreiche Mahn-E-Mails',
+            body: 'Antworten Sie immer im bestehenden E-Mail-Verlauf, damit der Kunde den bisherigen Kontext sieht.',
+          },
+        ],
+        conclusion: 'Strukturierte E-Mail-Vorlagen beschleunigen den Zahlungseingang und sichern gute Kundenbeziehungen.',
+      },
     },
     'post-9': {
       title: 'Detaillierte Abrechnung vs. Pauschalpreis: Was Wird Schneller Bezahlt?',
