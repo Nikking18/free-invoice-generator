@@ -13,6 +13,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     tabItemLibrary: 'Item Library',
     tabSettings: 'Settings',
     tabBackup: 'Backup',
+    tabBlog: 'Blog & News',
     privacyNotice: 'Privacy Notice',
 
     // Action Buttons
@@ -104,6 +105,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     tabItemLibrary: 'Catálogo de Ítems',
     tabSettings: 'Configuración',
     tabBackup: 'Copia de Seguridad',
+    tabBlog: 'Blog y Noticias',
     privacyNotice: 'Aviso de Privacidad',
 
     // Action Buttons
@@ -195,6 +197,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     tabItemLibrary: 'Catalogue d\'Articles',
     tabSettings: 'Paramètres',
     tabBackup: 'Sauvegarde',
+    tabBlog: 'Blog et Actualités',
     privacyNotice: 'Confidentialité',
 
     // Action Buttons
@@ -286,6 +289,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     tabItemLibrary: 'Artikelkatalog',
     tabSettings: 'Einstellungen',
     tabBackup: 'Sicherung',
+    tabBlog: 'Blog & Nachrichten',
     privacyNotice: 'Datenschutz',
 
     // Action Buttons
