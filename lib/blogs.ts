@@ -1298,18 +1298,76 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Best Recurring Invoicing Practices for Monthly Retainer Clients',
     slug: 'best-recurring-invoicing-practices-retainer-clients',
     category: 'Payment Terms',
-    readTime: '5 min read',
+    readTime: '8 min read',
     date: 'August 2026',
     summary: 'Automate and streamline your monthly retainer billing. Learn how to issue consistent recurring invoices with predictable payment cycles.',
     content: {
-      intro: 'Retainer agreements provide predictable income for freelancers. Issuing recurring invoices on the exact same calendar day every month builds client payment discipline.',
+      intro: 'Retainer agreements provide predictable recurring income for freelancers, consultants, and marketing agencies. However, without structured billing schedules, retainer agreements can suffer from scope creep, unbilled overages, and payment friction. In this guide, we detail best practices for advance retainer billing, hour caps, rollover policies, and automated client presets.',
       sections: [
         {
-          heading: 'Billing on the 1st of Every Month',
-          body: 'Standardize retainer invoicing by issuing all recurring invoices on the 1st of the month with Net 15 terms.',
+          heading: '1. The Financial Power of Monthly Retainers for Service Providers',
+          body: 'Transitioning clients from one-off project billing to monthly recurring retainers provides financial predictability and locks in dedicated calendar capacity.',
+          bullets: [
+            'Predictable Cash Flow: Stabilizes monthly revenue forecasting and business expense budgeting',
+            'Guaranteed Client Availability: Reserves guaranteed weekly hours for retainer clients',
+            'Reduced Sales Overhead: Replaces constant client prospecting with recurring long-term relationships',
+          ],
+          proTip: 'Structure retainers around value deliverable outcomes (e.g., "Monthly SEO Maintenance & Optimization Package") rather than raw open-ended hours.',
+        },
+        {
+          heading: '2. The Prepaid Retainer Rule: 100% Advance Billing (1st of the Month)',
+          body: 'Never bill retainer clients in arrears after the service month has concluded. Retainer contracts must operate under a 100% prepaid advance billing model.',
+          bullets: [
+            'Advance Issue Schedule: Generate retainer invoices on the 25th of the prior month, due on the 1st of the service month',
+            'Zero Advance Work Rule: State explicitly in your agreement that work does not commence for the month until the retainer invoice balance clears',
+            'Automated Payout Dates: Align retainer due dates with your client\'s monthly batch payment runs',
+          ],
+        },
+        {
+          heading: '3. Structuring Hourly Allotments & Reset Policies (No Infinite Rollovers)',
+          body: 'Clear rules regarding monthly hour allotments prevent clients from attempting to stockpile unused retainer hours.',
+          bullets: [
+            'Monthly Use-It-or-Lose-It Rule: Unused retainer hours expire at month-end and do not roll over to subsequent months',
+            'Explicit Overage Rate: State clearly that hours worked beyond the retainer allotment will be billed at your standard hourly rate (e.g., $125/hr)',
+            'Mid-Month Hour Notifications: Notify clients when they reach 80% of their monthly retainer hour cap',
+          ],
+          proTip: 'Allowing infinite hour rollovers creates dangerous resource bottlenecks when clients attempt to redeem 60 banked hours in a single week.',
+        },
+        {
+          heading: '4. Scope Creep Boundaries & Itemized Out-of-Scope Billing',
+          body: 'Retainer agreements cover routine, ongoing maintenance. Additional major feature requests require separate project billing.',
+          bullets: [
+            'Define Retainer Scope Boundaries explicitly in your Master Services Agreement (MSA)',
+            'Issue separate itemized Change Order Invoices for out-of-scope feature requests',
+          ],
+        },
+        {
+          heading: '5. Standardizing Calendar Billing Batches',
+          body: 'Avoid billing different retainer clients on random days throughout the month. Group all retainer invoicing onto unified calendar dates.',
+          bullets: [
+            'Single Batch Run: Issue all retainer invoices simultaneously on the 1st of the month',
+            'Simplifies Accounts Payable Tracking: Allows you to review monthly incoming retainer payouts in a single dashboard session',
+          ],
+        },
+        {
+          heading: '6. Automating PDF Invoicing with Local Browser Client Presets',
+          body: 'Utilize freeinvoice.live\'s local IndexedDB database to save retainer client metadata and issue recurring PDF invoices in under 60 seconds.',
+          bullets: [
+            '1-Click Client Recall: Select saved retainer client profiles from your browser dropdown',
+            'Pre-Filled Line Items: Auto-populate retainer package descriptions and fixed pricing',
+            'Download Vector PDFs: Save crisp PDF copies for client delivery and local tax records',
+          ],
+        },
+        {
+          heading: '7. Incentive Discounts for Quarterly & Annual Retainer Pre-Payments',
+          body: 'Accelerate your upfront business cash flow by offering clients discounts for long-term pre-payment.',
+          bullets: [
+            'Quarterly Pre-Payment: Offer a 5% discount when clients settle 3 months in advance',
+            'Annual Pre-Payment: Offer a 10% discount for 12-month prepaid retainer commitments',
+          ],
         },
       ],
-      conclusion: 'Consistent billing schedules establish reliable cash flow for ongoing monthly retainers.',
+      conclusion: 'Establishing a prepaid 1st-of-the-month retainer billing policy with clear hour boundaries secures predictable recurring revenue while protecting your time.',
     },
   },
   {
@@ -1786,46 +1844,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Proteja su negocio frente a estafas de facturas falsas y cambios de cuentas bancarias en PDF con protocolos de seguridad.',
-      content: {
-        intro: 'El fraude por compromiso de correo corporativo (BEC) y la manipulación de facturas cuestan miles de millones de dólares anualmente. Los ciberdelincuentes interceptan correos, modifican números de cuenta bancaria en archivos PDF y engañan a los equipos contables para transferir fondos a cuentas fraudulentas. En esta guía de seguridad detallamos los protocolos de verificación indispensables.',
-        sections: [
-          {
-            heading: '1. Estafas de Redirección de Facturas y Compromiso de Correo (BEC)',
-            body: 'El fraude de redirección ocurre cuando un atacante accede a una cuenta de correo legítima y envía una factura modificada solicitando el pago a una nueva cuenta bancaria.',
-          },
-          {
-            heading: '2. Protocolo de Validación Doble "Fuera de Banda"',
-            body: 'Establezca una regla obligatoria: Nunca actualice los datos bancarios de un proveedor basándose únicamente en una solicitud enviada por correo electrónico.',
-          },
-          {
-            heading: '3. Detección de Facturas PDF Alteradas y Manipulaciones',
-            body: 'Inspeccione incoherencias tipográficas o discrepancias en los números de identificación fiscal.',
-          },
-          {
-            heading: '4. Protección Técnica de Dominios de Correo (SPF, DKIM, DMARC)',
-            body: 'Implemente registros de seguridad para evitar que los ciberdelincuentes suplanten la identidad de su dominio comercial.',
-          },
-          {
-            heading: '5. Envío Seguro de Facturas PDF',
-            body: 'Génere facturas PDF vectoriales directamente en su navegador para evitar manipulaciones intermedias.',
-          },
-          {
-            heading: '6. Controles Internos para Equipos de Cuentas por Pagar',
-            body: 'Requiera autorizaciones dobles para transferencias de importe elevado y mantenga listas blancas de proveedores.',
-          },
-          {
-            heading: '7. La Ventaja Sin Servidor de la Facturación Local',
-            body: 'freeinvoice.live almacena los datos localmente en su dispositivo, eliminando el riesgo de filtraciones en bases de datos centralizadas.',
-          },
-        ],
-        conclusion: 'Aplicar protocolos de verificación telefónica y usar herramientas de facturación locales protege su empresa frente al fraude informático.',
-      },
     },
     'post-17': {
       title: 'Mejores Prácticas de Facturación Recurrente para Clientes con Retainer',
-      readTime: '5 min de lectura',
+      readTime: '8 min de lectura',
       date: 'Agosto 2026',
       summary: 'Automatice y optimice el cobro de sus tarifas mensuales recurrentes con ciclos de pago previsibles.',
+      content: {
+        intro: 'Los cuotas mensuales de retainer proporcionan ingresos recurrentes previsibles para autónomos, consultores y agencias. Sin embargo, una gestión inadecuada de las cuotas puede causar fricción y desbordamiento de horas. En esta guía detallamos las mejores prácticas para facturar retainers por adelantado.',
+        sections: [
+          {
+            heading: '1. El Poder Financiero de los Retainers Mensuales',
+            body: 'Convertir la facturación de proyectos puntuales en acuerdos mensuales recurrentes garantiza previsibilidad de caja y estabilidad financiera.',
+          },
+          {
+            heading: '2. Regla del Prepago del Retainer: Facturación 100% por Adelantado',
+            body: 'Facture las cuotas el día 25 del mes anterior con vencimiento el día 1. Establezca la regla de no iniciar el trabajo sin haber cobrado.',
+          },
+          {
+            heading: '3. Límites de Horas y Políticas de Reinicio Mensual',
+            body: 'Defina claramente los límites de horas acordados. Las horas no utilizadas expiran al final del mes y no se acumulan indefinidamente.',
+          },
+          {
+            heading: '4. Control de Alcance y Facturas de Órdenes de Cambio',
+            body: 'Las peticiones que excedan la cuota acordada se facturan de forma independiente como horas extra.',
+          },
+          {
+            heading: '5. Estandarización de Fechas de Cobro Unificadas',
+            body: 'Agrupe la emisión de todas sus facturas de retainer el día 1 de cada mes para simplificar la gestión administrativa.',
+          },
+          {
+            heading: '6. Automatización de Facturas PDF con freeinvoice.live',
+            body: 'Utilice los perfiles de cliente guardados localmente para emitir facturas en PDF de forma recurrente en segundos.',
+          },
+          {
+            heading: '7. Descuentos por Pago Anticipado Trimestral o Anual',
+            body: 'Ofrezca a sus clientes de retainer un 5% o 10% de descuento al prepagar el servicio trimestral o anualmente.',
+          },
+        ],
+        conclusion: 'Instaurar una política de cobro por adelantado el día 1 del mes asegura ingresos estables y protege su tiempo.',
+      },
     },
     'post-18': {
       title: 'Facturación de Contratista Independiente vs. Freelancer: Diferencias',
@@ -2234,46 +2292,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Protégez votre entreprise contre les faux RIB et les escroqueries à la facture avec des protocoles de sécurité.',
-      content: {
-        intro: 'La fraude au président et la modification de factures coûtent des milliards de dollars chaque année. Les cybercriminels interceptent les emails, modifient les coordonnées bancaires sur les PDF et trompent les services comptables. Ce guide détaille les protocoles de vérification indispensables.',
-        sections: [
-          {
-            heading: '1. Escroqueries de Redirection de Factures et Piratage d\'Email',
-            body: 'La fraude se produit lorsqu\'un pirate modifie une facture PDF pour demander le paiement sur un nouveau compte bancaire frauduleux.',
-          },
-          {
-            heading: '2. Protocole de Double Validation par Téléphone',
-            body: 'Règle stricte : Ne modifiez jamais les coordonnées bancaires d\'un fournisseur sur simple demande par email sans confirmation orale.',
-          },
-          {
-            heading: '3. Détection des Factures PDF Altérées',
-            body: 'Inspectez les incohérences de polices et les anomalies dans les numéros d\'identification fiscale.',
-          },
-          {
-            heading: '4. Protections Techniques des Domaines Email (SPF, DKIM, DMARC)',
-            body: 'Mettez en place des protocoles de sécurité pour éviter l\'usurpation de votre nom de domaine.',
-          },
-          {
-            heading: '5. Envoi Sécurisé de Factures PDF',
-            body: 'Générez des factures PDF directement dans votre navigateur sans serveur intermédiaire.',
-          },
-          {
-            heading: '6. Procédures de Contrôle Interne',
-            body: 'Exigez une double validation interne pour les virements de montant élevé.',
-          },
-          {
-            heading: '7. L\'Avantage des Outils Sans Serveur',
-            body: 'freeinvoice.live conserve vos données localement et élimine les risques de fuite sur des serveurs distants.',
-          },
-        ],
-        conclusion: 'Appliquer des vérifications téléphoniques et utiliser des outils de facturation locaux sécurise vos paiements.',
-      },
     },
     'post-17': {
       title: 'Meilleures Pratiques de Facturation Récurrente pour Clients Forfaitaires',
-      readTime: '5 min de lecture',
+      readTime: '8 min de lecture',
       date: 'Août 2026',
-      summary: 'Automatisez la gestion de vos contrats mensuels récurrents avec des cycles de paiement prévisibles.',
+      summary: 'Automatisez et simplifiez le suivi de vos forfaits mensuels récurrents avec des cycles de paiement prévisibles.',
+      content: {
+        intro: 'Les contrats de forfait mensuel (retainers) offrent des revenus récurrents prévisibles pour les indépendants et agences. Ce guide détaille les meilleures pratiques pour facturer vos forfaits d\'avance.',
+        sections: [
+          {
+            heading: '1. Le Pouvoir Financier des Forfaits Mensuels',
+            body: 'Transformez vos factures ponctuelles en contrats récurrents pour stabiliser votre trésorerie.',
+          },
+          {
+            heading: '2. Facturation 100% Prépayée le 1er du Mois',
+            body: 'Émettez vos factures de forfait le 25 du mois précédent, payable le 1er du mois de prestation.',
+          },
+          {
+            heading: '3. Gestion des Volumes d\'Heures et Non-Report',
+            body: 'Fixez une règle stricte : Les heures non consommées en fin de mois expirent et ne se cumulent pas.',
+          },
+          {
+            heading: '4. Gestion du Perimètre de Mission et Factures de Dépassement',
+            body: 'Toute prestation hors périmètre fait l\'objet d\'une facturation complémentaire distincte.',
+          },
+          {
+            heading: '5. Harmonisation des Dates d\'Émission',
+            body: 'Regroupez l\'émission de tous vos forfaits le 1er du mois pour rationaliser votre gestion.',
+          },
+          {
+            heading: '6. Génération Automatisée de PDF avec freeinvoice.live',
+            body: 'Utilisez les profils clients mémorisés pour générer vos factures récurrentes en quelques secondes.',
+          },
+          {
+            heading: '7. Remises Incentive pour Prépaiement Trimestriel ou Annuel',
+            body: 'Offrez 5% à 10% de réduction aux clients qui règlent leur forfait trimestriellement ou annuellement.',
+          },
+        ],
+        conclusion: 'Instaurer une facturation de forfait prépayée le 1er du mois sécurise vos revenus et protège votre temps.',
+      },
     },
     'post-18': {
       title: 'Facturation de Prestataire Indépendant vs Freelance : Différences Comptables',
@@ -2672,46 +2730,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Schützen Sie Ihr Unternehmen vor gefälschten PDF-Rechnungen und geänderten IBAN-Daten.',
-      content: {
-        intro: 'Rechnungsbetrug und E-Mail-Usurpation kosten Unternehmen jährlich Milliarden. Cyberkriminelle fangen E-Mail-Verläufe ab, ändern Bankverbindungen auf PDF-Rechnungen und leiten Überweisungen um. Dieser Sicherheitsleitfaden erklärt Verifizierungs-Standards.',
-        sections: [
-          {
-            heading: '1. Betrug Durch Gefälschte Zahlungsaufforderungen (BEC)',
-            body: 'Angreifer verändern Bankdaten auf abgefangenen Rechnungen und fordern Überweisungen auf fremde Konten.',
-          },
-          {
-            heading: '2. Das "Out-of-Band" Zwei-Wege-Überprüfungsverfahren',
-            body: 'Wichtige Regel: Ändern Sie Bankverbindungen von Lieferanten niemals ohne telefonische Rückfrage unter einer bekannten Nummer.',
-          },
-          {
-            heading: '3. Erkennen Manipulierter PDF-Rechnungen',
-            body: 'Achten Sie auf Abweichungen bei Schriftarten, Steuernummern oder ungewöhnliche Auslandskonten.',
-          },
-          {
-            heading: '4. Technische E-Mail-Sicherheitsstandards (SPF, DKIM, DMARC)',
-            body: 'Richten Sie E-Mail-Authentifizierungen ein, um das Fälschen Ihrer Absenderadresse zu verhindern.',
-          },
-          {
-            heading: '5. Sichere Erstellung von PDF-Rechnungen',
-            body: 'Erzeugen Sie Vektor-PDFs direkt im lokalen Browser ohne unverschlüsselte Serverübertragungen.',
-          },
-          {
-            heading: '6. Interne Kontrollmechanismen für die Buchhaltung',
-            body: 'Führen Sie das Vier-Augen-Prinzip für hohe Überweisungssummen ein.',
-          },
-          {
-            heading: '7. Der Vorteil Serverloser Lokaler Rechnungstools',
-            body: 'freeinvoice.live speichert Daten lokal im Browser und verhindert so Angriffe auf zentrale Cloud-Server.',
-          },
-        ],
-        conclusion: 'Telefonische Rückfragen und lokale Rechnungsgenerierung bieten wirksamen Schutz vor Betrug.',
-      },
     },
     'post-17': {
       title: 'Beste Praxis für Wiederkehrende Rechnungen bei Monatlichen Pauschalen',
-      readTime: '5 Min. Lesezeit',
+      readTime: '8 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Automatisieren Sie monatliche Retainer-Abrechnungen mit verlässlichen Zahlungszyklen.',
+      content: {
+        intro: 'Monatliche Pauschalen (Retainer) bieten planbare wiederkehrende Einnahmen für Freiberufler und Agenturen. Dieser Leitfaden beschreibt Best Practices für die Vorkasse-Abrechnung.',
+        sections: [
+          {
+            heading: '1. Die finanzielle Stärke monatlicher Retainer',
+            body: 'Wandeln Sie Einzelprojekte in monatliche Pauschalverträge um, um Ihren Cashflow zu stabilisieren.',
+          },
+          {
+            heading: '2. Die 100% Vorkasse-Regel am 1. des Monats',
+            body: 'Stellen Sie Rechnungen am 25. des Vormonats aus, fällig am 1. des Leistungsmonats.',
+          },
+          {
+            heading: '3. Kontingentgrenzen & Verfall nicht genutzter Stunden',
+            body: 'Nicht genutzte Stunden verfallen am Monatsende und werden nicht unbegrenzt vorgetragen.',
+          },
+          {
+            heading: '4. Abgrenzung von Zusatzleistungen & Zusatzrechnungen',
+            body: 'Leistungen außerhalb des vereinbarten Rahmens werden separat in Rechnung gestellt.',
+          },
+          {
+            heading: '5. Einheitliche Rechnungszyklen am Monatsanfang',
+            body: 'Bündeln Sie die Rechnungserstellung aller Retainer-Kunden zum 1. des Monats.',
+          },
+          {
+            heading: '6. Erstellung von PDF-Rechnungen mit freeinvoice.live',
+            body: 'Nutzen Sie gespeicherte Kundenprofile für die schnelle Erstellung wiederkehrender Rechnungen.',
+          },
+          {
+            heading: '7. Rabatte bei quartalsweiser oder jährlicher Vorauszahlung',
+            body: 'Bieten Sie 5% bis 10% Rabatt bei jährlicher Vorauszahlung der Pauschale.',
+          },
+        ],
+        conclusion: 'Eine konsequente Vorkasse-Abrechnung zum 1. des Monats sichert Ihr Einkommen und schützt Ihre Kapazitäten.',
+      },
     },
     'post-18': {
       title: 'Freie Mitarbeiter vs. Subunternehmer: Buchhalterische Unterschiede',
