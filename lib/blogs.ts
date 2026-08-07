@@ -448,23 +448,73 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Request Upfront Deposits & Retainers Without Losing Clients',
     slug: 'request-upfront-deposits-retainers-freelancers',
     category: 'Payment Terms',
-    readTime: '6 min read',
+    readTime: '9 min read',
     date: 'August 2026',
-    summary: 'Learn how to confidently pitch upfront project deposits (25%–50%) to new clients while building trust and securing healthy upfront cash flow.',
+    summary: 'Learn how to confidently pitch upfront project deposits (25%–50%) to new clients while building trust, securing cash flow, and structuring prepaid retainers.',
     content: {
-      intro: 'Working without an upfront deposit exposes freelancers to uncompensated labor if a client cancels midway or delays payment. Asking for a deposit is a standard professional practice.',
+      intro: 'Working without an upfront deposit exposes freelancers and agencies to uncompensated labor if a client delays, cancels, or alters project scope. Requiring a deposit is not a sign of distrust—it is a standard professional practice that validates client commitment. In this guide, we cover deposit percentages, proposal scripts, retainer structures, and objection handling tactics.',
       sections: [
         {
-          heading: 'Standard Deposit Rates (25%, 33%, 50%)',
-          body: 'For projects under $5,000, requesting a 50% upfront deposit is standard across web design, consulting, and software development. For larger projects ($10k+), milestone splits (e.g., 33% upfront, 33% mid-way, 34% final) work best.',
+          heading: '1. Why Upfront Deposits Are Standard Professional Practice',
+          body: 'Requiring an upfront deposit before commencing work protects your business timeline and covers early out-of-pocket costs.',
           bullets: [
-            'Projects under $5k: 50% deposit required prior to kick-off',
-            'Projects over $10k: 33% deposit / 33% milestone / 34% completion',
+            'Eliminates uncompensated labor if a project is canceled midway',
+            'Filters out window-shoppers and financially uncommitted prospects',
+            'Establishes a mutual professional partnership from day one',
           ],
-          proTip: 'Position upfront deposits as resource reservation fees that secure dedicated calendar time for the client.',
+          proTip: 'Framing deposits as "Resource Reservation Fees" reinforces that you are locking out other prospective clients to dedicate guaranteed hours to their project.',
+        },
+        {
+          heading: '2. Determining the Right Deposit Percentage (25%, 33%, 50%)',
+          body: 'Match your requested deposit structure to project size and client history.',
+          bullets: [
+            'Projects under $5,000: 50% upfront deposit before kickoff, 50% upon final delivery',
+            'Projects $5,000 – $20,000: 33% deposit, 33% mid-project milestone, 34% final deliverable',
+            'Projects $20,000+: 25% kickoff deposit followed by monthly milestone billing',
+          ],
+        },
+        {
+          heading: '3. Framing Deposits to Clients: The "Resource Reservation" Script',
+          body: 'How you phrase the deposit request during proposal presentation determines client acceptance.',
+          bullets: [
+            'Proposal Script: "To secure dedicated calendar scheduling for your kickoff on [Date], we require a standard 50% resource deposit. Once confirmed, we immediately begin sprint planning."',
+          ],
+        },
+        {
+          heading: '4. Structuring Monthly Retainers (100% Prepaid Model)',
+          body: 'For ongoing maintenance, consulting, or marketing support, transition clients from post-paid billing to prepaid monthly retainers.',
+          bullets: [
+            'Prepaid Retainer Model: Invoice generated on the 25th of the month, due on the 1st of the upcoming service month',
+            'Rule: No work commences for the month until the retainer invoice balance has cleared',
+          ],
+          proTip: 'Offer retainer clients a 5% discount if they pre-pay quarterly or annually in advance.',
+        },
+        {
+          heading: '5. Handling Pushback & Enterprise Procurement Objections',
+          body: 'When enterprise clients say "Our company policy never pays upfront deposits", offer professional workarounds without waiving security.',
+          bullets: [
+            'Escrow Alternative: Use a neutral third-party escrow service where funds are deposited upfront and released upon milestone completion',
+            'Micro Milestone Split: Break the initial deliverable into a smaller 20% discovery phase invoice to test accounts payable responsiveness',
+          ],
+        },
+        {
+          heading: '6. Milestone Deliverable Sign-Offs & Final Asset Protection',
+          body: 'Protect your intellectual property until final invoices are settled.',
+          bullets: [
+            'Never transfer production server root keys, domain ownership, or source vector code until the final invoice balance clears',
+            'Deliver watermarked preview PDFs or staging links for milestone sign-off',
+          ],
+        },
+        {
+          heading: '7. Documenting Deposit Terms in Contracts & Invoices',
+          body: 'Ensure deposit terms are clearly stated in your Master Services Agreement (MSA) and issued as itemized deposit invoices.',
+          bullets: [
+            'Include non-refundable deposit terms in contract clauses',
+            'Issue formal PDF deposit invoices with clear wiring details',
+          ],
         },
       ],
-      conclusion: 'Establish clear deposit terms upfront to protect your business timeline and build mutual project commitment.',
+      conclusion: 'Establishing a strict upfront deposit or prepaid retainer policy safeguards your income, builds client respect, and secures predictable business cash flow.',
     },
   },
   {
@@ -1087,9 +1137,53 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-6': {
       title: 'Cómo Solicitar Depósitos por Adelantado y Retainers Sin Perder Clientes',
-      readTime: '6 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
-      summary: 'Aprenda a proponer depósitos iniciales del 25% al 50% con confianza mientras genera confianza y asegura su flujo de caja.',
+      summary: 'Aprenda a proponer depósitos iniciales del 25% al 50% con confianza mientras genera confianza, asegura su flujo de caja y gestiona cuotas recurrentes.',
+      content: {
+        intro: 'Trabajar sin un depósito por adelantado expone a los autónomos a trabajos no remunerados si un cliente se retrasa o cancela el proyecto. Solicitar un depósito inicial no es falta de confianza, sino una práctica profesional estándar.',
+        sections: [
+          {
+            heading: '1. Por qué los Depósitos Iniciales son una Práctica Profesional Estándar',
+            body: 'Exigir un depósito antes de iniciar el trabajo protege su tiempo y cubre los costes iniciales.',
+            bullets: [
+              'Elimina el trabajo no remunerado si un proyecto se cancela a mitad de camino',
+              'Filtra clientes sin compromiso financiero',
+              'Establece una relación profesional de mutuo respeto',
+            ],
+            proTip: 'Presente los depósitos como "Tarifas de Reserva de Recursos" para asegurar la dedicación exclusiva de su calendario.',
+          },
+          {
+            heading: '2. Determinar el Porcentaje de Depósito Adecuado (25%, 33%, 50%)',
+            body: 'Ajuste la estructura del depósito según el tamaño del proyecto.',
+            bullets: [
+              'Proyectos de menos de $5.000: 50% de depósito inicial antes de comenzar',
+              'Proyectos de $5.000 a $20.000: 33% de depósito, 33% a mitad de proyecto, 34% a la entrega final',
+            ],
+          },
+          {
+            heading: '3. Redacción para Solicitar Depósitos Sin Fricción',
+            body: 'La forma en que presenta la solicitud del depósito en su propuesta determina la aceptación del cliente.',
+          },
+          {
+            heading: '4. Estructuración de Tarifas Recurrentes (Modelo Retainer 100% Prepago)',
+            body: 'Para servicios continuos de mantenimiento o consultoría, facture el 100% por adelantado el día 1 de cada mes.',
+          },
+          {
+            heading: '5. Manejo de Objeciones en Grandes Empresas',
+            body: 'Si una gran empresa rechaza los depósitos por política interna, ofrezca alternativas de custodia en plazos cortos.',
+          },
+          {
+            heading: '6. Protección de Entregables Finales',
+            body: 'No entregue claves de servidores de producción ni código fuente final hasta haber cobrado el saldo restante.',
+          },
+          {
+            heading: '7. Documentación Contractual de Depósitos',
+            body: 'Incluya cláusulas explícitas de depósito no reembolsable en sus contratos de servicios.',
+          },
+        ],
+        conclusion: 'Establecer una política de depósitos por adelantado protege sus ingresos y asegura la previsibilidad financiera de su negocio.',
+      },
     },
     'post-7': {
       title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
@@ -1456,15 +1550,55 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-6': {
       title: 'Comment Demander un Acompte Initial Sans Perdre de Clients',
-      readTime: '6 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
-      summary: 'Proposez en toute confiance des acomptes de 25% à 50% à vos nouveaux clients tout en sécurisant votre trésorerie.',
+      summary: 'Découvrez comment demander des acomptes initiaux de 25% à 50% en toute confiance tout en renforçant la confiance de vos clients et votre trésorerie.',
+      content: {
+        intro: 'Travailler sans acompte expose les indépendants à des impayés si le client annule en cours de mission. Exiger un acompte est une pratique professionnelle courante qui valide l\'engagement du client.',
+        sections: [
+          {
+            heading: '1. Pourquoi l\'Acompte Initial Est une Pratique Professionnelle Normale',
+            body: 'Demander un acompte protège votre emploi du temps et couvre vos premiers frais.',
+            bullets: [
+              'Élimine le travail non rémunéré en cas d\'annulation de projet',
+              'Filtre les prospects non engagés financièrement',
+              'Établit une relation de partenariat équilibrée',
+            ],
+            proTip: 'Présentez l\'acompte comme des "Frais de Réservation d\'Équipe" pour réserver un créneau dédié dans votre calendrier.',
+          },
+          {
+            heading: '2. Déterminer le Pourcentage d\'Acompte Adapté (25%, 33%, 50%)',
+            body: 'Pour les projets inférieurs à 5 000 €, exigez un acompte de 50% à la commande. Pour les projets supérieurs à 10 000 €, optez pour un découpage 33% / 33% / 34%.',
+          },
+          {
+            heading: '3. Formulations Commerciales pour Proposer un Acompte',
+            body: 'La présentation de la demande d\'acompte dans votre devis conditionne son acceptation par le client.',
+          },
+          {
+            heading: '4. Structurer des Forfaits Mensuels (Modèle Retainer 100% Prépayé)',
+            body: 'Pour les prestations mensuelles récurrentes, facturez 100% au 1er jour du mois avant le début des travaux.',
+          },
+          {
+            heading: '5. Gérer les Objections des Grandes Entreprises',
+            body: 'Si une grande entreprise refuse l\'acompte, proposez un compte séquestre neutre ou un premier paiement d\'audit court.',
+          },
+          {
+            heading: '6. Protection des Livrables Finaux',
+            body: 'Ne livrez jamais les fichiers sources finals ou les accès serveur avant l\'encaissement du solde.',
+          },
+          {
+            heading: '7. Mentions Légales et Facturation d\'Acompte',
+            body: 'Émettez une facture d\'acompte conforme avec TVA pour chaque versement perçu.',
+          },
+        ],
+        conclusion: 'Instaurer une politique d\'acompte systématique sécurise votre activité et vos revenus récurrents.',
+      },
     },
     'post-7': {
-      title: 'Guide de la Facturation Internationale : Devises et TVA Transfrontalière',
-      readTime: '7 min de lecture',
-      date: 'Août 2026',
-      summary: 'Tout ce qu\'il faut savoir pour facturer à l\'étranger, gérer les frais de virement bancaire et respecter les règles fiscales.',
+      title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
     },
     'post-8': {
       title: 'Comment Rédiger des Relances de Paiement Courtoises (4 Modèles d\'Email Prêts)',
@@ -1820,15 +1954,55 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-6': {
       title: 'Anzahlungen & Vorschüsse Anfordern Ohne Kunden Zu Verlieren',
-      readTime: '6 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
-      summary: 'So vereinbaren Sie selbstbewusst Anzahlungen von 25% bis 50% für neue Projekte bei voller Transparenz.',
+      summary: 'Lernen Sie, wie Sie Vorschüsse von 25% bis 50% selbstbewusst einfordern, Vertrauen aufbauen und Ihren Cashflow sichern.',
+      content: {
+        intro: 'Arbeiten ohne Anzahlung setzt Freiberufler dem Risiko von Zahlungsausfällen aus. Das Einfordern einer Anzahlung ist ein Zeichen von Professionalität.',
+        sections: [
+          {
+            heading: '1. Warum Anzahlungen ein professioneller Standard sind',
+            body: 'Anzahlungen sichern Ihre Kapazitäten und decken erste Projektkosten ab.',
+            bullets: [
+              'Vermeidet unbezahlte Arbeit bei vorzeitigem Projektabbruch',
+              'Filtert unseriöse Anfragen ohne Budget heraus',
+              'Schafft verbindliche Voraussetzungen für beide Seiten',
+            ],
+            proTip: 'Bezeichnen Sie Anzahlungen als "Kapazitätsreservierungs-Gebühr" für eine verbindliche Terminbuchung.',
+          },
+          {
+            heading: '2. Die richtige Höhe der Anzahlung (25%, 33%, 50%)',
+            body: 'Bei Projekten unter 5.000 € sind 50% Anzahlung vor Projektstart üblich. Bei Großprojekten empfehlen sich Meilenstein-Zahlungen (33% / 33% / 34%).',
+          },
+          {
+            heading: '3. Formulierungshilfen für das Angebot',
+            body: 'Verwenden Sie klare Formulierungen zur Reservierung von Kapazitäten.',
+          },
+          {
+            heading: '4. Monatliche Retainer & Pauschalen (100% Vorkasse)',
+            body: 'Stellen Sie monatliche Pauschalen am 1. des Monats im Voraus in Rechnung.',
+          },
+          {
+            heading: '5. Einwände von Großkunden professionell entkräften',
+            body: 'Bieten Sie bei Konzernen Treuhandkonten oder ein kurzes kostenpflichtiges Erst-Audit an.',
+          },
+          {
+            heading: '6. Schutz finaler Arbeitsergebnisse',
+            body: 'Übergeben Sie Quellcode oder Zugänge erst nach vollständigem Zahlungseingang.',
+          },
+          {
+            heading: '7. Vertragliche Absicherung von Anzahlungen',
+            body: 'Stellen Sie ordnungsgemäße Anzahlungsrechnungen mit ausgewiesener Mehrwertsteuer aus.',
+          },
+        ],
+        conclusion: 'Eine konsequente Anzahlungspolitik schützt Ihr Einkommen und sichert Ihren Cashflow.',
+      },
     },
     'post-7': {
-      title: 'Leitfaden für Internationale & Mehrwährungs-Rechnungen (USt. & Währung)',
-      readTime: '7 Min. Lesezeit',
-      date: 'August 2026',
-      summary: 'Alles über Rechnungen ins Ausland, Währungsumrechnungen, Bankgebühren und Reverse-Charge-Regelungen.',
+      title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
     },
     'post-8': {
       title: 'Höfliche Zahlungserinnerungen Schreiben (4 E-Mail-Vorlagen zum Kopieren)',
