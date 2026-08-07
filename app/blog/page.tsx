@@ -42,11 +42,7 @@ export default function BlogPage() {
 
       {/* Main Blog & News Section */}
       <main className="flex-1">
-        <BlogSection onStartInvoiceClick={() => {
-          if (typeof window !== 'undefined') {
-            window.location.href = '/';
-          }
-        }} />
+        <BlogSection />
       </main>
 
       {/* Support & Footer */}
