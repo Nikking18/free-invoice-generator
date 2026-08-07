@@ -395,8 +395,7 @@ export default function Page() {
   };
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-[#F8F9FA] text-gray-900 font-sans flex flex-col">
+    <div className="min-h-screen bg-[#F8F9FA] text-gray-900 font-sans flex flex-col">
         {/* Main Header & Tab Navigation */}
         <Header
           activeTab={activeTab}
@@ -547,6 +546,5 @@ export default function Page() {
           onClose={() => setShowPrivacyModal(false)}
         />
       </div>
-    </LanguageProvider>
   );
 }
