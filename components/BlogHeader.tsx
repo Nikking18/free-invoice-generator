@@ -10,12 +10,13 @@ interface BlogHeaderProps {
   backLink?: string;
   backText?: string;
   backTextKey?: string;
+  defaultBackText?: string;
 }
 
-export function BlogHeader({ backLink = '/', backText, backTextKey }: BlogHeaderProps) {
+export function BlogHeader({ backLink = '/', backText, backTextKey, defaultBackText = 'Back to App' }: BlogHeaderProps) {
   const { appLanguage, setAppLanguage, t } = useTranslation();
 
-  const displayBackText = backTextKey ? t(backTextKey) : (backText || t('btnBackToApp'));
+  const displayBackText = backTextKey ? t(backTextKey) : (backText || defaultBackText);
 
   return (
     <header className="no-print bg-white border-b border-gray-200 sticky top-0 z-30">

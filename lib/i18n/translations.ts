@@ -93,6 +93,31 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgSaveSuccess: 'Saved successfully to browser storage!',
     msgPdfSuccess: 'PDF downloaded successfully!',
 
+    // Privacy Modal Translations
+    privacyModalTitle: 'Data Privacy & Local Storage Policy',
+    privacyModalSubtitle: '100% Private, Zero Cloud Footprint',
+    privacyModalBannerHeader: 'ALL DATA STORED LOCALLY',
+    privacyModalBannerSub: '100% Client-Side • No external APIs • Stored in browser IndexedDB/LocalStorage',
+    privacyModalStorageTitle: 'IndexedDB & LocalStorage Engine',
+    privacyModalStorageDesc: 'All client profiles, line items, saved invoices, business preferences, and logos are stored strictly inside your browser\'s local IndexedDB and LocalStorage.',
+    privacyModalZeroNetworkTitle: 'Zero Network Data Collection',
+    privacyModalZeroNetworkDesc: 'This application sends zero network requests containing your invoice or financial data. No registration, login, or tracking cookies exist.',
+    privacyModalScopeTitle: 'Device & Browser Scope',
+    privacyModalScopeDesc: 'Because data is saved locally inside this specific browser, clearing site storage or switching browser profiles will hide saved invoices. Use the Backup tab to export JSON backups regularly.',
+    privacyModalBtnUnderstand: 'I Understand',
+
+    // Footer Translations
+    footerCreatedWith: 'Created with',
+    footerBy: 'by',
+    footerPrivacyNotice: 'Privacy & Storage Notice',
+    footerClientSide: '100% Client-Side',
+    footerCopyrightNotice: 'Free Invoice Generator. 100% Client-Side & Private.',
+    footerSupportTitle: 'Enjoying this free tool?',
+    footerSupportBadge: 'Support Independent Dev',
+    footerSupportDesc: 'If you find this invoice generator helpful, consider supporting independent development to keep tools like this free, private, and serverless.',
+    footerSupportBtn: 'Support me on Ko-fi',
+    footerSupportCaption: 'Every coffee fuels future free tools ☕',
+
     // Blog Translations
     blogTitle: 'Blog & Invoicing Guides',
     blogSubtitle: 'Actionable invoicing advice, payment term strategies, late payment recovery frameworks, and financial privacy guides for freelancers and small businesses.',
@@ -195,6 +220,31 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'No hay ítems guardados en la biblioteca',
     msgSaveSuccess: '¡Guardado con éxito en el navegador!',
     msgPdfSuccess: '¡PDF descargado con éxito!',
+
+    // Privacy Modal Translations
+    privacyModalTitle: 'Política de Privacidad y Almacenamiento Local',
+    privacyModalSubtitle: '100% Privado, Sin Servidores en la Nube',
+    privacyModalBannerHeader: 'TODOS LOS DATOS GUARDADOS LOCALMENTE',
+    privacyModalBannerSub: '100% Côté Cliente • Sin APIs externas • Almacenado en IndexedDB / LocalStorage del navegador',
+    privacyModalStorageTitle: 'Motor IndexedDB y LocalStorage',
+    privacyModalStorageDesc: 'Todos los perfiles de clientes, conceptos, facturas e imágenes de logo se guardan estrictamente dentro de su navegador.',
+    privacyModalZeroNetworkTitle: 'Cero Recopilación de Datos en Red',
+    privacyModalZeroNetworkDesc: 'Esta aplicación no realiza ninguna solicitud de red que contenga sus datos financieros. Sin registro ni cookies de seguimiento.',
+    privacyModalScopeTitle: 'Ámbito de Dispositivo y Navegador',
+    privacyModalScopeDesc: 'Como los datos se guardan localmente en este navegador específico, borrar los datos de sitio ocultará las facturas. Utilice la pestaña Copia de Seguridad para exportar JSON.',
+    privacyModalBtnUnderstand: 'Entendido',
+
+    // Footer Translations
+    footerCreatedWith: 'Creado con',
+    footerBy: 'por',
+    footerPrivacyNotice: 'Aviso de Privacidad y Almacenamiento',
+    footerClientSide: '100% En el Cliente',
+    footerCopyrightNotice: 'Factura Gratis. 100% En el Cliente y Privado.',
+    footerSupportTitle: '¿Disfrutas de esta herramienta gratuita?',
+    footerSupportBadge: 'Apoya al Desarrollador Independiente',
+    footerSupportDesc: 'Si esta herramienta te resulta útil, considera apoyar el desarrollo independiente para mantenerla gratuita y privada.',
+    footerSupportBtn: 'Apoyarme en Ko-fi',
+    footerSupportCaption: 'Cada café impulsa futuras herramientas gratuitas ☕',
 
     // Blog Translations
     blogTitle: 'Blog y Guías de Facturación',
@@ -299,6 +349,31 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgSaveSuccess: 'Enregistré avec succès dans le navigateur !',
     msgPdfSuccess: 'PDF téléchargé avec succès !',
 
+    // Privacy Modal Translations
+    privacyModalTitle: 'Politique de Confidentialité et Stockage Local',
+    privacyModalSubtitle: '100% Privé, Zéro Serveur Cloud',
+    privacyModalBannerHeader: 'TOUTES LES DONNÉES SONT STOCKÉES LOCALEMENT',
+    privacyModalBannerSub: '100% Côté Client • Aucune API externe • Stockage IndexedDB / LocalStorage dans le navigateur',
+    privacyModalStorageTitle: 'Moteur IndexedDB & LocalStorage',
+    privacyModalStorageDesc: 'Tous vos profils clients, factures et logos sont conservés uniquement dans votre navigateur.',
+    privacyModalZeroNetworkTitle: 'Aucune Collecte de Données Réseau',
+    privacyModalZeroNetworkDesc: 'Cette application ne transmet aucune donnée financière sur le réseau. Aucun cookie de suivi.',
+    privacyModalScopeTitle: 'Périmètre Navigateur & Appareil',
+    privacyModalScopeDesc: 'Les données étant stockées sur ce navigateur, vider le stockage effacera vos factures. Exporter des sauvegardes JSON régulièrement.',
+    privacyModalBtnUnderstand: 'J\'ai Compris',
+
+    // Footer Translations
+    footerCreatedWith: 'Créé avec',
+    footerBy: 'par',
+    footerPrivacyNotice: 'Confidentialité & Stockage Local',
+    footerClientSide: '100% Côté Client',
+    footerCopyrightNotice: 'Facture Gratuite. 100% Côté Client & Privé.',
+    footerSupportTitle: 'Vous aimez cet outil gratuit ?',
+    footerSupportBadge: 'Soutenir le Développeur Indépendant',
+    footerSupportDesc: 'Si cet outil vous est utile, pensez à soutenir le développement indépendant pour le maintenir gratuit et privé.',
+    footerSupportBtn: 'Me soutenir sur Ko-fi',
+    footerSupportCaption: 'Chaque café finance les futurs outils gratuits ☕',
+
     // Blog Translations
     blogTitle: 'Blog & Guides de Facturation',
     blogSubtitle: 'Conseils de facturation, stratégies de paiement et guides de confidentialité financière pour indépendants.',
@@ -401,6 +476,31 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'Keine Artikel im Katalog',
     msgSaveSuccess: 'Erfolgreich im Browser gespeichert!',
     msgPdfSuccess: 'PDF erfolgreich heruntergeladen!',
+
+    // Privacy Modal Translations
+    privacyModalTitle: 'Datenschutz & Lokale Speicherung',
+    privacyModalSubtitle: '100% Privat, Keine Cloud-Server',
+    privacyModalBannerHeader: 'ALLE DATEN LOKAL GESPEICHERT',
+    privacyModalBannerSub: '100% Client-Seitig • Keine externen APIs • Gespeichert im IndexedDB des Browsers',
+    privacyModalStorageTitle: 'IndexedDB & LocalStorage Engine',
+    privacyModalStorageDesc: 'Alle Kundenprofile, Rechnungspositionen und Logos werden ausschließlich in Ihrem Browser gespeichert.',
+    privacyModalZeroNetworkTitle: 'Keine Netzwerk-Datenerfassung',
+    privacyModalZeroNetworkDesc: 'Diese Anwendung sendet keine Anfragen mit Ihren Finanzdaten über das Netzwerk. Keine Tracking-Cookies.',
+    privacyModalScopeTitle: 'Browser & Geräte-Umfang',
+    privacyModalScopeDesc: 'Da die Daten lokal gespeichert werden, führt das Löschen des Speicherstands zum Ausblenden der Rechnungen.',
+    privacyModalBtnUnderstand: 'Verstanden',
+
+    // Footer Translations
+    footerCreatedWith: 'Erstellt mit',
+    footerBy: 'von',
+    footerPrivacyNotice: 'Datenschutz & Speicherung',
+    footerClientSide: '100% Client-Seitig',
+    footerCopyrightNotice: 'Kostenlose Rechnung. 100% Client-Seitig & Privat.',
+    footerSupportTitle: 'Gefällt Ihnen dieses kostenlose Tool?',
+    footerSupportBadge: 'Unabhängige Entwickler Unterstützen',
+    footerSupportDesc: 'Wenn Ihnen dieser Rechnungsgenerator hilft, unterstützen Sie die unabhängige Entwicklung, um das Tool kostenlos zu halten.',
+    footerSupportBtn: 'Auf Ko-fi unterstützen',
+    footerSupportCaption: 'Jeder Kaffee finanziert zukünftige kostenlose Tools ☕',
 
     // Blog Translations
     blogTitle: 'Blog & Rechnungs-Ratgeber',

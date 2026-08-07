@@ -9,17 +9,19 @@ import {
   Search,
   BookOpen
 } from 'lucide-react';
-import { BLOG_POSTS } from '../lib/blogs';
+import { getBlogPosts } from '../lib/blogs';
 import { useTranslation } from '../lib/i18n/LanguageContext';
 
 export function BlogSection() {
-  const { t } = useTranslation();
+  const { appLanguage, t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const categories = ['All', 'Invoicing 101', 'Payment Terms', 'Late Payments', 'Privacy & Security'];
 
-  const filteredPosts = BLOG_POSTS.filter((post) => {
+  const posts = getBlogPosts(appLanguage);
+
+  const filteredPosts = posts.filter((post) => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
     const matchesSearch = 
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

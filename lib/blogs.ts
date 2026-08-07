@@ -1,3 +1,5 @@
+import { AppLanguage } from './i18n/translations';
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -322,6 +324,218 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((post) => post.slug === slug);
+// Multilingual Post Translations Map
+const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> = {
+  en: {},
+  es: {
+    'post-1': {
+      title: 'La Guía Definitiva de Facturación Freelance Profesional (Checklist 2026)',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Domine la anatomía de una factura profesional. Aprenda qué campos son esenciales para evitar retrasos de pago y cobrar siempre a tiempo.',
+    },
+    'post-2': {
+      title: 'Net 15 vs. Net 30 vs. Pago al Contado: Elija los Mejores Términos de Pago',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Compare estrategias de términos de pago para optimizar su flujo de caja. Descubra cuándo usar Net 15, Net 30, depósitos por adelantado o descuentos.',
+    },
+    'post-3': {
+      title: 'Cómo Gestionar Facturas No Pagadas y Cobrar Recargos (Plantillas de Email)',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Marco paso a paso para recuperar pagos de clientes atrasados. Aprenda a redactar recordatorios educados y aplicar recargos de forma legal.',
+    },
+    'post-4': {
+      title: 'Por qué la Facturación 100% del Lado del Cliente Protege sus Datos Financieros',
+      readTime: '4 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Descubra cómo los generadores de facturas sin servidor eliminan los riesgos de filtración guardando todos sus registros localmente.',
+    },
+    'post-5': {
+      title: '9 Elementos Esenciales que Toda Factura Profesional Debe Incluir',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Lista de verificación con los 9 elementos indispensables para garantizar el cumplimiento legal y acelerar los tiempos de aprobación.',
+    },
+    'post-6': {
+      title: 'Cómo Solicitar Depósitos por Adelantado y Retainers Sin Perder Clientes',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Aprenda a proponer depósitos iniciales del 25% al 50% con confianza mientras genera confianza y asegura su flujo de caja.',
+    },
+    'post-7': {
+      title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
+    },
+    'post-8': {
+      title: 'Cómo Escribir Recordatorios de Pago Educados (4 Plantillas de Email Listas)',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Plantillas de email para copiar y pegar antes, durante y después del vencimiento de la factura para cobrar elegantemente.',
+    },
+    'post-9': {
+      title: 'Facturación Desglosada vs. Precio Fijo: ¿Cuál Se Paga Más Rápido?',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Descubra los pros y contras de la facturación por horas desglosada frente a proyectos a tarifa fija para elegir el mejor modelo.',
+    },
+    'post-10': {
+      title: 'Propiedad de Datos en SaaS vs Almacenamiento Local: Protección de Registros',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Por qué mantener sus datos localmente protege su negocio frente al bloqueo de proveedores y aumentos de precios en la nube.',
+    },
+  },
+  fr: {
+    'post-1': {
+      title: 'Le Guide Ultime de la Facturation Freelance Professionnelle (Checklist 2026)',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Maîtrisez l\'anatomie d\'une facture professionnelle. Découvrez les champs essentiels pour éviter les retards de paiement et être payé à temps.',
+    },
+    'post-2': {
+      title: 'Net 15 vs Net 30 vs Paiement à Réception : Choisir les Bonnes Conditions',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Comparez les stratégies de paiement pour optimiser votre trésorerie. Découvrez quand utiliser Net 15, Net 30 ou des acompte initiaux.',
+    },
+    'post-3': {
+      title: 'Comment Gérer les Impayés et Appliquer des Pénalités de Retard (Modèles d\'Email)',
+      readTime: '7 min de lecture',
+      date: 'Août 2026',
+      summary: 'Méthode étape par étape pour recouvrer les impayés. Rédigez des relances courtoises et appliquez légalement des pénalités.',
+    },
+    'post-4': {
+      title: 'Pourquoi la Facturation 100% Côté Client Protège vos Données Financières',
+      readTime: '4 min de lecture',
+      date: 'Août 2026',
+      summary: 'Découvrez comment les générateurs sans serveur éliminent les risques de fuite de données en stockant vos registres localement.',
+    },
+    'post-5': {
+      title: '9 Éléments Indispensables que Toute Facture Professionnelle Doit Comporter',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Checklist des 9 éléments indispensables garantissant la conformité légale et accélérant les délais de paiement.',
+    },
+    'post-6': {
+      title: 'Comment Demander un Acompte Initial Sans Perdre de Clients',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Proposez en toute confiance des acomptes de 25% à 50% à vos nouveaux clients tout en sécurisant votre trésorerie.',
+    },
+    'post-7': {
+      title: 'Guide de la Facturation Internationale : Devises et TVA Transfrontalière',
+      readTime: '7 min de lecture',
+      date: 'Août 2026',
+      summary: 'Tout ce qu\'il faut savoir pour facturer à l\'étranger, gérer les frais de virement bancaire et respecter les règles fiscales.',
+    },
+    'post-8': {
+      title: 'Comment Rédiger des Relances de Paiement Courtoises (4 Modèles d\'Email Prêts)',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Modèles d\'emails à copier-coller pour relancer vos clients avant et après échéance en toute sérénité.',
+    },
+    'post-9': {
+      title: 'Facturation Détaillée vs Tarif Forfaitaire : Quel Mode Est Payé Plus Vite ?',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Comparez la facturation horaire détaillée et la facturation au forfait pour choisir la structure la plus efficace.',
+    },
+    'post-10': {
+      title: 'Propriété des Données SaaS vs Stockage Local : Protéger vos Pièces Comptables',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Pourquoi conserver vos données localement protège votre activité contre la hausse des prix SaaS et la perte d\'accès.',
+    },
+  },
+  de: {
+    'post-1': {
+      title: 'Der Ultimative Leitfaden für Professionelle Freiberufler-Rechnungen (Checkliste 2026)',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Meistern Sie den Aufbau einer professionellen Rechnung. Lernen Sie alle Pflichtangaben kennen, um Zahlungsverzögerungen zu vermeiden.',
+    },
+    'post-2': {
+      title: 'Netto 15 vs. Netto 30 Tage vs. Sofortige Zahlung: Die Besten Zahlungsziele',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Vergleichen Sie Zahlungsziel-Strategien für optimalen Cashflow. Erfahren Sie, wann Sie Netto 15, Netto 30 oder Anzahlungen nutzen.',
+    },
+    'post-3': {
+      title: 'Umgang mit unbezahlten Rechnungen & Mahngebühren (E-Mail-Vorlagen)',
+      readTime: '7 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Schritt-für-Schritt-Leitfaden zum Einfordern überfälliger Zahlungen mit höflichen Zahlungserinnerungen und Verzugszinsen.',
+    },
+    'post-4': {
+      title: 'Warum 100% Client-Seitige Rechnungsstellung Ihre Finanzdaten Schützt',
+      readTime: '4 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Erfahren Sie, wie serverlose Generatoren Datenlecks verhindern, indem alle Finanzdaten lokal auf Ihrem Gerät bleiben.',
+    },
+    'post-5': {
+      title: '9 Unverzichtbare Elemente, die Jede Professionelle Rechnung Enthalten Muss',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Checkliste der 9 gesetzlichen Pflichtangaben für eine reibungslose Rechnungsprüfung und schnelle Auszahlung.',
+    },
+    'post-6': {
+      title: 'Anzahlungen & Vorschüsse Anfordern Ohne Kunden Zu Verlieren',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'So vereinbaren Sie selbstbewusst Anzahlungen von 25% bis 50% für neue Projekte bei voller Transparenz.',
+    },
+    'post-7': {
+      title: 'Leitfaden für Internationale & Mehrwährungs-Rechnungen (USt. & Währung)',
+      readTime: '7 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Alles über Rechnungen ins Ausland, Währungsumrechnungen, Bankgebühren und Reverse-Charge-Regelungen.',
+    },
+    'post-8': {
+      title: 'Höfliche Zahlungserinnerungen Schreiben (4 E-Mail-Vorlagen zum Kopieren)',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Fertige E-Mail-Vorlagen für Zahlungserinnerungen vor und nach Fälligkeit für professionelles Nachfassen.',
+    },
+    'post-9': {
+      title: 'Detaillierte Abrechnung vs. Pauschalpreis: Was Wird Schneller Bezahlt?',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Vor- und Nachteile von Stundensätzen gegenüber Festpreisen für maximale Akzeptanz bei Ihren Kunden.',
+    },
+    'post-10': {
+      title: 'Dateneigentum in SaaS vs. Lokale Speicherung: Schutz Ihrer Unterlagen',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Warum lokale Datenspeicherung Ihr Unternehmen vor Preiserhöhungen und Abhängigkeit von Cloud-Anbietern schützt.',
+    },
+  },
+};
+
+export function getBlogPosts(lang: AppLanguage = 'en'): BlogPost[] {
+  if (lang === 'en' || !BLOG_TRANSLATIONS[lang]) {
+    return BLOG_POSTS;
+  }
+
+  const langMap = BLOG_TRANSLATIONS[lang];
+  return BLOG_POSTS.map((post) => {
+    const override = langMap[post.id];
+    if (!override) return post;
+
+    return {
+      ...post,
+      title: override.title || post.title,
+      readTime: override.readTime || post.readTime,
+      date: override.date || post.date,
+      summary: override.summary || post.summary,
+    };
+  });
+}
+
+export function getBlogPostBySlug(slug: string, lang: AppLanguage = 'en'): BlogPost | undefined {
+  const posts = getBlogPosts(lang);
+  return posts.find((post) => post.slug === slug);
 }

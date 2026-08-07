@@ -44,7 +44,10 @@ import { FeedbackWidget } from '../components/FeedbackWidget';
 import { Heart, ShieldCheck, Code, Github, Linkedin, Twitter } from 'lucide-react';
 
 
+import { useTranslation } from '../lib/i18n/LanguageContext';
+
 export default function Page() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<TabType>('builder');
   const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(true);
 
@@ -479,7 +482,7 @@ export default function Page() {
             {/* Author & Social Links */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
               <span className="font-medium text-black flex items-center gap-1.5">
-                Created with <Heart className="w-3.5 h-3.5 text-black fill-black shrink-0" /> by <strong className="font-bold text-black">Nikhil Khanpara</strong>
+                {t('footerCreatedWith')} <Heart className="w-3.5 h-3.5 text-black fill-black shrink-0" /> {t('footerBy')} <strong className="font-bold text-black">Nikhil Khanpara</strong>
               </span>
               <span className="text-gray-300 hidden sm:inline">•</span>
               <div className="flex items-center space-x-2">
@@ -520,12 +523,12 @@ export default function Page() {
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-gray-700 hover:text-black transition-colors hover:bg-gray-100 border border-transparent hover:border-gray-200"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-black" />
-                <span>Privacy & Storage Notice</span>
+                <span>{t('footerPrivacyNotice')}</span>
               </button>
               <span className="text-gray-300 hidden sm:inline">•</span>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-100 text-black text-[11px] font-mono font-semibold border border-gray-200">
                 <Code className="w-3 h-3 text-black" />
-                100% Client-Side
+                {t('footerClientSide')}
               </span>
             </div>
 

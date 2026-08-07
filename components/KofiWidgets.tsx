@@ -2,15 +2,17 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Coffee, Sparkles } from 'lucide-react';
+import { useTranslation } from '../lib/i18n/LanguageContext';
 
 export function KofiFooterSection() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const renderWidget = () => {
       if (typeof window !== 'undefined' && (window as any).kofiwidget2 && containerRef.current) {
         try {
-          (window as any).kofiwidget2.init('Support me on Ko-fi', '#000000', 'Y0H123WFGA');
+          (window as any).kofiwidget2.init(t('footerSupportBtn'), '#000000', 'Y0H123WFGA');
           const html = (window as any).kofiwidget2.getHTML();
           containerRef.current.innerHTML = html;
         } catch (e) {
@@ -37,7 +39,7 @@ export function KofiFooterSection() {
         }
       }
     }
-  }, []);
+  }, [t]);
 
   return (
     <section className="no-print bg-white text-black border-t border-gray-200 relative">
@@ -53,15 +55,15 @@ export function KofiFooterSection() {
             <div className="space-y-1.5 max-w-2xl">
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                 <h3 className="text-base sm:text-lg font-bold text-black tracking-tight">
-                  Enjoying this free tool?
+                  {t('footerSupportTitle')}
                 </h3>
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-gray-100 text-black border border-gray-200">
-                  <Sparkles className="w-3 h-3 text-black" /> Support Independent Dev
+                  <Sparkles className="w-3 h-3 text-black" /> {t('footerSupportBadge')}
                 </span>
               </div>
               
               <p className="text-sm text-gray-700 leading-relaxed">
-                If you find this invoice generator helpful, consider supporting independent development to keep tools like this free, private, and serverless.
+                {t('footerSupportDesc')}
               </p>
             </div>
           </div>
@@ -81,11 +83,11 @@ export function KofiFooterSection() {
                   alt="Ko-fi"
                   className="w-5 h-4 object-contain"
                 />
-                <span>Support me on Ko-fi</span>
+                <span>{t('footerSupportBtn')}</span>
               </a>
             </div>
             <span className="text-[11px] text-gray-500 mt-1.5 font-mono">
-              Every coffee fuels future free tools ☕
+              {t('footerSupportCaption')}
             </span>
           </div>
 
@@ -96,6 +98,8 @@ export function KofiFooterSection() {
 }
 
 export function KofiOverlayWidget() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -107,7 +111,7 @@ export function KofiOverlayWidget() {
         try {
           (window as any).kofiWidgetOverlay.draw('nikhilkhanpara', {
             'type': 'floating-chat',
-            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.text': t('footerSupportBtn'),
             'floating-chat.donateButton.background-color': '#000000',
             'floating-chat.donateButton.text-color': '#ffffff'
           });
@@ -133,7 +137,7 @@ export function KofiOverlayWidget() {
         script.addEventListener('load', initOverlay);
       }
     }
-  }, []);
+  }, [t]);
 
   return null;
 }
