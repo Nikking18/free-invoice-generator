@@ -1,0 +1,6 @@
+{
+  "name": "Free Invoice Generator",
+  "description": "Browser-based, privacy-first invoice generator for freelancers and contractors with local persistence, PDF export, client management, and backups.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
