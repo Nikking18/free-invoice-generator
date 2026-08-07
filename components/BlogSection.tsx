@@ -10,8 +10,10 @@ import {
   BookOpen
 } from 'lucide-react';
 import { BLOG_POSTS } from '../lib/blogs';
+import { useTranslation } from '../lib/i18n/LanguageContext';
 
 export function BlogSection() {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -31,15 +33,15 @@ export function BlogSection() {
       <div className="space-y-3 max-w-3xl">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-black text-xs font-semibold border border-gray-200">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>Knowledge Hub</span>
+          <span>{t('blogKnowledgeHub')}</span>
         </div>
         
         <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight leading-tight">
-          Blog & Invoicing Guides
+          {t('blogTitle')}
         </h1>
         
         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-          Actionable invoicing advice, payment term strategies, late payment recovery frameworks, and financial privacy guides for freelancers and small businesses.
+          {t('blogSubtitle')}
         </p>
       </div>
 
@@ -52,7 +54,7 @@ export function BlogSection() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search articles by title, keyword, or category..."
+            placeholder={t('lblSearchArticles')}
             className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-xs sm:text-sm text-black placeholder-gray-500 focus:outline-none focus:border-black transition-colors"
           />
         </div>
@@ -69,7 +71,7 @@ export function BlogSection() {
                   : 'bg-gray-100 text-gray-800 hover:bg-gray-200 border border-gray-200'
               }`}
             >
-              {cat}
+              {cat === 'All' ? t('filterAll') : cat}
             </button>
           ))}
         </div>
@@ -109,7 +111,7 @@ export function BlogSection() {
                 {post.date}
               </span>
               <span className="inline-flex items-center gap-1 font-bold text-black group-hover:translate-x-1 transition-transform">
-                <span>Read Article</span>
+                <span>{t('btnReadArticle')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </div>

@@ -9,10 +9,13 @@ import { AppLanguage } from '../lib/i18n/translations';
 interface BlogHeaderProps {
   backLink?: string;
   backText?: string;
+  backTextKey?: string;
 }
 
-export function BlogHeader({ backLink = '/', backText = 'Back to App' }: BlogHeaderProps) {
-  const { appLanguage, setAppLanguage } = useTranslation();
+export function BlogHeader({ backLink = '/', backText, backTextKey }: BlogHeaderProps) {
+  const { appLanguage, setAppLanguage, t } = useTranslation();
+
+  const displayBackText = backTextKey ? t(backTextKey) : (backText || t('btnBackToApp'));
 
   return (
     <header className="no-print bg-white border-b border-gray-200 sticky top-0 z-30">
@@ -24,7 +27,7 @@ export function BlogHeader({ backLink = '/', backText = 'Back to App' }: BlogHea
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-black hover:text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-md transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">{backText}</span>
+            <span className="hidden sm:inline">{displayBackText}</span>
           </Link>
 
           {/* Clickable Logo & Title Redirecting to Homepage */}
@@ -37,14 +40,14 @@ export function BlogHeader({ backLink = '/', backText = 'Back to App' }: BlogHea
               <div className="w-3.5 h-[2px] bg-white"></div>
             </div>
             <span className="font-bold text-sm sm:text-base tracking-tight text-black uppercase">
-              Free Invoice Generator
+              {t('appName')}
             </span>
           </Link>
         </div>
 
         {/* Action Controls & Language Selector */}
         <div className="flex items-center space-x-2 sm:space-x-3">
-          {/* Language Dropdown */}
+          {/* Language Dropdown Selector */}
           <div className="flex items-center space-x-1 border border-gray-200 bg-gray-50 rounded-md px-2 py-1">
             <Globe className="w-3.5 h-3.5 text-gray-700 shrink-0" />
             <select
@@ -65,7 +68,7 @@ export function BlogHeader({ backLink = '/', backText = 'Back to App' }: BlogHea
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-bold rounded-md transition-colors shadow-xs"
           >
             <FileText className="w-3.5 h-3.5 text-white" />
-            <span className="hidden sm:inline">Create Invoice</span>
+            <span className="hidden sm:inline">{t('lblCreateInvoice')}</span>
           </Link>
         </div>
 

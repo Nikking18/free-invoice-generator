@@ -92,6 +92,18 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'No reusable items in library',
     msgSaveSuccess: 'Saved successfully to browser storage!',
     msgPdfSuccess: 'PDF downloaded successfully!',
+
+    // Blog Translations
+    blogTitle: 'Blog & Invoicing Guides',
+    blogSubtitle: 'Actionable invoicing advice, payment term strategies, late payment recovery frameworks, and financial privacy guides for freelancers and small businesses.',
+    blogKnowledgeHub: 'Knowledge Hub',
+    btnBackToApp: 'Back to App',
+    btnAllArticles: 'All Articles',
+    btnReadArticle: 'Read Article',
+    lblSearchArticles: 'Search articles by title, keyword, or category...',
+    lblRelatedGuides: 'Related Guides',
+    lblKeyTakeaway: 'Key Takeaway',
+    lblCreateInvoice: 'Create Invoice',
   },
   es: {
     // Header & Tabs
@@ -183,6 +195,18 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'No hay ítems guardados en la biblioteca',
     msgSaveSuccess: '¡Guardado con éxito en el navegador!',
     msgPdfSuccess: '¡PDF descargado con éxito!',
+
+    // Blog Translations
+    blogTitle: 'Blog y Guías de Facturación',
+    blogSubtitle: 'Consejos prácticos de facturación, estrategias de pago, recuperación de facturas vencidas y privacidad financiera.',
+    blogKnowledgeHub: 'Centro de Conocimiento',
+    btnBackToApp: 'Volver a la App',
+    btnAllArticles: 'Todos los Artículos',
+    btnReadArticle: 'Leer Artículo',
+    lblSearchArticles: 'Buscar artículos por título o categoría...',
+    lblRelatedGuides: 'Guías Relacionadas',
+    lblKeyTakeaway: 'Conclusión Clave',
+    lblCreateInvoice: 'Crear Factura',
   },
   fr: {
     // Header & Tabs
@@ -274,6 +298,18 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'Aucun article enregistré',
     msgSaveSuccess: 'Enregistré avec succès dans le navigateur !',
     msgPdfSuccess: 'PDF téléchargé avec succès !',
+
+    // Blog Translations
+    blogTitle: 'Blog & Guides de Facturation',
+    blogSubtitle: 'Conseils de facturation, stratégies de paiement et guides de confidentialité financière pour indépendants.',
+    blogKnowledgeHub: 'Centre de Connaissances',
+    btnBackToApp: 'Retour à l\'App',
+    btnAllArticles: 'Tous les Articles',
+    btnReadArticle: 'Lire l\'Article',
+    lblSearchArticles: 'Rechercher des articles par titre...',
+    lblRelatedGuides: 'Guides Associés',
+    lblKeyTakeaway: 'À Retenir',
+    lblCreateInvoice: 'Créer une Facture',
   },
   de: {
     // Header & Tabs
@@ -365,6 +401,18 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     msgNoItems: 'Keine Artikel im Katalog',
     msgSaveSuccess: 'Erfolgreich im Browser gespeichert!',
     msgPdfSuccess: 'PDF erfolgreich heruntergeladen!',
+
+    // Blog Translations
+    blogTitle: 'Blog & Rechnungs-Ratgeber',
+    blogSubtitle: 'Praktische Rechnungs-Tipps, Zahlungsziel-Strategien und Datenschutz-Leitfäden für Freiberufler.',
+    blogKnowledgeHub: 'Wissensbereich',
+    btnBackToApp: 'Zurück zur App',
+    btnAllArticles: 'Alle Artikel',
+    btnReadArticle: 'Artikel Lesen',
+    lblSearchArticles: 'Artikel nach Titel suchen...',
+    lblRelatedGuides: 'Verwandte Ratgeber',
+    lblKeyTakeaway: 'Wichtige Erkenntnis',
+    lblCreateInvoice: 'Rechnung Erstellen',
   },
 };
 

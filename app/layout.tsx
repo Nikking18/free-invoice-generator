@@ -71,6 +71,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from '../lib/i18n/LanguageContext';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -145,7 +147,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
