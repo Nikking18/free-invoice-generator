@@ -26,38 +26,94 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'The Ultimate Guide to Professional Freelance Invoicing (2026 Checklist)',
     slug: 'professional-freelance-invoicing-guide',
     category: 'Invoicing 101',
-    readTime: '6 min read',
+    readTime: '10 min read',
     date: 'August 2026',
-    summary: 'Master the anatomy of a professional invoice. Learn what essential fields must be included to avoid payment delays and get paid on time every time.',
+    summary: 'Master the anatomy of a professional invoice. Learn what essential fields must be included to avoid payment delays, comply with accounting standards, and get paid on time every time.',
     content: {
-      intro: 'Creating a professional invoice is one of the most vital operations in running a successful freelance or small business. A clear, well-structured invoice eliminates confusion, speeds up approvals from corporate accounting departments, and protects your legal right to compensation.',
+      intro: 'Creating a professional invoice is one of the most vital operations in running a successful freelance business, agency, or consultancy. A clear, well-structured invoice eliminates confusion, speeds up approvals from corporate accounting departments, protects your legal right to compensation, and project authority. In this comprehensive guide, we unpack the complete 2026 invoicing checklist step by step.',
       sections: [
         {
-          heading: '1. Header & Business Identification',
-          body: 'Your invoice must clearly state your business name, logo, legal address, contact email, and phone number. Equally important is identifying your client\'s company name, point of contact, and billing address.',
+          heading: '1. Professional Header & Complete Contact Information',
+          body: 'Your invoice header serves as the official legal record of who is billing whom. Incomplete sender or recipient details are responsible for over 28% of corporate Accounts Payable (AP) invoice rejections. Ensure both sides are clearly identified.',
           bullets: [
-            'Business Name & Logo',
-            'Tax ID / VAT Number (if applicable)',
-            'Client Billing Contact & Department',
+            'Sender Legal Business Name & Branding Logo',
+            'Sender Physical Billing Address, Direct Phone & Contact Email',
+            'Tax Identification Number (EIN, SSN, or VAT ID if applicable)',
+            'Recipient Company Legal Name & Accounts Payable Contact Person',
+            'Client Billing Address & Accounts Payable Email Address',
           ],
-          proTip: 'Always address the invoice to the accounts payable manager or project owner directly to prevent routing delays.',
+          proTip: 'Always address the invoice directly to the accounts payable manager or project owner by name. Generic "Accounts Payable" emails often stall in corporate distribution lists.',
         },
         {
-          heading: '2. Unique Invoice Number & Invoice Date',
-          body: 'Every invoice requires a unique sequential invoice number (e.g., INV-2026-001). Sequential numbering is mandatory for accounting compliance and enables rapid searching during tax audits.',
+          heading: '2. Unique Sequential Invoice Number & Issue Date',
+          body: 'Every invoice requires a unique sequential identifier (e.g., INV-2026-001 or 2026-08-001). Sequential numbering is mandatory for tax compliance, accounting audits, and chronological revenue tracking.',
           bullets: [
-            'Sequential numbering structure (e.g., INV-001 or YYYY-MM-001)',
-            'Invoice Issue Date (the exact day it is delivered)',
-            'Explicit Due Date calculated from your payment terms',
+            'Consistent Numbering Schema (e.g., INV-0001, INV-0002, or YYYY-MM-001)',
+            'Invoice Issue Date (the exact calendar day the invoice is delivered)',
+            'Explicit Due Date calculated directly from your agreed payment terms',
+          ],
+          proTip: 'Never reuse an invoice number, even if an earlier draft was revised or canceled. Voided numbers should be logged in your internal accounting records.',
+        },
+        {
+          heading: '3. Detailed Itemized Deliverables & Service Breakdown',
+          body: 'Avoid vague line item descriptions such as "Consulting services" or "Web work". Vague invoices invite scrutiny and delay payment processing. Transparent itemization builds client trust and proves project scope completion.',
+          bullets: [
+            'Clear Task Title (e.g., "Frontend React Development - Homepage Module")',
+            'Unit Type & Quantity (e.g., 15.5 Hours or 1 Fixed Deliverable)',
+            'Unit Price / Hourly Rate & Line Item Subtotal Amount',
+          ],
+          proTip: 'Detailed itemized invoices improve invoice approval speed by 35% compared to lump-sum summaries.',
+        },
+        {
+          heading: '4. Subtotals, Discounts, Tax Rates & Shipping Calculations',
+          body: 'Provide transparent mathematical breakdowns. Clearly display the subtotal before taxes or discounts, followed by line-item or invoice-level adjustments.',
+          bullets: [
+            'Subtotal Amount prior to adjustments',
+            'Global Discount percentage or fixed dollar credit',
+            'Applicable Tax Rates (Sales Tax, GST, VAT) & Taxable Amount Flag',
+            'Shipping, Courier, or Out-of-Pocket Expense Reimbursables',
+            'Total Balance Due formatted in prominent bold typography',
           ],
         },
         {
-          heading: '3. Detailed Line-Item Breakdown',
-          body: 'Avoid vague descriptions like "Consulting services". Break down your deliverables into individual line items with quantity, unit rate, hours worked, and subtotal per item.',
-          proTip: 'Itemized invoices build client trust and result in 35% faster invoice approval rates.',
+          heading: '5. Explicit Payment Terms & Legal Late Fee Penalties',
+          body: 'Never leave payment deadlines open to interpretation. Clearly state your agreed payment terms (e.g., Net 15, Net 30, or Due Upon Receipt) alongside statutory late fee penalty disclaimers.',
+          bullets: [
+            'Agreed Payment Cycle (e.g., Net 15: Payment due within 15 days)',
+            'Late Penalty Clause (e.g., "1.5% monthly interest applied to overdue balances")',
+            'Early Payment Incentive (e.g., "2% discount if settled within 7 days")',
+          ],
+          proTip: 'To legally collect late interest fees, the penalty percentage must be explicitly stated in your original project contract and on every issued invoice.',
+        },
+        {
+          heading: '6. Direct Payment Methods & Wiring Instructions',
+          body: 'Make it effortlessly easy for your client to pay you. Include complete payment instructions right at the bottom of the invoice.',
+          bullets: [
+            'Bank Name, Account Holder Name, Routing Number & Account Number',
+            'International Wire Identifiers (IBAN & SWIFT/BIC Code)',
+            'Digital Payment Handles (Zelle, PayPal, Wise, or Direct Pay Link)',
+          ],
+        },
+        {
+          heading: '7. Purchase Order (PO) & Project Job Reference Numbers',
+          body: 'Enterprise clients and corporate procurement teams frequently require a Purchase Order (PO) number to match invoices against internal budget authorizations.',
+          bullets: [
+            'Client-Provided Purchase Order (PO Number)',
+            'Internal Job / Contract Reference Number',
+          ],
+          proTip: 'Missing PO numbers are the #1 cause of payment holds in corporate accounting departments. Always confirm the PO number before sending your final invoice.',
+        },
+        {
+          heading: '8. Delivery, Archival Storage & Follow-Up System',
+          body: 'Delivering the invoice is only half the battle. Maintain organized local backups and establish a systematic 3-tier follow-up schedule.',
+          bullets: [
+            'Deliver as a crisp, non-editable PDF document via email',
+            'Store an offline JSON/PDF backup for 5-7 years for tax compliance',
+            'Schedule automated follow-ups: 3 days before due date, on due date, and 7 days post-due date',
+          ],
         },
       ],
-      conclusion: 'By standardizing your invoice workflow with automated numbering, clear line items, and explicit payment instructions, you transform billing from a friction point into a seamless experience.',
+      conclusion: 'By standardizing your billing workflow with automated sequential numbering, transparent itemization, explicit payment terms, and direct wiring details, you transform invoicing from a stressful administrative chore into a professional, high-converting cash flow asset.',
     },
   },
   {
@@ -343,10 +399,6 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
           proTip: 'Ideal for privacy-conscious freelancers, contractors, and agencies who require fast, offline-capable PDF billing.',
         },
-        {
-          heading: 'Key Criteria When Evaluating Free Tools',
-          body: 'When comparing invoice software, evaluate watermark policies, export formats (PDF/JSON), client retention limits, and data privacy.',
-        },
       ],
       conclusion: 'Choose a free invoice tool that respects client data privacy while providing professional PDF rendering.',
     },
@@ -365,10 +417,6 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: 'When Free Invoice Generators Outperform Paid SaaS',
           body: 'For sole proprietors, freelancers, and small service agencies, paying high monthly software subscriptions drains profit margins. Free browser-native generators deliver clean PDF billing without recurring overhead.',
-        },
-        {
-          heading: 'Evaluating Cloud Accounting vs. Dedicated Generators',
-          body: 'If you only need to issue 5 to 50 invoices per month, dedicated client-side tools provide faster startup times without bloat.',
         },
       ],
       conclusion: 'Match your software choice to your actual billing volume to avoid paying for unused features.',
@@ -389,14 +437,6 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: 'Step 1: Input Sender & Client Details',
           body: 'Fill in your business name, logo, contact info, and billing address. Reusable client presets auto-fill returning clients instantly.',
         },
-        {
-          heading: 'Step 2: Add Line Items & Calculate Taxes',
-          body: 'Enter project deliverables, quantities, hourly rates, discount percentages, and tax rates with automatic real-time math calculations.',
-        },
-        {
-          heading: 'Step 3: Click Download PDF',
-          body: 'Your PDF invoice generates in milliseconds directly inside your browser for instant emailing.',
-        },
       ],
       conclusion: 'No account creation needed. Generate clean invoices instantly whenever you need to bill a client.',
     },
@@ -416,10 +456,6 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: 'The Danger of Manual Math Errors in Excel',
           body: 'Accidentally overwriting a cell formula in Excel can result in incorrect tax subtotals or miscalculated discounts, damaging client trust.',
         },
-        {
-          heading: 'Formatting Inconsistencies in Word Docs',
-          body: 'Word document layouts distort when exported across different operating systems or PDF viewers, resulting in misaligned tables.',
-        },
       ],
       conclusion: 'Switching from static templates to a web-based invoice generator ensures 100% calculation accuracy and uniform layout rendering.',
     },
@@ -438,11 +474,6 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: 'Essential Fields for Individual Invoices',
           body: 'Include your legal name, physical or mailing address, contact email, and Tax Identification Number (or SSN/EIN where applicable).',
-          bullets: [
-            'Use your legal full name as the business entity',
-            'Include an EIN (Employer Identification Number) to protect your SSN',
-            'Specify direct payment wiring or PayPal details',
-          ],
         },
       ],
       conclusion: 'Invoicing legally as a sole proprietor is straightforward when key identifying details are provided.',
@@ -463,10 +494,6 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: 'Verifying Bank Wire Details',
           body: 'Always confirm changed bank details or IBAN numbers over a secondary phone call before initiating large wire transfers.',
         },
-        {
-          heading: 'Digital Signatures & Secure PDF Verification',
-          body: 'Store master client invoices locally to maintain immutable audit copies that prevent unauthorized tampering.',
-        },
       ],
       conclusion: 'Proactive payment verification safeguards your business against cyber billing fraud.',
     },
@@ -485,10 +512,6 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: 'Billing on the 1st of Every Month',
           body: 'Standardize retainer invoicing by issuing all recurring invoices on the 1st of the month with Net 15 terms.',
-        },
-        {
-          heading: 'Reconciling Overage Hours',
-          body: 'Clearly itemize baseline retainer scope alongside approved additional overage hours to avoid scope creep disputes.',
         },
       ],
       conclusion: 'Consistent billing schedules establish reliable cash flow for ongoing monthly retainers.',
@@ -528,10 +551,6 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: 'Standard Late Fee Percentage Rates',
           body: 'Common freelance late interest rates range from 1.5% per month (18% APR) up to statutory interest rates established by regional commercial laws.',
         },
-        {
-          heading: 'Contractual Disclosure Requirements',
-          body: 'To legally collect late fees, the exact percentage rate must be disclosed on your initial agreement and explicitly stated on all issued invoices.',
-        },
       ],
       conclusion: 'Enforcing late fee terms professionally protects your business cash flow.',
     },
@@ -570,10 +589,6 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: 'Optimizing Logo Images for PDF Rendering',
           body: 'Use high-resolution PNG or JPEG logo images with clean backgrounds for optimal PDF printing quality.',
         },
-        {
-          heading: 'Choosing Minimalist Templates',
-          body: 'Select clean template layouts (Classic, Minimal, Compact) that highlight your deliverables without visual clutter.',
-        },
       ],
       conclusion: 'Professional invoice design builds client credibility and enhances brand recall.',
     },
@@ -586,9 +601,82 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
   es: {
     'post-1': {
       title: 'La Guía Definitiva de Facturación Freelance Profesional (Checklist 2026)',
-      readTime: '6 min de lectura',
+      readTime: '10 min de lectura',
       date: 'Agosto 2026',
       summary: 'Domine la anatomía de una factura profesional. Aprenda qué campos son esenciales para evitar retrasos de pago y cobrar siempre a tiempo.',
+      content: {
+        intro: 'Crear una factura profesional es una de las operaciones más vitales para gestionar un negocio freelance, agencia o consultoría exitoso. Una factura clara y bien estructurada elimina la confusión, acelera las aprobaciones de los departamentos de contabilidad y protege su derecho legal a la remuneración.',
+        sections: [
+          {
+            heading: '1. Encabezado Profesional e Información de Contacto',
+            body: 'El encabezado de su factura sirve como registro legal oficial. La falta de datos de contacto es responsable de más del 28% de los rechazos contables corporativos.',
+            bullets: [
+              'Nombre Legal de Empresa y Logo Institucional',
+              'Dirección de Facturación, Teléfono Directo y Correo de Contacto',
+              'Número de Identificación Fiscal (NIF, CIF, RFC o RUT)',
+              'Nombre Legal del Cliente y Persona de Contacto en Contabilidad',
+            ],
+            proTip: 'Dirija siempre la factura directamente al responsable de cuentas por pagar para evitar retrasos en el envío.',
+          },
+          {
+            heading: '2. Número Secuencial Único y Fecha de Emisión',
+            body: 'Toda factura requiere un identificador secuencial único (ej. INV-2026-001). La numeración secuencial es obligatoria para el cumplimiento fiscal y auditorías.',
+            bullets: [
+              'Estructura de Numeración Coherente (ej. INV-0001, INV-0002)',
+              'Fecha de Emisión de la Factura (el día exacto de entrega)',
+              'Fecha de Vencimiento Explicita calculada según sus términos de pago',
+            ],
+            proTip: 'Nunca reutilice un número de factura, incluso si una versión anterior fue anulada.',
+          },
+          {
+            heading: '3. Desglose Detaillado de Servicios y Entrega',
+            body: 'Evite descripciones vagas como "Servicios de consultoría". La transparencia en el desglose genera confianza y acelera los pagos.',
+            bullets: [
+              'Título Claro de la Tarea o Proyecto',
+              'Tipo de Unidad y Cantidad (Horas o Entregables Fijos)',
+              'Precio Unitario, Tarifa por Hora y Importe Subtotal',
+            ],
+            proTip: 'Las facturas desglosadas aumentan la velocidad de aprobación de pago en un 35%.',
+          },
+          {
+            heading: '4. Subtotales, Descuentos, Impuestos y Gastos de Envío',
+            body: 'Muestre desgloses matemáticos transparentes antes de impuestos o descuentos aplicables.',
+            bullets: [
+              'Importe Subtotal previo a ajustes',
+              'Descuento Global en porcentaje o importe fijo',
+              'Tasas de Impuestos Aplicables (IVA, IGIC, IRPF)',
+              'Gastos de Envío o Reembolso de Gastos de Bolsillo',
+              'Saldo Total Pendiente formateado en tipografía destacada',
+            ],
+          },
+          {
+            heading: '5. Términos de Pago Explícitos y Recargos de Mora',
+            body: 'Establezca claramente los términos de pago acordados (Net 15, Net 30 o Pago al Contado) y las cláusulas de penalización por mora.',
+            bullets: [
+              'Plazo de Pago Acordado (ej. Net 15: Pago a 15 días)',
+              'Cláusula de Penalización por Mora (ej. 1,5% de interés mensual)',
+            ],
+          },
+          {
+            heading: '6. Métodos de Pago Directo e Instrucciones de Transferencia',
+            body: 'Facilite al máximo el pago por parte de su cliente incluyendo instrucciones bancarias completas al pie de la factura.',
+            bullets: [
+              'Nombre del Banco, Titular de la Cuenta, Número de Cuenta e IBAN / SWIFT',
+              'Plataformas de Pago Digital (Zelle, PayPal, Bizum o Transferencia Directa)',
+            ],
+          },
+          {
+            heading: '7. Número de Orden de Compra (PO) y Referencias de Proyecto',
+            body: 'Los clientes corporativos suelen requerir un número de Orden de Compra (PO) para procesar los pagos.',
+            bullets: ['Número de Orden de Compra del Cliente (PO Number)', 'Referencia Interna de Contrato'],
+          },
+          {
+            heading: '8. Envío, Almacenamiento Local y Seguimiento',
+            body: 'Envíe su factura en formato PDF no editable y conserve copias JSON locales en su navegador durante 5 a 7 años.',
+          },
+        ],
+        conclusion: 'Al estandarizar su proceso de facturación con numeración automática, desglose claro e instrucciones directas, transforma la facturación en un activo profesional y rentable.',
+      },
     },
     'post-2': {
       title: 'Net 15 vs. Net 30 vs. Pago al Contado: Elija los Mejores Términos de Pago',
@@ -714,9 +802,83 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
   fr: {
     'post-1': {
       title: 'Le Guide Ultime de la Facturation Freelance Professionnelle (Checklist 2026)',
-      readTime: '6 min de lecture',
+      readTime: '10 min de lecture',
       date: 'Août 2026',
       summary: 'Maîtrisez l\'anatomie d\'une facture professionnelle. Découvrez les champs essentiels pour éviter les retards de paiement et être payé à temps.',
+      content: {
+        intro: 'Créer une facture professionnelle est l\'une des opérations les plus importantes dans la gestion d\'une activité freelance ou d\'une agence. Une facture claire et structurée élimine les malentendus, accélère la validation par la comptabilité et sécurise vos encaissements.',
+        sections: [
+          {
+            heading: '1. En-tête Professionnel et Coordonnées Complètes',
+            body: 'L\'en-tête constitue la preuve juridique officielle de la transaction. Des coordonnées incomplètes sont responsables de plus de 28% des rejets de factures par les services comptables.',
+            bullets: [
+              'Nom Légal de l\'Entreprise et Logo',
+              'Adresse Postale de Facturation, Téléphone et Email Direct',
+              'Numéro SIRET, TVA Intracommunautaire ou Identifiant Fiscal',
+              'Raison Sociale du Client et Nom du Contact Comptable',
+            ],
+            proTip: 'Adressez toujours la facture directement au responsable de la comptabilité fournisseurs.',
+          },
+          {
+            heading: '2. Numéro Chronologique Unique et Date d\'Émission',
+            body: 'Chaque facture doit comporter un numéro séquentiel unique (ex: FACT-2026-001). La numérotation chronologique est obligatoire pour la conformité fiscale.',
+            bullets: [
+              'Numérotation Continue Sans Interruption (ex: FACT-0001, FACT-0002)',
+              'Date d\'Émission de la Facture (jour exact de la livraison)',
+              'Date d\'Échéance Limite calculée selon vos conditions de paiement',
+            ],
+            proTip: 'Ne réutilisez jamais un numéro de facture déjà attribué, même en cas d\'annulation.',
+          },
+          {
+            heading: '3. Détail Précis des Prestations et Services',
+            body: 'Évitez les libellés vagues comme "Conseil web". Le détail précis des lignes renforce la confiance du client et accélère le paiement.',
+            bullets: [
+              'Intitulé Clair du Projet ou de la Mission',
+              'Quantité et Unité (Heures, Jours ou Forfait)',
+              'Prix Unitaire Hors Taxes (HT) et Montant Ligne',
+            ],
+            proTip: 'Des factures détaillées sont validées 35% plus rapidement que les factures forfaitaires globales.',
+          },
+          {
+            heading: '4. Sous-totaux, Remises, Taxes (TVA) et Frais',
+            body: 'Présentez un décompte mathématique clair avant et après taxes.',
+            bullets: [
+              'Sous-total Général Hors Taxes (HT)',
+              'Remise ou Escompte Accordé en pourcentage ou montant',
+              'Taux de TVA Applicable et Montant de la Taxe',
+              'Frais de Déplacement ou Dépenses Reboursables',
+              'Montant Total Toutes Taxes Comprises (TTC) en Gras',
+            ],
+          },
+          {
+            heading: '5. Conditions de Règlement et Pénalités de Retard',
+            body: 'Précisez explicitement l\'échéance de paiement (Net 15, Net 30 ou À Réception) ainsi que les mentions légales relatives aux pénalités.',
+            bullets: [
+              'Délai de Paiement Fixé (ex: 30 Jours Fin de Mois)',
+              'Indemnité Forfaitaire pour Frais de Recouvrement (40 € légal en France)',
+              'Taux des Pénalités de Retard Applicables',
+            ],
+          },
+          {
+            heading: '6. Coordonnées Bancaires et Modes de Paiement',
+            body: 'Facilitez le règlement en fournissant votre RIB complet au bas de la facture.',
+            bullets: [
+              'Nom de la Banque, Titulaire du Compte, IBAN et Code BIC/SWIFT',
+              'Liens de Paiement Direct en Ligne',
+            ],
+          },
+          {
+            heading: '7. Numéro de Bon de Commande (Bon de Commande / PO)',
+            body: 'Les grandes entreprises exigent un numéro de Bon de Commande (PO) pour valider le paiement.',
+            bullets: ['Numéro de Bon de Commande Fourni par le Client', 'Référence du Contrat'],
+          },
+          {
+            heading: '8. Envoi, Archivage Local et Relances',
+            body: 'Transmettez votre facture sous format PDF non modifiable et conservez une sauvegarde locale pendant 10 ans.',
+          },
+        ],
+        conclusion: 'En standardisant votre processus de facturation avec une numérotation automatique et des conditions claires, vous transformez vos relances en un processus fluide et professionnel.',
+      },
     },
     'post-2': {
       title: 'Net 15 vs Net 30 vs Paiement à Réception : Choisir les Bonnes Conditions',
@@ -842,9 +1004,78 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
   de: {
     'post-1': {
       title: 'Der Ultimative Leitfaden für Professionelle Freiberufler-Rechnungen (Checkliste 2026)',
-      readTime: '6 Min. Lesezeit',
+      readTime: '10 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Meistern Sie den Aufbau einer professionellen Rechnung. Lernen Sie alle Pflichtangaben kennen, um Zahlungsverzögerungen zu vermeiden.',
+      content: {
+        intro: 'Das Erstellen einer professionellen Rechnung ist eine der wichtigsten Aufgaben im Geschäftsalltag von Freiberuflern und Unternehmen. Eine klare Rechnung vermeidet Unklarheiten, beschleunigt die Freigabe in der Buchhaltung und sichert Ihren Vergütungsanspruch.',
+        sections: [
+          {
+            heading: '1. Professioneller Briefkopf und Kontaktdaten',
+            body: 'Der Rechnungskopf ist das offizielle Dokument der Rechnungsstellung. Unvollständige Angaben führen in über 28% der Fälle zu Verzögerungen in der Buchhaltung.',
+            bullets: [
+              'Vollständiger Firmenname und Firmenlogo des Rechnungsstellers',
+              'Anschrift, Telefonnummer und E-Mail-Adresse',
+              'Steuernummer oder Umsatzsteuer-Identifikationsnummer (USt-IdNr.)',
+              'Name und Anschrift des Rechnungsempfängers',
+            ],
+            proTip: 'Adressieren Sie Rechnungen direkt an den zuständigen Ansprechpartner in der Buchhaltung.',
+          },
+          {
+            heading: '2. Fortlaufende Rechnungsnummer und Rechnungsdatum',
+            body: 'Jede Rechnung benötigt eine einmalige fortlaufende Nummer (z.B. RE-2026-001). Eine lückenlose Nummerierung ist steuerrechtlich vorgeschrieben.',
+            bullets: [
+              'Einheitliches Nummernsystem (z.B. RE-0001, RE-0002)',
+              'Rechnungsdatum (Tag der Ausstellung)',
+              'Fälligkeitsdatum gemäß vereinbartem Zahlungsziel',
+            ],
+            proTip: 'Vergeben Sie Rechnungsnummern niemals doppelt, auch wenn Entwürfe korrigiert wurden.',
+          },
+          {
+            heading: '3. Detaillierte Leistungsbeschreibung',
+            body: 'Vermeiden Sie pauschale Formulierungen wie "Beratung". Eine transparente Aufschlüsselung sorgt für schnelle Prüfung und Auszahlung.',
+            bullets: [
+              'Klares Thema der Leistung oder des Projekts',
+              'Menge und Einheit (Stunden, Tage oder Festpreis)',
+              'Einzelpreis und Gesamtbetrag je Position',
+            ],
+            proTip: 'Detaillierte Rechnungen werden im Schnitt 35% schneller freigegeben als Pauschalbeträge.',
+          },
+          {
+            heading: '4. Zwischensummen, Rabatte, Steuersätze und Gebühren',
+            body: 'Weisen Sie alle Beträge vor und nach Steuern transparent aus.',
+            bullets: [
+              'Zwischensumme vor Abzügen',
+              'Gewährter Rabatt oder Skonto',
+              'Anwendbarer Steuersatz (z.B. 19% MwSt.) und Steuerbetrag',
+              'Rechnungsendbetrag in hervorgehobener Schrift',
+            ],
+          },
+          {
+            heading: '5. Zahlungsziel und Verzugszinsen',
+            body: 'Geben Sie das Zahlungsziel (z.B. 14 Tage netto) sowie Hinweise auf gesetzliche Verzugszinsen explizit an.',
+            bullets: [
+              'Zahlungsziel (z.B. Zahlbar innerhalb von 14 Tagen)',
+              'Hinweis auf Verzugszinsen bei Überschreitung der Frist',
+            ],
+          },
+          {
+            heading: '6. Bankverbindung und Zahlungshinweise',
+            body: 'Geben Sie am Ende der Rechnung Ihre vollständige Bankverbindung an.',
+            bullets: ['Bankname, Kontoinhaber, IBAN und BIC/SWIFT', 'Direktzahlungs-Links'],
+          },
+          {
+            heading: '7. Bestellnummer (Bestell-Nr. / PO-Nummer)',
+            body: 'Großkunden verlangen oft eine Bestellnummer zur Zuordnung im Budget.',
+            bullets: ['Vom Kunden bereitgestellte Bestellnummer', 'Vertragsreferenz'],
+          },
+          {
+            heading: '8. Versand, Lokale Archivierung und Nachfassen',
+            body: 'Versenden Sie die Rechnung als unveränderbare PDF-Datei und sichern Sie lokale Backups für die gesetzliche Aufbewahrungsfrist.',
+          },
+        ],
+        conclusion: 'Durch standardisierte Rechnungsabläufe mit automatischer Nummerierung und klaren Angaben wird die Rechnungsstellung zum schnellen Erfolgsfaktor.',
+      },
     },
     'post-2': {
       title: 'Netto 15 vs. Netto 30 Tage vs. Sofortige Zahlung: Die Besten Zahlungsziele',
@@ -985,6 +1216,7 @@ export function getBlogPosts(lang: AppLanguage = 'en'): BlogPost[] {
       readTime: override.readTime || post.readTime,
       date: override.date || post.date,
       summary: override.summary || post.summary,
+      content: override.content || post.content,
     };
   });
 }
