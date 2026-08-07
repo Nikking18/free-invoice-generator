@@ -354,30 +354,93 @@ export const BLOG_POSTS: BlogPost[] = [
     title: '9 Essential Elements Every Professional Invoice Must Have',
     slug: 'essential-elements-every-professional-invoice-must-have',
     category: 'Invoicing 101',
-    readTime: '5 min read',
+    readTime: '9 min read',
     date: 'August 2026',
     summary: 'Checklist of the 9 indispensable invoice elements that ensure legal compliance, prevent client payment disputes, and accelerate approval times.',
     content: {
-      intro: 'Incomplete invoices are the single largest cause of client payment delays. Including these 9 standard fields guarantees your invoice passes corporate accounting checks smoothly.',
+      intro: 'Incomplete or improperly formatted invoices are the #1 reason corporate accounting departments reject payments or request revisions. Including these 9 standard fields guarantees your invoice passes corporate accounting checks smoothly, protects your legal right to compensation, and ensures prompt payouts.',
       sections: [
         {
-          heading: 'Core Information Requirements',
-          body: 'Your invoice must contain clear business details, client details, unique identifier, issue date, due date, itemized list, subtotal, tax calculations, and payment instructions.',
+          heading: '1. Professional Header & High-Resolution Business Logo',
+          body: 'Your logo and brand header establish immediate visual legitimacy. A clean visual header reassures accounting teams that the invoice comes from an established business rather than an unverified contractor.',
           bullets: [
-            '1. Header & Business Logo',
-            '2. Full Contact Information for Sender & Recipient',
-            '3. Unique Sequential Invoice Number (INV-001)',
-            '4. Issue Date & Explicit Due Date',
-            '5. Detailed Itemized Description of Services/Goods',
-            '6. Breakdown of Rates, Quantities, and Discounts',
-            '7. Applicable Tax Rates (GST, VAT, Sales Tax)',
-            '8. Total Amount & Remaining Balance Due',
-            '9. Accepted Payment Methods & Wiring Instructions',
+            'High-resolution PNG or JPEG logo with clean background padding',
+            'Distinct visual hierarchy separating sender details from invoice metadata',
           ],
-          proTip: 'Double check client PO (Purchase Order) numbers if required by enterprise clients to avoid accounting rejections.',
+          proTip: 'Use a clean minimalist layout theme to maintain high print legibility on black-and-white accounting printers.',
+        },
+        {
+          heading: '2. Complete Sender & Recipient Contact Metadata',
+          body: 'Both sender and client contact blocks must contain full legal entity details. Missing tax IDs or recipient addresses cause over 28% of corporate Accounts Payable (AP) rejections.',
+          bullets: [
+            'Sender Legal Business Name, Billing Address, Email & Phone',
+            'Sender Tax ID (EIN, SSN, VAT, GST Number)',
+            'Recipient Legal Business Name, Accounts Payable Contact & Billing Address',
+          ],
+        },
+        {
+          heading: '3. Unique Sequential Invoice Number (INV-001)',
+          body: 'Every invoice requires a unique sequential number for tax compliance, accounting audits, and chronological revenue tracking.',
+          bullets: [
+            'Consistent Numbering Schema (e.g., INV-2026-001 or 2026-08-001)',
+            'Chronological sequencing without skipped numbers',
+          ],
+          proTip: 'Never issue duplicate invoice numbers. Voided or canceled invoices should be archived in your internal records.',
+        },
+        {
+          heading: '4. Invoice Issue Date & Explicit Due Date',
+          body: 'Clearly state both the issue date (the exact day of delivery) and the explicit due date calculated from your payment terms.',
+          bullets: [
+            'Issue Date (DD/MM/YYYY or MM/DD/YYYY)',
+            'Explicit Due Date (e.g., Net 15: Due August 22, 2026)',
+          ],
+        },
+        {
+          heading: '5. Detailed Itemized Description of Goods or Services',
+          body: 'Break down deliverables into individual line items with quantity, unit rate, hours worked, and line subtotals. Itemization builds trust and proves project scope completion.',
+          bullets: [
+            'Clear task description (e.g., "Mobile App UI Design - Sprint 1")',
+            'Quantity / Hours worked alongside unit rate',
+            'Subtotal per line item',
+          ],
+        },
+        {
+          heading: '6. Subtotals, Discount Adjustments & Out-of-Pocket Expenses',
+          body: 'Provide transparent mathematical breakdowns showing subtotals before discounts, followed by line-item or global percentage discounts.',
+          bullets: [
+            'Subtotal prior to taxes and discounts',
+            'Line-item or invoice-level percentage/flat discounts',
+            'Reimbursable out-of-pocket expenses (courier, travel, domain costs)',
+          ],
+        },
+        {
+          heading: '7. Applicable Regional Tax Rates (VAT, GST, Sales Tax)',
+          body: 'State applicable tax rates explicitly per line item or across the total subtotal.',
+          bullets: [
+            'Tax Rate Percentage (e.g., 20% VAT or 8.875% Sales Tax)',
+            'Itemized Tax Amount dollar calculation',
+            'Tax exemption references where applicable (e.g., Reverse Charge VAT)',
+          ],
+        },
+        {
+          heading: '8. Prominent Total Balance Due & Currency Code',
+          body: 'Display the final net balance due in prominent bold typography alongside the explicit 3-letter ISO currency code.',
+          bullets: [
+            'Prominent font size for Total Balance Due',
+            'ISO Currency Code (USD $, EUR €, GBP £, CAD $)',
+          ],
+        },
+        {
+          heading: '9. Accepted Payment Methods & Wiring Instructions',
+          body: 'Provide clear payment instructions right at the bottom of the PDF invoice.',
+          bullets: [
+            'Bank Name, Account Holder Name, Routing/Account #',
+            'International Identifiers (IBAN & SWIFT/BIC Code)',
+            'Direct Payment Links (Zelle, Stripe, PayPal, Wise)',
+          ],
         },
       ],
-      conclusion: 'Reviewing your invoice against this 9-point checklist guarantees fast, hassle-free client payouts.',
+      conclusion: 'Reviewing your invoices against this 9-point checklist guarantees fast, hassle-free client payouts while ensuring complete accounting compliance.',
     },
   },
   {
@@ -976,9 +1039,51 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-5': {
       title: '9 Elementos Esenciales que Toda Factura Profesional Debe Incluir',
-      readTime: '5 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Lista de verificación con los 9 elementos indispensables para garantizar el cumplimiento legal y acelerar los tiempos de aprobación.',
+      content: {
+        intro: 'Las facturas incompletas o mal formateadas son la causa principal de rechazo en los departamentos de contabilidad corporativa. Incluir estos 9 campos garantiza que su factura sea aprobada sin problemas.',
+        sections: [
+          {
+            heading: '1. Encabezado Profesional y Logo de la Empresa',
+            body: 'El logo y el diseño limpio aportan legitimidad visual inmediata a su factura.',
+          },
+          {
+            heading: '2. Datos de Contacto Completos de Emisor y Cliente',
+            body: 'Incluya nombres legales completos, direcciones de facturación, NIF/CIF y teléfonos.',
+          },
+          {
+            heading: '3. Número de Factura Secuencial Único (INV-001)',
+            body: 'La numeración secuencial cronológica es obligatoria para el cumplimiento fiscal.',
+          },
+          {
+            heading: '4. Fecha de Emisión y Fecha de Vencimiento Explícita',
+            body: 'Muestre claramente la fecha de entrega y el vencimiento calculado.',
+          },
+          {
+            heading: '5. Descripción Detaillada de Entregables o Servicios',
+            body: 'Desglose las tareas, cantidades, tarifas por hora y subtotales por concepto.',
+          },
+          {
+            heading: '6. Subtotales, Descuentos y Gastos Reembolsables',
+            body: 'Detalle los subtotales previos a impuestos y los descuentos aplicados.',
+          },
+          {
+            heading: '7. Tasas de Impuestos Aplicables (IVA, IGIC, IRPF)',
+            body: 'Muestre las tasas de impuesto aplicables y exenciones.',
+          },
+          {
+            heading: '8. Saldo Total Pendiente y Código de Moneda',
+            body: 'Destaque el total a pagar en tipografía destacada con el código de moneda (USD, EUR, GBP).',
+          },
+          {
+            heading: '9. Métodos de Pago Aceptados e Instrucciones Bancarias',
+            body: 'Incluya número de cuenta, IBAN, SWIFT/BIC o enlaces de pago directo.',
+          },
+        ],
+        conclusion: 'Revisar sus facturas con esta lista de 9 puntos garantiza cobros rápidos y sin complicaciones.',
+      },
     },
     'post-6': {
       title: 'Cómo Solicitar Depósitos por Adelantado y Retainers Sin Perder Clientes',
@@ -1303,9 +1408,51 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-5': {
       title: '9 Éléments Indispensables que Toute Facture Professionnelle Doit Comporter',
-      readTime: '5 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Checklist des 9 éléments indispensables garantissant la conformité légale et accélérant les délais de paiement.',
+      content: {
+        intro: 'Les factures incomplètes ou mal formatées sont la première cause de rejet par les services comptables. Inclure ces 9 mentions garantit la validation rapide de vos paiements.',
+        sections: [
+          {
+            heading: '1. En-tête Professionnel et Logo de l\'Entreprise',
+            body: 'Un logo net et un en-tête épuré apportent une légitimité visuelle immédiate à votre facture.',
+          },
+          {
+            heading: '2. Coordonnées Complètes de l\'Émetteur et du Client',
+            body: 'Mentions légales complètes, adresses, numéro SIRET/TVA et emails comptables.',
+          },
+          {
+            heading: '3. Numéro Chronologique Unique (FACT-001)',
+            body: 'La numérotation séquentielle sans interruption est légalement obligatoire.',
+          },
+          {
+            heading: '4. Date d\'Émission et Date d\'Échéance Explicite',
+            body: 'Indiquez clairement la date de livraison et la date limite de règlement.',
+          },
+          {
+            heading: '5. Description Détaillée des Services et Prestations',
+            body: 'Détaillez les tâches, quantités, tarifs horaires et sous-totaux par ligne.',
+          },
+          {
+            heading: '6. Sous-totaux, Remises et Frais Reboursables',
+            body: 'Décompte clair des montants hors taxes et des réductions accordées.',
+          },
+          {
+            heading: '7. Taux de TVA Applicables et Mentions Légales',
+            body: 'Affichage des taux de TVA ou mentions d\'exonération (ex: Autolidation / Art. 293 B du CGI).',
+          },
+          {
+            heading: '8. Montant Total Toutes Taxes Comprises (TTC) et Devise',
+            body: 'Mettez en valeur le net à payer en gras avec le code devise ISO (EUR, USD, GBP).',
+          },
+          {
+            heading: '9. Modes de Règlement et Coordonnées Bancaires (RIB)',
+            body: 'Indiquez clairement votre IBAN, BIC/SWIFT et moyens de paiement au bas de la facture.',
+          },
+        ],
+        conclusion: 'Vérifier vos factures avec cette checklist en 9 points garantit un règlement rapide et sans contestation.',
+      },
     },
     'post-6': {
       title: 'Comment Demander un Acompte Initial Sans Perdre de Clients',
@@ -1625,9 +1772,51 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-5': {
       title: '9 Unverzichtbare Elemente, die Jede Professionelle Rechnung Enthalten Muss',
-      readTime: '5 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Checkliste der 9 gesetzlichen Pflichtangaben für eine reibungslose Rechnungsprüfung und schnelle Auszahlung.',
+      content: {
+        intro: 'Unvollständige Rechnungen sind der Hauptgrund für Verzögerungen in der Buchhaltung. Die Einhaltung dieser 9 Pflichtangaben garantiert eine schnelle Freigabe.',
+        sections: [
+          {
+            heading: '1. Professioneller Briefkopf und Firmenlogo',
+            body: 'Ein klares Firmenlogo und sauberer Briefkopf vermitteln sofortige Professionalität.',
+          },
+          {
+            heading: '2. Vollständige Kontaktdaten von Aussteller und Empfänger',
+            body: 'Vollständige Rechtsnamen, Anschriften, Steuernummern und E-Mail-Adressen.',
+          },
+          {
+            heading: '3. Einmalige fortlaufende Rechnungsnummer (RE-001)',
+            body: 'Eine lückenlose chronologische Nummerierung ist steuerlich zwingend vorgeschrieben.',
+          },
+          {
+            heading: '4. Rechnungsdatum und explizites Fälligkeitsdatum',
+            body: 'Ausstellungsdatum und berechnetes Zahlungsziel transparent ausweisen.',
+          },
+          {
+            heading: '5. Detaillierte Beschreibung der erbrachten Leistungen',
+            body: 'Genaue Leistungsbezeichnung, Mengen, Stundensätze und Einzelbeträge.',
+          },
+          {
+            heading: '6. Zwischensumme, Rabatte und Nebenkosten',
+            body: 'Übersichtliche Aufschlüsselung der Beträge vor Steuern und Abzügen.',
+          },
+          {
+            heading: '7. Anwendbare Steuersätze (MwSt. / USt.)',
+            body: 'Angabe von Steuersatz (z.B. 19% MwSt.) und Steuerbetrag oder Steuerbefreiung.',
+          },
+          {
+            heading: '8. Hervorgehobener Gesamtbetrag und Währungscode',
+            body: 'Klar sichtbarer Endbetrag mit Währungsangabe (EUR, USD, GBP).',
+          },
+          {
+            heading: '9. Bankverbindung und Zahlungshinweise',
+            body: 'Vollständige Angabe von Kontoinhaber, IBAN, BIC/SWIFT und Direktzahlungs-Links.',
+          },
+        ],
+        conclusion: 'Prüfen Sie Ihre Rechnungen anhand dieser 9-Punkte-Checkliste für eine reibungslose Auszahlung.',
+      },
     },
     'post-6': {
       title: 'Anzahlungen & Vorschüsse Anfordern Ohne Kunden Zu Verlieren',
