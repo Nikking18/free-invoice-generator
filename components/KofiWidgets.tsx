@@ -98,8 +98,6 @@ export function KofiFooterSection() {
 }
 
 export function KofiOverlayWidget() {
-  const { t } = useTranslation();
-
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -111,7 +109,7 @@ export function KofiOverlayWidget() {
         try {
           (window as any).kofiWidgetOverlay.draw('nikhilkhanpara', {
             'type': 'floating-chat',
-            'floating-chat.donateButton.text': t('footerSupportBtn'),
+            'floating-chat.donateButton.text': 'Support me',
             'floating-chat.donateButton.background-color': '#000000',
             'floating-chat.donateButton.text-color': '#ffffff'
           });
@@ -137,7 +135,7 @@ export function KofiOverlayWidget() {
         script.addEventListener('load', initOverlay);
       }
     }
-  }, [t]);
+  }, []);
 
   return null;
 }

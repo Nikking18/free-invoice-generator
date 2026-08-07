@@ -1,15 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { ShieldCheck } from 'lucide-react';
 import { BlogHeader } from '../../components/BlogHeader';
 import { BlogSection } from '../../components/BlogSection';
 import { KofiFooterSection, KofiOverlayWidget } from '../../components/KofiWidgets';
 import { FeedbackWidget } from '../../components/FeedbackWidget';
+import { PrivacyModal } from '../../components/PrivacyBanner';
 import { useTranslation } from '../../lib/i18n/LanguageContext';
 
 export default function BlogPage() {
   const { t } = useTranslation();
+  const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-black font-sans antialiased">
@@ -24,12 +27,20 @@ export default function BlogPage() {
       {/* Support & Footer */}
       <KofiFooterSection />
 
-      <footer className="bg-white text-gray-800 border-t border-gray-200 py-6 text-xs text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <footer className="bg-white text-gray-800 border-t border-gray-200 py-6 text-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-600">
             © {new Date().getFullYear()} {t('footerCopyrightNotice')}
           </p>
           <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setShowPrivacyModal(true)}
+              className="inline-flex items-center gap-1.5 text-gray-700 hover:text-black transition-colors font-medium cursor-pointer"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-black" />
+              <span>{t('footerPrivacyNotice')}</span>
+            </button>
+            <span className="text-gray-300">•</span>
             <Link href="/" className="text-black font-semibold hover:underline">
               {t('appName')}
             </Link>
@@ -40,6 +51,9 @@ export default function BlogPage() {
           </div>
         </div>
       </footer>
+
+      {/* Privacy Notice Modal */}
+      <PrivacyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
 
       {/* Widgets */}
       <KofiOverlayWidget />

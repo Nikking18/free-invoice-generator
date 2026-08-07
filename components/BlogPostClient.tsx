@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   Clock, 
@@ -8,13 +8,15 @@ import {
   CheckCircle2, 
   FileText, 
   BookOpen, 
-  ArrowRight
+  ArrowRight,
+  ShieldCheck
 } from 'lucide-react';
 import { getBlogPostBySlug, getBlogPosts } from '../lib/blogs';
 import { useTranslation } from '../lib/i18n/LanguageContext';
 import { BlogHeader } from './BlogHeader';
 import { KofiFooterSection, KofiOverlayWidget } from './KofiWidgets';
 import { FeedbackWidget } from './FeedbackWidget';
+import { PrivacyModal } from './PrivacyBanner';
 
 interface BlogPostClientProps {
   slug: string;
@@ -22,6 +24,7 @@ interface BlogPostClientProps {
 
 export function BlogPostClient({ slug }: BlogPostClientProps) {
   const { appLanguage, t } = useTranslation();
+  const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(false);
   const post = getBlogPostBySlug(slug, appLanguage);
 
   if (!post) {
@@ -194,6 +197,14 @@ export function BlogPostClient({ slug }: BlogPostClientProps) {
             © {new Date().getFullYear()} {t('footerCopyrightNotice')}
           </p>
           <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setShowPrivacyModal(true)}
+              className="inline-flex items-center gap-1.5 text-gray-700 hover:text-black transition-colors font-medium cursor-pointer"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-black" />
+              <span>{t('footerPrivacyNotice')}</span>
+            </button>
+            <span className="text-gray-300">•</span>
             <Link href="/" className="text-black font-semibold hover:underline">
               {t('appName')}
             </Link>
@@ -204,6 +215,9 @@ export function BlogPostClient({ slug }: BlogPostClientProps) {
           </div>
         </div>
       </footer>
+
+      {/* Privacy Notice Modal */}
+      <PrivacyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
 
       {/* Floating Widgets */}
       <KofiOverlayWidget />

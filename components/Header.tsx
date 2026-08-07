@@ -74,7 +74,7 @@ export function Header({
               className="inline-flex items-center gap-1.5 border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-800 font-semibold text-xs rounded-sm px-2.5 py-1 transition-colors"
             >
               <BookOpen className="w-3.5 h-3.5 text-gray-900 shrink-0" />
-              <span>Blog & News</span>
+              <span>{t('blogTitle')}</span>
             </a>
 
             {/* App Interface Language Switcher */}
