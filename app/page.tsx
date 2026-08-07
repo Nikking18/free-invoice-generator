@@ -473,42 +473,42 @@ export default function Page() {
         {/* Ko-fi Support Banner Section */}
         <KofiFooterSection />
 
-        {/* Modern Main Footer (Black & White Theme) */}
-        <footer className="no-print bg-black text-gray-300 border-t border-gray-900 py-6 text-xs">
+        {/* Modern Main Footer (White & Black Theme) */}
+        <footer className="no-print bg-white text-gray-800 border-t border-gray-200 py-6 text-xs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Author & Social Links */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
-              <span className="font-medium text-gray-300 flex items-center gap-1.5">
-                Created with <Heart className="w-3.5 h-3.5 text-white fill-white shrink-0" /> by <strong className="font-bold text-white">Nikhil Khanpara</strong>
+              <span className="font-medium text-black flex items-center gap-1.5">
+                Created with <Heart className="w-3.5 h-3.5 text-black fill-black shrink-0" /> by <strong className="font-bold text-black">Nikhil Khanpara</strong>
               </span>
-              <span className="text-gray-800 hidden sm:inline">•</span>
+              <span className="text-gray-300 hidden sm:inline">•</span>
               <div className="flex items-center space-x-2">
                 <a
                   href="https://github.com/Nikking18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors font-medium border border-gray-800"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-100 text-black hover:bg-gray-200 transition-colors font-medium border border-gray-200"
                 >
-                  <Github className="w-3.5 h-3.5 text-white" />
+                  <Github className="w-3.5 h-3.5 text-black" />
                   <span>GitHub</span>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/nikhilkhanpara/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors font-medium border border-gray-800"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-100 text-black hover:bg-gray-200 transition-colors font-medium border border-gray-200"
                 >
-                  <Linkedin className="w-3.5 h-3.5 text-white" />
+                  <Linkedin className="w-3.5 h-3.5 text-black" />
                   <span>LinkedIn</span>
                 </a>
                 <a
                   href="https://x.com/nikhilkhanpara"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-900 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors font-medium border border-gray-800"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-100 text-black hover:bg-gray-200 transition-colors font-medium border border-gray-200"
                 >
-                  <Twitter className="w-3.5 h-3.5 text-white" />
+                  <Twitter className="w-3.5 h-3.5 text-black" />
                   <span>Twitter</span>
                 </a>
               </div>
@@ -518,14 +518,14 @@ export default function Page() {
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
               <button
                 onClick={() => setShowPrivacyModal(true)}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-gray-300 hover:text-white transition-colors hover:bg-gray-900 border border-transparent hover:border-gray-800"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-gray-700 hover:text-black transition-colors hover:bg-gray-100 border border-transparent hover:border-gray-200"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-white" />
+                <ShieldCheck className="w-3.5 h-3.5 text-black" />
                 <span>Privacy & Storage Notice</span>
               </button>
-              <span className="text-gray-800 hidden sm:inline">•</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-900 text-white text-[11px] font-mono font-semibold border border-gray-800">
-                <Code className="w-3 h-3 text-white" />
+              <span className="text-gray-300 hidden sm:inline">•</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-100 text-black text-[11px] font-mono font-semibold border border-gray-200">
+                <Code className="w-3 h-3 text-black" />
                 100% Client-Side
               </span>
             </div>
