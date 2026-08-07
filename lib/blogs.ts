@@ -522,27 +522,79 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'International Invoicing Guide: Currency Conversion, VAT & Cross-Border Billing',
     slug: 'international-invoicing-guide-vat-currency-conversion',
     category: 'Invoicing 101',
-    readTime: '7 min read',
+    readTime: '10 min read',
     date: 'August 2026',
-    summary: 'Everything you need to know about billing overseas clients, handling foreign currency fees, and complying with international tax rules.',
+    summary: 'Everything you need to know about billing overseas clients, handling foreign currency fees, complying with VAT Reverse Charge, and navigating IRS tax treaties.',
     content: {
-      intro: 'Invoicing cross-border clients requires careful attention to currency conversion rates, international wire fees (SWIFT/IBAN), and local tax exemptions.',
+      intro: 'Invoicing cross-border clients opens lucrative global markets but introduces complexities regarding exchange rate fluctuations, international wire transfer fees (SWIFT/IBAN), cross-border VAT exemptions, and IRS tax withholding forms. In this comprehensive guide, we provide a complete step-by-step blueprint for seamless international billing.',
       sections: [
         {
-          heading: 'Setting the Invoicing Currency',
-          body: 'State explicitly on the invoice which currency is required for settlement (e.g., USD, EUR, GBP). Specify who absorbs international bank transfer fees.',
+          heading: '1. Selecting the Settlement Currency & Managing Exchange Volatility',
+          body: 'State explicitly on your contract and invoice which 3-letter ISO currency code is required for payment (e.g., USD $, EUR €, GBP £). Currency fluctuations between billing and settlement dates can erode profit margins.',
           bullets: [
-            'Specify currency code (USD $, EUR €, GBP £)',
-            'Include IBAN, SWIFT/BIC code, and bank address',
-            'Note: "Client responsible for sender bank transaction fees"',
+            'Lock Exchange Rates: State "Invoice total based on exchange rate of 1 USD = 0.92 EUR on issue date"',
+            'Currency Buffer Clause: Include a contract clause allowing rate adjustments if FX rates shift by over 3%',
+            'Billing Currency Clause: "Client agrees to remit funds strictly in [Specified Currency]"',
+          ],
+          proTip: 'Whenever possible, bill in your home currency to transfer conversion risk and bank exchange markup costs to the client.',
+        },
+        {
+          heading: '2. SWIFT, IBAN & BIC: Essential Bank Wire Identifiers for Overseas Payouts',
+          body: 'International wire transfers require specific banking identifiers to route funds across global clearing houses.',
+          bullets: [
+            'IBAN (International Bank Account Number): Up to 34 alphanumeric characters used in Europe, UK, and Middle East',
+            'SWIFT / BIC Code: 8 to 11 character code identifying your specific bank branch globally',
+            'Intermediary Bank Wire Details: Required when your local bank relies on a correspondent US bank for USD clearing',
           ],
         },
         {
-          heading: 'Reverse Charge & Cross-Border VAT Rules',
-          body: 'When billing international business clients, tax rules like VAT Reverse Charge frequently apply, exempting local sales tax on exported services.',
+          heading: '3. Allocating International Wire Fees (OUR vs. BEN vs. SHA Rules)',
+          body: 'International wires frequently pass through intermediary correspondent banks that deduct $15–$40 handling fees. Specify fee responsibility explicitly to avoid short payments.',
+          bullets: [
+            'OUR Code: Client pays all sender, intermediary, and recipient transfer fees',
+            'BEN Code: Recipient absorbs all bank transfer fees (deducted from payout)',
+            'SHA Code: Fees are shared between sender and recipient',
+            'Invoice Clause: "Client responsible for all sender and intermediary bank transfer fees. Net received balance must equal full invoice total."',
+          ],
+          proTip: 'Always instruct international clients to select the "OUR" transfer fee option when initiating SWIFT wires.',
+        },
+        {
+          heading: '4. Cross-Border Tax Exemptions: VAT Reverse Charge Mechanisms (EU/UK)',
+          body: 'When billing international business clients, sales tax rules differ significantly from domestic billing. In the European Union and UK, the VAT Reverse Charge rule frequently applies.',
+          bullets: [
+            'Reverse Charge Principle: The recipient client, not the foreign seller, accounts for VAT in their local tax return',
+            'Mandatory Invoice Disclaimer: Include "Reverse Charge: Customer to account for VAT under Article 196 of EU Council Directive 2006/112/EC"',
+            'Verify Client VAT ID: Record and print your client\'s valid VIES VAT number on the invoice PDF',
+          ],
+        },
+        {
+          heading: '5. US Cross-Border Tax Form Requirements (IRS W-8BEN & W-8BEN-E)',
+          body: 'Non-US freelancers billing corporate clients located in the United States must submit IRS tax treaty documentation to prevent automatic 30% US tax withholding.',
+          bullets: [
+            'Form W-8BEN: Required for non-US individual freelancers certifying foreign status',
+            'Form W-8BEN-E: Required for non-US registered companies and corporations',
+            'Benefit: Exempts foreign contractors performing work outside the US from US withholding tax',
+          ],
+        },
+        {
+          heading: '6. Multi-Currency Digital Payout Solutions (Wise, Revolut, Payoneer)',
+          body: 'Bypass expensive traditional SWIFT bank wire fees by establishing local virtual bank accounts in foreign jurisdictions.',
+          bullets: [
+            'Wise Business: Provides local USD routing numbers, EUR IBANs, and GBP sort codes',
+            'Allows clients to pay via cheap domestic ACH/SEPA transfers instead of expensive international wires',
+            'Converts currencies at mid-market rates with transparent low fees',
+          ],
+        },
+        {
+          heading: '7. Compliance Records & Tax Authority Audits for Exported Services',
+          body: 'Tax authorities mandate that exported service invoices retain proof of cross-border delivery for audit verification.',
+          bullets: [
+            'Retain proof of client physical address and tax registration',
+            'Save PDF copies of zero-rated cross-border invoices in local backups for 5–7 years',
+          ],
         },
       ],
-      conclusion: 'Clear international billing instructions prevent loss from exchange rate fluctuations and bank transfer fee deductions.',
+      conclusion: 'Mastering international invoicing with explicit currency terms, correct SWIFT details, VAT Reverse Charge disclaimers, and IRS W-8BEN forms ensures seamless global payouts without hidden bank fee losses.',
     },
   },
   {
@@ -1147,7 +1199,7 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
             heading: '1. Por qué los Depósitos Iniciales son una Práctica Profesional Estándar',
             body: 'Exigir un depósito antes de iniciar el trabajo protege su tiempo y cubre los costes iniciales.',
             bullets: [
-              'Elimina el trabajo no remunerado si un proyecto se cancela a mitad de camino',
+              'Elimina el trabajo no remunerado en caso de cancelación de proyecto',
               'Filtra clientes sin compromiso financiero',
               'Establece una relación profesional de mutuo respeto',
             ],
@@ -1182,14 +1234,55 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
             body: 'Incluya cláusulas explícitas de depósito no reembolsable en sus contratos de servicios.',
           },
         ],
-        conclusion: 'Establecer una política de depósitos por adelantado protege sus ingresos y asegura la previsibilidad financiera de su negocio.',
+        conclusion: 'Instaurer una política de depósitos por adelantado protege sus ingresos y asegura la previsibilidad financiera de su negocio.',
       },
     },
     'post-7': {
       title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
-      readTime: '7 min de lectura',
+      readTime: '10 min de lectura',
       date: 'Agosto 2026',
-      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
+      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones bancarias, cumplir con la Inversión del Sujeto Pasivo del IVA y formularios fiscales del IRS.',
+      content: {
+        intro: 'Facturar a clientes internacionales abre mercados globales lucrativos, pero exige dominar las conversiones de moneda, códigos bancarios SWIFT/IBAN, la Inversión del Sujeto Pasivo del IVA y los formularios del IRS.',
+        sections: [
+          {
+            heading: '1. Selección de Moneda de Pago y Gestión del Tipo de Cambio',
+            body: 'Especifique claramente en el contrato y en la factura el código ISO de moneda (USD, EUR, GBP).',
+            bullets: [
+              'Fije tipos de cambio en la fecha de emisión',
+              'Cláusula de protección ante variaciones de moneda superiores al 3%',
+            ],
+          },
+          {
+            heading: '2. Códigos Bancarios Internacionales (SWIFT, IBAN y BIC)',
+            body: 'Toda transferencia internacional requiere identificadores bancarios completos para su correcto enrutamiento.',
+            bullets: ['IBAN (Número Internacional de Cuenta Bancaria)', 'Código SWIFT / BIC del Banco'],
+          },
+          {
+            heading: '3. Reparto de Comisiones Bancarias Internacionales (OUR vs BEN vs SHA)',
+            body: 'Especifique quién asume las comisiones de intermediación bancaria para evitar cobros incompletos.',
+            bullets: ['Opción OUR: El cliente asume todas las comisiones de transferencia intermedias'],
+          },
+          {
+            heading: '4. Exenciones Fiscales Transfronterizas: Inversión del Sujeto Pasivo (IVA)',
+            body: 'Para clientes de negocios internacionales, aplique la regla de Inversión del Sujeto Pasivo.',
+            bullets: ['Mention obligatoria: "Inversión del Sujeto Pasivo - Art. 84 de la Ley 37/1992 del IVA"'],
+          },
+          {
+            heading: '5. Formularios Fiscales para Clientes en EE.UU. (IRS W-8BEN / W-8BEN-E)',
+            body: 'Los profesionales no residentes en EE.UU. que facturan a empresas estadounidenses deben presentar el formulario W-8BEN.',
+          },
+          {
+            heading: '6. Cuentas Multidivisa Digitales (Wise, Revolut Business)',
+            body: 'Utilice cuentas bancarias virtuales locales para recibir transferencias ACH o SEPA a menor coste.',
+          },
+          {
+            heading: '7. Conservación de Registros de Exportación de Servicios',
+            body: 'Guarde copias en PDF y justificantes de residencia fiscal durante 5 a 7 años para auditorías.',
+          },
+        ],
+        conclusion: 'Dominar la facturación internacional con términos de moneda claros y formularios fiscales evita pérdidas por comisiones bancarias y retenciones.',
+      },
     },
     'post-8': {
       title: 'Cómo Escribir Recordatorios de Pago Educados (4 Plantillas de Email Listas)',
@@ -1466,6 +1559,11 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
           {
             heading: '1. Risques des Serveurs en Nuage Centralisés',
             body: 'Les plateformes centralisées regroupent les données financières de milliers d\'entreprises, devenant des cibles privilégiées pour les cyberattaques.',
+            bullets: [
+              'Riesgo de filtraciones de bases de datos remotas',
+              'Acceso no autorizado de empleados o terceros',
+              'Caídas del servidor durante períodos clave de facturation',
+            ],
           },
           {
             heading: '2. Architecture Sans Serveur et Stockage Local (IndexedDB)',
@@ -1595,10 +1693,51 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       },
     },
     'post-7': {
-      title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
-      readTime: '7 min de lectura',
-      date: 'Agosto 2026',
-      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
+      title: 'Guide de la Facturation Internationale : Devises, TVA et Virement Transfrontalier',
+      readTime: '10 min de lecture',
+      date: 'Août 2026',
+      summary: 'Tout ce qu\'il faut savoir pour facturer à l\'étranger, gérer les taux de change, appliquer l\'autoliquidation de la TVA et remplir les formulaires IRS.',
+      content: {
+        intro: 'Facturer des clients internationaux ouvre des marchés mondiaux mais nécessite de maîtriser la conversion de devises, les codes SWIFT/IBAN, l\'autoliquidation de la TVA et les formulaires de retenue à la source de l\'IRS.',
+        sections: [
+          {
+            heading: '1. Choix de la Devise et Gestion de la Volatilité des Change',
+            body: 'Spécifiez clairement sur le devis et la facture le code devise ISO (EUR, USD, GBP).',
+            bullets: [
+              'Verrouillez le taux de change à la date d\'émission',
+              'Clause d\'ajustement si le cours varie de plus de 3%',
+            ],
+          },
+          {
+            heading: '2. Identifiants Bancaires Internationaux (SWIFT, IBAN et BIC)',
+            body: 'Tout virement international requiert des identifiants complets pour le routage.',
+            bullets: ['IBAN (Numéro de Compte Bancaire International)', 'Code SWIFT / BIC'],
+          },
+          {
+            heading: '3. Répartition des Frais Bancaires (Frais OUR vs BEN vs SHA)',
+            body: 'Précisez l\'option de frais bancaires pour éviter les règlements incomplets.',
+            bullets: ['Option OUR : Le client prend en charge l\'ensemble des frais de virement internationaux'],
+          },
+          {
+            heading: '4. Exonérations de TVA Transfrontalières : Autoliquidation de la TVA',
+            body: 'Pour les clients professionnels internationaux dans l\'UE, appliquez la règle de l\'autoliquidation.',
+            bullets: ['Mention obligatoire : "Autoliquidation - Art. 283-2 du CGI / Directive 2006/112/CE"'],
+          },
+          {
+            heading: '5. Formulaires Fiscaux Américains (IRS W-8BEN / W-8BEN-E)',
+            body: 'Les freelances non résidents aux États-Unis facturant des entreprises américaines doivent fournir le formulaire W-8BEN pour être exonérés de la retenue de 30%.',
+          },
+          {
+            heading: '6. Compte Multi-devises Numériques (Wise, Revolut Business)',
+            body: 'Utilisez des comptes bancaires virtuels locaux pour recevoir des virements ACH ou SEPA à moindre coût.',
+          },
+          {
+            heading: '7. Conservation des Justificatifs d\'Exportation de Services',
+            body: 'Conservez les copies de factures hors taxes et justificatifs pendant 10 ans pour les contrôles fiscaux.',
+          },
+        ],
+        conclusion: 'Maîtriser la facturation internationale garantit des encaissements sans perte liée aux frais de change et de virement.',
+      },
     },
     'post-8': {
       title: 'Comment Rédiger des Relances de Paiement Courtoises (4 Modèles d\'Email Prêts)',
@@ -1999,10 +2138,51 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       },
     },
     'post-7': {
-      title: 'Guía de Facturación Internacional: Conversión de Moneda e Impuestos',
-      readTime: '7 min de lectura',
-      date: 'Agosto 2026',
-      summary: 'Todo lo que necesita saber para facturar a clientes en el extranjero, gestionar comisiones por transferencia y cumplir con normas fiscales.',
+      title: 'Leitfaden für Internationale Rechnungen: Währung, USt. & Auslandsüberweisung',
+      readTime: '10 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Alles über Rechnungen ins Ausland, Währungsumrechnungen, Bankgebühren, Reverse-Charge-Verfahren und US-Formulare (IRS W-8BEN).',
+      content: {
+        intro: 'Rechnungen ins Ausland öffnen lukrative Märkte, erfordern jedoch Kenntnisse über Währungsumrechnung, SWIFT/IBAN, Reverse-Charge-Regeln und Steuerformulare.',
+        sections: [
+          {
+            heading: '1. Währungsauswahl und Umgang mit Wechselkursschwankungen',
+            body: 'Geben Sie den ISO-Währungscode (USD, EUR, GBP) auf Vertrag und Rechnung explizit an.',
+            bullets: [
+              'Fixieren Sie Wechselkurse zum Rechnungsdatum',
+              'Klausel zur Anpassung bei Währungsschwankungen über 3%',
+            ],
+          },
+          {
+            heading: '2. Bankverbindungen für Auslandsüberweisungen (SWIFT, IBAN, BIC)',
+            body: 'Auslandsüberweisungen benötigen vollständige Bankdaten für das internationale Clearing.',
+            bullets: ['IBAN (Internationale Bankkontonummer)', 'SWIFT- / BIC-Code der Bank'],
+          },
+          {
+            heading: '3. Verteilung von Bankgebühren (OUR- vs. BEN- vs. SHA-Regel)',
+            body: 'Vereinbaren Sie die Übernahme von Zwischenbankgebühren explizit.',
+            bullets: ['OUR-Option: Der Kunde übernimmt alle anfallenden Bankgebühren'],
+          },
+          {
+            heading: '4. Steuerfreie Auslandsabrechnung: Reverse-Charge-Verfahren (EU/UK)',
+            body: 'Bei B2B-Rechnungen im EU-Ausland greift die Steuerschuldumkehr (Reverse-Charge).',
+            bullets: ['Pflichtangabe: "Steuerschuldner-Verlagerung / Reverse Charge gem. § 13b UStG"'],
+          },
+          {
+            heading: '5. US-Steuerformulare für Freiberufler (IRS W-8BEN / W-8BEN-E)',
+            body: 'Freiberufler außerhalb der USA müssen US-Auftraggebern das Formular W-8BEN einreichen.',
+          },
+          {
+            heading: '6. Digitale Multiwährungskonten (Wise, Revolut Business)',
+            body: 'Nutzen Sie virtuelle Lokalkonten zur Vermeidung teurer SWIFT-Gebühren.',
+          },
+          {
+            heading: '7. Aufbewahrungspflichten bei Auslandsgeschäften',
+            body: 'Bewahren Sie steuerfreie Exportrechnungen und Nachweise 10 Jahre lang auf.',
+          },
+        ],
+        conclusion: 'Internationale Rechnungen mit klaren Währungsregeln und korrekten Steuervermerken sichern volle Zahlungseingänge.',
+      },
     },
     'post-8': {
       title: 'Höfliche Zahlungserinnerungen Schreiben (4 E-Mail-Vorlagen zum Kopieren)',
