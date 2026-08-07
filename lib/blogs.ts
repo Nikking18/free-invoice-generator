@@ -204,31 +204,70 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Handle Unpaid Invoices & Enforce Late Fees (Email Templates)',
     slug: 'handle-unpaid-invoices-late-fee-email-templates',
     category: 'Late Payments',
-    readTime: '7 min read',
+    readTime: '10 min read',
     date: 'August 2026',
-    summary: 'Step-by-step framework for recovering overdue client payments. Learn how to write polite payment reminders and charge late fees legally.',
+    summary: 'Step-by-step framework for recovering overdue client payments. Access copy-and-paste email templates, calculate statutory late fees, and enforce contract penalties professionally.',
     content: {
-      intro: 'Unpaid invoices jeopardize your business stability. Having a systematic reminder process allows you to collect overdue funds firmly while maintaining positive client relationships.',
+      intro: 'Dealing with unpaid invoices is one of the most frustrating aspects of running a business. Studies indicate over 43% of freelancers experience late payments annually. Having a structured, emotion-free 30-day escalation process allows you to recover overdue funds firmly while maintaining professional working relationships. In this guide, we provide proven copy-and-paste email templates, interest formulas, and enforcement protocols.',
       sections: [
         {
-          heading: 'Automated Friendly Reminders (3 Days Before Due Date)',
-          body: 'Send a gentle polite reminder 3 days before the invoice is due attached with the PDF copy. Most late payments are simply oversight, not malice.',
-          proTip: 'Include a direct payment link or wire transfer instructions right in the email body.',
-        },
-        {
-          heading: 'Overdue Follow-Up (Day 1 & Day 7 Post Due Date)',
-          body: 'If the due date passes without payment, send a direct polite notice referencing the invoice number, balance due, and original due date.',
-        },
-        {
-          heading: 'Charging Interest & Late Penalty Fees',
-          body: 'Standard freelance late fees range from 1.5% to 2.0% monthly interest added to the overdue balance. To enforce late fees, the penalty clause must be clearly stated in your original project contract and on the original invoice.',
+          heading: '1. The Financial Cost of Overdue Invoices & The 30-Day Escalation System',
+          body: 'Overdue invoices drain your working capital and consume hours in administrative follow-ups. Establishing a systematic, calendar-triggered escalation process removes emotion and ensures consistent cash collection.',
           bullets: [
-            'Example clause: "Late payments are subject to a 1.5% monthly service fee."',
-            'Send an updated revised invoice with the added late fee line item.',
+            'Day -3: Friendly Pre-Due Courtesy Reminder',
+            'Day 0: Due Date Payment Notification',
+            'Day +7: Gentle Overdue Follow-Up Notice',
+            'Day +14: Firm Demand Notice & Late Fee Application',
+            'Day +30: Final Legal Warning & Service Suspension',
+          ],
+          proTip: 'Always treat early reminders as administrative routine checks rather than accusations. Over 80% of late payments stem from oversight or accounting queues rather than deliberate non-payment.',
+        },
+        {
+          heading: '2. Template 1: Friendly Pre-Due Reminder (3 Days Before Due Date)',
+          body: 'Subject: Courtesy Reminder: Invoice #[Number] due on [Due Date]\n\n"Hi [Client Name],\n\nHope you\'re having a great week! This is a quick courtesy reminder that Invoice #[Number] for $[Amount] is scheduled for payment in 3 days on [Due Date].\n\nI\'ve attached a copy of the PDF invoice for your convenience. You can remit payment via [Bank Wire / Direct Payment Link].\n\nPlease let me know if you need any additional documentation for your accounting records.\n\nBest regards,\n[Your Name]"',
+          proTip: 'Attaching the original PDF invoice directly to every email reminder saves the client time searching their inbox.',
+        },
+        {
+          heading: '3. Template 2: Due Date Payment Notification (Day Of)',
+          body: 'Subject: Payment Due Today: Invoice #[Number] - $[Amount]\n\n"Hi [Client Name],\n\nI hope you\'re doing well. Just a brief note to let you know that Invoice #[Number] ($[Amount]) for [Project Name] is due today, [Due Date].\n\nFor reference, payment instructions and direct wiring details are included at the bottom of the attached invoice PDF.\n\nCould you please reply to confirm once the payment transfer has been initiated?\n\nThank you for your business!\n\nBest regards,\n[Your Name]"',
+        },
+        {
+          heading: '4. Template 3: Gentle Overdue Notice (7 Days Post Due Date)',
+          body: 'Subject: Overdue Notice: Invoice #[Number] is 7 days past due\n\n"Hi [Client Name],\n\nI\'m following up on Invoice #[Number] ($[Amount]), which was due on [Due Date] (7 days ago).\n\nAs I haven\'t received confirmation of payment yet, I wanted to check if there are any issues with the invoice or if additional information is needed by your accounts payable department.\n\nCould you please let me know when payment will be processed?\n\nThank you,\n[Your Name]"',
+        },
+        {
+          heading: '5. Template 4: Firm Demand Notice & Late Fee Application (14 Days Post Due Date)',
+          body: 'Subject: FIRM NOTICE: Invoice #[Number] Overdue - Late Fee Applied\n\n"Dear [Client Name],\n\nInvoice #[Number] for $[Original Amount] is now 14 days past due. Despite previous reminders, we have not received payment or confirmation of transfer.\n\nPer our contract agreement, a 1.5% late fee ($[Late Fee Amount]) has been added to the outstanding balance. The revised total balance due is now $[New Total Amount].\n\nPlease review the attached revised invoice and process payment immediately to prevent further interest charges or service suspension.\n\nRegards,\n[Your Name]"',
+          bullets: [
+            'Attach updated PDF invoice reflecting the line-item late fee charge',
+            'State explicit deadline (e.g., "Payment required within 48 hours")',
+          ],
+        },
+        {
+          heading: '6. Template 5: Final Legal Warning & Work Suspension (30 Days Post Due Date)',
+          body: 'Subject: FINAL NOTICE: Immediate Payment Required for Invoice #[Number] - Account Suspension\n\n"Dear [Client Name],\n\nThis is a final notice regarding overdue Invoice #[Number] ($[Total Amount]), which is now 30 days past due.\n\nEffective immediately, all active work on [Project Name] has been suspended, and production environment access has been revoked. If payment is not received in full by [Date - 3 Business Days], your account will be referred to our legal counsel and collections agency.\n\nTo resolve this matter immediately, please complete payment via [Direct Payment Link / Bank Wire].\n\nSincerely,\n[Your Name]"',
+          proTip: 'Never make empty legal threats. Only send a final legal warning if you are prepared to pause work and transfer the debt to collections.',
+        },
+        {
+          heading: '7. Legal Requirements for Charging Late Fees & Interest Calculations',
+          body: 'To legally charge late interest, the fee percentage must be disclosed in your original contract and listed on the initial invoice. The standard late interest rate is 1.5% monthly (18% annual APR).',
+          bullets: [
+            'Monthly Interest Formula: (Balance Due × Monthly Interest Rate)',
+            'Daily Statutory Interest Formula: (Balance Due × Annual APR) / 365 × Days Overdue',
+            'Statutory Late Payment Laws: US prompt payment acts, UK Late Payment of Commercial Debts Act (8% + base rate), and EU Directive 2011/7/EU',
+          ],
+        },
+        {
+          heading: '8. Preventing Future Late Payments: Retainers, Deposits & Automated Workflows',
+          body: 'The best way to handle late payments is to prevent them entirely through upfront contractual terms.',
+          bullets: [
+            'Require a 50% upfront deposit before starting work',
+            'Charge a 100% advance retainer for ongoing monthly services',
+            'Automate PDF invoice exports and store JSON backups for audit compliance',
           ],
         },
       ],
-      conclusion: 'Consistent follow-up schedules ensure you get paid promptly without damaging professional relationships.',
+      conclusion: 'By implementing a 30-day escalation process with clear email templates and contractually backed late fees, you establish firm boundaries, protect your cash flow, and ensure prompt client payouts.',
     },
   },
   {
@@ -780,9 +819,59 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-3': {
       title: 'Cómo Gestionar Facturas No Pagadas y Cobrar Recargos (Plantillas de Email)',
-      readTime: '7 min de lectura',
+      readTime: '10 min de lectura',
       date: 'Agosto 2026',
-      summary: 'Marco paso a paso para recuperar pagos de clientes atrasados. Aprenda a redactar recordatorios educados y aplicar recargos de forma legal.',
+      summary: 'Marco paso a paso para recuperar pagos de clientes atrasados. Acceda a plantillas de email listas para copiar y pegar, calcule recargos de mora e imponga penalizaciones.',
+      content: {
+        intro: 'Enfrentar facturas no pagadas es una de las situaciones más frustrantes en los negocios. Más del 43% de los profesionales autónomos sufren retrasos de pago anualmente. Un sistema de escalada de 30 días le permite cobrar fondos vencidos con firmeza manteniendo buenas relaciones comerciales.',
+        sections: [
+          {
+            heading: '1. El Coste Financiero de Facturas Vencidas y el Sistema de Escalada',
+            body: 'Establecer un proceso de escalada programado elimina la carga emocional y garantiza cobros constantes.',
+            bullets: [
+              'Día -3: Recordatorio Amigable Pre-Vencimiento',
+              'Día 0: Notificación de Vencimiento de Factura',
+              'Día +7: Aviso Educado de Vencimiento',
+              'Día +14: Reclamación Firme y Aplicación de Recargo por Mora',
+              'Día +30: Última Advertencia Legal y Suspensión de Servicios',
+            ],
+            proTip: 'Trate siempre los primeros recordatorios como un trámite administrativo rutinario. El 80% de los retrasos se deben a descuidos.',
+          },
+          {
+            heading: '2. Plantilla 1: Recordatorio Amigable (3 Días Antes del Vencimiento)',
+            body: 'Asunto: Recordatorio de cortesía: Factura #[Número] vence el [Fecha]\n\n"Hola [Nombre del Cliente],\n\n¡Espero que tengas una excelente semana! Te envío este breve recordatorio de que la Factura #[Número] por $[Monto] vence en 3 días el [Fecha].\n\nAdjunto una copia en PDF para tu comodidad. Puedes realizar el pago mediante [Transferencia / Enlace Directo].\n\nUn cordial saludo,\n[Tu Nombre]"',
+          },
+          {
+            heading: '3. Plantilla 2: Notificación de Vencimiento (Día de Vencimiento)',
+            body: 'Asunto: Factura Vencida Hoy: Factura #[Número] - $[Monto]\n\n"Hola [Nombre del Cliente],\n\nLe escribo para recordarles que la Factura #[Número] ($[Monto]) por [Nombre del Proyecto] vence hoy, [Fecha].\n\nLas instrucciones bancarias están incluidas al pie del PDF adjunto. ¿Podría confirmarme cuando se haya iniciado la transferencia?\n\n¡Gracias!\n[Tu Nombre]"',
+          },
+          {
+            heading: '4. Plantilla 3: Recordatorio Educado de Mora (7 Días Tras Vencimiento)',
+            body: 'Asunto: Factura Pendiente: Factura #[Número] vencida hace 7 días\n\n"Hola [Nombre del Cliente],\n\nHago seguimiento de la Factura #[Número] ($[Monto]), que venció el [Fecha]. Como no he recibido confirmación, quería verificar si necesitan información adicional para procesar el pago.\n\nQuedo atento a su respuesta,\n[Tu Nombre]"',
+          },
+          {
+            heading: '5. Plantilla 4: Reclamación Firme y Aplicación de Recargo (14 Días Tras Vencimiento)',
+            body: 'Asunto: NOTIFICACIÓN FIRME: Factura #[Número] Vencida - Recargo Aplicado\n\n"Estimado [Nombre del Cliente],\n\nLa Factura #[Número] por $[Monto Original] lleva 14 días vencida. Según lo establecido en nuestro acuerdo, se ha aplicado un recargo del 1,5% ($[Monto Recargo]). El nuevo total pendiente es $[Nuevo Total].\n\nPor favor, revise la factura adjunta y realice el pago de inmediato para evitar recargos adicionales.\n\nAtentamente,\n[Tu Nombre]"',
+          },
+          {
+            heading: '6. Plantilla 5: Advertencia Legal Final y Suspensión (30 Días Tras Vencimiento)',
+            body: 'Asunto: ÚLTIMO AVISO: Pago Inmediato Requerido - Suspensión de Servicio\n\n"Estimado [Nombre del Cliente],\n\nEste es un último aviso sobre la Factura #[Número] ($[Monto Total]), con 30 días de retraso. Se han suspendido todos los trabajos activos en [Nombre del Proyecto]. Si no se recibe el pago completo en 3 días hábiles, el caso se derivará a cobro judicial.\n\nAtentamente,\n[Tu Nombre]"',
+          },
+          {
+            heading: '7. Requisitos Legales y Cálculo de Intereses de Mora',
+            body: 'Para cobrar recargos por mora legalmente, el porcentaje debe incluirse en el contrato inicial. El tipo estándar es del 1,5% mensual.',
+            bullets: [
+              'Fórmula de Interés Mensual: (Saldo Pendiente × Tasa Mensual)',
+              'Legislación de Mora: Leyes de morosidad comercial en España y Latinoamérica',
+            ],
+          },
+          {
+            heading: '8. Prevención de Impagos Futuros',
+            body: 'Solicite depósitos del 50% por adelantado o cobros recurrentes precalculados para evitar demoras.',
+          },
+        ],
+        conclusion: 'Implementar un sistema de seguimiento de 30 días con plantillas claras y recargos contractuales protege su flujo de caja y asegura cobros puntuales.',
+      },
     },
     'post-4': {
       title: 'Por qué la Facturación 100% del Lado del Cliente Protege sus Datos Financieros',
@@ -1022,9 +1111,55 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-3': {
       title: 'Comment Gérer les Impayés et Appliquer des Pénalités de Retard (Modèles d\'Email)',
-      readTime: '7 min de lecture',
+      readTime: '10 min de lecture',
       date: 'Août 2026',
-      summary: 'Méthode étape par étape pour recouvrer les impayés. Rédigez des relances courtoises et appliquez légalement des pénalités.',
+      summary: 'Méthode étape par étape pour recouvrer les impayés. Accédez à des modèles d\'emails prêts à l\'emploi, calculez les pénalités et appliquez les relances.',
+      content: {
+        intro: 'Faire face aux factures impayées est l\'un des aspects les plus frustrants. Plus de 43% des indépendants subissent des retards de paiement chaque année. Mettre en place une méthode de relance progressive sur 30 jours permet de récupérer les fonds tout en préservant la relation client.',
+        sections: [
+          {
+            heading: '1. Le Coût Financier des Impayés et le Système de Relance',
+            body: 'Instaurer un processus de relance planifié élimine le stress et garantit des rentrées d\'argent régulières.',
+            bullets: [
+              'Jour -3 : Rappel Courtois Avant Échéance',
+              'Jour 0 : Notification le Jour de l\'Échéance',
+              'Jour +7 : Relance Amicale de Retard',
+              'Jour +14 : Mise en Demeure Ferme et Application de Pénalités',
+              'Jour +30 : Dernier Avertissement Légal et Interruption des Services',
+            ],
+            proTip: 'Traitez toujours les premiers rappels comme une vérification administrative. 80% des retards sont dus à des oublis.',
+          },
+          {
+            heading: '2. Modèle 1 : Rappel Courtois (3 Jours Avant Échéance)',
+            body: 'Objet : Rappel amical : Facture n° [Numéro] payable le [Date]\n\n"Bonjour [Nom du Client],\n\nJ\'espère que vous allez bien. Je vous informe que la facture n° [Numéro] de [Montant] € arrive à échéance dans 3 jours, le [Date].\n\nVous trouverez la facture PDF en pièce jointe ainsi que les coordonnées bancaires pour le virement.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '3. Modèle 2 : Notification le Jour de l\'Échéance (Jour J)',
+            body: 'Objet : Échéance Aujourd\'hui : Facture n° [Numéro] - [Montant] €\n\n"Bonjour [Nom du Client],\n\nUn petit mot pour vous rappeler que la facture n° [Numéro] ([Montant] €) arrive à échéance aujourd\'hui.\n\nMerci de bien vouloir me confirmer dès que le virement aura été effectué.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '4. Modèle 3 : Relance de Retard (7 Jours Après Échéance)',
+            body: 'Objet : Relance : Facture n° [Numéro] en souffrance (7 jours)\n\n"Bonjour [Nom du Client],\n\nJe reviens vers vous concernant la facture n° [Numéro] ([Montant] €) qui était due le [Date]. N\'ayant pas reçu le règlement, je voulais m\'assurer qu\'il n\'y avait pas de problème.\n\nMerci de m\'indiquer la date prévue pour le paiement.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '5. Modèle 4 : Mise en Demeure et Pénalités (14 Jours Après Échéance)',
+            body: 'Objet : MISE EN DEMEURE : Facture n° [Numéro] en retard - Pénalités appliquées\n\n"Bonjour [Nom du Client],\n\nLa facture n° [Numéro] de [Montant Initial] € est en retard de 14 jours. Conformément à nos conditions, une pénalité de retard de 1,5% ([Montant Pénalité] €) ainsi que l\'indemnité forfaitaire de 40 € ont été ajoutées. Le nouveau solde est de [Nouveau Total] €.\n\nMerci de régler ce montant sous 48h.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '6. Modèle 5 : Dernier Avertissement et Interruption de Service (30 Jours)',
+            body: 'Objet : DERNIER AVIS : Suspension des prestations et transmission contentieux\n\n"Bonjour [Nom du Client],\n\nCeci est notre ultime relance pour la facture n° [Numéro] ([Montant Total] €) en retard de 30 jours. Les prestations sur le projet [Nom du Projet] sont suspendues. Sans règlement sous 3 jours ouvrés, le dossier sera transmis au contentieux.\n\nCordialement,\n[Votre Nom]"',
+          },
+          {
+            heading: '7. Réglementation des Pénalités de Retard et Calculs',
+            body: 'En France, l\'indemnité forfaitaire de 40 € pour frais de recouvrement et le taux des pénalités de retard sont obligatoires sur chaque facture.',
+          },
+          {
+            heading: '8. Prévenir les Impayés Futurs',
+            body: 'Exigez des acomptes de 50% à la commande pour sécuriser vos prestations.',
+          },
+        ],
+        conclusion: 'Un suivi structuré sur 30 jours avec des modèles d\'emails clairs garantit le recouvrement rapide de vos créances.',
+      },
     },
     'post-4': {
       title: 'Pourquoi la Facturation 100% Côté Client Protège vos Données Financières',
@@ -1259,9 +1394,55 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
     },
     'post-3': {
       title: 'Umgang mit unbezahlten Rechnungen & Mahngebühren (E-Mail-Vorlagen)',
-      readTime: '7 Min. Lesezeit',
+      readTime: '10 Min. Lesezeit',
       date: 'August 2026',
-      summary: 'Schritt-für-Schritt-Leitfaden zum Einfordern überfälliger Zahlungen mit höflichen Zahlungserinnerungen und Verzugszinsen.',
+      summary: 'Schritt-für-Schritt-Leitfaden zum Einfordern überfälliger Zahlungen. Nutzen Sie E-Mail-Vorlagen, berechnen Sie Verzugszinsen und setzen Sie Ansprüche durch.',
+      content: {
+        intro: 'Der Umgang mit unbezahlten Rechnungen gehört zu den unangenehmsten Aufgaben im Geschäftsleben. Über 43% aller Freiberufler haben regelmäßig mit verpäteten Zahlungen zu kämpfen. Ein strukturierter 30-Tage-Mahnprozess sichert Ihre Einnahmen professionell und ohne Emotionen.',
+        sections: [
+          {
+            heading: '1. Die Kosten von Zahlungsverzug & Das 30-Tage-Mahnsystem',
+            body: 'Ein klar terminierter Mahnplan schafft Struktur und stellt regelmäßige Zahlungseingänge sicher.',
+            bullets: [
+              'Tag -3: Höfliche Vorab-Zahlungserinnerung',
+              'Tag 0: Zahlungshinweis am Fälligkeitstag',
+              'Tag +7: Freundliche 1. Mahnung bei Verzug',
+              'Tag +14: Bestimmte 2. Mahnung mit Mahngebühren',
+              'Tag +30: Letzte Mahnung mit Androhung rechtlicher Schritte',
+            ],
+            proTip: 'Verstehen Sie erste Erinnerungen als administrativen Service. 80% aller Verspätungen beruhen auf Versehen.',
+          },
+          {
+            heading: '2. Vorlage 1: Freundliche Erinnerung (3 Tage vor Fälligkeit)',
+            body: 'Betreff: Zahlungserinnerung: Rechnung Nr. [Nummer] fällig am [Datum]\n\n"Hallo [Kundenname],\n\nich hoffe, es geht Ihnen gut. Ich möchte Sie kurz daran erinnern, dass die Rechnung Nr. [Nummer] über [Betrag] € am [Datum] fällig wird.\n\nEine Kopie der PDF-Rechnung ist dieser E-Mail angehängt.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '3. Vorlage 2: Zahlungshinweis am Fälligkeitstag (Tag 0)',
+            body: 'Betreff: Fälligkeit heute: Rechnung Nr. [Nummer] - [Betrag] €\n\n"Hallo [Kundenname],\n\nkurze Information, dass die Rechnung Nr. [Nummer] über [Betrag] € heute fällig ist.\n\nBitte bestätigen Sie mir kurz die Überweisung.\n\nVielen Dank,\n[Ihr Name]"',
+          },
+          {
+            heading: '4. Vorlage 3: 1. Mahnung (7 Tage nach Fälligkeit)',
+            body: 'Betreff: 1. Mahnung: Rechnung Nr. [Nummer] überfällig\n\n"Hallo [Kundenname],\n\nich beziehe mich auf die Rechnung Nr. [Nummer] ([Betrag] €), die am [Datum] fällig war. Da noch kein Eingang verzeichnet wurde, möchte ich nachfragen, wann mit der Zahlung zu rechnen ist.\n\nViele Grüße,\n[Ihr Name]"',
+          },
+          {
+            heading: '5. Vorlage 4: 2. Mahnung mit Verzugszinsen (14 Tage nach Fälligkeit)',
+            body: 'Betreff: 2. MAHNUNG: Rechnung Nr. [Nummer] überfällig - Mahngebühr berechnet\n\n"Sehr geehrte Damen und Herren,\n\ndie Rechnung Nr. [Nummer] über [Ursprungsbetrag] € ist seit 14 Tagen überfällig. Vereinbarungsgemäß wurden 1,5% Verzugszinsen ([Mahngebühr] €) berechnet. Neuer Gesamtbetrag: [Neuer Betrag] €.\n\nBitte begleichen Sie den Betrag umgehend.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '6. Vorlage 5: Letzte Mahnung & Einstellung der Arbeit (30 Tage nach Fälligkeit)',
+            body: 'Betreff: LETZTE MAHNUNG: Arbeitseinstellung & Übergabe Inkasso\n\n"Sehr geehrte Damen und Herren,\n\ndies ist die letzte Mahnung für Rechnung Nr. [Nummer] ([Gesamtbetrag] €). Die Arbeiten am Projekt [Projektname] werden hiermit gestoppt. Sollte bis zum [Datum] kein Eingang erfolgen, übergeben wir den Vorgang dem Inkasso.\n\nMit freundlichen Grüßen,\n[Ihr Name]"',
+          },
+          {
+            heading: '7. Gesetzliche Verzugszinsen & Mahngebühren nach BGB',
+            body: 'In Deutschland gelten bei Geschäftskunden gesetzliche Verzugszinsen (8% bis 9% über dem Basiszinssatz) sowie eine Verzugspauschale von 40 € (§ 288 BGB).',
+          },
+          {
+            heading: '8. Zukünftige Ausfälle vermeiden',
+            body: 'Vereinbaren Sie 50% Anzahlung vor Projektstart, um Zahlungsausfälle wirksam zu verhindern.',
+          },
+        ],
+        conclusion: 'Ein strukturierter Mahnprozess mit klaren Vorlagen schützt Ihre Liquidität und sichert pünktliche Zahlungseingänge.',
+      },
     },
     'post-4': {
       title: 'Warum 100% Client-Seitige Rechnungsstellung Ihre Finanzdaten Schützt',
