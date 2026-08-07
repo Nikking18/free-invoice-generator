@@ -191,7 +191,7 @@ export const BLOG_POSTS: BlogPost[] = [
           body: 'Payment terms listed on an invoice are legally binding only if they match the terms specified in your master services agreement or contract.',
           bullets: [
             'Include terms in both master project contracts and invoice footers',
-            'Include a clear late fee interest disclaimer (e.g., 1.5% monthly interest on past-due balances)',
+            'Include a clear late fee interest disclaimer (e.g., "1.5% monthly interest on past-due balances")',
             'Automate friendly reminders 3 days before the due date',
           ],
         },
@@ -1140,18 +1140,80 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'How to Invoice as a Sole Proprietor or Freelancer Without a Registered Company',
     slug: 'how-to-invoice-as-a-freelancer-without-a-company',
     category: 'Invoicing 101',
-    readTime: '6 min read',
+    readTime: '9 min read',
     date: 'August 2026',
     summary: 'Legal and tax requirements for invoicing as an individual freelancer. Learn what contact details, tax numbers, and identifiers to include safely.',
     content: {
-      intro: 'You do not need an LLC or registered corporation to legally invoice clients for freelance services. Sole proprietors can invoice under their personal legal name.',
+      intro: 'You do not need an LLC, S-Corp, or registered company entity to legally invoice clients for professional services rendered. As a sole proprietor, you possess the legal right to bill clients under your personal legal name. In this comprehensive guide, we explain required legal disclosures, tax identification privacy, trade names, and invoice formatting for non-incorporated freelancers.',
       sections: [
         {
-          heading: 'Essential Fields for Individual Invoices',
-          body: 'Include your legal name, physical or mailing address, contact email, and Tax Identification Number (or SSN/EIN where applicable).',
+          heading: '1. The Legal Validity of Sole Proprietorship Invoicing',
+          body: 'In most global jurisdictions (US, UK, EU, Canada, Australia), a sole proprietorship is automatically formed the moment you begin offering freelance services. Forming a formal corporation is optional.',
+          bullets: [
+            'Legal Binding Right: Invoices issued under your legal name constitute legally binding payment claims',
+            'Zero Registration Barriers: Start billing clients immediately without waiting for state LLC filing approvals',
+            'Direct Personal Responsibility: Business income is reported directly on your individual personal tax return',
+          ],
+          proTip: 'Ensure your invoice header explicitly displays your personal legal name (e.g., "Jane Doe, Independent Consultant") so corporate accounts payable can match your bank deposit identity.',
+        },
+        {
+          heading: '2. Essential Sender Metadata for Individual Invoices',
+          body: 'Corporate Accounts Payable departments audit invoices strictly to comply with tax laws. Individual invoices must contain accurate identifying metadata.',
+          bullets: [
+            'Full Legal First & Last Name (matching your tax filings)',
+            'Physical Residential or Business Mailing Address',
+            'Direct Email Address & Phone Contact Number',
+            'Tax Identification Identifier (EIN, SSN, NIF, SIRET, or Steuernummer)',
+          ],
+        },
+        {
+          heading: '3. Tax Identifier Privacy: SSN vs. Free Federal Employer Identification Number (EIN)',
+          body: 'Printing your personal Social Security Number (SSN) on client invoices creates identity theft risks. Freelancers can obtain a free Employer Identification Number (EIN) from the IRS online in under 5 minutes.',
+          bullets: [
+            'Protect Identity: An EIN serves as a business tax ID, keeping your SSN confidential',
+            '100% Free IRS Tool: Apply instantly on IRS.gov without registering a formal corporation',
+            'Corporate AP Preference: Corporate finance teams prefer receiving an EIN over an individual SSN',
+          ],
+          proTip: 'Even if operating as a sole proprietor without employees, obtaining a free federal EIN is the best way to safeguard your personal tax privacy.',
+        },
+        {
+          heading: '4. Billing Under a Trading Name or DBA ("Doing Business As")',
+          body: 'If you operate under a creative brand name (e.g., "Apex UX Studio"), you can feature your trade name on invoices alongside your legal personal identity.',
+          bullets: [
+            'DBA Registration: File a local DBA or fictitious business name certificate if required by local state laws',
+            'Dual Header Formatting: Format your invoice header as "Jane Doe d/b/a Apex UX Studio"',
+            'Bank Match Verification: Ensure your bank account accepts checks or wire transfers made out to your trade name',
+          ],
+        },
+        {
+          heading: '5. Regional Sales Tax & Small Business VAT Exemptions',
+          body: 'As a non-registered sole proprietor, tax obligations vary depending on your annual billing volume and geographic location.',
+          bullets: [
+            'Germany (Kleinunternehmerregelung): Exempt from charging 19% VAT if annual revenue is under €22,000; must include statutory exemption disclaimer',
+            'France (Franchise en base de TVA): VAT exempt under specific annual revenue thresholds; include "TVA non applicable, art. 293 B du CGI"',
+            'United States: Services are generally exempt from state sales tax in most jurisdictions; verify local state rules',
+          ],
+        },
+        {
+          heading: '6. Bank Account Segregation: Dedicated Business Checking',
+          body: 'Commingling freelance project payouts with personal grocery expenses creates accounting confusion during tax filing season.',
+          bullets: [
+            'Open a Dedicated Account: Maintain a separate checking account exclusively for freelance income and expenses',
+            'Simplify Expense Audits: Simplifies tracking deductible software, hardware, and travel expenses',
+            'Smooth Bank Wire Payouts: Prevents delayed wire clears caused by name discrepancies',
+          ],
+        },
+        {
+          heading: '7. Formatting Professional Sole Proprietor Invoices in Free Invoice',
+          body: 'Creating sleek, audit-ready PDF invoices as a sole proprietor takes under 60 seconds with freeinvoice.live.',
+          bullets: [
+            'Include personal header details and optional brand logo',
+            'Add unique sequential invoice numbers (e.g., INV-2026-001)',
+            'Download crisp vector PDFs and save local browser backups for 5-year tax record compliance',
+          ],
         },
       ],
-      conclusion: 'Invoicing legally as a sole proprietor is straightforward when key identifying details are provided.',
+      conclusion: 'Invoicing as an individual freelancer is straightforward, legal, and secure when you include proper tax IDs, clear contact details, and professional PDF formatting.',
     },
   },
   {
@@ -1654,46 +1716,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Por qué usar Word o Excel causa errores de cálculo y fallos de diseño, y cómo los generadores web eliminan equivocaciones costosas.',
-      content: {
-        intro: 'Muchos autónomos comienzan facturando con plantillas descargadas de Word o Excel. Sin embargo, depender de documentos estáticos introduce errores de cálculo manuales y desajustes de diseño en PDF. En esta guía comparamos plantillas frente a generadores dedicados.',
-        sections: [
-          {
-            heading: '1. Los Riesgos Ocultos de Usar Microsoft Word y Excel',
-            body: 'Los archivos estáticos no están diseñados para contabilidad estructurada. Adaptarlos provoca descuadres de diseño y fórmulas rotas.',
-          },
-          {
-            heading: '2. Precisión Matemática: Fórmulas Manuales vs. Motores Automáticos',
-            body: 'Los generadores web calculan importes, impuestos y descuentos de forma automatizada y sin margen de error.',
-          },
-          {
-            heading: '3. Estabilidad Tipográfica y de Diseño en PDF',
-            body: 'Al exportar documentos de Word se producen desajustes de margen. Los generadores renderizan PDFs vectoriales limpios.',
-          },
-          {
-            heading: '4. Gestión de Base de Datos de Clientes',
-            body: 'En lugar de reescribir datos manualmente en Excel, los generadores guardan perfiles de clientes para autocompletar en 1 clic.',
-          },
-          {
-            heading: '5. Control Secuencial de Números de Factura',
-            body: 'Evite duplicar números de factura asociados a nombres de archivos estáticos.',
-          },
-          {
-            heading: '6. Privacidad y Seguridad de Archivos',
-            body: 'Proteja sus datos bancarios frente a malware local aislando su base de datos en el perfil local de su navegador.',
-          },
-          {
-            heading: '7. El Veredicto: Migrar a un Generador Web de Facturas PDF',
-            body: 'Cambiar de plantillas manuales a freeinvoice.live ahorra más de 5 horas al mes en gestión administrativa.',
-          },
-        ],
-        conclusion: 'Actualizar sus plantillas estáticas por un generador web dedicado garantiza precisión matemática y rapidez de cobro.',
-      },
     },
     'post-15': {
       title: 'Cómo Facturar como Freelancer o Autónomo Sin Empresa Registrada',
-      readTime: '6 min de lectura',
+      readTime: '9 min de lectura',
       date: 'Agosto 2026',
       summary: 'Requisitos legales y fiscales para facturar como persona física. Aprenda qué datos de contacto e identificación incluir de forma segura.',
+      content: {
+        intro: 'No necesita una LLC ni una empresa registrada para facturar legalmente a sus clientes por servicios freelance. Como profesional independiente, tiene derecho a facturar con su nombre personal.',
+        sections: [
+          {
+            heading: '1. Validez Legal de la Facturación como Persona Física',
+            body: 'En la mayoría de legislaciones, la actividad por cuenta propia comienza automáticamente al prestar servicios. Crear una empresa mercantil es opcional.',
+          },
+          {
+            heading: '2. Datos de Contacto Obligatorios para Facturas Personales',
+            body: 'Incluya su nombre legal completo, dirección postal, correo electrónico y número de identificación fiscal (NIF/NIE en España, RFC en México, etc.).',
+          },
+          {
+            heading: '3. Privacidad de la Identificación Fiscal (EIN vs SSN)',
+            body: 'Solicite un número de identificación fiscal secundario para evitar imprimir su número personal en facturas comerciales.',
+          },
+          {
+            heading: '4. Facturación Bajo Nombre Comercial o Marcas Marítimas',
+            body: 'Si utiliza un nombre comercial (ej. "Apex UX Studio"), emita la factura como "Su Nombre d/b/a Nombre Comercial".',
+          },
+          {
+            heading: '5. Regímenes Especiales de IVA y Exenciones por Volumen',
+            body: 'Consulte los límites de exención fiscal para trabajadores autónomos según la normativa de su país.',
+          },
+          {
+            heading: '6. Separación de Cuentas Bancarias Comerciales',
+            body: 'Mantenga una cuenta bancaria separada dedicada exclusivamente a sus ingresos y gastos de trabajo independiente.',
+          },
+          {
+            heading: '7. Formato Profesional con freeinvoice.live',
+            body: 'Genere facturas en PDF profesionales con su nombre personal en menos de 60 segundos.',
+          },
+        ],
+        conclusion: 'Facturar como persona física es legal, sencillo y seguro cuando se incluyen los datos fiscales adecuados.',
+      },
     },
     'post-16': {
       title: 'Cómo Prevenir el Fraude en Facturas y Verificar Datos Bancarios',
@@ -2102,46 +2164,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Pourquoi l\'utilisation de Word ou Excel crée des erreurs de calcul et de mise en page, et comment les éviter avec un outil dédié.',
-      content: {
-        intro: 'De nombreux freelances commencent par créer leurs factures sous Word ou Excel. Cependant, les calculs manuels et les décalages de mise en page entraînent fréquemment des erreurs de facturation.',
-        sections: [
-          {
-            heading: '1. Les Pièges Masqués de Word et Excel',
-            body: 'Les fichiers bureautiques statiques ne sont pas conçus pour la comptabilité. Leur utilisation entraîne des erreurs de saisie et de mise en page.',
-          },
-          {
-            heading: '2. Précision Mathématique et Calculs Automatisés',
-            body: 'Les générateurs web appliquent automatiquement les taux de TVA et remises sans erreur de formule.',
-          },
-          {
-            heading: '3. Stabilité de la Mise en Page PDF Vectorielle',
-            body: 'Empêche les décalages d\'en-tête et les problèmes de marges lors de l\'exportation en PDF.',
-          },
-          {
-            heading: '4. Gestion Automatisée de la Base Clients',
-            body: 'Les profils clients sont mémorisés localement pour un pré-remplissage en 1 clic.',
-          },
-          {
-            heading: '5. Suivi Rigoureux de la Numérotation Chronologique',
-            body: 'Évite d\'attribuer accidentellement des numéros de factures en doublon.',
-          },
-          {
-            heading: '6. Confidentialité et Sécurité des Données',
-            body: 'Vos données financières sont sécurisées dans le profil local de votre navigateur.',
-          },
-          {
-            heading: '7. Le Verdict : Passer à un Générateur de Factures Web',
-            body: 'Remplacer vos modèles statiques par freeinvoice.live vous fait gagner plus de 5 heures par mois.',
-          },
-        ],
-        conclusion: 'Adopter un générateur de factures dédié garantit zéro erreur de calcul et un rendu PDF impeccable.',
-      },
     },
     'post-15': {
       title: 'Comment Facturer en Tant qu\'Indépendant Sans Société Enregistrée',
-      readTime: '6 min de lecture',
+      readTime: '9 min de lecture',
       date: 'Août 2026',
       summary: 'Exigences légales et fiscales pour facturer en nom propre. Découvrez les informations de contact à faire figurer.',
+      content: {
+        intro: 'Vous n\'avez pas besoin d\'une entreprise individuelle enregistrée ou d\'une société pour facturer légalement vos prestations freelance. En nom propre, vous avez le droit légal de facturer sous votre nom civil.',
+        sections: [
+          {
+            heading: '1. Validité Légale de la Facturation en Nom Propre',
+            body: 'Dans la plupart des juridictions, l\'activité indépendante débute dès la prestation de service. La création d\'une société commerciale est facultative.',
+          },
+          {
+            heading: '2. Mentions Obligatoires pour les Factures Personnelles',
+            body: 'Indiquez votre nom complet, adresse postale, email et numéro SIRET (ou identifiant fiscal équivalent).',
+          },
+          {
+            heading: '3. Protection des Identifiants Fiscaux',
+            body: 'Demandez un numéro d\'immatriculation professionnelle pour éviter de diffuser vos données personnelles.',
+          },
+          {
+            heading: '4. Facturation Sous Nom Commercial ou Nom d\'Usage',
+            body: 'Si vous utilisez un nom de marque (ex: "Apex UX Studio"), libellez la facture sous la forme "Votre Nom d/b/a Nom Commercial".',
+          },
+          {
+            heading: '5. Exonération de TVA pour les Micro-Entrepreneurs',
+            body: 'En France, profitez de la franchise en base de TVA (Art. 293 B du CGI) sous les seuils de chiffre d\'affaires.',
+          },
+          {
+            heading: '6. Séparation des Comptes Bancaires',
+            body: 'Ouvrez un compte bancaire dédié exclusivement à votre activité professionnelle indépendante.',
+          },
+          {
+            heading: '7. Formatage Professionnel avec freeinvoice.live',
+            body: 'Générez des factures PDF irréprochables en nom propre en quelques secondes.',
+          },
+        ],
+        conclusion: 'Facturer en tant qu\'indépendant est simple, légal et sécurisé lorsque les mentions fiscales obligatoires sont respectées.',
+      },
     },
     'post-16': {
       title: 'Comment Prévenir la Fraude aux Factures et Vérifier les Coordonnées Bancaires',
@@ -2540,46 +2602,46 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Warum Word- und Excel-Rechnungen oft Rechenfehler und Layout-Probleme aufweisen und wie spezialisierte Generatoren Fehler vermeiden.',
-      content: {
-        intro: 'Viele Freiberufler beginnen mit Rechnungsvorlagen in Word oder Excel. Statische Dokumente führen jedoch häufig zu Rechenfehlern und fehlerhaften PDF-Layouts.',
-        sections: [
-          {
-            heading: '1. Versteckte Fallstricke von Microsoft Word & Excel',
-            body: 'Statische Dateien sind nicht für strukturierte Abrechnungen gebaut. Anpassungen führen oft zu verschobenen Rändern.',
-          },
-          {
-            heading: '2. Mathematische Genauigkeit vs. Manuelle Formelfehler',
-            body: 'Web-Generatoren berechnen Zwischensummen, Steuern und Rabatte automatisch und fehlerfrei.',
-          },
-          {
-            heading: '3. Layout-Stabilität beim PDF-Export',
-            body: 'Verhindert Schriftartänderungen und unerwünschte Seitenumbrüche beim PDF-Export.',
-          },
-          {
-            heading: '4. Automatische Kundenverwaltung statt Copy-Paste',
-            body: 'Gespeicherte Kundenprofile lassen sich im Browser mit 1 Klick aufrufen.',
-          },
-          {
-            heading: '5. Fortlaufende Rechnungsnummern sicher nachverfolgen',
-            body: 'Verhindert doppelt vergebene Rechnungsnummern aus manuell benannten Dateien.',
-          },
-          {
-            heading: '6. Datensicherheit und Schutz vor Malware',
-            body: 'Isoliert Ihre Kunden- und Bankdaten sicher im lokalen Browser-Profil.',
-          },
-          {
-            heading: '7. Das Fazit: Wechsel zu einem Web-Rechnungsgenerator',
-            body: 'Der Umstieg auf freeinvoice.live spart über 5 Stunden Arbeitszeit pro Monat.',
-          },
-        ],
-        conclusion: 'Der Wechsel von Word/Excel zu einem spezialisierten Generator sichert 100% genaue Zahlen und schnelle Überweisungen.',
-      },
     },
     'post-15': {
       title: 'Rechnungen Als Freiberufler Ohne Registriertes Unternehmen Schreiben',
-      readTime: '6 Min. Lesezeit',
+      readTime: '9 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Rechtliche Anforderungen für Rechnungen von Einzelunternehmern und Freiberuflern ohne GmbH.',
+      content: {
+        intro: 'Sie benötigen keine Kapitalgesellschaft oder eingetragene Firma, um Dienstleistungen legal in Rechnung zu stellen. Als Freiberufler oder Einzelunternehmer können Sie direkt unter Ihrem bürgerlichen Namen fakturieren.',
+        sections: [
+          {
+            heading: '1. Rechtliche Gültigkeit von Rechnungen als Einzelperson',
+            body: 'In Deutschland, Österreich und der Schweiz beginnt die freiberufliche Tätigkeit direkt mit der Dienstleistung. Eine GmbH-Gründung ist nicht erforderlich.',
+          },
+          {
+            heading: '2. Pflichtangaben auf Rechnungen von Einzelunternehmern',
+            body: 'Geben Sie Ihren vollständigen Namen, Anschrift, E-Mail und Steuernummer an.',
+          },
+          {
+            heading: '3. Datenschutz der Steuernummer (Steuernummer vs. USt-IdNr.)',
+            body: 'Beantragen Sie beim Finanzamt eine USt-IdNr., um Ihre persönliche Steuernummer auf Rechnungen nicht offenlegen zu müssen.',
+          },
+          {
+            heading: '4. Rechnungsstellung mit Geschäftsbezeichnung',
+            body: 'Wenn Sie eine Marke nutzen (z.B. "Apex UX Studio"), stellen Sie die Rechnung als "Ihr Name d/b/a Markenname" aus.',
+          },
+          {
+            heading: '5. Kleinunternehmerregelung (§ 19 UStG)',
+            body: 'Nutzen Sie bei einem Vorjahresumsatz unter 22.000 € die Kleinunternehmerregelung ohne Ausweis der Umsatzsteuer.',
+          },
+          {
+            heading: '6. Trennung von Privat- und Geschäftskonto',
+            body: 'Richten Sie ein separates Geschäftskonto für Ihre Einnahmen und Ausgaben ein.',
+          },
+          {
+            heading: '7. Professionelle PDF-Erstellung mit freeinvoice.live',
+            body: 'Erstellen Sie finanzamtskonforme Rechnungen unter Ihrem Namen in unter 60 Sekunden.',
+          },
+        ],
+        conclusion: 'Rechnungen als Freiberufler zu stellen ist rechtssicher, einfach und erfordert keine Firmengründung.',
+      },
     },
     'post-16': {
       title: 'Rechnungsbetrug Verhindern & Bankverbindungen Sicher Überprüfen',
