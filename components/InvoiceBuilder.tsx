@@ -1119,23 +1119,25 @@ export function InvoiceBuilder({
         </div>
       </div>
 
-      {/* Offscreen element for PDF rendering */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '-9999px',
-          top: '-9999px',
-          width: '800px',
-          pointerEvents: 'none',
-        }}
-      >
-        <InvoiceTemplateRenderer
-          id="printable-invoice-export"
-          invoice={invoice}
-          businessProfile={businessProfile}
-          templateStyle={invoice.templateStyle || 'classic'}
-        />
-      </div>
+      {/* Offscreen element for PDF rendering - Only render when exporting PDF for maximum typing performance */}
+      {isDownloadingPdf && (
+        <div
+          style={{
+            position: 'absolute',
+            left: '-9999px',
+            top: '-9999px',
+            width: '800px',
+            pointerEvents: 'none',
+          }}
+        >
+          <InvoiceTemplateRenderer
+            id="printable-invoice-export"
+            invoice={invoice}
+            businessProfile={businessProfile}
+            templateStyle={invoice.templateStyle || 'classic'}
+          />
+        </div>
+      )}
     </div>
   );
 }

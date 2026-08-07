@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, memo } from 'react';
 import { Invoice, BusinessProfile } from '../../lib/types';
 import { formatCurrency, formatDate, calculateLineItemTotal, calculateInvoiceTotals } from '../../lib/calculations';
 import { getSanitizedClientName } from '../../lib/utils';
@@ -13,7 +13,7 @@ interface TemplateProps {
   id?: string;
 }
 
-export function ClassicTemplate({ invoice, businessProfile, id }: TemplateProps) {
+export const ClassicTemplate = memo(function ClassicTemplate({ invoice, businessProfile, id }: TemplateProps) {
   const currencySymbol = businessProfile.defaultCurrencySymbol || '$';
   const currencyCode = businessProfile.defaultCurrency || 'USD';
   const clientName = getSanitizedClientName(invoice.clientName);
@@ -263,4 +263,4 @@ export function ClassicTemplate({ invoice, businessProfile, id }: TemplateProps)
       </div>
     </div>
   );
-}
+});

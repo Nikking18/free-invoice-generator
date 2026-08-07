@@ -12,8 +12,7 @@
 
 ## 🌐 Live Application
 
-- **Official Live Domain:** [https://www.freeinvoice.live/](https://www.freeinvoice.live/)
-- **Vercel Production Mirror:** [https://free-invoice-generator-red.vercel.app](https://free-invoice-generator-red.vercel.app)
+- **Website:** [https://www.freeinvoice.live/](https://www.freeinvoice.live/)
 
 ---
 

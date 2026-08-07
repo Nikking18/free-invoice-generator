@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import { Invoice, BusinessProfile, PdfTemplateStyle } from '../lib/types';
 import { InvoiceTemplateRenderer } from './InvoiceTemplateRenderer';
 
@@ -11,7 +11,7 @@ interface InvoicePreviewProps {
   id?: string;
 }
 
-export function InvoicePreview({
+export const InvoicePreview = memo(function InvoicePreview({
   invoice,
   businessProfile,
   templateStyle,
@@ -25,4 +25,4 @@ export function InvoicePreview({
       id={id}
     />
   );
-}
+});

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { memo } from 'react';
 import { Invoice, BusinessProfile, PdfTemplateStyle } from '../lib/types';
 import { ClassicTemplate } from './templates/ClassicTemplate';
 import { MinimalTemplate } from './templates/MinimalTemplate';
@@ -15,7 +15,7 @@ interface InvoiceTemplateRendererProps {
   id?: string;
 }
 
-export function InvoiceTemplateRenderer({
+export const InvoiceTemplateRenderer = memo(function InvoiceTemplateRenderer({
   invoice,
   businessProfile,
   templateStyle,
@@ -36,4 +36,4 @@ export function InvoiceTemplateRenderer({
     default:
       return <ClassicTemplate invoice={invoice} businessProfile={businessProfile} id={id} />;
   }
-}
+});

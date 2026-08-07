@@ -413,7 +413,6 @@ export default function Page() {
               onSaveInvoice={handleSaveInvoice}
               onNewInvoice={handleNewInvoiceClick}
               onRefreshClients={refreshClientsList}
-              onChangeInvoice={(updatedInv) => setCurrentInvoice(updatedInv)}
             />
           )}
 
