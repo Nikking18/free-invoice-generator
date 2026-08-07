@@ -322,6 +322,262 @@ export const BLOG_POSTS: BlogPost[] = [
       conclusion: 'Take full control of your business data with local, serverless storage.',
     },
   },
+  {
+    id: 'post-11',
+    title: 'Top 10 Free Invoice Generators for Freelancers in 2026 (No Hidden Fees)',
+    slug: 'top-10-free-invoice-generators-freelancers-2026',
+    category: 'Invoicing 101',
+    readTime: '8 min read',
+    date: 'August 2026',
+    summary: 'Comprehensive comparison of the top 10 free invoicing tools for freelancers and small businesses. Compare privacy, PDF export, line items, and feature limits.',
+    content: {
+      intro: 'Finding a genuinely free invoice generator without forced watermarks, monthly client limits, or mandatory credit card signups can be challenging. Here is an objective ranking of the top 10 free invoice tools available in 2026.',
+      sections: [
+        {
+          heading: '1. Free Invoice (100% Client-Side & Private)',
+          body: 'Free Invoice (freeinvoice.live) offers zero signup, instant PDF generation, automatic local IndexedDB storage, and multiple minimalist templates with zero backend tracking.',
+          bullets: [
+            '100% free with unlimited invoices and saved clients',
+            'No registration or email required',
+            'Runs client-side in browser for complete privacy',
+          ],
+          proTip: 'Ideal for privacy-conscious freelancers, contractors, and agencies who require fast, offline-capable PDF billing.',
+        },
+        {
+          heading: 'Key Criteria When Evaluating Free Tools',
+          body: 'When comparing invoice software, evaluate watermark policies, export formats (PDF/JSON), client retention limits, and data privacy.',
+        },
+      ],
+      conclusion: 'Choose a free invoice tool that respects client data privacy while providing professional PDF rendering.',
+    },
+  },
+  {
+    id: 'post-12',
+    title: 'Best Invoice Software for Small Business: Free vs. Paid Platform Breakdown',
+    slug: 'best-invoice-software-small-business-comparison',
+    category: 'Invoicing 101',
+    readTime: '7 min read',
+    date: 'August 2026',
+    summary: 'Discover how to select the best invoicing software for your small business. Compare zero-cost browser tools against subscription platforms.',
+    content: {
+      intro: 'Small businesses often debate whether to pay $30+/month for cloud accounting software or utilize free dedicated invoice generators. We analyze the cash flow impact and feature tradeoffs.',
+      sections: [
+        {
+          heading: 'When Free Invoice Generators Outperform Paid SaaS',
+          body: 'For sole proprietors, freelancers, and small service agencies, paying high monthly software subscriptions drains profit margins. Free browser-native generators deliver clean PDF billing without recurring overhead.',
+        },
+        {
+          heading: 'Evaluating Cloud Accounting vs. Dedicated Generators',
+          body: 'If you only need to issue 5 to 50 invoices per month, dedicated client-side tools provide faster startup times without bloat.',
+        },
+      ],
+      conclusion: 'Match your software choice to your actual billing volume to avoid paying for unused features.',
+    },
+  },
+  {
+    id: 'post-13',
+    title: 'How to Create a Free Invoice Online in 60 Seconds Without Registration',
+    slug: 'how-to-create-free-invoice-online-without-registration',
+    category: 'Invoicing 101',
+    readTime: '5 min read',
+    date: 'August 2026',
+    summary: 'Step-by-step guide to generating instant PDF invoices without creating account passwords, supplying credit cards, or exposing data to cloud servers.',
+    content: {
+      intro: 'Need to send a client an urgent invoice right now? Learn how to generate a fully compliant PDF invoice in under 60 seconds without registering an account.',
+      sections: [
+        {
+          heading: 'Step 1: Input Sender & Client Details',
+          body: 'Fill in your business name, logo, contact info, and billing address. Reusable client presets auto-fill returning clients instantly.',
+        },
+        {
+          heading: 'Step 2: Add Line Items & Calculate Taxes',
+          body: 'Enter project deliverables, quantities, hourly rates, discount percentages, and tax rates with automatic real-time math calculations.',
+        },
+        {
+          heading: 'Step 3: Click Download PDF',
+          body: 'Your PDF invoice generates in milliseconds directly inside your browser for instant emailing.',
+        },
+      ],
+      conclusion: 'No account creation needed. Generate clean invoices instantly whenever you need to bill a client.',
+    },
+  },
+  {
+    id: 'post-14',
+    title: 'Free Invoice Templates (Word & Excel) vs. Dedicated Invoice Generators',
+    slug: 'free-invoice-templates-word-excel-vs-generator',
+    category: 'Invoicing 101',
+    readTime: '6 min read',
+    date: 'August 2026',
+    summary: 'Why using Microsoft Word or Excel for billing causes math errors and formatting bugs, and how dedicated PDF generators eliminate costly mistakes.',
+    content: {
+      intro: 'Many new freelancers start billing using Microsoft Word or Excel templates. However, manual spreadsheet calculations and unstable document formatting frequently lead to billing errors.',
+      sections: [
+        {
+          heading: 'The Danger of Manual Math Errors in Excel',
+          body: 'Accidentally overwriting a cell formula in Excel can result in incorrect tax subtotals or miscalculated discounts, damaging client trust.',
+        },
+        {
+          heading: 'Formatting Inconsistencies in Word Docs',
+          body: 'Word document layouts distort when exported across different operating systems or PDF viewers, resulting in misaligned tables.',
+        },
+      ],
+      conclusion: 'Switching from static templates to a web-based invoice generator ensures 100% calculation accuracy and uniform layout rendering.',
+    },
+  },
+  {
+    id: 'post-15',
+    title: 'How to Invoice as a Sole Proprietor or Freelancer Without a Registered Company',
+    slug: 'how-to-invoice-as-a-freelancer-without-a-company',
+    category: 'Invoicing 101',
+    readTime: '6 min read',
+    date: 'August 2026',
+    summary: 'Legal and tax requirements for invoicing as an individual freelancer. Learn what contact details, tax numbers, and identifiers to include safely.',
+    content: {
+      intro: 'You do not need an LLC or registered corporation to legally invoice clients for freelance services. Sole proprietors can invoice under their personal legal name.',
+      sections: [
+        {
+          heading: 'Essential Fields for Individual Invoices',
+          body: 'Include your legal name, physical or mailing address, contact email, and Tax Identification Number (or SSN/EIN where applicable).',
+          bullets: [
+            'Use your legal full name as the business entity',
+            'Include an EIN (Employer Identification Number) to protect your SSN',
+            'Specify direct payment wiring or PayPal details',
+          ],
+        },
+      ],
+      conclusion: 'Invoicing legally as a sole proprietor is straightforward when key identifying details are provided.',
+    },
+  },
+  {
+    id: 'post-16',
+    title: 'How to Prevent Invoice Fraud & Verify Wire Transfer Details (Security Guide)',
+    slug: 'prevent-invoice-fraud-payment-security-guide',
+    category: 'Privacy & Security',
+    readTime: '6 min read',
+    date: 'August 2026',
+    summary: 'Protect your business against email compromise fraud, altered PDF bank details, and fake invoice scams with security verification protocols.',
+    content: {
+      intro: 'Business Email Compromise (BEC) and invoice tampering fraud cost organizations millions annually. Implementing payment security best practices protects both you and your clients.',
+      sections: [
+        {
+          heading: 'Verifying Bank Wire Details',
+          body: 'Always confirm changed bank details or IBAN numbers over a secondary phone call before initiating large wire transfers.',
+        },
+        {
+          heading: 'Digital Signatures & Secure PDF Verification',
+          body: 'Store master client invoices locally to maintain immutable audit copies that prevent unauthorized tampering.',
+        },
+      ],
+      conclusion: 'Proactive payment verification safeguards your business against cyber billing fraud.',
+    },
+  },
+  {
+    id: 'post-17',
+    title: 'Best Recurring Invoicing Practices for Monthly Retainer Clients',
+    slug: 'best-recurring-invoicing-practices-retainer-clients',
+    category: 'Payment Terms',
+    readTime: '5 min read',
+    date: 'August 2026',
+    summary: 'Automate and streamline your monthly retainer billing. Learn how to issue consistent recurring invoices with predictable payment cycles.',
+    content: {
+      intro: 'Retainer agreements provide predictable income for freelancers. Issuing recurring invoices on the exact same calendar day every month builds client payment discipline.',
+      sections: [
+        {
+          heading: 'Billing on the 1st of Every Month',
+          body: 'Standardize retainer invoicing by issuing all recurring invoices on the 1st of the month with Net 15 terms.',
+        },
+        {
+          heading: 'Reconciling Overage Hours',
+          body: 'Clearly itemize baseline retainer scope alongside approved additional overage hours to avoid scope creep disputes.',
+        },
+      ],
+      conclusion: 'Consistent billing schedules establish reliable cash flow for ongoing monthly retainers.',
+    },
+  },
+  {
+    id: 'post-18',
+    title: 'Independent Contractor vs. Freelancer Invoicing: Tax & Billing Differences',
+    slug: 'contractor-vs-freelancer-invoicing-differences',
+    category: 'Invoicing 101',
+    readTime: '6 min read',
+    date: 'August 2026',
+    summary: 'Key accounting distinctions between 1099 independent contractor billing, consulting invoices, and agency retainer structures.',
+    content: {
+      intro: 'While the terms freelancer and independent contractor are often used interchangeably, tax authorities impose specific reporting guidelines on contractor billing.',
+      sections: [
+        {
+          heading: '1099 Tax Form Compliance (US)',
+          body: 'Clients who pay independent contractors over $600 annually must issue Form 1099-NEC. Ensure your invoice details match your IRS Form W-9.',
+        },
+      ],
+      conclusion: 'Aligning your billing metadata with tax requirements streamlines year-end reporting.',
+    },
+  },
+  {
+    id: 'post-19',
+    title: 'How to Charge Late Fees & Statutory Interest Legally on Overdue Invoices',
+    slug: 'how-to-charge-late-payment-interest-legally',
+    category: 'Late Payments',
+    readTime: '7 min read',
+    date: 'August 2026',
+    summary: 'Understand US, UK (Statutory Interest), and EU late payment legislation. Learn how to calculate monthly interest and enforce contracts.',
+    content: {
+      intro: 'When clients ignore payment deadlines, charging legal statutory late interest incentivizes swift settlement while compensating for cash flow disruption.',
+      sections: [
+        {
+          heading: 'Standard Late Fee Percentage Rates',
+          body: 'Common freelance late interest rates range from 1.5% per month (18% APR) up to statutory interest rates established by regional commercial laws.',
+        },
+        {
+          heading: 'Contractual Disclosure Requirements',
+          body: 'To legally collect late fees, the exact percentage rate must be disclosed on your initial agreement and explicitly stated on all issued invoices.',
+        },
+      ],
+      conclusion: 'Enforcing late fee terms professionally protects your business cash flow.',
+    },
+  },
+  {
+    id: 'post-20',
+    title: 'Best Practices for Storing Tax Invoices & Financial Records (5-Year Rule)',
+    slug: 'best-practices-storing-tax-invoices-5-year-rule',
+    category: 'Privacy & Security',
+    readTime: '5 min read',
+    date: 'August 2026',
+    summary: 'Tax authority requirements for preserving client invoices, receipts, and audit trails. How local browser backup files ensure lifelong access.',
+    content: {
+      intro: 'Tax authorities (IRS, HMRC, ATO) mandate that businesses retain all sales invoices and financial records for a minimum of 5 to 7 years.',
+      sections: [
+        {
+          heading: 'Local JSON & PDF Backup Auditing',
+          body: 'Exporting your local IndexedDB database as a JSON file ensures you maintain permanent offline records regardless of software vendor status.',
+        },
+      ],
+      conclusion: 'Maintain complete data ownership by downloading regular JSON backups of your saved invoice database.',
+    },
+  },
+  {
+    id: 'post-21',
+    title: 'How to Brand Your Free Invoices with Professional Logos & Custom Color Themes',
+    slug: 'free-invoice-generator-with-logo-branding-guide',
+    category: 'Invoicing 101',
+    readTime: '4 min read',
+    date: 'August 2026',
+    summary: 'Make your invoices look high-end. Learn design guidelines for embedding clean business logos, crisp typography, and professional color accents.',
+    content: {
+      intro: 'A visually polished invoice reflects professionalism and reinforces your brand identity. Learn how to format logos and typography for high-impact PDF invoices.',
+      sections: [
+        {
+          heading: 'Optimizing Logo Images for PDF Rendering',
+          body: 'Use high-resolution PNG or JPEG logo images with clean backgrounds for optimal PDF printing quality.',
+        },
+        {
+          heading: 'Choosing Minimalist Templates',
+          body: 'Select clean template layouts (Classic, Minimal, Compact) that highlight your deliverables without visual clutter.',
+        },
+      ],
+      conclusion: 'Professional invoice design builds client credibility and enhances brand recall.',
+    },
+  },
 ];
 
 // Multilingual Post Translations Map
@@ -388,6 +644,72 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       date: 'Agosto 2026',
       summary: 'Por qué mantener sus datos localmente protege su negocio frente al bloqueo de proveedores y aumentos de precios en la nube.',
     },
+    'post-11': {
+      title: 'Los 10 Mejores Generadores de Facturas Gratis para Freelancers en 2026',
+      readTime: '8 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Comparativa completa de las 10 mejores herramientas de facturación gratuitas para independientes y pequeñas empresas.',
+    },
+    'post-12': {
+      title: 'El Mejor Software de Facturación para Pequeñas Empresas: Análisis Gratis vs Pago',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Descubra cómo elegir el mejor software de facturación para su empresa. Compare herramientas gratuitas frente a plataformas de pago.',
+    },
+    'post-13': {
+      title: 'Cómo Crear una Factura Gratis Online en 60 Segundos Sin Registro',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Guía paso a paso para generar facturas PDF al instante sin registrarse, ingresar tarjetas ni enviar datos a la nube.',
+    },
+    'post-14': {
+      title: 'Plantillas de Facturas Gratis (Word y Excel) vs. Generadores Dedicados',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Por qué usar Word o Excel causa errores de cálculo y de formato, y cómo los generadores en PDF eliminan equivocaciones.',
+    },
+    'post-15': {
+      title: 'Cómo Facturar como Freelancer o Autónomo Sin Empresa Registrada',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Requisitos legales y fiscales para facturar como persona física. Aprenda qué datos de contacto e identificación incluir de forma segura.',
+    },
+    'post-16': {
+      title: 'Cómo Prevenir el Fraude en Facturas y Verificar Datos Bancarios',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Proteja su negocio frente a estafas de facturas falsas y cambios de cuentas bancarias en PDF con protocolos de seguridad.',
+    },
+    'post-17': {
+      title: 'Mejores Prácticas de Facturación Recurrente para Clientes con Retainer',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Automatice y optimice el cobro de sus tarifas mensuales recurrentes con ciclos de pago previsibles.',
+    },
+    'post-18': {
+      title: 'Facturación de Contratista Independiente vs. Freelancer: Diferencias',
+      readTime: '6 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Principales diferencias contables entre facturación de contratistas independientes 1099, consultoría y cuotas de agencia.',
+    },
+    'post-19': {
+      title: 'Cómo Cobrar Recargos e Intereses de Demora Legalmente en Facturas',
+      readTime: '7 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Conozca la legislación de mora e intereses legales. Aprenda a calcular intereses mensuales e incluirlos en contratos.',
+    },
+    'post-20': {
+      title: 'Mejores Prácticas para Guardar Facturas Fiscales y Registros (Regla 5 Años)',
+      readTime: '5 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Requisitos de las autoridades fiscales para conservar facturas de ventas. Cómo las copias JSON en navegador garantizan acceso.',
+    },
+    'post-21': {
+      title: 'Cómo Personalizar sus Facturas Gratis con Logos y Colores Profesionales',
+      readTime: '4 min de lectura',
+      date: 'Agosto 2026',
+      summary: 'Haga que sus facturas luzcan de alto nivel. Aprenda reglas de diseño para incluir logos limpios, tipografía nítida y colores.',
+    },
   },
   fr: {
     'post-1': {
@@ -450,6 +772,72 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       date: 'Août 2026',
       summary: 'Pourquoi conserver vos données localement protège votre activité contre la hausse des prix SaaS et la perte d\'accès.',
     },
+    'post-11': {
+      title: 'Top 10 des Générateurs de Factures Gratuits pour Freelances en 2026',
+      readTime: '8 min de lecture',
+      date: 'Août 2026',
+      summary: 'Comparatif complet des 10 meilleurs outils de facturation gratuits pour indépendants et petites entreprises.',
+    },
+    'post-12': {
+      title: 'Meilleurs Logiciels de Facturation pour PME : Comparatif Gratuit vs Payant',
+      readTime: '7 min de lecture',
+      date: 'Août 2026',
+      summary: 'Choisissez le meilleur logiciel de facturation pour votre entreprise. Comparez les outils sans frais aux solutions payantes.',
+    },
+    'post-13': {
+      title: 'Créer une Facture Gratuite en Ligne en 60 Secondes Sans Inscription',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Guide étape par étape pour générer des factures PDF instantanées sans créer de compte ni donner vos données bancaires.',
+    },
+    'post-14': {
+      title: 'Modèles de Facture Gratuits (Word & Excel) vs Générateurs Dédiés',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Pourquoi l\'utilisation de Word ou Excel crée des erreurs de calcul et de mise en page, et comment les éviter.',
+    },
+    'post-15': {
+      title: 'Comment Facturer en Tant qu\'Indépendant Sans Société Enregistrée',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Exigences légales et fiscales pour facturer en nom propre. Découvrez les informations de contact à faire figurer.',
+    },
+    'post-16': {
+      title: 'Comment Prévenir la Fraude aux Factures et Vérifier les Coordonnées Bancaires',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Protégez votre entreprise contre les faux RIB et les escroqueries à la facture avec des protocoles de sécurité.',
+    },
+    'post-17': {
+      title: 'Meilleures Pratiques de Facturation Récurrente pour Clients Forfaitaires',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Automatisez la gestion de vos contrats mensuels récurrents avec des cycles de paiement prévisibles.',
+    },
+    'post-18': {
+      title: 'Facturation de Prestataire Indépendant vs Freelance : Différences Comptables',
+      readTime: '6 min de lecture',
+      date: 'Août 2026',
+      summary: 'Distinctions comptables clés entre la facturation de sous-traitance, le conseil et les contrats d\'agence.',
+    },
+    'post-19': {
+      title: 'Comment Appliquer Légalement des Pénalités et Intérêts de Retard',
+      readTime: '7 min de lecture',
+      date: 'Août 2026',
+      summary: 'Comprendre la législation sur les retards de paiement et calculer les intérêts légaux sur les factures en souffrance.',
+    },
+    'post-20': {
+      title: 'Conservation des Factures et Pièces Comptables (Règle des 5 Ans)',
+      readTime: '5 min de lecture',
+      date: 'Août 2026',
+      summary: 'Obligations fiscales de conservation des factures de vente. Comment les sauvegardes locales garantissent vos archives.',
+    },
+    'post-21': {
+      title: 'Personnaliser vos Factures Gratuites avec un Logo et des Couleurs Pro',
+      readTime: '4 min de lecture',
+      date: 'Août 2026',
+      summary: 'Donnez un aspect haut de gamme à vos factures. Règles de design pour intégrer un logo net et des couleurs élégantes.',
+    },
   },
   de: {
     'post-1': {
@@ -511,6 +899,72 @@ const BLOG_TRANSLATIONS: Record<AppLanguage, Record<string, Partial<BlogPost>>> 
       readTime: '5 Min. Lesezeit',
       date: 'August 2026',
       summary: 'Warum lokale Datenspeicherung Ihr Unternehmen vor Preiserhöhungen und Abhängigkeit von Cloud-Anbietern schützt.',
+    },
+    'post-11': {
+      title: 'Top 10 Kostenlose Rechnungsgeneratoren für Freiberufler 2026',
+      readTime: '8 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Umfassender Vergleich der 10 besten kostenlosen Rechnungstools für Freiberufler und kleine Unternehmen.',
+    },
+    'post-12': {
+      title: 'Beste Rechnungssoftware für Kleine Unternehmen: Kostenlos vs. Kostenpflichtig',
+      readTime: '7 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Wählen Sie die beste Rechnungssoftware für Ihr Unternehmen. Vergleichen Sie kostenlose Tools mit Abo-Modellen.',
+    },
+    'post-13': {
+      title: 'Kostenlose Rechnung Online in 60 Sekunden Ohne Registrierung Erstellen',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Schritt-für-Schritt-Anleitung zur Erstellung von PDF-Rechnungen ohne Konto, Passwort oder Kreditkarte.',
+    },
+    'post-14': {
+      title: 'Kostenlose Rechnungsvorlagen (Word & Excel) vs. Spezialisierte Generatoren',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Warum Word- und Excel-Rechnungen oft Rechenfehler aufweisen und wie PDF-Generatoren Fehler verhindern.',
+    },
+    'post-15': {
+      title: 'Rechnungen Als Freiberufler Ohne Registriertes Unternehmen Schreiben',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Rechtliche Anforderungen für Rechnungen von Einzelunternehmern und Freiberuflern ohne GmbH.',
+    },
+    'post-16': {
+      title: 'Rechnungsbetrug Verhindern & Bankverbindungen Sicher Überprüfen',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Schützen Sie Ihr Unternehmen vor gefälschten PDF-Rechnungen und geänderten IBAN-Daten.',
+    },
+    'post-17': {
+      title: 'Beste Praxis für Wiederkehrende Rechnungen bei Monatlichen Pauschalen',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Automatisieren Sie monatliche Retainer-Abrechnungen mit verlässlichen Zahlungszyklen.',
+    },
+    'post-18': {
+      title: 'Freie Mitarbeiter vs. Subunternehmer: Buchhalterische Unterschiede',
+      readTime: '6 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Wichtige buchhalterische Unterschiede bei der Rechnungsstellung von Freelancern und Auftragnehmern.',
+    },
+    'post-19': {
+      title: 'Mahngebühren & Verzugszinsen Auf Überfällige Rechnungen Legal Berechnen',
+      readTime: '7 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Gesetzliche Regelungen zu Verzugszinsen verstehen und Ausfälle wirksam vermeiden.',
+    },
+    'post-20': {
+      title: 'Aufbewahrung von Steuerrechnungen & Unterlagen (5-Jahre-Regel)',
+      readTime: '5 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Gesetzliche Aufbewahrungsfristen für Rechnungen und wie lokale Sicherungen den Zugriff garantieren.',
+    },
+    'post-21': {
+      title: 'Kostenlose Rechnungen Mit Logo & Professionellem Design Gestalten',
+      readTime: '4 Min. Lesezeit',
+      date: 'August 2026',
+      summary: 'Geben Sie Ihren Rechnungen einen hochwertigen Look mit Firmenlogo und sauberen Vorlagen.',
     },
   },
 };
