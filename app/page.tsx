@@ -468,10 +468,6 @@ export default function Page() {
               onClearAllData={handleClearAllData}
             />
           )}
-
-          {activeTab === 'blog' && (
-            <BlogSection onStartInvoiceClick={() => setActiveTab('builder')} />
-          )}
         </main>
 
         {/* Ko-fi Support Banner Section */}

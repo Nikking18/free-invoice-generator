@@ -14,7 +14,7 @@ import {
 import { useTranslation } from '../lib/i18n/LanguageContext';
 import { AppLanguage } from '../lib/i18n/translations';
 
-export type TabType = 'builder' | 'saved' | 'clients' | 'items' | 'settings' | 'backup' | 'blog';
+export type TabType = 'builder' | 'saved' | 'clients' | 'items' | 'settings' | 'backup';
 
 interface HeaderProps {
   activeTab: TabType;
@@ -38,7 +38,6 @@ export function Header({
     { id: 'items', labelKey: 'tabItemLibrary', icon: Package },
     { id: 'settings', labelKey: 'tabSettings', icon: Building2 },
     { id: 'backup', labelKey: 'tabBackup', icon: Database },
-    { id: 'blog', labelKey: '', customLabel: 'Guides & Articles', icon: BookOpen },
   ];
 
   return (
@@ -68,6 +67,15 @@ export function Header({
 
           {/* Header Action Controls */}
           <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Blog & News Page Link */}
+            <a
+              href="/blog"
+              className="inline-flex items-center gap-1.5 border border-gray-200 bg-gray-50 hover:bg-gray-100 text-gray-800 font-semibold text-xs rounded-sm px-2.5 py-1 transition-colors"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+              <span>Blog & News</span>
+            </a>
+
             {/* App Interface Language Switcher */}
             <div className="flex items-center space-x-1 border border-gray-200 bg-gray-50 rounded-sm px-2 py-1">
               <Globe className="w-3.5 h-3.5 text-gray-500 shrink-0" />
