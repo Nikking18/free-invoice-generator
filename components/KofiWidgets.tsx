@@ -61,9 +61,10 @@ export function KofiOverlayWidget() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Load overlay widget asynchronously after page is completely idle to maximize Lighthouse performance
+    let loaded = false;
     const loadOverlay = () => {
-      if (document.getElementById('kofi-overlay-script')) return;
+      if (loaded || document.getElementById('kofi-overlay-script')) return;
+      loaded = true;
 
       const script = document.createElement('script');
       script.id = 'kofi-overlay-script';
@@ -90,15 +91,26 @@ export function KofiOverlayWidget() {
         }
       };
       document.body.appendChild(script);
+
+      window.removeEventListener('scroll', loadOverlay);
+      window.removeEventListener('pointerdown', loadOverlay);
+      window.removeEventListener('mousemove', loadOverlay);
+      window.removeEventListener('touchstart', loadOverlay);
     };
 
-    if ('requestIdleCallback' in window) {
-      const idleId = (window as any).requestIdleCallback(loadOverlay, { timeout: 4000 });
-      return () => (window as any).cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(loadOverlay, 3000);
-      return () => clearTimeout(timer);
-    }
+    window.addEventListener('scroll', loadOverlay, { passive: true });
+    window.addEventListener('pointerdown', loadOverlay, { passive: true });
+    window.addEventListener('mousemove', loadOverlay, { passive: true });
+    window.addEventListener('touchstart', loadOverlay, { passive: true });
+
+    const timer = setTimeout(loadOverlay, 7000);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', loadOverlay);
+      window.removeEventListener('pointerdown', loadOverlay);
+      window.removeEventListener('mousemove', loadOverlay);
+      window.removeEventListener('touchstart', loadOverlay);
+    };
   }, []);
 
   return null;
