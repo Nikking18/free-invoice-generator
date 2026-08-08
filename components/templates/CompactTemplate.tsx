@@ -42,7 +42,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
   return (
     <div
       id={id}
-      className="bg-white p-8 sm:p-10 text-gray-900 font-sans text-xs w-full max-w-[800px] min-h-[1060px] mx-auto border border-gray-300 shadow-sm flex flex-col justify-between"
+      className="bg-white p-8 sm:p-10 text-gray-900 font-sans text-xs w-full max-w-[800px] min-h-[1060px] mx-auto border-2 border-gray-900 shadow-sm flex flex-col justify-between"
       style={{ boxSizing: 'border-box' }}
     >
       <div>

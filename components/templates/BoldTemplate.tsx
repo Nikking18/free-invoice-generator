@@ -42,7 +42,7 @@ export function BoldTemplate({ invoice, businessProfile, id }: TemplateProps) {
   return (
     <div
       id={id}
-      className="bg-white p-0 text-gray-900 font-sans text-xs w-full max-w-[800px] mx-auto border border-gray-300 shadow-md flex flex-col justify-between overflow-hidden"
+      className="bg-white p-0 text-gray-900 font-sans text-xs w-full max-w-[800px] min-h-[1060px] mx-auto border-2 border-gray-900 shadow-md flex flex-col justify-between overflow-hidden"
       style={{ boxSizing: 'border-box' }}
     >
       <div>
