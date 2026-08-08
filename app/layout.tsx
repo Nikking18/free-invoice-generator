@@ -69,6 +69,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.freeinvoice.live',
   },
+  verification: {
+    google: 'rjwcAI5BxBAP2_FSZhm98CBFA_NH-p1mbQM2azpEjxs',
+  },
 };
 
 import { LanguageProvider } from '../lib/i18n/LanguageContext';
@@ -97,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="rjwcAI5BxBAP2_FSZhm98CBFA_NH-p1mbQM2azpEjxs" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
