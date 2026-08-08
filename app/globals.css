@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @theme {
   --color-white: #ffffff;
@@ -38,17 +37,29 @@
   body {
     background-color: #F8F9FA;
     color: #111827;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-sans), 'Plus Jakarta Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }
 
 .font-serif {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--font-serif), 'Instrument Serif', Georgia, serif;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+}
+
+/* Fix Ko-fi script injected image aspect ratio & prevent layout shifts */
+.kofiimg, img.kofiimg {
+  width: 25px !important;
+  height: 20px !important;
+  aspect-ratio: 285 / 229 !important;
+  object-fit: contain !important;
+}
+
+.contain-layout {
+  contain: layout size;
 }
 
 @media print {
