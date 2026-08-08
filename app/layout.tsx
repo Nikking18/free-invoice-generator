@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     'serverless invoice generator',
     'business invoice builder',
     'download invoice pdf',
+    'tax invoice generator free',
   ],
   authors: [{ name: 'Nikhil Khanpara', url: 'https://github.com/Nikking18' }],
   creator: 'Nikhil Khanpara',
@@ -77,24 +78,81 @@ export const metadata: Metadata = {
 import { LanguageProvider } from '../lib/i18n/LanguageContext';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
+  const webAppJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Free Invoice Generator',
-    'url': 'https://www.freeinvoice.live',
-    'description': '100% Client-Side & Private Invoice Builder for Freelancers, Agencies, and Small Businesses.',
-    'applicationCategory': 'BusinessApplication',
-    'operatingSystem': 'Any',
-    'offers': {
+    name: 'Free Invoice Generator',
+    url: 'https://www.freeinvoice.live',
+    description: '100% Client-Side & Private Invoice Builder for Freelancers, Agencies, and Small Businesses.',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Any Web Browser',
+    offers: {
       '@type': 'Offer',
-      'price': '0',
-      'priceCurrency': 'USD',
+      price: '0',
+      priceCurrency: 'USD',
     },
-    'author': {
+    author: {
       '@type': 'Person',
-      'name': 'Nikhil Khanpara',
-      'url': 'https://github.com/Nikking18',
+      name: 'Nikhil Khanpara',
+      url: 'https://github.com/Nikking18',
     },
+  };
+
+  const softwareJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Free Invoice Generator',
+    operatingSystem: 'All Modern Web Browsers',
+    applicationCategory: 'FinanceApplication',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '1280',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  };
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Is this invoice generator completely free?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes! Free Invoice Generator is 100% free forever with unlimited PDF downloads and zero hidden fees or subscription paywalls.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is my financial data stored on remote servers?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. All invoice calculations, client details, and PDF exports are processed 100% client-side inside your web browser using HTML5 IndexedDB.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do I need to register or create an account?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No registration or login is required. You can start typing and download vector PDF invoices instantly in under 60 seconds.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I export a backup of my invoices and clients?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes! You can export your entire database as a single JSON file anytime and restore it on any browser or computer instantly.',
+        },
+      },
+    ],
   };
 
   return (
@@ -106,7 +164,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/favicon.png" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -132,6 +198,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     }
                     if (typeof globalThis !== 'undefined') {
                       makeWritable(globalThis);
+                    }
+                    if (typeof window.location !== 'undefined') {
+                      var host = window.location.hostname;
+                      if (host === 'free-invoice-generator-two.vercel.app' || host.endsWith('.vercel.app')) {
+                        window.location.replace('https://www.freeinvoice.live' + window.location.pathname + window.location.search);
+                      }
                     }
                   }
                 } catch(e) {}

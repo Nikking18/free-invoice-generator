@@ -24,29 +24,45 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const publishedDate = '2026-08-01T00:00:00.000Z';
+
   return {
-    title: `${post.title} | Free Invoice Generator Guide`,
+    title: `${post.title} | Free Invoice Generator`,
     description: post.summary,
     keywords: [
       post.category,
       'invoice guide',
       'freelance billing',
       'payment terms',
+      'pdf invoice generator',
+      'tax invoice best practices',
       post.title.toLowerCase(),
     ],
+    authors: [{ name: 'Nikhil Khanpara', url: 'https://github.com/Nikking18' }],
     openGraph: {
-      title: post.title,
+      title: `${post.title} | Free Invoice Generator Guide`,
       description: post.summary,
       url: `https://www.freeinvoice.live/blog/${post.slug}`,
       siteName: 'Free Invoice Generator',
       type: 'article',
-      publishedTime: new Date().toISOString(),
+      publishedTime: publishedDate,
+      modifiedTime: new Date().toISOString(),
       authors: ['Nikhil Khanpara'],
+      images: [
+        {
+          url: '/favicon.png',
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
+      title: `${post.title} | Free Invoice Generator`,
       description: post.summary,
+      images: ['/favicon.png'],
+      creator: '@nikhilkhanpara',
     },
     alternates: {
       canonical: `https://www.freeinvoice.live/blog/${post.slug}`,
@@ -62,22 +78,28 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
-  const jsonLd = {
+  const publishedDate = '2026-08-01T00:00:00.000Z';
+
+  const blogPostingJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    'headline': post.title,
-    'description': post.summary,
-    'author': {
+    headline: post.title,
+    description: post.summary,
+    datePublished: publishedDate,
+    dateModified: new Date().toISOString(),
+    inLanguage: 'en-US',
+    articleSection: post.category,
+    author: {
       '@type': 'Person',
-      'name': 'Nikhil Khanpara',
-      'url': 'https://github.com/Nikking18',
+      name: 'Nikhil Khanpara',
+      url: 'https://github.com/Nikking18',
     },
-    'publisher': {
+    publisher: {
       '@type': 'Organization',
-      'name': 'Free Invoice Generator',
-      'logo': {
+      name: 'Free Invoice Generator',
+      logo: {
         '@type': 'ImageObject',
-        'url': 'https://www.freeinvoice.live/favicon.png',
+        url: 'https://www.freeinvoice.live/favicon.png',
       },
     },
     'mainEntityOfPage': {
@@ -86,11 +108,40 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.freeinvoice.live',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog & Invoicing Guides',
+        item: 'https://www.freeinvoice.live/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://www.freeinvoice.live/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <BlogPostClient slug={slug} />
     </>

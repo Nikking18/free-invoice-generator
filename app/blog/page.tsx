@@ -1,63 +1,106 @@
-'use client';
+import type { Metadata } from 'next';
+import React from 'react';
+import { BLOG_POSTS } from '../../lib/blogs';
+import { BlogPageClient } from '../../components/BlogPageClient';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { ShieldCheck } from 'lucide-react';
-import { BlogHeader } from '../../components/BlogHeader';
-import { BlogSection } from '../../components/BlogSection';
-import { KofiFooterSection, KofiOverlayWidget } from '../../components/KofiWidgets';
-import { FeedbackWidget } from '../../components/FeedbackWidget';
-import { PrivacyModal } from '../../components/PrivacyBanner';
-import { useTranslation } from '../../lib/i18n/LanguageContext';
+export const metadata: Metadata = {
+  title: 'Invoicing Guides, Tax Rules & Freelance Billing Articles | Free Invoice Generator',
+  description:
+    'Comprehensive guides on freelance invoicing, payment terms (Net 15 vs Net 30), statutory late fees, international VAT, client privacy, and 5-year tax record compliance.',
+  keywords: [
+    'freelance invoicing guide',
+    'invoice payment terms',
+    'late fee statutory interest',
+    'international vat invoicing',
+    'tax record retention 5 year rule',
+    'client side invoice security',
+    'invoicing best practices 2026',
+  ],
+  openGraph: {
+    title: 'Invoicing Guides & Freelance Billing Masterclass | Free Invoice Generator',
+    description:
+      'Learn how to create professional PDF invoices, calculate statutory late fees, navigate cross-border VAT, and enforce payment terms.',
+    url: 'https://www.freeinvoice.live/blog',
+    siteName: 'Free Invoice Generator',
+    type: 'website',
+    images: [
+      {
+        url: '/favicon.png',
+        width: 512,
+        height: 512,
+        alt: 'Free Invoice Generator Knowledge Base',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Invoicing Guides & Freelance Billing Masterclass',
+    description:
+      'Learn how to create professional PDF invoices, calculate statutory late fees, navigate cross-border VAT, and enforce payment terms.',
+    images: ['/favicon.png'],
+  },
+  alternates: {
+    canonical: 'https://www.freeinvoice.live/blog',
+  },
+};
 
 export default function BlogPage() {
-  const { t } = useTranslation();
-  const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(false);
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Invoicing Guides & Freelance Billing Articles',
+    url: 'https://www.freeinvoice.live/blog',
+    description:
+      'Comprehensive guides on freelance invoicing, payment terms, statutory late fees, tax retention, and client privacy.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Free Invoice Generator',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.freeinvoice.live/favicon.png',
+      },
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: BLOG_POSTS.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://www.freeinvoice.live/blog/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.freeinvoice.live',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog & Invoicing Guides',
+        item: 'https://www.freeinvoice.live/blog',
+      },
+    ],
+  };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-black font-sans antialiased">
-      {/* Blog Navigation Header */}
-      <BlogHeader backLink="/" backTextKey="btnBackToApp" defaultBackText="Back to App" />
-
-      {/* Main Blog & News Section */}
-      <main className="flex-1 bg-white">
-        <BlogSection />
-      </main>
-
-      {/* Support & Footer */}
-      <KofiFooterSection />
-
-      <footer className="bg-white text-gray-800 border-t border-gray-200 py-6 text-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600">
-            © {new Date().getFullYear()} {t('footerCopyrightNotice')}
-          </p>
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setShowPrivacyModal(true)}
-              className="inline-flex items-center gap-1.5 text-gray-700 hover:text-black transition-colors font-medium cursor-pointer"
-            >
-              <ShieldCheck className="w-3.5 h-3.5 text-black" />
-              <span>{t('footerPrivacyNotice')}</span>
-            </button>
-            <span className="text-gray-300">•</span>
-            <Link href="/" className="text-black font-semibold hover:underline">
-              {t('appName')}
-            </Link>
-            <span className="text-gray-300">•</span>
-            <Link href="/blog" className="text-black font-semibold hover:underline">
-              {t('blogTitle')}
-            </Link>
-          </div>
-        </div>
-      </footer>
-
-      {/* Privacy Notice Modal */}
-      <PrivacyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
-
-      {/* Widgets */}
-      <KofiOverlayWidget />
-      <FeedbackWidget />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <BlogPageClient />
+    </>
   );
 }
