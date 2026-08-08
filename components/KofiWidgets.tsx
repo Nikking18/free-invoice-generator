@@ -42,7 +42,7 @@ export function KofiFooterSection() {
   }, [t]);
 
   return (
-    <section className="no-print bg-white text-black border-t border-gray-200 relative min-h-[140px] contain-layout">
+    <section className="no-print bg-white text-black border-t border-gray-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
           

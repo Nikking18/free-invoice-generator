@@ -58,9 +58,7 @@
   object-fit: contain !important;
 }
 
-.contain-layout {
-  contain: layout size;
-}
+
 
 @media print {
   .no-print {
