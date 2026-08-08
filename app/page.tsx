@@ -63,6 +63,14 @@ export default function Page() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [currentInvoice, setCurrentInvoice] = useState<Invoice | null>(null);
 
+  // Auto-popup Privacy & Storage Notice 5 seconds after page visit
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPrivacyModal(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Initialize profile & DB
   useEffect(() => {
     let isMounted = true;
