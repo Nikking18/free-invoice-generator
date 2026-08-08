@@ -203,11 +203,13 @@ export const ClassicTemplate = memo(function ClassicTemplate({ invoice, business
             )}
 
             {invoice.terms && (
-              <div>
-                <p className="text-[9px] uppercase font-bold text-gray-500 mb-0.5">
+              <div className="border border-gray-300 p-3 bg-gray-50">
+                <p className="text-[9px] uppercase font-bold text-gray-500 mb-1">
                   {labels.termsConditions}
                 </p>
-                <p className="text-gray-600 text-[10px] leading-relaxed">{invoice.terms}</p>
+                <p className="text-gray-800 whitespace-pre-line leading-relaxed text-[11px]">
+                  {invoice.terms}
+                </p>
               </div>
             )}
           </div>
