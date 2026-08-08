@@ -51,6 +51,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     lblCompany: 'Company Name (Optional)',
     lblEmail: 'Email Address',
     lblPhone: 'Phone Number',
+    lblClientTaxId: 'Tax ID / GST Number (Optional)',
     lblAddress: 'Billing Address',
     lblInvoiceNumber: 'Invoice Number',
     lblStatus: 'Status',
@@ -179,6 +180,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     lblCompany: 'Nombre de Empresa (Opcional)',
     lblEmail: 'Correo Electrónico',
     lblPhone: 'Teléfono',
+    lblClientTaxId: 'NIF / ID Fiscal / GST (Opcional)',
     lblAddress: 'Dirección de Facturación',
     lblInvoiceNumber: 'Número de Factura',
     lblStatus: 'Estado',
@@ -307,6 +309,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     lblCompany: 'Nom de l\'Entreprise (Optionnel)',
     lblEmail: 'Adresse Email',
     lblPhone: 'Téléphone',
+    lblClientTaxId: 'N° TVA / SIRET / GST (Optionnel)',
     lblAddress: 'Adresse de Facturation',
     lblInvoiceNumber: 'Numéro de Facture',
     lblStatus: 'Statut',
@@ -435,6 +438,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     lblCompany: 'Firmenname (Optional)',
     lblEmail: 'E-Mail-Adresse',
     lblPhone: 'Telefonnummer',
+    lblClientTaxId: 'Steuernummer / USt-ID / GST (Optional)',
     lblAddress: 'Rechnungsadresse',
     lblInvoiceNumber: 'Rechnungsnummer',
     lblStatus: 'Status',
@@ -519,6 +523,7 @@ export const APP_TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
 export const INVOICE_LABELS: Record<InvoiceLanguage, {
   title: string;
   billTo: string;
+  clientTaxId: string;
   dateIssued: string;
   dateDue: string;
   terms: string;
@@ -544,6 +549,7 @@ export const INVOICE_LABELS: Record<InvoiceLanguage, {
   en: {
     title: 'INVOICE',
     billTo: 'BILL TO',
+    clientTaxId: 'Tax ID / GST',
     dateIssued: 'DATE ISSUED',
     dateDue: 'DATE DUE',
     terms: 'TERMS',
@@ -569,6 +575,7 @@ export const INVOICE_LABELS: Record<InvoiceLanguage, {
   es: {
     title: 'FACTURA',
     billTo: 'FACTURAR A',
+    clientTaxId: 'NIF / ID Fiscal / GST',
     dateIssued: 'FECHA DE EMISIÓN',
     dateDue: 'FECHA DE VENCIMIENTO',
     terms: 'TÉRMINOS',
@@ -594,6 +601,7 @@ export const INVOICE_LABELS: Record<InvoiceLanguage, {
   fr: {
     title: 'FACTURE',
     billTo: 'FACTURER À',
+    clientTaxId: 'N° TVA / SIRET / GST',
     dateIssued: 'DATE D\'ÉMISSION',
     dateDue: 'DATE D\'ÉCHÉANCE',
     terms: 'CONDITIONS',
@@ -619,6 +627,7 @@ export const INVOICE_LABELS: Record<InvoiceLanguage, {
   de: {
     title: 'RECHNUNG',
     billTo: 'RECHNUNGSEMPFÄNGER',
+    clientTaxId: 'St-Nr. / USt-ID / GST',
     dateIssued: 'RECHNUNGSDATUM',
     dateDue: 'FÄLLIGKEITSDATUM',
     terms: 'ZAHLUNGSZIEL',

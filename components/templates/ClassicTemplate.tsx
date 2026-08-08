@@ -103,6 +103,7 @@ export const ClassicTemplate = memo(function ClassicTemplate({ invoice, business
               )}
               {invoice.clientEmail && <p className="text-[11px]">{invoice.clientEmail}</p>}
               {invoice.clientPhone && <p className="text-[11px]">{invoice.clientPhone}</p>}
+              {invoice.clientTaxId && <p className="text-[11px]">{labels.clientTaxId}: {invoice.clientTaxId}</p>}
             </div>
           </div>
 

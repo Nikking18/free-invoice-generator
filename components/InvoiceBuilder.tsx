@@ -152,6 +152,7 @@ export function InvoiceBuilder({
         clientCompany: '',
         clientEmail: '',
         clientPhone: '',
+        clientTaxId: '',
         clientAddress: '',
       }));
       return;
@@ -166,6 +167,7 @@ export function InvoiceBuilder({
         clientCompany: client.company || '',
         clientEmail: client.email || '',
         clientPhone: client.phone || '',
+        clientTaxId: client.taxId || '',
         clientAddress: client.address || '',
       }));
     }
@@ -303,6 +305,7 @@ export function InvoiceBuilder({
           company: invoice.clientCompany,
           email: invoice.clientEmail || '',
           phone: invoice.clientPhone,
+          taxId: invoice.clientTaxId,
           address: invoice.clientAddress,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
@@ -611,6 +614,20 @@ export function InvoiceBuilder({
                   onChange={(e) => setInvoice({ ...invoice, clientPhone: e.target.value })}
                   placeholder="(555) 000-0000"
                   aria-label={t('lblPhone')}
+                  className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                  {t('lblClientTaxId')}
+                </label>
+                <input
+                  type="text"
+                  value={invoice.clientTaxId || ''}
+                  onChange={(e) => setInvoice({ ...invoice, clientTaxId: e.target.value })}
+                  placeholder="e.g. GSTIN12345678 or XX-XXXXXXX"
+                  aria-label={t('lblClientTaxId')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>

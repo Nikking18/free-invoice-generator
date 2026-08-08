@@ -107,6 +107,7 @@ export default function Page() {
           clientCompany: '',
           clientEmail: '',
           clientPhone: '',
+          clientTaxId: '',
           clientAddress: '',
           templateStyle: prof.defaultTemplateStyle || 'classic',
           invoiceLanguage: prof.defaultInvoiceLanguage || 'en',
@@ -194,6 +195,7 @@ export default function Page() {
       clientCompany: '',
       clientEmail: '',
       clientPhone: '',
+      clientTaxId: '',
       clientAddress: '',
       templateStyle: profile.defaultTemplateStyle || 'classic',
       invoiceLanguage: profile.defaultInvoiceLanguage || 'en',
@@ -305,6 +307,7 @@ export default function Page() {
           clientCompany: client.company || '',
           clientEmail: client.email || '',
           clientPhone: client.phone || '',
+          clientTaxId: client.taxId || '',
           clientAddress: client.address || '',
         };
       });

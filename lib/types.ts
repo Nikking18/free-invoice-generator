@@ -43,6 +43,7 @@ export interface Client {
   company?: string;
   email: string;
   phone?: string;
+  taxId?: string;
   address: string;
   notes?: string;
   createdAt: string;
@@ -84,6 +85,7 @@ export interface Invoice {
   clientCompany?: string;
   clientEmail?: string;
   clientPhone?: string;
+  clientTaxId?: string;
   clientAddress: string;
 
   // Project Info

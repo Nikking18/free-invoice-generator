@@ -111,6 +111,7 @@ export function SavedInvoices({
       const matchQuery =
         inv.invoiceNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
         inv.clientName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (inv.clientTaxId || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
         (inv.projectTitle || '').toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchStatus = statusFilter === 'All' || inv.status === statusFilter;

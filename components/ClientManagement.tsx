@@ -14,6 +14,7 @@ import {
   Phone, 
   MapPin, 
   Building,
+  FileText,
   AlertCircle,
   X
 } from 'lucide-react';
@@ -42,7 +43,8 @@ export function ClientManagement({
     (c) =>
       c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (c.company || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (c.email || '').toLowerCase().includes(searchQuery.toLowerCase())
+      (c.email || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (c.taxId || '').toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleOpenAdd = () => {
@@ -52,6 +54,7 @@ export function ClientManagement({
       company: '',
       email: '',
       phone: '',
+      taxId: '',
       address: '',
       notes: '',
     });
@@ -86,6 +89,7 @@ export function ClientManagement({
       company: editingClient.company?.trim(),
       email: editingClient.email?.trim() || '',
       phone: editingClient.phone?.trim(),
+      taxId: editingClient.taxId?.trim(),
       address: editingClient.address?.trim() || '',
       notes: editingClient.notes?.trim(),
       createdAt: editingClient.createdAt || new Date().toISOString(),
@@ -210,6 +214,12 @@ export function ClientManagement({
                       <span>{client.phone}</span>
                     </p>
                   )}
+                  {client.taxId && (
+                    <p className="flex items-center space-x-2">
+                      <FileText className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+                      <span className="truncate">Tax ID / GST: {client.taxId}</span>
+                    </p>
+                  )}
                   {client.address && (
                     <p className="flex items-start space-x-2">
                       <MapPin className="w-3.5 h-3.5 text-gray-400 shrink-0 mt-0.5" />
@@ -312,6 +322,19 @@ export function ClientManagement({
                     className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">
+                  {t('lblClientTaxId')}
+                </label>
+                <input
+                  type="text"
+                  value={editingClient.taxId || ''}
+                  onChange={(e) => setEditingClient({ ...editingClient, taxId: e.target.value })}
+                  placeholder="e.g. GSTIN12345678 or XX-XXXXXXX"
+                  className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
+                />
               </div>
 
               <div>

@@ -132,6 +132,7 @@ export function ModernTemplate({ invoice, businessProfile, id }: TemplateProps) 
               )}
               {invoice.clientEmail && <p>Email: {invoice.clientEmail}</p>}
               {invoice.clientPhone && <p>Tel: {invoice.clientPhone}</p>}
+              {invoice.clientTaxId && <p>{labels.clientTaxId}: {invoice.clientTaxId}</p>}
             </div>
           </div>
 
