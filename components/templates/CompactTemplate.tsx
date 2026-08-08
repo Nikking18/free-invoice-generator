@@ -211,7 +211,10 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
               </div>
             )}
             {invoice.terms && (
-              <p className="text-gray-500 text-[10px] leading-relaxed">{invoice.terms}</p>
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded-xs">
+                <p className="text-[9px] uppercase font-bold text-gray-500 mb-1">{labels.termsConditions}</p>
+                <p className="text-gray-700 whitespace-pre-line text-[11px] leading-relaxed">{invoice.terms}</p>
+              </div>
             )}
           </div>
 
