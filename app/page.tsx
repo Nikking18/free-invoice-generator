@@ -49,7 +49,7 @@ import { useTranslation } from '../lib/i18n/LanguageContext';
 export default function Page() {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<TabType>('builder');
-  const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(true);
+  const [showPrivacyModal, setShowPrivacyModal] = useState<boolean>(false);
 
   // App Data States
   const [profile, setProfile] = useState<BusinessProfile>(() => {

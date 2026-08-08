@@ -82,9 +82,9 @@ export function KofiFooterSection() {
                 <img
                   src="https://storage.ko-fi.com/cdn/cup-border.png"
                   alt="Ko-fi donations"
-                  width="20"
-                  height="16"
-                  className="w-5 h-4 object-contain"
+                  width="25"
+                  height="20"
+                  className="w-[25px] h-[20px] object-contain"
                 />
                 <span>{t('footerSupportBtn')}</span>
               </a>
