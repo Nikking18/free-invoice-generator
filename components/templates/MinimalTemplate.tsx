@@ -92,7 +92,7 @@ export const MinimalTemplate = memo(function MinimalTemplate({ invoice, business
               {clientName ? (
                 <p className="font-bold text-sm text-gray-900">{clientName}</p>
               ) : (
-                <p className="text-gray-400 italic">{labels.noClient}</p>
+                <p className="text-gray-600 italic font-medium text-xs">{labels.noClient}</p>
               )}
               {invoice.clientCompany && <p className="font-medium text-gray-700">{invoice.clientCompany}</p>}
               {invoice.clientAddress && (

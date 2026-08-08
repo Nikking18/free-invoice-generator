@@ -95,7 +95,7 @@ export const ClassicTemplate = memo(function ClassicTemplate({ invoice, business
               {clientName ? (
                 <p className="font-bold text-sm text-gray-900">{clientName}</p>
               ) : (
-                <p className="font-medium text-xs text-gray-400 italic">{labels.noClient}</p>
+                <p className="font-medium text-xs text-gray-600 italic">{labels.noClient}</p>
               )}
               {invoice.clientCompany && <p className="font-semibold">{invoice.clientCompany}</p>}
               {invoice.clientAddress && (

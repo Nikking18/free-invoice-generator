@@ -546,6 +546,7 @@ export function InvoiceBuilder({
               <select
                 value={selectedClientId}
                 onChange={(e) => handleClientSelect(e.target.value)}
+                aria-label={t('lblSelectClient')}
                 className="w-full text-xs rounded-sm border border-gray-200 bg-gray-50 text-gray-900 p-2.5 focus:outline-none focus:border-gray-900"
               >
                 <option value="">-- Enter Client Details Manually --</option>
@@ -567,6 +568,7 @@ export function InvoiceBuilder({
                   value={invoice.clientName}
                   onChange={(e) => setInvoice({ ...invoice, clientName: e.target.value })}
                   placeholder="e.g. Sarah Jenkins"
+                  aria-label={t('lblClientName')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -580,6 +582,7 @@ export function InvoiceBuilder({
                   value={invoice.clientCompany || ''}
                   onChange={(e) => setInvoice({ ...invoice, clientCompany: e.target.value })}
                   placeholder="e.g. Freelance Marketing"
+                  aria-label={t('lblCompany')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -593,6 +596,7 @@ export function InvoiceBuilder({
                   value={invoice.clientEmail || ''}
                   onChange={(e) => setInvoice({ ...invoice, clientEmail: e.target.value })}
                   placeholder="sarah@jenkins.com"
+                  aria-label={t('lblEmail')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -606,6 +610,7 @@ export function InvoiceBuilder({
                   value={invoice.clientPhone || ''}
                   onChange={(e) => setInvoice({ ...invoice, clientPhone: e.target.value })}
                   placeholder="(555) 000-0000"
+                  aria-label={t('lblPhone')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -619,6 +624,7 @@ export function InvoiceBuilder({
                   value={invoice.clientAddress || ''}
                   onChange={(e) => setInvoice({ ...invoice, clientAddress: e.target.value })}
                   placeholder="450 Pine Ave&#10;Seattle, WA 98101"
+                  aria-label={t('lblAddress')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -656,6 +662,7 @@ export function InvoiceBuilder({
                   value={invoice.invoiceNumber}
                   onChange={(e) => setInvoice({ ...invoice, invoiceNumber: e.target.value })}
                   placeholder="INV-0001"
+                  aria-label={t('lblInvoiceNumber')}
                   className="w-full font-mono rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -667,6 +674,7 @@ export function InvoiceBuilder({
                 <select
                   value={invoice.status}
                   onChange={(e) => setInvoice({ ...invoice, status: e.target.value as InvoiceStatus })}
+                  aria-label={t('lblStatus')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 >
                   <option value="Draft">Draft</option>
@@ -685,6 +693,7 @@ export function InvoiceBuilder({
                   type="date"
                   value={invoice.date}
                   onChange={(e) => setInvoice({ ...invoice, date: e.target.value })}
+                  aria-label={t('lblInvoiceDate')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -696,6 +705,7 @@ export function InvoiceBuilder({
                 <select
                   value={invoice.paymentTerms}
                   onChange={(e) => handlePaymentTermsChange(e.target.value)}
+                  aria-label={t('lblPaymentTerms')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 >
                   {PAYMENT_TERMS_OPTIONS.map((term) => (
@@ -714,6 +724,7 @@ export function InvoiceBuilder({
                   type="date"
                   value={invoice.dueDate}
                   onChange={(e) => setInvoice({ ...invoice, dueDate: e.target.value })}
+                  aria-label={t('lblDueDate')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -727,6 +738,7 @@ export function InvoiceBuilder({
                 <select
                   value={invoice.invoiceLanguage || 'en'}
                   onChange={(e) => handleInvoiceLanguageChange(e.target.value as InvoiceLanguage)}
+                  aria-label={t('lblInvoiceLanguage')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-medium focus:outline-none focus:border-gray-900"
                 >
                   <option value="en">English (EN)</option>
@@ -745,6 +757,7 @@ export function InvoiceBuilder({
                   value={invoice.poNumber || ''}
                   onChange={(e) => setInvoice({ ...invoice, poNumber: e.target.value })}
                   placeholder="PO-99182"
+                  aria-label={t('lblPoNumber')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900 font-mono"
                 />
               </div>
@@ -758,6 +771,7 @@ export function InvoiceBuilder({
                   value={invoice.projectTitle || ''}
                   onChange={(e) => setInvoice({ ...invoice, projectTitle: e.target.value })}
                   placeholder="e.g. Website Redesign Q3"
+                  aria-label={t('lblProjectTitle')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -777,6 +791,7 @@ export function InvoiceBuilder({
                   <select
                     value={selectedPresetId}
                     onChange={(e) => handleAddPresetItem(e.target.value)}
+                    aria-label="Preset Item"
                     className="rounded-sm border border-gray-200 bg-gray-50 text-gray-900 p-1.5 text-xs"
                   >
                     <option value="">{t('btnAddItem')}</option>
@@ -806,13 +821,13 @@ export function InvoiceBuilder({
                     key={item.id || idx}
                     className="p-3.5 rounded-sm border border-gray-200 bg-gray-50 space-y-3 relative group"
                   >
-                    <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gray-400">
+                    <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gray-600">
                       <span>Item #{idx + 1}</span>
                       <div className="flex items-center space-x-2">
                         <button
                           type="button"
                           onClick={() => handleDuplicateLineItem(idx)}
-                          className="p-1 text-gray-400 hover:text-gray-900 transition-colors"
+                          className="p-1 text-gray-500 hover:text-gray-900 transition-colors"
                           title="Duplicate line item"
                         >
                           <Copy className="w-3.5 h-3.5" />
@@ -820,7 +835,7 @@ export function InvoiceBuilder({
                         <button
                           type="button"
                           onClick={() => handleRemoveLineItem(idx)}
-                          className="p-1 text-gray-400 hover:text-rose-600 transition-colors"
+                          className="p-1 text-gray-500 hover:text-rose-600 transition-colors"
                           title="Remove line item"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -834,28 +849,31 @@ export function InvoiceBuilder({
                         value={item.description}
                         onChange={(e) => handleLineItemChange(idx, 'description', e.target.value)}
                         placeholder="Description of work, service, or product"
+                        aria-label={`Item ${idx + 1} Description`}
                         className="w-full text-xs font-medium rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                       />
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs min-w-[280px]">
                       <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-0.5">{t('lblQuantity')}</label>
+                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-0.5">{t('lblQuantity')}</label>
                         <input
                           type="number"
                           step="any"
                           min="0"
                           value={item.quantity}
                           onChange={(e) => handleLineItemChange(idx, 'quantity', parseFloat(e.target.value) || 0)}
+                          aria-label={`Item ${idx + 1} Quantity`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-center font-mono"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-0.5">{t('lblUnitType')}</label>
+                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-0.5">{t('lblUnitType')}</label>
                         <select
                           value={item.unitType}
                           onChange={(e) => handleLineItemChange(idx, 'unitType', e.target.value)}
+                          aria-label={`Item ${idx + 1} Unit Type`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5"
                         >
                           {UNIT_TYPES.map((u) => (
@@ -867,25 +885,27 @@ export function InvoiceBuilder({
                       </div>
 
                       <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-0.5">{t('lblUnitPrice')} ({currencySymbol})</label>
+                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-0.5">{t('lblUnitPrice')} ({currencySymbol})</label>
                         <input
                           type="number"
                           step="any"
                           min="0"
                           value={item.unitPrice}
                           onChange={(e) => handleLineItemChange(idx, 'unitPrice', parseFloat(e.target.value) || 0)}
+                          aria-label={`Item ${idx + 1} Unit Price`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-right font-mono"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-500 mb-0.5">{t('lblDiscount')} ({currencySymbol})</label>
+                        <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-0.5">{t('lblDiscount')} ({currencySymbol})</label>
                         <input
                           type="number"
                           step="any"
                           min="0"
                           value={item.discount}
                           onChange={(e) => handleLineItemChange(idx, 'discount', parseFloat(e.target.value) || 0)}
+                          aria-label={`Item ${idx + 1} Discount`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-right font-mono"
                         />
                       </div>
@@ -969,6 +989,7 @@ export function InvoiceBuilder({
                   value={invoice.invoiceDiscountValue}
                   onChange={(e) => setInvoice({ ...invoice, invoiceDiscountValue: parseFloat(e.target.value) || 0 })}
                   placeholder={invoice.invoiceDiscountType === 'flat' ? '0.00' : '0 %'}
+                  aria-label={t('lblInvoiceDiscount')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -984,6 +1005,7 @@ export function InvoiceBuilder({
                   value={invoice.taxRate}
                   onChange={(e) => setInvoice({ ...invoice, taxRate: parseFloat(e.target.value) || 0 })}
                   placeholder="8.25"
+                  aria-label={t('lblTaxRate')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -999,6 +1021,7 @@ export function InvoiceBuilder({
                   value={invoice.shippingFee}
                   onChange={(e) => setInvoice({ ...invoice, shippingFee: parseFloat(e.target.value) || 0 })}
                   placeholder="0.00"
+                  aria-label={t('lblShippingFee')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -1014,6 +1037,7 @@ export function InvoiceBuilder({
                   value={invoice.amountPaid}
                   onChange={(e) => setInvoice({ ...invoice, amountPaid: parseFloat(e.target.value) || 0 })}
                   placeholder="0.00"
+                  aria-label={t('lblAmountPaid')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -1036,6 +1060,7 @@ export function InvoiceBuilder({
                   value={invoice.notes}
                   onChange={(e) => setInvoice({ ...invoice, notes: e.target.value })}
                   placeholder="Thank you for your business!"
+                  aria-label={t('lblNotes')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -1049,6 +1074,7 @@ export function InvoiceBuilder({
                   value={invoice.paymentInstructions}
                   onChange={(e) => setInvoice({ ...invoice, paymentInstructions: e.target.value })}
                   placeholder="Pay via Zelle or Bank Wire..."
+                  aria-label={t('lblPaymentInstructions')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>
@@ -1062,6 +1088,7 @@ export function InvoiceBuilder({
                   value={invoice.terms}
                   onChange={(e) => setInvoice({ ...invoice, terms: e.target.value })}
                   placeholder="Payment due within agreed terms."
+                  aria-label={t('lblTerms')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900"
                 />
               </div>

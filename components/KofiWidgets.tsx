@@ -42,7 +42,7 @@ export function KofiFooterSection() {
   }, [t]);
 
   return (
-    <section className="no-print bg-white text-black border-t border-gray-200 relative">
+    <section className="no-print bg-white text-black border-t border-gray-200 relative min-h-[140px] contain-layout">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
           
@@ -69,18 +69,21 @@ export function KofiFooterSection() {
           </div>
 
           {/* Right Action Button */}
-          <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
+          <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto min-h-[50px]">
             <div ref={containerRef} className="inline-flex items-center min-h-[42px]">
               {/* Fallback button while script loads */}
               <a
                 href="https://ko-fi.com/Y0H123WFGA"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t('footerSupportBtn')}
                 className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-black text-white font-bold text-sm rounded-xl hover:bg-gray-800 transition-all transform hover:-translate-y-0.5 shadow-xs border border-black"
               >
                 <img
                   src="https://storage.ko-fi.com/cdn/cup-border.png"
-                  alt="Ko-fi"
+                  alt="Ko-fi donations"
+                  width="20"
+                  height="16"
                   className="w-5 h-4 object-contain"
                 />
                 <span>{t('footerSupportBtn')}</span>
@@ -101,9 +104,17 @@ export function KofiOverlayWidget() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    const fixIframeTitles = () => {
+      const iframes = document.querySelectorAll('iframe:not([title])');
+      iframes.forEach((iframe) => {
+        iframe.setAttribute('title', 'Support Developer on Ko-fi');
+      });
+    };
+
     const initOverlay = () => {
       if ((window as any).kofiWidgetOverlay) {
         if (document.querySelector('[id^="kofi-widget-overlay"]') || document.querySelector('.floatingchat-container-wrap')) {
+          fixIframeTitles();
           return;
         }
         try {
@@ -113,6 +124,7 @@ export function KofiOverlayWidget() {
             'floating-chat.donateButton.background-color': '#000000',
             'floating-chat.donateButton.text-color': '#ffffff'
           });
+          setTimeout(fixIframeTitles, 1000);
         } catch (e) {
           console.error('Error drawing Ko-fi overlay widget:', e);
         }
@@ -135,6 +147,9 @@ export function KofiOverlayWidget() {
         script.addEventListener('load', initOverlay);
       }
     }
+
+    const interval = setInterval(fixIframeTitles, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   return null;

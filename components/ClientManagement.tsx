@@ -129,6 +129,7 @@ export function ClientManagement({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('phClientSearch')}
+              aria-label={t('phClientSearch')}
               className="pl-9 pr-4 py-2 text-xs rounded-sm border border-gray-200 bg-gray-50 text-gray-900 w-full sm:w-64 focus:outline-none focus:border-gray-900"
             />
           </div>

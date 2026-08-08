@@ -109,7 +109,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
             {clientName ? (
               <p className="font-bold text-gray-900 text-xs">{clientName}</p>
             ) : (
-              <p className="text-gray-400 italic text-xs">{labels.noClient}</p>
+              <p className="text-gray-600 italic font-medium text-xs">{labels.noClient}</p>
             )}
             {invoice.clientCompany && <p className="font-semibold text-gray-800 text-[11px]">{invoice.clientCompany}</p>}
             {invoice.clientAddress && (
