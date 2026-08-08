@@ -98,7 +98,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
               <p className="text-gray-600 whitespace-pre-line text-[11px] leading-relaxed">{businessProfile.address}</p>
             )}
             {businessProfile.phone && <p className="text-gray-600 text-[11px]">{businessProfile.phone}</p>}
-            {businessProfile.taxId && <p className="text-gray-500 text-[10px] pt-0.5">Tax ID: {businessProfile.taxId}</p>}
+            {businessProfile.taxId && <p className="text-gray-500 text-[10px] pt-0.5">Tax ID / GST: {businessProfile.taxId}</p>}
           </div>
 
           {/* Client (Bill To) Box - Col 4 */}

@@ -243,7 +243,7 @@ export function BusinessSettings({ profile, onSaveProfile, onClearProfile }: Bus
 
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">
-                  Tax ID / VAT Number
+                  Tax ID / GST Number
                 </label>
                 <input
                   type="text"

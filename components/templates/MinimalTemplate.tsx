@@ -64,7 +64,7 @@ export const MinimalTemplate = memo(function MinimalTemplate({ invoice, business
             {businessProfile.address && <p className="text-gray-600 whitespace-pre-line text-[11px]">{businessProfile.address}</p>}
             {businessProfile.email && <p className="text-gray-600 text-[11px]">{businessProfile.email}</p>}
             {businessProfile.phone && <p className="text-gray-600 text-[11px]">{businessProfile.phone}</p>}
-            {businessProfile.taxId && <p className="text-gray-500 text-[10px]">Tax ID: {businessProfile.taxId}</p>}
+            {businessProfile.taxId && <p className="text-gray-500 text-[10px]">Tax ID / GST: {businessProfile.taxId}</p>}
           </div>
 
           <div className="text-right">

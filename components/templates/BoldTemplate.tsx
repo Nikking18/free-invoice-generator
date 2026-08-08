@@ -83,7 +83,7 @@ export function BoldTemplate({ invoice, businessProfile, id }: TemplateProps) {
               {businessProfile.address && <p className="whitespace-pre-line">{businessProfile.address}</p>}
               {businessProfile.email && <p>{businessProfile.email}</p>}
               {businessProfile.phone && <p>{businessProfile.phone}</p>}
-              {businessProfile.taxId && <p>Tax ID: {businessProfile.taxId}</p>}
+              {businessProfile.taxId && <p>Tax ID / GST: {businessProfile.taxId}</p>}
             </div>
           </div>
         </div>
