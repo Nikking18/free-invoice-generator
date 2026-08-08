@@ -285,10 +285,12 @@ export function ItemLibrary({
                     type="number"
                     step="any"
                     min="0"
-                    value={editingItem.defaultUnitPrice || 0}
+                    value={editingItem.defaultUnitPrice === 0 ? '' : editingItem.defaultUnitPrice || ''}
                     onChange={(e) =>
-                      setEditingItem({ ...editingItem, defaultUnitPrice: parseFloat(e.target.value) || 0 })
+                      setEditingItem({ ...editingItem, defaultUnitPrice: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })
                     }
+                    onFocus={(e) => e.target.select()}
+                    placeholder="0.00"
                     className="w-full font-mono rounded-sm border border-gray-200 bg-white text-gray-900 p-2 focus:outline-none focus:border-gray-900 text-right"
                   />
                 </div>

@@ -878,8 +878,10 @@ export function InvoiceBuilder({
                           type="number"
                           step="any"
                           min="0"
-                          value={item.quantity}
-                          onChange={(e) => handleLineItemChange(idx, 'quantity', parseFloat(e.target.value) || 0)}
+                          value={item.quantity === 0 ? '' : item.quantity}
+                          onChange={(e) => handleLineItemChange(idx, 'quantity', e.target.value === '' ? 0 : parseFloat(e.target.value) || 0)}
+                          onFocus={(e) => e.target.select()}
+                          placeholder="1"
                           aria-label={`Item ${idx + 1} Quantity`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-center font-mono"
                         />
@@ -907,8 +909,10 @@ export function InvoiceBuilder({
                           type="number"
                           step="any"
                           min="0"
-                          value={item.unitPrice}
-                          onChange={(e) => handleLineItemChange(idx, 'unitPrice', parseFloat(e.target.value) || 0)}
+                          value={item.unitPrice === 0 ? '' : item.unitPrice}
+                          onChange={(e) => handleLineItemChange(idx, 'unitPrice', e.target.value === '' ? 0 : parseFloat(e.target.value) || 0)}
+                          onFocus={(e) => e.target.select()}
+                          placeholder="0.00"
                           aria-label={`Item ${idx + 1} Unit Price`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-right font-mono"
                         />
@@ -920,8 +924,10 @@ export function InvoiceBuilder({
                           type="number"
                           step="any"
                           min="0"
-                          value={item.discount}
-                          onChange={(e) => handleLineItemChange(idx, 'discount', parseFloat(e.target.value) || 0)}
+                          value={item.discount === 0 ? '' : item.discount}
+                          onChange={(e) => handleLineItemChange(idx, 'discount', e.target.value === '' ? 0 : parseFloat(e.target.value) || 0)}
+                          onFocus={(e) => e.target.select()}
+                          placeholder="0.00"
                           aria-label={`Item ${idx + 1} Discount`}
                           className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-1.5 text-right font-mono"
                         />
@@ -1003,8 +1009,9 @@ export function InvoiceBuilder({
                   type="number"
                   step="any"
                   min="0"
-                  value={invoice.invoiceDiscountValue}
-                  onChange={(e) => setInvoice({ ...invoice, invoiceDiscountValue: parseFloat(e.target.value) || 0 })}
+                  value={invoice.invoiceDiscountValue === 0 ? '' : invoice.invoiceDiscountValue}
+                  onChange={(e) => setInvoice({ ...invoice, invoiceDiscountValue: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })}
+                  onFocus={(e) => e.target.select()}
                   placeholder={invoice.invoiceDiscountType === 'flat' ? '0.00' : '0 %'}
                   aria-label={t('lblInvoiceDiscount')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
@@ -1019,9 +1026,10 @@ export function InvoiceBuilder({
                   type="number"
                   step="any"
                   min="0"
-                  value={invoice.taxRate}
-                  onChange={(e) => setInvoice({ ...invoice, taxRate: parseFloat(e.target.value) || 0 })}
-                  placeholder="8.25"
+                  value={invoice.taxRate === 0 ? '' : invoice.taxRate}
+                  onChange={(e) => setInvoice({ ...invoice, taxRate: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })}
+                  onFocus={(e) => e.target.select()}
+                  placeholder="0.00"
                   aria-label={t('lblTaxRate')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
                 />
@@ -1035,8 +1043,9 @@ export function InvoiceBuilder({
                   type="number"
                   step="any"
                   min="0"
-                  value={invoice.shippingFee}
-                  onChange={(e) => setInvoice({ ...invoice, shippingFee: parseFloat(e.target.value) || 0 })}
+                  value={invoice.shippingFee === 0 ? '' : invoice.shippingFee}
+                  onChange={(e) => setInvoice({ ...invoice, shippingFee: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })}
+                  onFocus={(e) => e.target.select()}
                   placeholder="0.00"
                   aria-label={t('lblShippingFee')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"
@@ -1051,8 +1060,9 @@ export function InvoiceBuilder({
                   type="number"
                   step="any"
                   min="0"
-                  value={invoice.amountPaid}
-                  onChange={(e) => setInvoice({ ...invoice, amountPaid: parseFloat(e.target.value) || 0 })}
+                  value={invoice.amountPaid === 0 ? '' : invoice.amountPaid}
+                  onChange={(e) => setInvoice({ ...invoice, amountPaid: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })}
+                  onFocus={(e) => e.target.select()}
                   placeholder="0.00"
                   aria-label={t('lblAmountPaid')}
                   className="w-full rounded-sm border border-gray-200 bg-white text-gray-900 p-2 font-mono focus:outline-none focus:border-gray-900"

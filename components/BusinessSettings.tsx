@@ -335,8 +335,10 @@ export function BusinessSettings({ profile, onSaveProfile, onClearProfile }: Bus
                 type="number"
                 step="any"
                 min="0"
-                value={formData.defaultTaxRate}
-                onChange={(e) => setFormData({ ...formData, defaultTaxRate: parseFloat(e.target.value) || 0 })}
+                value={formData.defaultTaxRate === 0 ? '' : formData.defaultTaxRate}
+                onChange={(e) => setFormData({ ...formData, defaultTaxRate: e.target.value === '' ? 0 : parseFloat(e.target.value) || 0 })}
+                onFocus={(e) => e.target.select()}
+                placeholder="0.00"
                 className="w-full font-mono rounded-sm border border-gray-200 bg-white text-gray-900 p-2.5 focus:outline-none focus:border-gray-900"
               />
             </div>
