@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { BLOG_POSTS } from '../lib/blogs';
 
+export const revalidate = 86400; // Revalidate sitemap daily
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.freeinvoice.live';
 
