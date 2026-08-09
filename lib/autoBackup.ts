@@ -192,8 +192,8 @@ export async function executeBackupSave(
   const fileName = snapshot.fileName;
   const jsonContent = JSON.stringify(backupData, null, 2);
 
-  // 1. Attempt direct silent File System Access API write if folderHandle is available & permitted
-  if (folderHandle && 'createWritable' in FileSystemDirectoryHandle.prototype) {
+  // 1. Attempt direct silent File System Access API write if folderHandle is available
+  if (folderHandle) {
     try {
       const perm = await checkFolderPermission(folderHandle, isUserInitiated);
 
@@ -209,8 +209,8 @@ export async function executeBackupSave(
     }
   }
 
-  // 2. If user explicitly clicked "Run Auto Backup Now", trigger standard browser file download
-  if (isUserInitiated) {
+  // 2. If no folder handle connected AND user explicitly clicked "Run Auto Backup Now", trigger browser download
+  if (isUserInitiated && !folderHandle) {
     const blob = new Blob([jsonContent], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -223,6 +223,6 @@ export async function executeBackupSave(
     return { success: true, mode: 'download', fileName, snapshot };
   }
 
-  // 3. For background timer runs, return snapshot mode silently with ZERO popups or save prompts!
+  // 3. For background timer runs or when folder handle is set, return snapshot mode silently with ZERO popups or save prompts!
   return { success: true, mode: 'snapshot', fileName, snapshot };
 }
