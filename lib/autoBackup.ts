@@ -1,9 +1,11 @@
-import { AutoBackupConfig, AutoBackupInterval, BackupData } from './types';
+import { AutoBackupConfig, AutoBackupInterval, BackupData, AutoBackupSnapshot } from './types';
 
 const AUTO_BACKUP_KEY = 'fig_auto_backup_config';
+const SNAPSHOTS_KEY = 'fig_auto_backup_snapshots';
 const DB_NAME = 'fig_autobackup_db';
 const STORE_NAME = 'handles';
 const HANDLE_KEY = 'backup_dir_handle';
+const MAX_SNAPSHOTS = 10;
 
 export const DEFAULT_AUTO_BACKUP_CONFIG: AutoBackupConfig = {
   enabled: false,
@@ -55,6 +57,58 @@ export function saveStoredAutoBackupConfig(config: AutoBackupConfig): void {
     localStorage.setItem(AUTO_BACKUP_KEY, JSON.stringify(config));
   } catch (err) {
     console.error('Failed to save auto backup config:', err);
+  }
+}
+
+/* ================= SNAPSHOT HISTORY HELPERS ================= */
+
+export function getAutoBackupSnapshots(): AutoBackupSnapshot[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(SNAPSHOTS_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function saveAutoBackupSnapshot(data: BackupData): AutoBackupSnapshot {
+  const timestamp = new Date().toISOString();
+  const timestampStr = timestamp.replace(/[:.]/g, '-').slice(0, 19);
+  const snapshot: AutoBackupSnapshot = {
+    id: `snap-${Date.now()}`,
+    timestamp,
+    fileName: `invoice-generator-backup-${timestampStr}.json`,
+    invoiceCount: data.invoices?.length || 0,
+    clientCount: data.clients?.length || 0,
+    itemCount: data.items?.length || 0,
+    data,
+  };
+
+  if (typeof window !== 'undefined') {
+    try {
+      const existing = getAutoBackupSnapshots();
+      const updated = [snapshot, ...existing].slice(0, MAX_SNAPSHOTS);
+      localStorage.setItem(SNAPSHOTS_KEY, JSON.stringify(updated));
+    } catch (err) {
+      console.warn('Failed saving backup snapshot to storage:', err);
+    }
+  }
+
+  return snapshot;
+}
+
+export function deleteAutoBackupSnapshot(id: string): AutoBackupSnapshot[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const existing = getAutoBackupSnapshots();
+    const updated = existing.filter((s) => s.id !== id);
+    localStorage.setItem(SNAPSHOTS_KEY, JSON.stringify(updated));
+    return updated;
+  } catch (err) {
+    console.error('Failed to delete backup snapshot:', err);
+    return getAutoBackupSnapshots();
   }
 }
 
@@ -132,12 +186,13 @@ export async function executeBackupSave(
   backupData: BackupData,
   folderHandle?: FileSystemDirectoryHandle | null,
   isUserInitiated: boolean = false
-): Promise<{ success: boolean; mode: 'file-system' | 'download' | 'none'; fileName: string; errorReason?: string }> {
-  const timestampStr = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-  const fileName = `invoice-generator-backup-${timestampStr}.json`;
+): Promise<{ success: boolean; mode: 'file-system' | 'download' | 'snapshot'; fileName: string; snapshot?: AutoBackupSnapshot }> {
+  // Always create an automatic local snapshot first (100% prompt-free)
+  const snapshot = saveAutoBackupSnapshot(backupData);
+  const fileName = snapshot.fileName;
   const jsonContent = JSON.stringify(backupData, null, 2);
 
-  // Attempt direct silent File System Access API write if folderHandle is provided
+  // 1. Attempt direct silent File System Access API write if folderHandle is available & permitted
   if (folderHandle && 'createWritable' in FileSystemDirectoryHandle.prototype) {
     try {
       const perm = await checkFolderPermission(folderHandle, isUserInitiated);
@@ -147,31 +202,27 @@ export async function executeBackupSave(
         const writable = await fileHandle.createWritable();
         await writable.write(jsonContent);
         await writable.close();
-        return { success: true, mode: 'file-system', fileName };
-      } else if (!isUserInitiated) {
-        // In background mode, if folder permission is prompt/denied, do NOT launch browser download prompt automatically
-        return { 
-          success: false, 
-          mode: 'none', 
-          fileName, 
-          errorReason: 'Folder access permission required. Please click "Grant Folder Permission" in Backup settings.' 
-        };
+        return { success: true, mode: 'file-system', fileName, snapshot };
       }
     } catch (err) {
       console.warn('File System Access write error:', err);
     }
   }
 
-  // Fallback to standard browser file download (only if no folder handle was set OR user initiated explicitly)
-  const blob = new Blob([jsonContent], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  // 2. If user explicitly clicked "Run Auto Backup Now", trigger standard browser file download
+  if (isUserInitiated) {
+    const blob = new Blob([jsonContent], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    return { success: true, mode: 'download', fileName, snapshot };
+  }
 
-  return { success: true, mode: 'download', fileName };
+  // 3. For background timer runs, return snapshot mode silently with ZERO popups or save prompts!
+  return { success: true, mode: 'snapshot', fileName, snapshot };
 }

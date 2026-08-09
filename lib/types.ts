@@ -140,6 +140,16 @@ export interface AutoBackupConfig {
   nextBackupTime: string | null;
 }
 
+export interface AutoBackupSnapshot {
+  id: string;
+  timestamp: string;
+  fileName: string;
+  invoiceCount: number;
+  clientCount: number;
+  itemCount: number;
+  data: BackupData;
+}
+
 export interface CurrencyOption {
   code: string;
   symbol: string;
