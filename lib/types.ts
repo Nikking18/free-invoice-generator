@@ -130,6 +130,16 @@ export interface BackupData {
   invoices: Invoice[];
 }
 
+export type AutoBackupInterval = 'off' | '30m' | '1h' | '12h' | '1d' | '7d';
+
+export interface AutoBackupConfig {
+  enabled: boolean;
+  interval: AutoBackupInterval;
+  folderName: string;
+  lastBackupTime: string | null;
+  nextBackupTime: string | null;
+}
+
 export interface CurrencyOption {
   code: string;
   symbol: string;
