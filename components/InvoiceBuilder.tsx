@@ -1143,22 +1143,29 @@ export function InvoiceBuilder({
               </div>
 
               {/* Classic / Minimal / Compact Options */}
-              <div className="inline-flex rounded-sm border border-gray-200 p-0.5 bg-gray-50 w-full sm:w-auto">
+              <div className="inline-flex rounded-sm border border-gray-200 p-0.5 bg-gray-50 w-full sm:w-auto overflow-x-auto">
                 {(['classic', 'minimal', 'compact'] as PdfTemplateStyle[]).map((style) => {
                   const isActive = (invoice.templateStyle || 'classic') === style;
-                  const label = style === 'classic' ? 'Classic (Default)' : style === 'minimal' ? 'Minimal' : 'Compact';
                   return (
                     <button
                       key={style}
                       type="button"
                       onClick={() => handleStyleChange(style)}
-                      className={`flex-1 sm:flex-none px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-xs transition-all ${
+                      className={`flex-1 sm:flex-none px-2 sm:px-3 py-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-xs transition-all whitespace-nowrap ${
                         isActive
                           ? 'bg-gray-900 text-white shadow-xs'
                           : 'text-gray-600 hover:text-gray-900'
                       }`}
                     >
-                      {label}
+                      {style === 'classic' ? (
+                        <>
+                          Classic <span className="hidden sm:inline">(Default)</span>
+                        </>
+                      ) : style === 'minimal' ? (
+                        'Minimal'
+                      ) : (
+                        'Compact'
+                      )}
                     </button>
                   );
                 })}

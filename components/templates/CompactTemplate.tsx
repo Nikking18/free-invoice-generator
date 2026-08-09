@@ -42,7 +42,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
   return (
     <div
       id={id}
-      className="bg-white p-8 sm:p-10 text-gray-900 font-sans text-xs w-full max-w-[800px] min-h-[1060px] mx-auto border-2 border-gray-900 shadow-sm flex flex-col justify-between"
+      className="bg-white p-4 sm:p-10 text-gray-900 font-sans text-xs w-full max-w-[800px] min-h-[1060px] mx-auto border-2 border-gray-900 shadow-sm flex flex-col justify-between"
       style={{ boxSizing: 'border-box' }}
     >
       <div>
@@ -85,10 +85,10 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
           </div>
         </div>
 
-        {/* Structured 3-Box Info Section - Zero Overlap */}
-        <div className="grid grid-cols-12 gap-4 py-5 border-b border-gray-300 text-xs">
-          {/* Seller (From) Box - Col 4 */}
-          <div className="col-span-4 border border-gray-200 p-3.5 bg-gray-50 rounded-xs space-y-1">
+        {/* Structured 3-Box Info Section - Responsive Stack on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 py-5 border-b border-gray-300 text-xs">
+          {/* Seller (From) Box */}
+          <div className="col-span-1 md:col-span-4 border border-gray-200 p-3 sm:p-3.5 bg-gray-50 rounded-xs space-y-1">
             <p className="text-[9px] uppercase font-bold text-gray-500 tracking-wider mb-1.5 border-b border-gray-200 pb-1">
               From:
             </p>
@@ -101,8 +101,8 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
             {businessProfile.taxId && <p className="text-gray-500 text-[10px] pt-0.5">Tax ID / GST: {businessProfile.taxId}</p>}
           </div>
 
-          {/* Client (Bill To) Box - Col 4 */}
-          <div className="col-span-4 border border-gray-200 p-3.5 bg-gray-50 rounded-xs space-y-1">
+          {/* Client (Bill To) Box */}
+          <div className="col-span-1 md:col-span-4 border border-gray-200 p-3 sm:p-3.5 bg-gray-50 rounded-xs space-y-1">
             <p className="text-[9px] uppercase font-bold text-gray-500 tracking-wider mb-1.5 border-b border-gray-200 pb-1">
               {labels.billTo}:
             </p>
@@ -120,30 +120,30 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
             {invoice.clientTaxId && <p className="text-gray-600 text-[11px]">{labels.clientTaxId}: {invoice.clientTaxId}</p>}
           </div>
 
-          {/* Invoice Details Metadata Box - Col 4 */}
-          <div className="col-span-4 border border-gray-200 p-3.5 bg-gray-50 rounded-xs space-y-2">
+          {/* Invoice Details Metadata Box */}
+          <div className="col-span-1 md:col-span-4 border border-gray-200 p-3 sm:p-3.5 bg-gray-50 rounded-xs space-y-2">
             <p className="text-[9px] uppercase font-bold text-gray-500 tracking-wider border-b border-gray-200 pb-1">
               Details:
             </p>
             <div className="space-y-1.5 text-[11px]">
-              <div className="flex justify-between items-baseline gap-1.5 border-b border-gray-200 pb-1">
-                <span className="text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 leading-tight min-w-0">{labels.dateIssued}:</span>
-                <span className="font-semibold text-gray-900 text-right whitespace-nowrap shrink-0 ml-auto">{formatDate(invoice.date)}</span>
+              <div className="flex justify-between items-baseline gap-2 border-b border-gray-200 pb-1">
+                <span className="text-[10px] uppercase font-bold text-gray-500 shrink-0">{labels.dateIssued}:</span>
+                <span className="font-semibold text-gray-900 text-right whitespace-nowrap ml-auto">{formatDate(invoice.date)}</span>
               </div>
-              <div className="flex justify-between items-baseline gap-1.5 border-b border-gray-200 pb-1">
-                <span className="text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 leading-tight min-w-0">{labels.dateDue}:</span>
-                <span className="font-bold text-gray-900 text-right whitespace-nowrap shrink-0 ml-auto">{formatDate(invoice.dueDate)}</span>
+              <div className="flex justify-between items-baseline gap-2 border-b border-gray-200 pb-1">
+                <span className="text-[10px] uppercase font-bold text-gray-500 shrink-0">{labels.dateDue}:</span>
+                <span className="font-bold text-gray-900 text-right whitespace-nowrap ml-auto">{formatDate(invoice.dueDate)}</span>
               </div>
               {invoice.paymentTerms && (
-                <div className="flex justify-between items-baseline gap-1.5 border-b border-gray-200 pb-1">
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 leading-tight min-w-0">{labels.terms}:</span>
-                  <span className="text-gray-700 text-right whitespace-nowrap shrink-0 ml-auto">{invoice.paymentTerms}</span>
+                <div className="flex justify-between items-baseline gap-2 border-b border-gray-200 pb-1">
+                  <span className="text-[10px] uppercase font-bold text-gray-500 shrink-0">{labels.terms}:</span>
+                  <span className="text-gray-700 text-right whitespace-nowrap ml-auto">{invoice.paymentTerms}</span>
                 </div>
               )}
               {invoice.poNumber && (
-                <div className="flex justify-between items-baseline gap-1.5">
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold text-gray-500 leading-tight min-w-0">{labels.poNumber}:</span>
-                  <span className="font-mono font-semibold text-gray-900 text-right whitespace-nowrap shrink-0 ml-auto">{invoice.poNumber}</span>
+                <div className="flex justify-between items-baseline gap-2">
+                  <span className="text-[10px] uppercase font-bold text-gray-500 shrink-0">{labels.poNumber}:</span>
+                  <span className="font-mono font-semibold text-gray-900 text-right whitespace-nowrap ml-auto">{invoice.poNumber}</span>
                 </div>
               )}
             </div>
@@ -151,7 +151,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
         </div>
 
         {/* Items Table */}
-        <div className="py-5">
+        <div className="py-5 overflow-x-auto">
           <table className="w-full text-left text-xs border border-gray-300 border-collapse">
             <thead>
               <tr className="bg-gray-100 border-b border-gray-300 text-gray-900 uppercase text-[10px] tracking-wider font-bold">
@@ -196,9 +196,9 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
 
       {/* Footer & Totals */}
       <div style={{ breakInside: 'avoid', pageBreakInside: 'avoid' }}>
-        <div className="grid grid-cols-12 gap-5 pt-4 border-t border-gray-300 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 pt-4 border-t border-gray-300 text-xs">
           {/* Notes */}
-          <div className="col-span-7 space-y-3">
+          <div className="col-span-1 md:col-span-7 space-y-3">
             {invoice.notes && (
               <div className="p-3 bg-gray-50 border border-gray-200 rounded-xs">
                 <p className="text-[9px] uppercase font-bold text-gray-500 mb-1">{labels.notes}</p>
@@ -220,7 +220,7 @@ export const CompactTemplate = memo(function CompactTemplate({ invoice, business
           </div>
 
           {/* Totals Summary Box */}
-          <div className="col-span-5 border border-gray-300 p-4 bg-gray-50 rounded-xs space-y-2 text-xs">
+          <div className="col-span-1 md:col-span-5 border border-gray-300 p-4 bg-gray-50 rounded-xs space-y-2 text-xs">
             <div className="flex justify-between text-gray-600">
               <span>{labels.subtotal}:</span>
               <span className="font-mono">{formatCurrency(totals.subtotal, currencyCode, currencySymbol)}</span>
