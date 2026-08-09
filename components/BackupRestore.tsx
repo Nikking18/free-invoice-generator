@@ -9,7 +9,8 @@ import {
   calculateNextBackupTime, 
   executeBackupSave, 
   getDirectoryHandle, 
-  saveDirectoryHandle 
+  saveDirectoryHandle,
+  checkFolderPermission
 } from '../lib/autoBackup';
 import { 
   Download, 
@@ -25,7 +26,8 @@ import {
   Folder,
   FolderOpen,
   Play,
-  RefreshCw
+  KeyRound,
+  Check
 } from 'lucide-react';
 
 interface BackupRestoreProps {
@@ -46,7 +48,7 @@ export function BackupRestore({
   onClearAllData,
 }: BackupRestoreProps) {
   const { t } = useTranslation();
-  const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [notification, setNotification] = useState<{ type: 'success' | 'error' | 'warning'; message: string } | null>(null);
   const [importedJson, setImportedJson] = useState<BackupData | null>(null);
   const [importMode, setImportMode] = useState<'merge' | 'replace'>('merge');
   const [showClearConfirm, setShowClearConfirm] = useState(false);
@@ -56,8 +58,19 @@ export function BackupRestore({
   const [autoConfig, setAutoConfig] = useState<AutoBackupConfig>(() => getStoredAutoBackupConfig());
   const [dirHandle, setDirHandle] = useState<FileSystemDirectoryHandle | null>(null);
   const [supportsDirectoryPicker, setSupportsDirectoryPicker] = useState<boolean>(false);
+  const [permissionState, setPermissionState] = useState<PermissionState>('prompt');
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Check folder permission status
+  const refreshPermissionState = useCallback(async (handle: FileSystemDirectoryHandle | null) => {
+    if (!handle) {
+      setPermissionState('none' as PermissionState);
+      return;
+    }
+    const perm = await checkFolderPermission(handle, false);
+    setPermissionState(perm);
+  }, []);
 
   // Load directory handle on mount & check browser capabilities
   useEffect(() => {
@@ -66,10 +79,11 @@ export function BackupRestore({
       getDirectoryHandle().then((handle) => {
         if (handle) {
           setDirHandle(handle);
+          void refreshPermissionState(handle);
         }
       }).catch((err) => console.warn('Directory handle load error:', err));
     }
-  }, []);
+  }, [refreshPermissionState]);
 
   // Save config wrapper
   const updateAutoConfig = (newConfig: AutoBackupConfig) => {
@@ -89,11 +103,22 @@ export function BackupRestore({
     };
   }, [businessProfile, clients, items, invoices]);
 
-  // Execute backup now
-  const triggerAutoBackupRun = useCallback(async () => {
+  // Execute backup (user initiated vs background timer)
+  const runAutoBackup = useCallback(async (isUserInitiated: boolean) => {
     const backupData = createBackupDataObject();
-    const result = await executeBackupSave(backupData, dirHandle);
-    
+    const result = await executeBackupSave(backupData, dirHandle, isUserInitiated);
+
+    if (!result.success) {
+      setNotification({
+        type: 'warning',
+        message: result.errorReason || 'Auto backup paused. Folder permission required for silent exports.',
+      });
+      if (dirHandle) {
+        void refreshPermissionState(dirHandle);
+      }
+      return;
+    }
+
     const nowISO = new Date().toISOString();
     const nextISO = calculateNextBackupTime(autoConfig.interval, Date.now());
 
@@ -105,12 +130,16 @@ export function BackupRestore({
 
     updateAutoConfig(updated);
 
-    const destInfo = autoConfig.folderName ? ` to ${autoConfig.folderName}` : '';
+    if (dirHandle) {
+      void refreshPermissionState(dirHandle);
+    }
+
+    const modeText = result.mode === 'file-system' ? `Saved silently to folder "${autoConfig.folderName || dirHandle?.name || 'Selected Folder'}"` : 'Downloaded to browser Downloads folder';
     setNotification({
       type: 'success',
-      message: `${t('msgAutoBackupSuccess')} (${result.fileName}${destInfo})`,
+      message: `${t('msgAutoBackupSuccess')} (${result.fileName} • ${modeText})`,
     });
-  }, [autoConfig, createBackupDataObject, dirHandle, t]);
+  }, [autoConfig, createBackupDataObject, dirHandle, refreshPermissionState, t]);
 
   // Periodic Timer effect to run auto backup when due
   useEffect(() => {
@@ -121,12 +150,13 @@ export function BackupRestore({
       const nextTime = autoConfig.nextBackupTime ? new Date(autoConfig.nextBackupTime).getTime() : 0;
       
       if (!nextTime || now >= nextTime) {
-        void triggerAutoBackupRun();
+        // Background timer trigger -> isUserInitiated = false
+        void runAutoBackup(false);
       }
     }, 15000); // Check every 15 seconds
 
     return () => clearInterval(intervalId);
-  }, [autoConfig, triggerAutoBackupRun]);
+  }, [autoConfig, runAutoBackup]);
 
   // Toggle Auto Backup
   const handleToggleAutoBackup = (enabled: boolean) => {
@@ -157,13 +187,18 @@ export function BackupRestore({
     if (typeof window === 'undefined' || !('showDirectoryPicker' in window)) {
       setNotification({
         type: 'error',
-        message: 'Folder picker API is not supported in this browser. You can type a folder location path manually below.',
+        message: 'Folder picker API is not supported in this browser. Standard browser downloads will be used.',
       });
       return;
     }
 
     try {
       const handle = await (window as unknown as { showDirectoryPicker: () => Promise<FileSystemDirectoryHandle> }).showDirectoryPicker();
+      
+      // Request write permission during folder selection gesture
+      const perm = await checkFolderPermission(handle, true);
+      setPermissionState(perm);
+
       setDirHandle(handle);
       await saveDirectoryHandle(handle);
 
@@ -175,13 +210,35 @@ export function BackupRestore({
       updateAutoConfig(updated);
       setNotification({
         type: 'success',
-        message: `Selected backup directory: "${folderName}"`,
+        message: `Connected backup folder: "${folderName}". Silent auto-saves enabled!`,
       });
     } catch (err: unknown) {
       if (err instanceof Error && err.name !== 'AbortError') {
         console.error('Directory selection failed:', err);
         setNotification({ type: 'error', message: 'Failed to select directory folder.' });
       }
+    }
+  };
+
+  // Re-authorize / Grant write permission button click handler
+  const handleGrantFolderPermission = async () => {
+    if (!dirHandle) return;
+    try {
+      const perm = await checkFolderPermission(dirHandle, true);
+      setPermissionState(perm);
+      if (perm === 'granted') {
+        setNotification({
+          type: 'success',
+          message: `Permission granted for folder "${dirHandle.name}". Silent background auto-saves are ready!`,
+        });
+      } else {
+        setNotification({
+          type: 'warning',
+          message: 'Folder write permission was not granted.',
+        });
+      }
+    } catch (err) {
+      console.error('Error requesting permission:', err);
     }
   };
 
@@ -278,7 +335,7 @@ export function BackupRestore({
             </h2>
             <p className="text-xs text-gray-500 flex items-center gap-1 mt-0.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Full data control. Export, restore, or schedule auto-downloads for JSON backups.</span>
+              <span>Full data control. Export, restore, or schedule silent auto-downloads for JSON backups.</span>
             </p>
           </div>
         </div>
@@ -289,6 +346,8 @@ export function BackupRestore({
           className={`p-3 rounded-sm border text-xs flex items-center justify-between ${
             notification.type === 'success'
               ? 'bg-emerald-50 text-emerald-900 border-emerald-300'
+              : notification.type === 'warning'
+              ? 'bg-amber-50 text-amber-900 border-amber-300'
               : 'bg-rose-50 text-rose-900 border-rose-300'
           }`}
         >
@@ -296,7 +355,7 @@ export function BackupRestore({
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>{notification.message}</span>
           </div>
-          <button onClick={() => setNotification(null)} className="text-gray-400 hover:text-gray-600">
+          <button onClick={() => setNotification(null)} className="text-gray-400 hover:text-gray-600 cursor-pointer">
             ✕
           </button>
         </div>
@@ -458,26 +517,61 @@ export function BackupRestore({
                   type="button"
                   onClick={handleSelectFolder}
                   className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-gray-900 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-sm transition-colors cursor-pointer shrink-0"
-                  title={supportsDirectoryPicker ? 'Pick folder directory handle' : 'Enter folder path'}
+                  title={supportsDirectoryPicker ? 'Pick folder directory handle for silent saving' : 'Enter folder path'}
                 >
                   <FolderOpen className="w-4 h-4 text-emerald-600" />
                   <span>{t('btnSelectFolder')}</span>
                 </button>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-gray-500">
-                <span>
-                  {dirHandle ? (
-                    <span className="text-emerald-700 font-medium flex items-center gap-1">
-                      <Folder className="w-3.5 h-3.5" />
-                      <span>Direct Folder Access Connected: {dirHandle.name}</span>
+              {/* Status and Permission Indicator */}
+              <div className="flex flex-col gap-1.5 text-[11px] text-gray-600 bg-gray-50 p-2.5 rounded border border-gray-200">
+                {dirHandle ? (
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-gray-900 flex items-center gap-1.5">
+                      <Folder className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Target Folder: <strong>{dirHandle.name}</strong></span>
                     </span>
-                  ) : autoConfig.folderName ? (
-                    <span>Target path set: {autoConfig.folderName}</span>
-                  ) : (
-                    <span>Default: Standard Browser Downloads folder</span>
-                  )}
-                </span>
+
+                    {permissionState === 'granted' ? (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                        <Check className="w-3 h-3" /> Silent Auto-Save Active
+                      </span>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={handleGrantFolderPermission}
+                        className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold bg-amber-600 hover:bg-amber-700 text-white shadow-xs transition-colors cursor-pointer"
+                      >
+                        <KeyRound className="w-3 h-3" /> Grant Folder Permission
+                      </button>
+                    )}
+                  </div>
+                ) : autoConfig.folderName ? (
+                  <div className="flex items-center justify-between text-gray-700">
+                    <span>Target path label: <strong>{autoConfig.folderName}</strong></span>
+                    <button
+                      type="button"
+                      onClick={handleSelectFolder}
+                      className="text-[10px] font-bold text-emerald-700 underline hover:text-emerald-800"
+                    >
+                      Connect folder for silent save
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between text-gray-500">
+                    <span>No target folder selected (Uses browser Downloads)</span>
+                    {supportsDirectoryPicker && (
+                      <button
+                        type="button"
+                        onClick={handleSelectFolder}
+                        className="text-[10px] font-bold text-emerald-700 underline hover:text-emerald-800"
+                      >
+                        Select folder for silent save
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -507,7 +601,7 @@ export function BackupRestore({
 
             <button
               type="button"
-              onClick={triggerAutoBackupRun}
+              onClick={() => void runAutoBackup(true)}
               className="inline-flex items-center space-x-1.5 px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-700 rounded-sm shadow-xs transition-colors cursor-pointer shrink-0"
             >
               <Play className="w-3.5 h-3.5 fill-white" />

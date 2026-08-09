@@ -107,22 +107,40 @@ export async function getDirectoryHandle(): Promise<FileSystemDirectoryHandle | 
   }
 }
 
+export async function checkFolderPermission(
+  folderHandle: FileSystemDirectoryHandle,
+  requestIfPrompt: boolean = false
+): Promise<PermissionState> {
+  if (!folderHandle || !('queryPermission' in folderHandle)) return 'denied';
+  try {
+    const handleWithPerm = folderHandle as unknown as {
+      queryPermission: (opts: { mode: string }) => Promise<PermissionState>;
+      requestPermission: (opts: { mode: string }) => Promise<PermissionState>;
+    };
+    let perm = await handleWithPerm.queryPermission({ mode: 'readwrite' });
+    if (perm === 'prompt' && requestIfPrompt) {
+      perm = await handleWithPerm.requestPermission({ mode: 'readwrite' });
+    }
+    return perm;
+  } catch (err) {
+    console.warn('Error checking folder permission:', err);
+    return 'denied';
+  }
+}
+
 export async function executeBackupSave(
   backupData: BackupData,
-  folderHandle?: FileSystemDirectoryHandle | null
-): Promise<{ success: boolean; mode: 'file-system' | 'download'; fileName: string }> {
+  folderHandle?: FileSystemDirectoryHandle | null,
+  isUserInitiated: boolean = false
+): Promise<{ success: boolean; mode: 'file-system' | 'download' | 'none'; fileName: string; errorReason?: string }> {
   const timestampStr = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
   const fileName = `invoice-generator-backup-${timestampStr}.json`;
   const jsonContent = JSON.stringify(backupData, null, 2);
 
-  // Attempt File System Access API write if folderHandle is provided
+  // Attempt direct silent File System Access API write if folderHandle is provided
   if (folderHandle && 'createWritable' in FileSystemDirectoryHandle.prototype) {
     try {
-      // Verify or request write permission
-      let perm = await (folderHandle as unknown as { queryPermission: (opts: { mode: string }) => Promise<string> }).queryPermission({ mode: 'readwrite' });
-      if (perm !== 'granted') {
-        perm = await (folderHandle as unknown as { requestPermission: (opts: { mode: string }) => Promise<string> }).requestPermission({ mode: 'readwrite' });
-      }
+      const perm = await checkFolderPermission(folderHandle, isUserInitiated);
 
       if (perm === 'granted') {
         const fileHandle = await folderHandle.getFileHandle(fileName, { create: true });
@@ -130,13 +148,21 @@ export async function executeBackupSave(
         await writable.write(jsonContent);
         await writable.close();
         return { success: true, mode: 'file-system', fileName };
+      } else if (!isUserInitiated) {
+        // In background mode, if folder permission is prompt/denied, do NOT launch browser download prompt automatically
+        return { 
+          success: false, 
+          mode: 'none', 
+          fileName, 
+          errorReason: 'Folder access permission required. Please click "Grant Folder Permission" in Backup settings.' 
+        };
       }
     } catch (err) {
-      console.warn('File System Access write failed, falling back to standard browser download:', err);
+      console.warn('File System Access write error:', err);
     }
   }
 
-  // Fallback to standard browser file download
+  // Fallback to standard browser file download (only if no folder handle was set OR user initiated explicitly)
   const blob = new Blob([jsonContent], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
