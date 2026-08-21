@@ -2,6 +2,8 @@
 
 > **100% Client-Side, Serverless & Private Invoice Builder** for freelancers, agencies, contractors, and small businesses. Create, manage, and export professional PDF invoices directly in your browser with complete data privacy.
 
+[![Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1218077&theme=neutral&t=1787308287940)](https://www.producthunt.com/products/free-invoice-generator-23?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-free-invoice-generator-5b070a33-64e9-4f15-b14b-a0653c2d0ffd)
+
 [![Live Demo](https://img.shields.io/badge/Live_Demo-freeinvoice.live-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://www.freeinvoice.live)
 [![Built with Next.js](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -13,6 +15,7 @@
 ## 🌐 Live Application
 
 - **Website:** [https://www.freeinvoice.live/](https://www.freeinvoice.live/)
+- **Product Hunt:** [Support on Product Hunt](https://www.producthunt.com/products/free-invoice-generator-23?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-free-invoice-generator-5b070a33-64e9-4f15-b14b-a0653c2d0ffd)
 
 ---
 
@@ -106,6 +109,7 @@ free-invoice-generator/
 
 If you find this tool helpful, consider supporting independent open-source development:
 
+- 🚀 **Upvote on Product Hunt:** [Product Hunt Launch](https://www.producthunt.com/products/free-invoice-generator-23?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-free-invoice-generator-5b070a33-64e9-4f15-b14b-a0653c2d0ffd)
 - ☕ **Buy me a coffee:** [Support on Ko-fi](https://ko-fi.com/Y0H123WFGA)
 - 💬 **Share Suggestions:** [Submit Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScUP7c8Av1NXwCB5oKcO51P0cdisGfSnpc8kVa6osjpa37jZQ/viewform?usp=header)
 

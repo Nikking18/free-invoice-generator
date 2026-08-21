@@ -34,21 +34,39 @@ export function KofiFooterSection() {
             </div>
           </div>
 
-          {/* Right Action Button - Native Zero-CLS High-Performance Link */}
-          <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
+          {/* Right Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full sm:w-auto">
             <a
-              href="https://ko-fi.com/nikhilkhanpara"
+              href="https://www.producthunt.com/products/free-invoice-generator-23?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-free-invoice-generator-5b070a33-64e9-4f15-b14b-a0653c2d0ffd"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={t('footerSupportBtn')}
-              className="inline-flex items-center gap-2.5 px-6 py-3 bg-black text-white font-bold text-sm rounded-xl hover:bg-gray-800 transition-all transform hover:-translate-y-0.5 shadow-md border border-black cursor-pointer active:scale-98"
+              className="inline-flex items-center justify-center transition-transform hover:scale-105 shrink-0"
             >
-              <Coffee className="w-4 h-4 text-white shrink-0" />
-              <span>{t('footerSupportBtn')}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1218077&theme=neutral&t=1787308287940"
+                alt="Free Invoice Generator - Create professional invoices. No signup. 100% free. | Product Hunt"
+                width={250}
+                height={54}
+                className="w-[250px] h-[54px]"
+              />
             </a>
-            <span className="text-[11px] text-gray-500 mt-1.5 font-mono">
-              {t('footerSupportCaption')}
-            </span>
+
+            <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
+              <a
+                href="https://ko-fi.com/nikhilkhanpara"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t('footerSupportBtn')}
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-black text-white font-bold text-sm rounded-xl hover:bg-gray-800 transition-all transform hover:-translate-y-0.5 shadow-md border border-black cursor-pointer active:scale-98"
+              >
+                <Coffee className="w-4 h-4 text-white shrink-0" />
+                <span>{t('footerSupportBtn')}</span>
+              </a>
+              <span className="text-[11px] text-gray-500 mt-1.5 font-mono">
+                {t('footerSupportCaption')}
+              </span>
+            </div>
           </div>
 
         </div>

@@ -68,6 +68,23 @@ export function Header({
 
           {/* Header Action Controls */}
           <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Product Hunt Badge */}
+            <a
+              href="https://www.producthunt.com/products/free-invoice-generator-23?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-free-invoice-generator-5b070a33-64e9-4f15-b14b-a0653c2d0ffd"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center transition-transform hover:scale-105 shrink-0"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1218077&theme=neutral&t=1787308287940"
+                alt="Free Invoice Generator - Create professional invoices. No signup. 100% free. | Product Hunt"
+                width={190}
+                height={41}
+                className="w-[190px] h-[41px]"
+              />
+            </a>
+
             {/* Blog & News Page Link */}
             <a
               href="/blog"
